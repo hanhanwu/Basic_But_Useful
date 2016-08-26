@@ -12,3 +12,5 @@
  * SSIS foreach loop editor: https://www.mssqltips.com/sqlservertip/2874/loop-through-flat-files-in-sql-server-integration-services/
  * Configure SSIS foreach loop editor: https://msdn.microsoft.com/en-us/library/ms140016.aspx
  * Download SSIS foreach loop editor: https://msdn.microsoft.com/en-us/mt186501
+ * SSIS Major Tutorial: https://msdn.microsoft.com/library/ms169917.aspx
+ * Using SSIS Foreach Loop Editor: https://msdn.microsoft.com/en-us/library/ms169800.aspx
