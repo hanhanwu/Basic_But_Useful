@@ -14,3 +14,4 @@
  * Download SSIS foreach loop editor: https://msdn.microsoft.com/en-us/mt186501
  * SSIS Major Tutorial: https://msdn.microsoft.com/library/ms169917.aspx
  * Using SSIS Foreach Loop Editor: https://msdn.microsoft.com/en-us/library/ms169800.aspx
+ * Allow SSIS Foreach Loop Editor to choose the new file each time: http://stackoverflow.com/questions/6913499/how-to-change-flat-file-source-using-foreach-loop-container-in-an-ssis-package
