@@ -30,3 +30,7 @@
  * Step 9: Execute this whole package should be able to work.
  * Step 10: If the file names may change, simply modify the FilePattern in Foreach Loop Container.
  * Step 11: If you want this package to be executed periodically, create a SQL Server job and execute the package, check this link: http://www.sqlshack.com/ways-use-execute-sql-server-integration-services-packages/
+
+
+* R Seperate Data Columns based on Data Types
+ * Extreact all factor columns from the original: https://github.com/hanhanwu/Basic_But_Useful/blob/master/extract_all_factor_columns.R
