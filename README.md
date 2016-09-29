@@ -34,3 +34,7 @@
 
 * R Seperate Data Columns based on Data Types
  * Extreact all factor columns from the original: https://github.com/hanhanwu/Basic_But_Useful/blob/master/extract_all_factor_columns.R
+ 
+ 
+* R Basics
+ * https://github.com/hanhanwu/Basic_But_Useful/blob/master/R_basics.R
