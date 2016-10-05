@@ -8,6 +8,14 @@ setDT(q1)
 
 
 
+## SEPERATE NUMERICAL AND CATEGORICAL DATA
+fact_data <- subset(q1, select = mark_fact_cols==T)
+num_data <- subset( q1, select = mark_fact_cols==F)
+
+summarizeColumns(num_data)
+summarizeColumns(fact_data)
+
+
 
 ################# DATA CLEANING - NUMERIC DATA ########################
 
