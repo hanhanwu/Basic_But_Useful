@@ -120,12 +120,33 @@ length(which(num_data$NumberOfProducts >= 10))/length(num_data$NumberOfProducts)
 num_data[,NumberOfProducts := ifelse(NumberOfProducts <= 4, NumberOfProducts, ifelse(NumberOfProducts<=10, ">4,<=10", "MoreThan10"))][,NumberOfProducts := as.factor(NumberOfProducts)]
 num_data[,.N,NumberOfProducts][order(-N)]
 
-# [more flexible], multiple bins by setting the threshold
+# [MORE FLAXIBLE], multiple bins by setting the threshold
 sum(num_data[,.N,MemberShareBalance][MemberShareBalance >= 110]$N)/length(num_data$MemberShareBalance)*100 # > 25%
 boxplot(num_data$MemberShareBalance)
 # Bining the data
 num_data[, MemberShareBalance:= cut(x = MemberShareBalance,breaks = c(0,30,110,1000),include.lowest = TRUE,labels = c("LessThan30","30TO110","HigherThan110"))]
 levels(num_data$MemberShareBalance)
+
+# When I know this variable won't be influenced by other variables, I didn't removing those outliers, but bin the data based on quantiles
+num_distribution_plot(num_data$X)
+boxplot(num_data$X)
+num_data[,.N,X][order(-N)]
+summary(num_data$X)
+length(which(num_data$X >= 15))/length(num_data$X)*100      # > 77%
+length(which(num_data$X >= 17760))/length(num_data$X)*100   # >25%
+length(which(num_data$X <= 1948))/length(num_data$X)*100    # 50%
+# bining the data
+q <- quantile(num_data$X)
+q <- data.frame(q)
+q
+l1 <- paste(as.character(q$q[1]), as.character(q$q[2]), sep = " ~ ")
+l2 <- paste(as.character(q$q[2]), as.character(q$q[3]), sep = " ~ ")
+l3 <- paste(as.character(q$q[3]), as.character(q$q[4]), sep = " ~ ")
+l4 <- paste(as.character(q$q[4]), as.character(q$q[5]), sep = " ~ ")
+lbs <- c(l1, l2, l3, l4)
+num_data[, X:= cut(x = X,breaks = c(quantile(X)),include.lowest = TRUE,labels = lbs)]
+summary(num_data$X)
+levels(num_data$X)
 
 
 
