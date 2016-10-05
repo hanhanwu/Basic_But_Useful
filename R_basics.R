@@ -42,7 +42,9 @@ boxplot(num_data$TenureMonth)     # replace outliers with median
 num_distribution_plot(num_data$MemberShareBalance)
 boxplot(num_data$MemberShareBalance)
 num_data[,.N,MemberShareBalance][order(-N)]
-length(which(num_data$MemberShareBalance >= 7))/length(num_data$MemberShareBalance)*100   # too many individual values, it's better to categorize this column
+length(which(num_data$MemberShareBalance >= 7))/length(num_data$MemberShareBalance)*100   # too many individual values
+## !!! for numerical data, if converting to factor data still have 10+ levels, 
+## bin the numerical data first, then add to other factors data
 
 num_distribution_plot(num_data$TermUnregisteredBalance)
 boxplot(num_data$TermUnregisteredBalance)
@@ -154,3 +156,18 @@ summarizeColumns(has_cols)
 new_fact <- subset(new_fact, select = !names(new_fact) %in% names(has_cols))   ## remove these columns from new_fact
 has_cols <- has_cols[, names(has_cols) := lapply(.SD, as.numeric), .SDcols = names(has_cols)]    ## convert all the columns to numeric
 summarizeColumns(has_cols)
+
+
+## METHOD 1 - Label Encoding
+lvs <- sapply(new_fact, levels)
+lvs_length <- sapply(lvs, length)
+lvs_length
+low_level_cols <- subset(new_fact, select = lvs_length <= 10)
+summarizeColumns(low_level_cols)
+
+high_level_cols <- subset(new_fact, select = !names(new_fact) %in% names(low_level_cols))
+low_level_cols <- low_level_cols[, names(low_level_cols) := lapply(.SD, as.numeric), .SDcols = names(low_level_cols)]    ## convert all the columns to numeric
+summarizeColumns(low_level_cols)
+
+test <- sapply(low_level_cols, unique)
+test
