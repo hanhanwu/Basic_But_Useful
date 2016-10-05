@@ -17,6 +17,24 @@ summarizeColumns(fact_data)
 
 
 
+library(ggplot2)
+# install.packages("plotly", type = "source")
+library(plotly)
+
+## CHECK DISTRIBUTION METHOD - NUMERIC DATA
+num_distribution_plot <- function(a){
+  ggplot(data = num_data, aes(x= a, y=..density..)) + geom_histogram(fill="blue",color="red",alpha = 0.5,bins =100) + geom_density()
+  ggplotly()
+}
+
+## CHECK DISTRIBUTION METHOD - CATEGORICAL DATA
+fact_distribution_plot <- function(a){
+  counts <- table(a)
+  barplot(counts)
+}
+
+
+
 ################# DATA CLEANING - NUMERIC DATA ########################
 
 ## Deal WITH MISSING DATA
@@ -46,14 +64,45 @@ length(which(num_data$TenureMonth >= 600))/length(num_data$TenureMonth)*100
 num_data[, TenureMonth := ifelse(TenureMonth>=600, median(TenureMonth), TenureMonth)]
 boxplot(num_data$TenureMonth)     # replace outliers with median
 
-
 num_distribution_plot(num_data$MemberShareBalance)
 boxplot(num_data$MemberShareBalance)
 num_data[,.N,MemberShareBalance][order(-N)]
 length(which(num_data$MemberShareBalance >= 7))/length(num_data$MemberShareBalance)*100   # too many individual values
-## !!! for numerical data, if converting to factor data still have 10+ levels, 
-## bin the numerical data first, then add to other factors data
+## !!! For data with numerical ormat but categorical nature, convert them to factors first to deal with missing data,
+## then, use category combine for those do have <= 5 categories, these variables won't use one-hot encoding later;
+## for those have >= 6 categories, bin them, so that both label encoding or one-hot encoding should work.
 
+
+num_distribution_plot(num_data$MemberShareBalance)
+boxplot(num_data$MemberShareBalance)
+num_data[,.N,MemberShareBalance][order(-N)]
+length(which(num_data$MemberShareBalance == 5.00))/length(num_data$MemberShareBalance)*100   # 2.6%
+num_data[,.N,MemberShareBalance][N >= 1000][order(-N)]
+sum(num_data[,.N,MemberShareBalance][N >= 1000]$N)/length(num_data$MemberShareBalance)*100    # 8.7%
+sum(num_data[,.N,MemberShareBalance][N <= 0]$N)/length(num_data$MemberShareBalance)*100    # 0
+summary(num_data$MemberShareBalance) 
+sum(num_data[,.N,MemberShareBalance][MemberShareBalance >= 50000]$N)/length(num_data$MemberShareBalance)*100   # 0.006678744
+num_data[, MemberShareBalance := ifelse(MemberShareBalance>=50000, median(MemberShareBalance), MemberShareBalance)]
+sum(num_data[,.N,MemberShareBalance][MemberShareBalance >= 10000]$N)/length(num_data$MemberShareBalance)*100      #1%
+num_data[, MemberShareBalance := ifelse(MemberShareBalance>=10000, median(MemberShareBalance), MemberShareBalance)]
+sum(num_data[,.N,MemberShareBalance][MemberShareBalance >= 1000]$N)/length(num_data$MemberShareBalance)*100   # 4.44%
+num_data[, MemberShareBalance := ifelse(MemberShareBalance>=1000, median(MemberShareBalance), MemberShareBalance)]
+sum(num_data[,.N,MemberShareBalance][MemberShareBalance >= 200]$N)/length(num_data$MemberShareBalance)*100   # >15%
+summary(num_data$MemberShareBalance) 
+boxplot(num_data$MemberShareBalance)
+## !!! When dealing with outliers, when I don't know the reason for these outliers, I am using median/mean based on distribution.
+## But if there are any other variable will directly influcen this variable, I would check which gruup in that variable directly influce the
+## outliers and only use median/mean of that group
+sum(num_data[,.N,MemberShareBalance][MemberShareBalance >= 110]$N)/length(num_data$MemberShareBalance)*100 # > 25%
+boxplot(num_data$MemberShareBalance)
+# Bining the data
+num_data[, MemberShareBalance:= cut(x = MemberShareBalance,breaks = c(0,30,110,1000),include.lowest = TRUE,labels = c("LessThan30","30TO110","HigherThan110"))]
+levels(num_data$MemberShareBalance)
+
+
+
+# Methods for Bining Numerical Data
+# 2 bins
 num_distribution_plot(num_data$TermUnregisteredBalance)
 boxplot(num_data$TermUnregisteredBalance)
 num_data[,.N,TermUnregisteredBalance][order(-N)]
@@ -62,6 +111,7 @@ length(which(num_data$TermUnregisteredBalance == 0))/length(num_data$TermUnregis
 num_data[,TermUnregisteredBalance := ifelse(TermUnregisteredBalance == 0, "Zero", "MoreThanZero")][,TermUnregisteredBalance := as.factor(TermUnregisteredBalance)]
 num_data[,.N,TermUnregisteredBalance][order(-N)]
 
+# 3 bins
 num_distribution_plot(num_data$NumberOfProducts)
 boxplot(num_data$NumberOfProducts)
 num_data[,.N,NumberOfProducts][order(-N)]
@@ -70,6 +120,12 @@ length(which(num_data$NumberOfProducts >= 10))/length(num_data$NumberOfProducts)
 num_data[,NumberOfProducts := ifelse(NumberOfProducts <= 4, NumberOfProducts, ifelse(NumberOfProducts<=10, ">4,<=10", "MoreThan10"))][,NumberOfProducts := as.factor(NumberOfProducts)]
 num_data[,.N,NumberOfProducts][order(-N)]
 
+# [more flexible], multiple bins by setting the threshold
+sum(num_data[,.N,MemberShareBalance][MemberShareBalance >= 110]$N)/length(num_data$MemberShareBalance)*100 # > 25%
+boxplot(num_data$MemberShareBalance)
+# Bining the data
+num_data[, MemberShareBalance:= cut(x = MemberShareBalance,breaks = c(0,30,110,1000),include.lowest = TRUE,labels = c("LessThan30","30TO110","HigherThan110"))]
+levels(num_data$MemberShareBalance)
 
 
 
