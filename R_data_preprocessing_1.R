@@ -17,22 +17,37 @@ summarizeColumns(fact_data)
 
 
 
+## MY LAZY FUNCTIONS
 library(ggplot2)
 # install.packages("plotly", type = "source")
 library(plotly)
 
-## CHECK DISTRIBUTION METHOD - NUMERIC DATA
+# CHECK DISTRIBUTION METHOD - NUMERIC DATA
 num_distribution_plot <- function(a){
   ggplot(data = num_data, aes(x= a, y=..density..)) + geom_histogram(fill="blue",color="red",alpha = 0.5,bins =100) + geom_density()
   ggplotly()
 }
 
-## CHECK DISTRIBUTION METHOD - CATEGORICAL DATA
+
+# CHECK DISTRIBUTION METHOD - CATEGORICAL DATA
 fact_distribution_plot <- function(a){
   counts <- table(a)
   barplot(counts)
 }
 
+
+# BIN NUMERICAL DATA TO CATEGORICAL DATA - QUANTILE BASED
+bin_to_quantile <- function(a) {
+  q <- quantile(a)
+  q <- data.frame(q)
+  q
+  l1 <- paste(as.character(q$q[1]), as.character(q$q[2]), sep = " ~ ")
+  l2 <- paste(as.character(q$q[2]), as.character(q$q[3]), sep = " ~ ")
+  l3 <- paste(as.character(q$q[3]), as.character(q$q[4]), sep = " ~ ")
+  l4 <- paste(as.character(q$q[4]), as.character(q$q[5]), sep = " ~ ")
+  lbs <- c(l1, l2, l3, l4)
+  return(cut(x = a,breaks = c(quantile(a)),include.lowest = TRUE,labels = lbs)) 
+}
 
 
 ################# DATA CLEANING - NUMERIC DATA ########################
@@ -147,6 +162,20 @@ lbs <- c(l1, l2, l3, l4)
 num_data[, X:= cut(x = X,breaks = c(quantile(X)),include.lowest = TRUE,labels = lbs)]
 summary(num_data$X)
 levels(num_data$X)
+
+
+num_distribution_plot(num_data$DemandUnregisteredBalance)
+boxplot(num_data$DemandUnregisteredBalance)
+num_data[,.N,DemandUnregisteredBalance][order(-N)]
+summary(num_data$DemandUnregisteredBalance)
+length(which(num_data$DemandUnregisteredBalance >= 15))/length(num_data$DemandUnregisteredBalance)*100    # >74%
+length(which(num_data$DemandUnregisteredBalance == 0))/length(num_data$DemandUnregisteredBalance)*100    # 16%
+# bining the data
+## I got tired of modifying each line for so many columns, so created the general function to deal with them. And without hardcoding, code is more secure
+## But need to check whether the data can be used with this method first. In this case, I need to bin them into 4 quantiles.
+num_data$DemandUnregisteredBalance <- bin_to_quantile(num_data$DemandUnregisteredBalance)
+summary(num_data$DemandUnregisteredBalance)
+levels(num_data$DemandUnregisteredBalance)
 
 
 
