@@ -314,7 +314,7 @@ for (i in df$City){
   total_ct = total_ct + df[ct]$N
   if (total_ct/total_length > 0.75) break
   st[[ct]] <- i
-  ct = ct + 1return
+  ct = ct + 1
 }
 st
 fact_data[ !City %in% st, City := "Other" ]
