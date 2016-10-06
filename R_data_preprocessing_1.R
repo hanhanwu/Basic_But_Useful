@@ -50,13 +50,32 @@ bin_to_quantile <- function(a) {
   return(cut(x = a,breaks = c(quantile(a)),include.lowest = TRUE,labels = lbs)) 
 }
 
+## BIN NUMERICAL DATA TO CATEGORICAL DATA - 3 BINS
 bin_to_triple <- function(a, v1, v2, lb1, lb2, lb3) {
   return (as.factor(ifelse(a == v1, lb1, ifelse(a <= v2, lb2, lb3))))
 }
 
+## BIN NUMERICAL DATA TO CATEGORICAL DATA - 2 BINS
 bin_to_double <- function(a, v, lb1, lb2) {
   return (as.factor(ifelse(a == v, lb1, lb2)))
 }
+
+
+## CONVETR CATEGORICAL DATA INTO BINS, KEEP THE TOP 75%, THE REST 25% CONVERTED TO "Other"
+get_top75 <- function(a) {
+  df <- fact_data[,.N, a][order(-N)]
+  st <- c()
+  ct <- 1
+  total_ct <- 0
+  for (i in df[[1]]){
+    total_ct = total_ct + df[ct]$N
+    st[[ct]] <- i
+    ct = ct + 1
+    if (total_ct/total_length > 0.75) break
+  }
+  return(st)
+}
+  
 
 ################# DATA CLEANING - NUMERIC DATA ########################
 
@@ -295,9 +314,8 @@ for (i in df$City){
   total_ct = total_ct + df[ct]$N
   if (total_ct/total_length > 0.75) break
   st[[ct]] <- i
-  ct = ct + 1
+  ct = ct + 1return
 }
-st <- data.frame(st)
 st
 fact_data[ !City %in% st, City := "Other" ]
 fact_data[,.N,City][order(-N)]
@@ -316,13 +334,10 @@ fact_data[, JoinDateKey := NULL]
 
 fact_distribution_plot(fact_data$MemberShareLevelKey)
 fact_data[,.N,MemberShareLevelKey][order(-N)]
-md <- median(table(as.numeric((levels(fact_data$MemberShareLevelKey))[as.integer(fact_data$MemberShareLevelKey)])))
-md
-df <- fact_data[,.N,MemberShareLevelKey][N >= md]$MemberShareLevelKey
-df
-fact_data[!(MemberShareLevelKey %in% df), MemberShareLevelKey := "Other" ]
+fact_data[,.N,MemberShareLevelKey][MemberShareLevelKey=='2']$N/total_length*100  # > 54%
+st <- get_top75(fact_data$MemberShareLevelKey)
+fact_data [ !MemberShareLevelKey %in% st, MemberShareLevelKey := "Other"]
 fact_data[,.N,MemberShareLevelKey][order(-N)]
-
 
 
 
