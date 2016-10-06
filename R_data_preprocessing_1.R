@@ -9,6 +9,7 @@ setDT(q1)
 
 
 ## SEPERATE NUMERICAL AND CATEGORICAL DATA
+mark_fact_cols <- sapply(q1, is.factor)
 fact_data <- subset(q1, select = mark_fact_cols==T)
 num_data <- subset( q1, select = mark_fact_cols==F)
 
@@ -205,6 +206,9 @@ num_data$NumberOfWebTransactions <- bin_to_triple(num_data$NumberOfWebTransactio
 num_data[,.N,NumberOfWebTransactions][order(-N)]
 
 
+
+
+
 ################# DATA CLEANING - CATEGORICAL DATA ########################
 
 ## DEAL WITH MISSING DATA
@@ -242,14 +246,63 @@ colSums(is.na(fact_data))
 summarizeColumns(fact_data)
 total_length <- dim(fact_data)[1]
 
+
+fact_distribution_plot(fact_data$MemberBranchNumber)
+fact_data[,.N,MemberBranchNumber][order(-N)]
+q <- quantile(table(as.numeric((levels(fact_data$MemberBranchNumber))[as.integer(fact_data$MemberBranchNumber)])), na.rm = T)
+q <- data.frame(q)
+q
+df1 <- fact_data[,.N,MemberBranchNumber][N < q$q[2]]$MemberBranchNumber
+df2 <- fact_data[,.N,MemberBranchNumber][N >= q$q[2] & N < q$q[3]]$MemberBranchNumber
+df3 <- fact_data[,.N,MemberBranchNumber][N >= q$q[3] & N < q$q[4]]$MemberBranchNumber
+df4 <- fact_data[,.N,MemberBranchNumber][N >= q$q[4]]$MemberBranchNumber
+l1 <- paste(as.character(q$q[1]), as.character(q$q[2]), sep = " ~ ")
+l2 <- paste(as.character(q$q[2]), as.character(q$q[3]), sep = " ~ ")
+l3 <- paste(as.character(q$q[3]), as.character(q$q[4]), sep = " ~ ")
+l4 <- paste(as.character(q$q[4]), as.character(q$q[5]), sep = " ~ ")
+fact_data[, MemberBranchNumber := ifelse(MemberBranchNumber %in% df1, l1, ifelse(MemberBranchNumber %in% df2, l2, ifelse(MemberBranchNumber %in% df3, l3, l4)))]
+setnames(fact_data, "MemberBranchNumber", "BranchNumber_MemberCount")
+fact_data[,.N,BranchNumber_MemberCount][order(-N)]
+
+
+fact_distribution_plot(fact_data$MemberJointNumber)
+fact_data[,.N,MemberJointNumber][order(-N)]
+fact_data[,.N,MemberJointNumber][MemberJointNumber=='0']$N/total_length*100    # 74%
+fact_data[,.N,MemberJointNumber][MemberJointNumber=='1']$N/total_length*100    # 20%
+quantile(table(as.numeric((levels(fact_data$MemberJointNumber))[as.integer(fact_data$MemberJointNumber)])))
+median(table(as.numeric((levels(fact_data$MemberJointNumber))[as.integer(fact_data$MemberJointNumber)])), na.rm = T)
+fact_data[,MemberJointNumber := ifelse(MemberJointNumber == '0', "Zero", ifelse(MemberJointNumber == '1', "One", "1+"))][,MemberJointNumber := as.factor(MemberJointNumber)]
+fact_data[,.N,MemberJointNumber][order(-N)]
+
+
 fact_distribution_plot(fact_data$City)
 fact_data[,.N,City][order(-N)]
+fact_data[,.N,City][City == 'Vancouver']$N/total_length*100   # 28%
 sum(fact_data[,.N,City][N >= 22289]$N)/total_length*100    # >62%
-median(fact_data[,.N,City][N >= 1]$N)      # median is 1, too diversified
-df <- fact_data[,.N,City][N < 22289]$City
+median(fact_data[,.N,City]$N)      # median is 1, too diversified
+quantile(fact_data[,.N,City]$N)
+sum(fact_data[,.N,City][N >= 3]$N)/total_length*100    # >99%
+od <- fact_data[,.N,City][order(-N)]
+od <- data.frame(od)
+od[1:10,]
+# find total >75%
+df<- fact_data[,.N,City][order(-N)]
 df
-fact_data[ City %in% df, City := "Other" ]
+st <- c()
+ct <- 1
+total_ct <- 0
+for (i in df$City){
+  total_ct = total_ct + df[ct]$N
+  if (total_ct/total_length > 0.75) break
+  st[[ct]] <- i
+  ct = ct + 1
+}
+st <- data.frame(st)
+st
+fact_data[ !City %in% st, City := "Other" ]
 fact_data[,.N,City][order(-N)]
+
+
 
 fact_distribution_plot(fact_data$JoinDateKey)
 fact_data[,.N,JoinDateKey][order(-N)]
@@ -260,6 +313,7 @@ str(fact_data$JoinYear)
 str(fact_data$JoinMonth)
 fact_data[, JoinDateKey := NULL]
 
+
 fact_distribution_plot(fact_data$MemberShareLevelKey)
 fact_data[,.N,MemberShareLevelKey][order(-N)]
 md <- median(table(as.numeric((levels(fact_data$MemberShareLevelKey))[as.integer(fact_data$MemberShareLevelKey)])))
@@ -268,6 +322,8 @@ df <- fact_data[,.N,MemberShareLevelKey][N >= md]$MemberShareLevelKey
 df
 fact_data[!(MemberShareLevelKey %in% df), MemberShareLevelKey := "Other" ]
 fact_data[,.N,MemberShareLevelKey][order(-N)]
+
+
 
 
 # Label Encoding/One-hot, to convert categorical data into numerical data
