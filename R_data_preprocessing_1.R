@@ -49,6 +49,13 @@ bin_to_quantile <- function(a) {
   return(cut(x = a,breaks = c(quantile(a)),include.lowest = TRUE,labels = lbs)) 
 }
 
+bin_to_triple <- function(a, v1, v2, lb1, lb2, lb3) {
+  return (as.factor(ifelse(a == v1, lb1, ifelse(a <= v2, lb2, lb3))))
+}
+
+bin_to_double <- function(a, v, lb1, lb2) {
+  return (as.factor(ifelse(a == v, lb1, lb2)))
+}
 
 ################# DATA CLEANING - NUMERIC DATA ########################
 
@@ -177,6 +184,25 @@ num_data$DemandUnregisteredBalance <- bin_to_quantile(num_data$DemandUnregistere
 summary(num_data$DemandUnregisteredBalance)
 levels(num_data$DemandUnregisteredBalance)
 
+
+# Customized Bins
+num_distribution_plot(num_data$NumberOfIVRTransactions)
+boxplot(num_data$NumberOfIVRTransactions)
+num_data[,.N,NumberOfIVRTransactions][order(-N)]
+length(which(num_data$NumberOfIVRTransactions == 0))/length(num_data$NumberOfIVRTransactions)*100  # > 98%
+# 2 bins
+num_data$NumberOfIVRTransactions <- bin_to_double(num_data$NumberOfIVRTransactions, 0, "Zero", "MoreThanZero")
+num_data[,.N,NumberOfIVRTransactions][order(-N)]
+
+
+num_distribution_plot(num_data$NumberOfWebTransactions)
+boxplot(num_data$NumberOfWebTransactions)
+num_data[,.N,NumberOfWebTransactions][order(-N)]
+length(which(num_data$NumberOfWebTransactions == 0))/length(num_data$NumberOfWebTransactions)*100   # > 74%
+length(which(num_data$NumberOfWebTransactions <= 4))/length(num_data$NumberOfWebTransactions)*100   # >88%
+# 3 bins
+num_data$NumberOfWebTransactions <- bin_to_triple(num_data$NumberOfWebTransactions, 0, 4, "Zero", "1 ~ 4", "4+")
+num_data[,.N,NumberOfWebTransactions][order(-N)]
 
 
 ################# DATA CLEANING - CATEGORICAL DATA ########################
