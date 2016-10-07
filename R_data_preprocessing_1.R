@@ -78,7 +78,7 @@ get_top75 <- function(a) {
   
 ## CONVERT CATEGORICAL DATA INTO 2 BINS
 bin_to_double_fact <- function(a, v, lb1, lb2){
-  return(ifelse(a == v, lb1, lb2))
+  return(as.factor(ifelse(a == v, lb1, lb2)))
 }
   
   
