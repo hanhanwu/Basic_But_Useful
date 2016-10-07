@@ -110,6 +110,11 @@ boxplot(num_data$TenureMonth)
 length(which(num_data$TenureMonth >= 600))/length(num_data$TenureMonth)*100
 num_data[, TenureMonth := ifelse(TenureMonth>=600, median(TenureMonth), TenureMonth)]
 boxplot(num_data$TenureMonth)     # replace outliers with median
+num_distribution_plot(num_data$TenureMonth)
+num_distribution_plot(log(num_data$TenureMonth))
+num_distribution_plot(sqrt(num_data$TenureMonth))    # sqrt is better for this type of skew
+num_data$TenureMonth <- sqrt(num_data$TenureMonth)
+num_distribution_plot(num_data$TenureMonth)
 
 num_distribution_plot(num_data$MemberShareBalance)
 boxplot(num_data$MemberShareBalance)
@@ -123,27 +128,29 @@ length(which(num_data$MemberShareBalance >= 7))/length(num_data$MemberShareBalan
 num_distribution_plot(num_data$MemberShareBalance)
 boxplot(num_data$MemberShareBalance)
 num_data[,.N,MemberShareBalance][order(-N)]
-length(which(num_data$MemberShareBalance == 5.00))/length(num_data$MemberShareBalance)*100   # 2.6%
-num_data[,.N,MemberShareBalance][N >= 1000][order(-N)]
-sum(num_data[,.N,MemberShareBalance][N >= 1000]$N)/length(num_data$MemberShareBalance)*100    # 8.7%
-sum(num_data[,.N,MemberShareBalance][N <= 0]$N)/length(num_data$MemberShareBalance)*100    # 0
-summary(num_data$MemberShareBalance) 
-sum(num_data[,.N,MemberShareBalance][MemberShareBalance >= 50000]$N)/length(num_data$MemberShareBalance)*100   # 0.006678744
-num_data[, MemberShareBalance := ifelse(MemberShareBalance>=50000, median(MemberShareBalance), MemberShareBalance)]
-sum(num_data[,.N,MemberShareBalance][MemberShareBalance >= 10000]$N)/length(num_data$MemberShareBalance)*100      #1%
-num_data[, MemberShareBalance := ifelse(MemberShareBalance>=10000, median(MemberShareBalance), MemberShareBalance)]
-sum(num_data[,.N,MemberShareBalance][MemberShareBalance >= 1000]$N)/length(num_data$MemberShareBalance)*100   # 4.44%
-num_data[, MemberShareBalance := ifelse(MemberShareBalance>=1000, median(MemberShareBalance), MemberShareBalance)]
-sum(num_data[,.N,MemberShareBalance][MemberShareBalance >= 200]$N)/length(num_data$MemberShareBalance)*100   # >15%
-summary(num_data$MemberShareBalance) 
-boxplot(num_data$MemberShareBalance)
-## !!! When dealing with outliers, when I don't know the reason for these outliers, I am using median/mean based on distribution.
-## But if there are any other variable will directly influcen this variable, I would check which gruup in that variable directly influce the
-## outliers and only use median/mean of that group
-sum(num_data[,.N,MemberShareBalance][MemberShareBalance >= 110]$N)/length(num_data$MemberShareBalance)*100 # > 25%
-boxplot(num_data$MemberShareBalance)
-# Bining the data
-num_data[, MemberShareBalance:= cut(x = MemberShareBalance,breaks = c(0,30,110,1000),include.lowest = TRUE,labels = c("LessThan30","30TO110","HigherThan110"))]
+quantile(num_data$MemberShareBalance)
+
+# length(which(num_data$MemberShareBalance == 5.00))/length(num_data$MemberShareBalance)*100   # 2.6%
+# num_data[,.N,MemberShareBalance][N >= 1000][order(-N)]
+# sum(num_data[,.N,MemberShareBalance][N >= 1000]$N)/length(num_data$MemberShareBalance)*100    # 8.7%
+# sum(num_data[,.N,MemberShareBalance][N <= 0]$N)/length(num_data$MemberShareBalance)*100    # 0
+# summary(num_data$MemberShareBalance) 
+# # deal with outliers
+# sum(num_data[,.N,MemberShareBalance][MemberShareBalance >= 50000]$N)/length(num_data$MemberShareBalance)*100   # 0.006678744
+# num_data[, MemberShareBalance := ifelse(MemberShareBalance>=50000, median(MemberShareBalance), MemberShareBalance)]
+# sum(num_data[,.N,MemberShareBalance][MemberShareBalance >= 10000]$N)/length(num_data$MemberShareBalance)*100      #1%
+# num_data[, MemberShareBalance := ifelse(MemberShareBalance>=10000, median(MemberShareBalance), MemberShareBalance)]
+# sum(num_data[,.N,MemberShareBalance][MemberShareBalance >= 1000]$N)/length(num_data$MemberShareBalance)*100   # 4.44%
+# num_data[, MemberShareBalance := ifelse(MemberShareBalance>=1000, median(MemberShareBalance), MemberShareBalance)]
+# sum(num_data[,.N,MemberShareBalance][MemberShareBalance >= 200]$N)/length(num_data$MemberShareBalance)*100   # >15%
+# summary(num_data$MemberShareBalance) 
+# sum(num_data[,.N,MemberShareBalance][MemberShareBalance >= 110]$N)/length(num_data$MemberShareBalance)*100 # > 25%
+# boxplot(num_data$MemberShareBalance)
+# quantile(num_data$MemberShareBalance)
+
+# bining the data
+num_data$MemberShareBalance <- bin_to_quantile(num_data$MemberShareBalance)
+summary(num_data$MemberShareBalance)
 levels(num_data$MemberShareBalance)
 
 
