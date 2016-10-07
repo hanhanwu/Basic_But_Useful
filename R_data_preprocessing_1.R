@@ -76,7 +76,12 @@ get_top75 <- function(a) {
   return(st)
 }
   
-
+## CONVERT CATEGORICAL DATA INTO 2 BINS
+bin_to_double_fact <- function(a, v, lb1, lb2){
+  return(ifelse(a == v, lb1, lb2))
+}
+  
+  
 ################# DATA CLEANING - NUMERIC DATA ########################
 
 ## Deal WITH MISSING DATA
@@ -340,6 +345,13 @@ fact_data [ !MemberShareLevelKey %in% st, MemberShareLevelKey := "Other"]
 fact_data[,.N,MemberShareLevelKey][order(-N)]
 
 
+fact_distribution_plot(fact_data$RRSPRRIFLevelKey)    
+fact_data[,.N,RRSPRRIFLevelKey][order(-N)]
+fact_data[,.N,RRSPRRIFLevelKey][RRSPRRIFLevelKey == '0' ]$N/total_length*100   # 80%
+fact_data$RRSPRRIFLevelKey <- bin_to_double_fact(fact_data$RRSPRRIFLevelKey, '0', "Zero", "MoreThanZero")
+fact_data[,.N,RRSPRRIFLevelKey][order(-N)]
+  
+  
 
 # Label Encoding/One-hot, to convert categorical data into numerical data
 summarizeColumns(fact_data)
