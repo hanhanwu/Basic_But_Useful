@@ -359,45 +359,91 @@ fact_data$RRSPRRIFLevelKey <- bin_to_double_fact(fact_data$RRSPRRIFLevelKey, '0'
 fact_data[,.N,RRSPRRIFLevelKey][order(-N)]
   
   
+  
+  
 
-# Label Encoding/One-hot, to convert categorical data into numerical data
+############################ Label Encoding for Categorical Data ############################################
+
+
 summarizeColumns(fact_data)
 summarizeColumns(num_data)
 
+
 library(dplyr)
 new_fact <- cbind(Filter(is.factor, num_data), Filter(is.factor, fact_data))
-fact_data$Age <- as.numeric(fact_data$Age)
-new_num <- cbind(Filter(is.numeric, num_data), Filter(is.numeric, fact_data))
+new_num <- Filter(is.numeric, num_data)
+summarizeColumns(new_fact)
+summarizeColumns(new_num)
+
+
+
+
+# add columns for numerical data, in this way, I would know which numerical data links to which level
+tracemem(new_fact_df)    ## check memory location, if you want to make sure using data.frame won't change other copies
+num_new_fact <- sapply(new_fact, as.numeric)
+
+
+
+# ## check factor, numerical link example
+# new_fact[, JoinYear_NUM := as.numeric(JoinYear)]
+# head(new_fact[, JoinYear, JoinYear_NUM])
+# new_fact[, JoinYear_NUM := NULL]
+# head(num_new_fact[, "JoinYear"])
+# head(new_fact[, JoinYear])
+
+
+
+# # if want to check numerical and factor value links
+# link_check <- cbind(new_fact, setDT(num_new_fact))
+
+
+rm(new_fact)
+
+
+all_cols <- cbind(new_num, num_new_fact)
+summarizeColumns(all_cols)
+
 rm(fact_data)
 rm(num_data)
+rm(new_num)
+rm(num_new_fact)
+rm(od)
 
 
-summarizeColumns(new_fact)
-levels(new_fact$SWMRESPBalance)
-new_fact[, SWMRESPBalance := NULL]
-summarizeColumns(new_fact)
+
+## check correlation
+library(caret)
+ax <- findCorrelation(x = cor(all_cols), cutoff = 0.7)
+sort(ax)
+summarizeColumns(all_cols)
 
 
-# Find all columns start with "Has", they all have 2 levels, convert "Y"/"N" to 1/2
-selected_cols <- grepl( "Has" , names( new_fact ))
-has_cols <- subset(new_fact, select = selected_cols==T)
-names(has_cols)
-summarizeColumns(has_cols)
-new_fact <- subset(new_fact, select = !names(new_fact) %in% names(has_cols))   ## remove these columns from new_fact
-has_cols <- has_cols[, names(has_cols) := lapply(.SD, as.numeric), .SDcols = names(has_cols)]    ## convert all the columns to numeric
-summarizeColumns(has_cols)
+# ## PCA dimensional reduction    - reports error....
+# 
+# all_cols_mx <- as.matrix(all_cols)
+# prin_comp <- prcomp(all_cols_mx, scale. = T)
+# rm(all_cols_mx)
 
 
-## METHOD 1 - Label Encoding
-lvs <- sapply(new_fact, levels)
-lvs_length <- sapply(lvs, length)
-lvs_length
-low_level_cols <- subset(new_fact, select = lvs_length <= 10)
-summarizeColumns(low_level_cols)
+############################ One Hot for Categorical Data ############################################
 
-high_level_cols <- subset(new_fact, select = !names(new_fact) %in% names(low_level_cols))
-low_level_cols <- low_level_cols[, names(low_level_cols) := lapply(.SD, as.numeric), .SDcols = names(low_level_cols)]    ## convert all the columns to numeric
-summarizeColumns(low_level_cols)
+library(dummies)
 
-test <- sapply(low_level_cols, unique)
-test
+## convert all columns in all_cols to dummies columns occupies too much memory
+## convert those have 2 levels all to 0 and 1
+two_level_cols <- sapply(all_cols, function(x) {max(x) == 2 & min(x) == 1})
+two_level_cols
+two_level_cols_sub <- subset(all_cols, select = two_level_cols == T)
+two_level_cols_sub[, names(two_level_cols_sub) := lapply(.SD, function(x){ifelse(x == 2, 1, 0)}), .SDcols = names(two_level_cols_sub)]
+head(two_level_cols_sub)
+
+
+
+all_cols <- subset(all_cols, select = !names(all_cols) %in% names(two_level_cols_sub))
+all_cols <- cbind(all_cols, two_level_cols_sub)
+all_cols_mx <- dummy.data.frame(all_cols, names = names(subset(all_cols, select = two_level_cols == F)))
+rm(all_cols)
+gc()    # trigger garbage collection
+ 
+
+prin_comp <- prcomp(all_cols_mx, scale. = T)     ## Still, memory problem....
