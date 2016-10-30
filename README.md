@@ -48,9 +48,12 @@
 * PowerBI Automation
  * Text analysis will be done in Python on local machine
  * To schedule automatically running python code periodically
-   1. http://gis.stackexchange.com/questions/140110/running-python-script-in-task-scheduler-script-will-not-run
-   2. https://blogs.esri.com/esri/arcgis/2013/07/30/scheduling-a-scrip/
+ 
+  1. http://gis.stackexchange.com/questions/140110/running-python-script-in-task-scheduler-script-will-not-run
+  2. https://blogs.esri.com/esri/arcgis/2013/07/30/scheduling-a-scrip/
+   
  * PowerBI connects to OneDrive for auto refresh seems have more flexibility
-   1. PowerBI data refresh: https://powerbi.microsoft.com/en-us/documentation/powerbi-refresh-data/
-   2. The python output should be .csv format, and the output will be sent to OneDrive, so that PowerBI could read the file: https://github.com/OneDrive/onedrive-sdk-python
-   3. (Optional) If have to use on-premise SQL Server (but needs to download and install PowerBI gateway, not sure whether it's for Pro only or not), here is how Python connects to SQL Server: http://stackoverflow.com/questions/25754083/sql-server-query-with-python
+ 
+  1. PowerBI data refresh: https://powerbi.microsoft.com/en-us/documentation/powerbi-refresh-data/
+  2. The python output should be .csv format, and the output will be sent to OneDrive, so that PowerBI could read the file: https://github.com/OneDrive/onedrive-sdk-python
+  3. (Optional) If have to use on-premise SQL Server (but needs to download and install PowerBI gateway, not sure whether it's for Pro only or not), here is how Python connects to SQL Server: http://stackoverflow.com/questions/25754083/sql-server-query-with-python
