@@ -57,3 +57,4 @@
   1. PowerBI data refresh: https://powerbi.microsoft.com/en-us/documentation/powerbi-refresh-data/
   2. The python output should be .csv format, and the output will be sent to OneDrive, so that PowerBI could read the file: https://github.com/OneDrive/onedrive-sdk-python
   3. (Optional) If have to use on-premise SQL Server (but needs to download and install PowerBI gateway, not sure whether it's for Pro only or not), here is how Python connects to SQL Server: http://stackoverflow.com/questions/25754083/sql-server-query-with-python
+  4. NOTE: In step 2 above, when I am trying to get the authentication code after pasting the auth_url to my browser, I have to login my own Microsoft account, even though I created this OneDrive app with my company account. (I know, MSFT never make your life easier)
