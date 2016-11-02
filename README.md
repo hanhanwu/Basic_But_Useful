@@ -71,7 +71,7 @@
  * My test code with Python3: https://github.com/hanhanwu/Basic_But_Useful/blob/master/python3_test.py
  
  
-* Visual Studio for Python is, stupid
+* Visual Studio Free Version for Python is, stupid
  * Use Visual Studio Code (VSC) if Eclipse and PyCharm are not allowed to install in your company: https://code.visualstudio.com/docs/introvideos/overview?utm_expid=101350005-29.Dor1By5yTmynP2dmCMGGtw.1&start=true
  * VSC Python: https://code.visualstudio.com/docs/languages/python
  * VSC Basics: https://code.visualstudio.com/docs/editor/codebasics
