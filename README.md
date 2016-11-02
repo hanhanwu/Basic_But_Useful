@@ -62,3 +62,12 @@
   6. NOTE3: Similar to LinkedIn authentication method, the code you got here will expire within seconds
 
  * Putting data in cloud such as OneDrive, some companies which have very high security settings may have concern about this, therefore, having personal PowerBI Gateway installed may make them feel better.... But the gateway is for PowerBI Pro only: https://powerbi.microsoft.com/en-us/documentation/powerbi-personal-gateway/
+
+
+
+* PYTHON 3
+ * How to have Python 3 without hurting 2.7: for me, I simply created a new project in PyCharm community Edition, and set the intepretor as python 3, just 1 seconds for this setting
+ * Key difference between Python 2.x and Python 3.x: http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html
+ * My test code with Python3: https://github.com/hanhanwu/Basic_But_Useful/blob/master/python3_test.py
+ 
+ 
