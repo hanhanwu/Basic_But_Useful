@@ -60,3 +60,5 @@
   4. NOTE1: Use MSFT Application Registration Portal to create your OneDrive API keys and secrets
   5. NOTE2: In step 2 above, when I am trying to get the authentication code after pasting the auth_url to my browser, I have to login my own Microsoft account, even though I created this OneDrive app with my company account. (I know, MSFT never make your life easier)
   6. NOTE3: Similar to LinkedIn authentication method, the code you got here will expire within seconds
+
+ * Putting data in cloud such as OneDrive, some companies which have very high security settings may have concern about this, therefore, having personal PowerBI Gateway installed may make them feel better.... But the gateway is for PowerBI Pro only: https://powerbi.microsoft.com/en-us/documentation/powerbi-personal-gateway/
