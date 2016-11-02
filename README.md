@@ -71,3 +71,13 @@
  * My test code with Python3: https://github.com/hanhanwu/Basic_But_Useful/blob/master/python3_test.py
  
  
+* Visual Studio for Python is, stupid
+ * Use Visual Studio Code (VSC) if Eclipse and PyCharm are not allowed to install in your company: https://code.visualstudio.com/docs/introvideos/overview?utm_expid=101350005-29.Dor1By5yTmynP2dmCMGGtw.1&start=true
+ * VSC Python: https://code.visualstudio.com/docs/languages/python
+ * VSC Basics: https://code.visualstudio.com/docs/editor/codebasics
+ 
+
+* Change Between Python 2.x and 3.x
+ * In some SDK such as Visual Studio Code, it doesn't allow you to use both types of Python at the same time with a flexibility, since it reads the Python version from Envirinment Variable. But some libraries you need are writtern in the Python version you don't use. change your Python version or change those code?
+ * Download the right Python Version you want: https://www.python.org/downloads/
+ * Edit System Environment Variable, add `C:\Python27;C:\Python27\Scripts;C:\Python27\Library\bin;` to PATH or replace Python 3 with this.
