@@ -81,3 +81,8 @@
  * In some SDK such as Visual Studio Code, it doesn't allow you to use both types of Python at the same time with a flexibility, since it reads the Python version from Envirinment Variable. But some libraries you need are writtern in the Python version you don't use. change your Python version or change those code?
  * Download the right Python Version you want: https://www.python.org/downloads/
  * Edit System Environment Variable, add `C:\Python27;C:\Python27\Scripts;C:\Python27\Library\bin;` to PATH or replace Python 3 with this.
+
+
+* Write and Append csv in python
+ * code: https://github.com/hanhanwu/Basic_But_Useful/blob/master/write_csv.py
+ * With this method, tools like PowerBI could recognize the right format, otherwise, even with .csv as the extension, it cannot load data right
