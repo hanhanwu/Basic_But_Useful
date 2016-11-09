@@ -86,4 +86,4 @@
 * Write and Append csv in python
  * code: https://github.com/hanhanwu/Basic_But_Useful/blob/master/write_csv.py
  * With python csv DictReader or DictWriter, even it's comma demilited and there are comma in the text of some columns, it can still recognize the right columns.
- * With this method, tools like PowerBI could recognize the right format, otherwise, even with .csv as the extension, it cannot load data right
+ * With this method, tools like PowerBI could recognize the right format, otherwise, even with .csv as the extension, it cannot load data right. What makes a difference is, whether you add 'b' in `open()` function
