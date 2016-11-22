@@ -43,6 +43,8 @@
  * Data Preprocessing part 1: https://github.com/hanhanwu/Basic_But_Useful/blob/master/R_data_preprocessing_1.R
  * When I was doing data cleaning, generated a SRAT WAR DISTRIBUTION by accident :) What a perfect normal distribution :) https://github.com/hanhanwu/Basic_But_Useful/blob/master/star_war_distribution.PNG
  * In R, the default setting for boxplot is to extend whiskers 1.5*IQR higher than Q3 and lower then Q1, which helps a lot for finding potential outliers
+ * How to deal with 0 standard deviation in R: https://github.com/hanhanwu/Basic_But_Useful/blob/master/deal_with_zero_variance.R
+ * When converting skewed data into normal distribution, sometimes need to try both `log()` and `sqrt()` and see which result is closer to normal distribution
 
 
 * PowerBI Automation
