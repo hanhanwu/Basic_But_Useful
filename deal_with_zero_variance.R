@@ -1,5 +1,5 @@
 # When there are so many feature, but if there is one feature has zero variance, you cannot use R built in functions 
-to find the correlation between features, because it will just return an error saying "zero stadard variance"
+# to find the correlation between features, because it will just return an error saying "zero stadard deviation"
 
 # So, before checking the correlation between many features, we need to remove those columns with 0 variance
 
