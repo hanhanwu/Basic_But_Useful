@@ -45,6 +45,8 @@
  * In R, the default setting for boxplot is to extend whiskers 1.5*IQR higher than Q3 and lower then Q1, which helps a lot for finding potential outliers
  * How to deal with 0 standard deviation in R: https://github.com/hanhanwu/Basic_But_Useful/blob/master/deal_with_zero_variance.R
  * When converting skewed data into normal distribution, sometimes need to try both `log()` and `sqrt()` and see which result is closer to normal distribution
+ * When using R newest verision Random Forest, especially the one in mlr, there are something to note (check comments in my code): https://github.com/hanhanwu/Basic_But_Useful/blob/master/mlr_random_forest.R
+ * It seems that R Random Forest can no longer handle ordereed Factor variable, and therefore, factor variables need to be converted into numerical data. But if your predict.type is "response", the label still has to be Factor variable: http://stackoverflow.com/questions/17352324/new-factor-levels-not-present-in-the-training-data
 
 
 * PowerBI Automation
