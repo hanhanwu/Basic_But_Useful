@@ -18,9 +18,12 @@ summarizeColumns(test_train)
 test_test$HasWriteOff <- as.factor(test_test$HasWriteOff)
 test_train$HasWriteOff <- as.factor(test_train$HasWriteOff)
  
-train_task <- makeClassifTask(data=data.frame(test_train), target = "HasWriteOff")
-test_task <- makeClassifTask(data=data.frame(test_test), target = "HasWriteOff")
+# Here I'm using minority class as the Positive Class
+summary(train_data$HasWriteOff)
+train_task <- makeClassifTask(data=data.frame(train_data), target = "HasWriteOff", positive = "2")
+test_task <- makeClassifTask(data=data.frame(test_data), target = "HasWriteOff", positive = "2")
  
+set.seed(410)
 getParamSet("classif.randomForest")
 rf_learner <- makeLearner("classif.randomForest", predict.type = "response", par.vals = list(ntree = 200, mtry = 3))
 rf_learner$par.vals <- list(importance = TRUE)
