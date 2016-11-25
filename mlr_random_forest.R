@@ -46,5 +46,5 @@ rfpredict <- predict(rf_model, test_task)
 # detailed measures to check the accuracy for both Positive and Negative classes
 ## Majorly check Balanced Accuracy, Sensitivity and Specificity
 nb_prediction <- nb_predict$data$response
-dCM <- confusionMatrix(d_test$income_level, nb_prediction)
+dCM <- confusionMatrix(d_test$income_level, nb_prediction, positive = "2")    # set Positive Class the same as the tasks above
 dCM
