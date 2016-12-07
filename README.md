@@ -71,6 +71,8 @@
  * Putting data in cloud such as OneDrive, some companies which have very high security settings may have concern about this, therefore, having personal PowerBI Gateway installed may make them feel better.... But the gateway is for PowerBI Pro only: https://powerbi.microsoft.com/en-us/documentation/powerbi-personal-gateway/
 
 
+* Python Basic
+ * When adding dictionary in python list, use `copy()`, otherwise its the reference has been appended: https://github.com/hanhanwu/Basic_But_Useful/blob/master/note_python_list.py
 
 * PYTHON 3
  * How to have Python 3 without hurting 2.7: for me, I simply created a new project in PyCharm community Edition, and set the intepretor as python 3, just 1 seconds for this setting
