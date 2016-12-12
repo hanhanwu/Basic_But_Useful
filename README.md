@@ -36,7 +36,7 @@
  * How to allow SQL Server job sends notifications to a specific non-DBA email: https://www.mssqltips.com/sqlservertip/1523/how-to-setup-sql-server-alerts-and-email-operator-notifications/
 
 * R Seperate Data Columns based on Data Types
- * Extreact all factor columns from the original: https://github.com/hanhanwu/Basic_But_Useful/blob/master/extract_all_factor_columns.R
+ * Extract all factor columns from the original: https://github.com/hanhanwu/Basic_But_Useful/blob/master/extract_all_factor_columns.R
  
  
 * R Basics
@@ -49,6 +49,7 @@
  * It seems that R Random Forest can no longer handle ordereed Factor variable, and therefore, factor variables need to be converted into numerical data. But if your predict.type is "response", the label still has to be Factor variable: http://stackoverflow.com/questions/17352324/new-factor-levels-not-present-in-the-training-data
  * When checking the confusion matrix output as my code above, it's better to use <b>Balanced Accuracy</b> instead of Accuracy: http://ong-home.my/papers/brodersen10post-balacc.pdf
  * With mlr package, we can get feature importance easier by chosing which method do we need, such as Random Forest or Information Gain, it also allows you to tune the parameter of these methods: https://github.com/hanhanwu/Basic_But_Useful/blob/master/mlr_feature_importance.R
+ * mlr find learners: https://github.com/hanhanwu/Basic_But_Useful/blob/master/mlr_find_learners.R
  * mlr package (page 32 is about feture importance): https://cran.r-project.org/web/packages/mlr/mlr.pdf 
 
 
