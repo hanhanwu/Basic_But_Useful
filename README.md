@@ -78,6 +78,7 @@
  * When adding dictionary in python list, use `copy()`, otherwise its the reference has been appended: https://github.com/hanhanwu/Basic_But_Useful/blob/master/note_python_list.py
  * A flexible way to strip the html tags, you can modify the function to cater for specific use, works for both Python 2.7 and Python 3.*: https://github.com/hanhanwu/Basic_But_Useful/blob/master/strip_html_tag_python.py
  * Features from 3.* can be used in Python 2.7: https://docs.python.org/2/library/__future__.html
+ * After you finally have install a python package, but when you try to import, it is showing "Permisson Denied [path]", try this commend line in your terminal `sudo chown -R $USER /Library/Python/2.7/site-packages/`, in my case, the installed package is in site-packages folder. `chown` means change the user permission for a folder/file. 
 
 * PYTHON 3
  * How to have Python 3 without hurting 2.7: for me, I simply created a new project in PyCharm community Edition, and set the intepretor as python 3, just 1 seconds for this setting
