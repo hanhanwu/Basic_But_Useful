@@ -10,3 +10,7 @@
 import unidecode
 text = ["<p>"+str(unidecode.unidecode(t.text))+"</p>" for t in content.findAll('p', {"class":''})]
 
+
+# Sample 2: could\xe2\x80\x99t  (means couldn't)
+import unidecode
+word_lst = [str(unidecode.unidecode(w.decode('utf-8'))) for w in text.split()]
