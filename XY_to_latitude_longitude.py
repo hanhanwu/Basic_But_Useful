@@ -28,10 +28,10 @@ def main():
                 continue
             if r['Latitude'] == "" or r['Longitude'] == "":
                 missing_data_count += 1
-                lat, lgn = pyproj.transform(utm10, ll, float(r['X']), float(r['Y']))    # convert X, Y to latitude and longitude
+                lgn, lat = pyproj.transform(utm10, ll, float(r['X']), float(r['Y']))    # convert X, Y to latitude and longitude
                 r['Latitude'] = lat
                 r['Longitude'] = lgn
-                output_lst.append(r)
+            output_lst.append(r)
 
         with open(output_path, 'a') as csv_output:
             writer = csv.DictWriter(csv_output, fieldnames=cols)
