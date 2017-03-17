@@ -82,6 +82,7 @@
  * Different ways to deal with unicode in Python: https://github.com/hanhanwu/Basic_But_Useful/blob/master/about_unicode.py
  * Python read multi-format files (it can read PDF, DOCX, MP4): https://www.analyticsvidhya.com/blog/2017/03/read-commonly-used-formats-using-python/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
  * Many datasets use X, Y system instead of latitude, longitude, therefore, tools like Tableau could not recognize the data on its map. Here, I am using a simple way to convert X, Y to latitude and longitude (need to check DATUM and projection of the region first): https://github.com/hanhanwu/Basic_But_Useful/blob/master/XY_to_latitude_longitude.py
+ * Python UnitTest introduction example: http://pythontesting.net/framework/unittest/unittest-introduction/
 
 * PYTHON 3
  * How to have Python 3 without hurting 2.7: for me, I simply created a new project in PyCharm community Edition, and set the intepretor as python 3, just 1 seconds for this setting
