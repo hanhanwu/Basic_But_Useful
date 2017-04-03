@@ -27,3 +27,7 @@ with open('input_file_path', 'rb') as indata:
 # BUT! Here, the python version could be different, check the multiple solutions here to cater for different situations:
 # answer by "anatoly techtonik"
 # http://stackoverflow.com/questions/606191/convert-bytes-to-a-python-string
+
+
+# Sample 4: UnicodeEncodeError: 'ascii' codec can't encode character u'\u2026'
+data = text.encode('utf-8')
