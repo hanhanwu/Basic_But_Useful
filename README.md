@@ -53,6 +53,8 @@
  * mlr package (page 32 is about feture importance): https://cran.r-project.org/web/packages/mlr/mlr.pdf 
  * data table group by and select count, max: https://github.com/hanhanwu/Basic_But_Useful/blob/master/R_group_by.R
  * reduce levels when the levels is a large number: https://github.com/hanhanwu/Basic_But_Useful/blob/master/reduce_large_levels.R
+ * ASCII and Binary characters: http://roubaixinteractive.com/PlayGround/Binary_Conversion/The_Characters.asp
+   * Example: Type `print chr(119)` in python terminal, the special character will be output
 
 
 * PowerBI Automation
