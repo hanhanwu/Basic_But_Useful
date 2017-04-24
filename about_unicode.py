@@ -29,5 +29,13 @@ with open('input_file_path', 'rb') as indata:
 # http://stackoverflow.com/questions/606191/convert-bytes-to-a-python-string
 
 
-# Sample 4: UnicodeEncodeError: 'ascii' codec can't encode character u'\u2026'
+# Sample 4: UnicodeDecodeError: 'utf-8' codec cannot decode byte 0xe9...
+## My godness, this is another type of problem compared with Smaple 3 above....
+## Here is the solution:
+with open(dct_file_path, encoding = "ISO-8859-1") as dct_file:
+  for r in dct_file:
+    r = r.strip()
+
+    
+# Sample 5: UnicodeEncodeError: 'ascii' codec can't encode character u'\u2026'
 data = text.encode('utf-8')
