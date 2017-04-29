@@ -86,6 +86,10 @@
  * Many datasets use X, Y system instead of latitude, longitude, therefore, tools like Tableau could not recognize the data on its map. Here, I am using a simple way to convert X, Y to latitude and longitude (need to check DATUM and projection of the region first): https://github.com/hanhanwu/Basic_But_Useful/blob/master/XY_to_latitude_longitude.py
  * Python UnitTest introduction example: http://pythontesting.net/framework/unittest/unittest-introduction/
  * Python argparse is a good tool to allow you define command line input parameters, because python built-in parameters are limited. In my code example, just go to the folder of this source code, run command line through terminal `pydoc3 test_arg.TestArg.get_arguments`, here is my code for reading the command line parameters: https://github.com/hanhanwu/Basic_But_Useful/blob/master/python_argparse.py
+ * Python dictionary is randomly ordered
+   * My code: https://github.com/hanhanwu/Basic_But_Useful/blob/master/python_dct_and_order.py
+     * arrange keys in a dictionary in order
+     * make a dictionary arranged in key order
 
 * PYTHON 3
  * How to have Python 3 without hurting 2.7: for me, I simply created a new project in PyCharm community Edition, and set the intepretor as python 3, just 1 seconds for this setting
