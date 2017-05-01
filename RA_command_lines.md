@@ -40,6 +40,7 @@ My RA work finally has been finished on 2017/4/29. So excited and I have collect
   * export PATH=/Library/Frameworks/Python.framework/Versions/3.5/bin:$PATHf
   * export PATH=$PATH:/Users/devadmin/Documents/geckodriver
 
+
 ***************************************************************************************
 
 <b>GitHub Commands</b>
@@ -49,3 +50,14 @@ My RA work finally has been finished on 2017/4/29. So excited and I have collect
 * Choose GitHub license: https://choosealicense.com/
 * How to create a license: https://help.github.com/articles/adding-a-license-to-a-repository/
 * CC-BY-SA-4.0 for media data: https://choosealicense.com/licenses/cc-by-sa-4.0/#
+
+
+***************************************************************************************
+
+<b>WestGrid</b>
+
+* Login: `ssh orcinus.westgrid.ca`
+* Upload local fodler to WestGrid `scp -r [local path]/SFU_comments_extractor [my WestGrid id]@orcinus.westgrid.ca:[WestGrid path]`
+* Run python3.5 through WestGrid Terminal:
+  * `module load python/3.5.0`
+  * `python3.5`
