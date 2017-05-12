@@ -30,7 +30,7 @@ My RA work finally has been finished on 2017/4/29. So excited and I have collect
 * Remove many files with same prefix (in this case, remove 'article_'): `find . -name 'article_*' | xargs rm`
 * Find something in your machine with key words (in this case, find firefox): `mdfind firefox | grep 'firefox$'`
 * Find running nohup job: `ps -ef | grep 'get_comment_reactions.py'`
-* Kill running nohup job: `sudo kill -9 [job id]`
+* Kill running nohup job: `sudo kill -9 [job id]`, id is the last 4-digit number
 * Use `nohup` or `screen` to run your code through the terminal, so that when you turn off the terminal, the code will keep running
   * Using `nohup` for python file: `sudo nohup python3.5 SFU_comments_extractor/source/ScrapeNews/get_comment_reactions.py`
   * Using `nohup` for .sh file: `sudo nohup sh run_news_scraper.sh`
