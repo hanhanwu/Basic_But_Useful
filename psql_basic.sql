@@ -18,12 +18,14 @@ json_extract_path_text(json_extract_path_text(col_name, 'key1'), 'key2')
 
 
 -- multiple inner join
-select * from t1
+-- from what I have found so far, in psql, all the tables that will be involved in join, you need to put that table in ()
+select t1.x from
+  (select x, z from C) t1
 inner join 
-  ( select x, y from A) t2
+  (select x, y from A) t2
 on t1.x = t2.x
 inner join
-  ( select x, y from B) t3
+  (select x, y from B) t3
 on t1.x = t3.x
 
 
