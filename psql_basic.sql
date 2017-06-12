@@ -18,9 +18,9 @@ json_extract_path_text(json_extract_path_text(col_name, 'key1'), 'key2')
 
 
 -- multiple inner join
--- from what I have found so far, in psql, all the tables that will be involved in join, you need to put that table in ()
+-- from what I have found so far, in psql, if there is where or other clause before join clause, you may need to use () to wrap this table
 select t1.x from
-  (select x, z from C) t1
+  (select x, z from C where....) t1
 inner join 
   (select x, y from A) t2
 on t1.x = t2.x
@@ -28,6 +28,16 @@ inner join
   (select x, y from B) t3
 on t1.x = t3.x
 
+-- multiple inner join
+--without other clause, you can do join directly
+select t1.x from
+C t1
+inner join 
+  (select x, y from A) t2
+on t1.x = t2.x
+inner join
+  (select x, y from B) t3
+on t1.x = t3.x
 
 -- export output to local csv
 -- You'd better do this through your terminal
