@@ -43,3 +43,17 @@ on t1.x = t3.x
 -- You'd better do this through your terminal
 -- This is the best way I found that won't mess up the data when I am using Python CSV DicReader to read
 PGPASSWORD=[password] psql -h [host] -U [user_name] -d [database] -p 5439 -A  -F '|' -c "select * from [table]" -o test.csv
+
+
+-- When you have UNION and LIMIT
+(select *
+from A
+limit 70000)
+union
+(select *
+from B
+limit 70000)
+union
+(select *
+from C
+limit 70000)
