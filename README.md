@@ -92,6 +92,7 @@
    * My code: https://github.com/hanhanwu/Basic_But_Useful/blob/master/python_dct_and_order.py
      * arrange keys in a dictionary in order
      * make a dictionary arranged in key order
+ * Python Excel: https://github.com/hanhanwu/Basic_But_Useful/blob/master/python_excel.py
 
 * PYTHON 3
   * How to have Python 3 without hurting 2.7: for me, I simply created a new project in PyCharm community Edition, and set the intepretor as python 3, just 1 seconds for this setting
