@@ -6,6 +6,10 @@
 date_trunc('day', my_timestamp) = '2017-05-25 00:00:00';
 -- Match year from timestamp 2017-05-25 10:20:20
 date_trunc('year', my_timestamp) = '2017-01-01 00:00:00';
+-- select date
+select my_timestamp::date from my_table;
+-- extract time elements such as month, week
+select extract(week from requesttime) as week from my_table;
 
 
 -- 2. extract elments from timestamp, such as hour, from timestamp 2017-05-25 10:20:20
