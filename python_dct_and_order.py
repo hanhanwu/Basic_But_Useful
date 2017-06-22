@@ -21,5 +21,5 @@ with open(richout_output, 'w') as richout:
 
     
 # 3. Python2 only, output a dictionary arranged in key order
-for k, v in dct.iterateitems:
+for k, v in dct.iteritems:
   print k,v
