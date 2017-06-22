@@ -18,3 +18,8 @@ rich_dct[file_name] = OrderedDict([("Text Length", 0), ("Nouns", {"List":[], "Av
 sorted_dict = OrderedDict(sorted(rich_dct.items(), key=lambda t: t[0]))
 with open(richout_output, 'w') as richout:
     json.dump(sorted_dict, richout)
+
+    
+# 3. Python2 only, output a dictionary arranged in key order
+for k, v in dct.iterateitems:
+  print k,v
