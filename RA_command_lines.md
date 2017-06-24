@@ -1,5 +1,5 @@
-My RA work finally has been finished on 2017/4/29. So excited and I have collected all the comand lines used in MAC/Linux terminal, GitHub commnds, as well as WestGrid (cloud) commnds.
-
+My RA work finally has been finished on 2017/4/29. So excited and I have collected all the comand lines used in MAC/Linux terminal, GitHub commnds, as well as WestGrid (cloud) commnds. 
+This file will also be used to record other commands.
 
 ***************************************************************************************
 
@@ -39,7 +39,10 @@ My RA work finally has been finished on 2017/4/29. So excited and I have collect
 * Add a library path to `$PATH`
   * export PATH=/Library/Frameworks/Python.framework/Versions/3.5/bin:$PATHf
   * export PATH=$PATH:/Users/devadmin/Documents/geckodriver
-
+* `brew update` error
+  * When you try commands like `brew update`, it may show you error: `Error: The /usr/local directory is not writable.`
+  * To deal with this, type `sudo chown -R $(whoami):admin /usr/local`, here no need to change anything in the command
+  * After that, change permission back by typing `sudo chown root:wheel /usr/local`
 
 ***************************************************************************************
 
