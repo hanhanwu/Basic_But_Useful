@@ -68,3 +68,11 @@ This file will also be used to record other commands.
 * Run python3.5 through WestGrid Terminal:
   * `module load python/3.5.0`
   * `python3.5`
+  
+  
+***************************************************************************************
+
+<b>R Command</b>
+
+* To find R HOME: `R.home()`, type this in R Studio
+* Find my R packages in the previous version (this is why I hate version updating for some software...): `cd /Library/Frameworks/R.framework/Versions/3.2/Resources/library`
