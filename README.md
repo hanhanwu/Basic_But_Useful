@@ -96,6 +96,9 @@
 * `seaborn` - an easy-to-use python visualization
   * my code: https://github.com/hanhanwu/Basic_But_Useful/blob/master/python_distribution_visualization.ipynb
   * The visualization here is majorly for distribution analysis (univariate, bivariate)
+* Python Pandas
+  * My pandas code: https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/try_pandas.ipynb
+  * My pandas used in biclustering code: https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/HiCS_biclustering.ipynb
  
 
 * PYTHON 3
