@@ -63,3 +63,22 @@ union
 (select *
 from C
 limit 70000)
+
+
+-- "Case When" to create a new column
+select col1, col2,
+case
+  when col1 = col2 then 1,
+  else 0
+end as col3,
+col4
+from my_table
+
+-- "Case When" on existing column
+select col2,
+case col1
+  when col1 = col2 then 1,
+  else 0
+end,
+col4
+from my_table
