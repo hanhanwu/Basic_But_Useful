@@ -53,6 +53,7 @@
   * With mlr package, we can get feature importance easier by chosing which method do we need, such as Random Forest or Information Gain, it also allows you to tune the parameter of these methods: https://github.com/hanhanwu/Basic_But_Useful/blob/master/mlr_feature_importance.R
   * mlr find learners: https://github.com/hanhanwu/Basic_But_Useful/blob/master/mlr_find_learners.R
   * mlr package (page 32 is about feture importance): https://cran.r-project.org/web/packages/mlr/mlr.pdf 
+  * R data.table basics: https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/R_data.table_basics.R
   * data table group by and select count, max: https://github.com/hanhanwu/Basic_But_Useful/blob/master/R_group_by.R
   * reduce levels when the levels is a large number: https://github.com/hanhanwu/Basic_But_Useful/blob/master/reduce_large_levels.R
  * ASCII and Binary characters: http://roubaixinteractive.com/PlayGround/Binary_Conversion/The_Characters.asp
