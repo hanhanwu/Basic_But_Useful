@@ -46,6 +46,12 @@ This file will also be used to record other commands.
 * Python Uninstall
   * `sudo easy_install -m [PACKAGE]`
   * `sudo rm -rf /usr/local/lib/python2.X/site-packages/[PACKAGE].egg` # remove egg file
+* After installing xcode, if you get this error `error: tool 'xcodebuild' requires Xcode, but active developer directory '/Library/Developer/CommandLineTools' is a command line `
+  * Type `sudo xcode-select -s /Applications/Xcode.app/Contents/Developer`
+  * Then type `sudo xcodebuild -license`, type `agree` at the end of that license
+* Mac SDK
+  * To check all the SDKs provided by Apple: `xcodebuild -showsdks`
+  * To check SDK on your own machine: `xcrun --show-sdk-path`
 
 
 ***************************************************************************************
