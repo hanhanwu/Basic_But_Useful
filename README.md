@@ -102,6 +102,10 @@
   * My pandas code: https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/try_pandas.ipynb
   * My pandas used in biclustering code: https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/HiCS_biclustering.ipynb
   * My pandas code used in preprocessing here: https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/try_lightfGBM_cv.ipynb
+  * Pandas code here: https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/deal_with_data_shifting.ipynb
+    * Note: for label encoding here, it does label encoding for training and testing data seperately, may not be a good way. Better to combine training and testing data first, and do label encoding together
+  * Pandas code here: https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/try_genetic_alg_through_TPOT.ipynb
+    * Resolved the label encoding problem appeared above
 * Statistics Basics in Python: https://github.com/hanhanwu/Basic_But_Useful/blob/master/statistics_python_basics.py
  
 
