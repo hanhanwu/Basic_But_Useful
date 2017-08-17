@@ -52,6 +52,9 @@ This file will also be used to record other commands.
 * Mac SDK
   * To check all the SDKs provided by Apple: `xcodebuild -showsdks`
   * To check SDK on your own machine: `xcrun --show-sdk-path`
+* Install conda on Mac
+  * First of all, download and install conda .pkg here: https://www.continuum.io/downloads
+  * It should be installed in your home, then change `$PATH` like this: https://stackoverflow.com/questions/18675907/how-to-run-conda
 
 
 ***************************************************************************************
