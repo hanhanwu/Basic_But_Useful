@@ -57,6 +57,7 @@ This file will also be used to record other commands.
   * It should be installed in your home, then change `$PATH` like this: https://stackoverflow.com/questions/18675907/how-to-run-conda
   * Create conda virtual environment, install package there: https://stackoverflow.com/questions/45707010/ipython-importerror-cannot-import-name-layout/45727917#45727917
   * To deactivate conda virtual environment, type `source deactivate`
+  * To remove conda virtual environment, `conda remove -n yourenvname -all`, but note, to create conda virtual environment takes longer time than creating python `virtualenv`
 
 
 ***************************************************************************************
