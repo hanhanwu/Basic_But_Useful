@@ -82,3 +82,8 @@ case col1
 end,
 col4
 from my_table
+
+
+-- order by desc on multiple cols
+select * from my_table
+order col1 desc, col2 desc, col3 desc, col4 desc;
