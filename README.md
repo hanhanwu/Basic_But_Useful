@@ -107,6 +107,8 @@
   * Pandas code here: https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/try_genetic_alg_through_TPOT.ipynb
     * Resolved the label encoding problem appeared above
 * Statistics Basics in Python: https://github.com/hanhanwu/Basic_But_Useful/blob/master/statistics_python_basics.py
+* Read image url and open image: https://github.com/hanhanwu/Basic_But_Useful/blob/master/python_read_image_url.ipynb
+  * I love flowers!
  
 
 * PYTHON 3
