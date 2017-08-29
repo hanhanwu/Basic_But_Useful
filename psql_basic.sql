@@ -87,3 +87,11 @@ from my_table
 -- order by desc on multiple cols
 select * from my_table
 order col1 desc, col2 desc, col3 desc, col4 desc;
+
+
+-- when you want NOT IN (sometimes, NOT IN does not work in psql, or work incorrectly)
+select col1 from A
+where not exists (
+  select col1 from B
+  where A.col1 = B.col1
+);
