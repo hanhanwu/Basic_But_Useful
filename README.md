@@ -109,6 +109,8 @@
 * Statistics Basics in Python: https://github.com/hanhanwu/Basic_But_Useful/blob/master/statistics_python_basics.py
 * Read image url and open image: https://github.com/hanhanwu/Basic_But_Useful/blob/master/python_read_image_url.ipynb
   * I love flowers!
+* Python download images: https://github.com/hanhanwu/Basic_But_Useful/blob/master/python_download_images.ipynb
+  * NOTE: If the image does not exists, but there is another image such as empty image there, will still be downloaded
  
 
 * PYTHON 3
