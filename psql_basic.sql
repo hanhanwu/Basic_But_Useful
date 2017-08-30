@@ -89,9 +89,17 @@ select * from my_table
 order col1 desc, col2 desc, col3 desc, col4 desc;
 
 
--- when you want NOT IN (sometimes, NOT IN does not work in psql, or work incorrectly)
+-- the use of NOT IN
+-- sometimes, NOT IN does not work in psql workbench, or work incorrectly
 select col1 from A
 where not exists (
   select col1 from B
   where A.col1 = B.col1
 );
+
+-- sometimes, NOT IN works but the above method not
+select col1 frorm A
+where col1 not in (select col1 from B
+                  where col2 = 'x'
+                  or col3 <> 'y'
+                  or col4 = 'z') .  -- where there are multiple OR together, better not use AND with them in pSQL workbench
