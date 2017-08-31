@@ -111,6 +111,10 @@
   * I love flowers!
 * Python download images: https://github.com/hanhanwu/Basic_But_Useful/blob/master/python_download_images.ipynb
   * NOTE: If the image does not exists, but there is another image such as empty image there, will still be downloaded
+* Latitude, longitude to location: https://github.com/hanhanwu/Basic_But_Useful/blob/master/python_coordiates2location.ipynb
+  * reference: https://chrisalbon.com/python/geocoding_and_reverse_geocoding.html
+  * My 2016 post: https://stackoverflow.com/questions/35237426/geocoderserviceerror-for-geopy
+    * The google map api worked in 2016, not it gives empty results. But the above method works at this moment (who knows when it will stop working too....), and it's just in simple lines
  
 
 * PYTHON 3
