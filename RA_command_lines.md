@@ -60,6 +60,7 @@ This file will also be used to record other commands.
   * To deactivate conda virtual environment, type `source deactivate`
   * To remove conda virtual environment, `conda remove -n yourenvname --all`, but note, to create conda virtual environment takes longer time than creating python `virtualenv`
     * After running the command line, you need to `cd anaconda/envs` and type `sudo rm -r yourenvname` to fully remove the environment
+  * If you want to check how many conda virtual environment you have created and their names, also go to `anaconda/envs` by typing `cd anaconda/envs`
 
 
 ***************************************************************************************
