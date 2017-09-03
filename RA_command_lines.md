@@ -58,7 +58,7 @@ This file will also be used to record other commands.
   * Create conda virtual environment, install package there: https://stackoverflow.com/questions/45707010/ipython-importerror-cannot-import-name-layout/45727917#45727917
   * To activate it, type `source activate conda_virtualenv`
   * To deactivate conda virtual environment, type `source deactivate`
-  * To remove conda virtual environment, `conda remove -n yourenvname -all`, but note, to create conda virtual environment takes longer time than creating python `virtualenv`
+  * To remove conda virtual environment, `conda remove -n yourenvname --all`, but note, to create conda virtual environment takes longer time than creating python `virtualenv`
 
 
 ***************************************************************************************
