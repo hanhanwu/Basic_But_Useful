@@ -1,6 +1,9 @@
 
 -- psql looks like sql but still have some difference, need some reminder here
 
+-- Create python function in psql, and in psql you can call this function
+-- https://www.postgresql.org/docs/9.1/static/plpython-funcs.html
+
 -- 1. match elements in timestamp, such as year, day
 -- Match day from timestamp 2017-05-25 10:20:20
 date_trunc('day', my_timestamp) = '2017-05-25 00:00:00';
