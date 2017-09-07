@@ -67,6 +67,16 @@ union
 from C
 limit 70000)
 
+-- If you just want to select specific column(s) from 2+ tables, UNION may not be a good choice
+-- Create a table and insert into it maybe better
+drop table if exists combo_t;
+create table combo_t as
+select col from t1;
+commit;
+insert into combo_t (col)
+select col from t2;
+commit;
+
 
 -- "Case When" to create a new column
 select col1, col2,
