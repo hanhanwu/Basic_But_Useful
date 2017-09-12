@@ -116,3 +116,8 @@ where col1 not in (select col1 from B
                   where col2 = 'x'
                   or col3 <> 'y'
                   or col4 = 'z') .  -- where there are multiple OR together, better not use AND with them in pSQL workbench
+                  
+
+-- count substring occurance (NOT apply to all types of psql)
+-- case sensitive
+select regexp_count(col, 'emmanuel') from my_table;
