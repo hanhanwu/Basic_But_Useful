@@ -121,3 +121,39 @@ where col1 not in (select col1 from B
 -- count substring occurance (NOT apply to all types of psql)
 -- case sensitive
 select regexp_count(col, 'emmanuel') from my_table;
+
+
+-- Choose top N rows for each group
+-- In this case, choose the top 10 rows for each color, you can also order by other columns
+SELECT
+  * 
+FROM (
+  SELECT
+    ROW_NUMBER() OVER (PARTITION BY color ORDER BY other_col) AS r,
+    t.*
+  FROM
+    xxx t) x
+WHERE
+  x.r <= 10;  -- "<=" is very important here, since it means row_number, not number of rows
+
+-- More complex case - control number of distinct group and make sure each group have enough records
+commit;
+drop table if exists my_table;
+create table WF_bioscore_distribution_ipr_sample as
+select * from (
+    select ROW_NUMBER() over (PARTITION BY color) as r,
+    t.*
+    from whole_table t
+    where t.my_time >= '2017-04-10'
+    and t.color in 
+        (select distinct color
+        from whole_table
+        where my_time >= '2017-04-10'
+        group by color
+        having count(id) >= 8  -- change the number here (this is number of rows)
+        limit 1000)   -- change the number here, number of accounts
+  )x
+where x.r <= 8  -- change the number here (this is row number)
+order by x.color, x.r;
+commit;
+select count(*) from my_table;
