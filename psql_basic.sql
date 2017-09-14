@@ -141,7 +141,7 @@ commit;
 drop table if exists my_table;
 create table WF_bioscore_distribution_ipr_sample as
 select * from (
-    select ROW_NUMBER() over (PARTITION BY color) as r,
+    select ROW_NUMBER() over (PARTITION BY color order by my_time desc) as r,   -- order by here to choose the last N rows for each group
     t.*
     from whole_table t
     where t.my_time >= '2017-04-10'
