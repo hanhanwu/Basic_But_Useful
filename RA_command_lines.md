@@ -61,6 +61,7 @@ This file will also be used to record other commands.
   * To remove conda virtual environment, `sudo conda remove -n yourenvname --all`, but note, to create conda virtual environment takes longer time than creating python `virtualenv`
     * After running the command line, you may need to `cd anaconda/envs` and type `sudo rm -r yourenvname` to fully remove the environment
   * If you want to check how many conda virtual environment you have created and their names, also go to `anaconda/envs` by typing `cd anaconda/envs`
+* Check all the pyhton library versions: `pip freeze`
 
 
 ***************************************************************************************
