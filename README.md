@@ -107,6 +107,7 @@
     * Note: for label encoding here, it does label encoding for training and testing data seperately, may not be a good way. Better to combine training and testing data first, and do label encoding together
   * Pandas code here: https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/try_genetic_alg_through_TPOT.ipynb
     * Resolved the label encoding problem appeared above
+  * Pandas code: https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/AI_Experiments/try_audio_deep_learning.ipynb
 * Statistics Basics in Python: https://github.com/hanhanwu/Basic_But_Useful/blob/master/statistics_python_basics.py
 * Read image url and open image: https://github.com/hanhanwu/Basic_But_Useful/blob/master/python_read_image_url.ipynb
   * I love flowers!
