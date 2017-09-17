@@ -1,3 +1,4 @@
+
 # Bar Chart
 import numpy as np
 import matplotlib.pyplot as plt
@@ -10,3 +11,8 @@ plt.xticks(x_pos, x_values)
 plt.ylabel('Y')
 plt.title('Edit Your Title')
 plt.show()
+
+
+# Change fiture size
+import matplotlib.pyplot as plt
+plt.figure(figsize=(3,4))
