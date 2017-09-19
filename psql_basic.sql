@@ -157,3 +157,9 @@ where x.r <= 8  -- change the number here (this is row number)
 order by x.color, x.r;
 commit;
 select count(*) from my_table;
+
+
+-- Escape single quote in a string, e.g 'Emmanuel'
+-- Just add a single quote before the single quote you want to escape... (I know, the logic is weird in psql)
+select * from my_table
+where col in (''Emmanuel'')
