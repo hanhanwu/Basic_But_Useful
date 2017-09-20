@@ -19,6 +19,74 @@ select extract(week from requesttime) as week from my_table;
 extract(hour from my_timestamp)
 
 
+-- 3. time difference
+extract(day from max(my_time)-min(my_time))  -- EXTRACT days difference, you can also get hour, year differnece etc.
+
+
+-- 4. Get latest n days for each group (each group may have different max date)
+commit;
+drop table if exists my_temp_table;
+create temp table my_temp_table as
+select distinct t1.col1, t2.col2, count(distinct t2.my_time) from
+    (select distinct col1, max(date_trunc('day', my_time)) as max_date, dateadd(month, -6, max(date_trunc('day', my_time))) as min_date   -- latest 6 months for each group
+    from my_table
+    group by col1)t1
+inner join
+   (select distinct col1, col2, my_time
+    from my_table)t2
+on t1.col1 = t2.col1
+and date_trunc('day', t2.my_time) <= t1.max_date
+and date_trunc('day', t2.my_time) > t1.min_date
+group by t1.col1, t2.col2;
+commit;
+
+
+-- Count number of changes along the time for each group
+-- For example: a person has: red, red, red, green, green, green, purple, purple along the time, each time the color change is a change
+-- and you need to count changes for each person
+commit;
+drop table if exists my_temp_table;
+create temp table my_temp_table as
+select col1, col2, my_time
+from my_table
+order by col1, col2;
+commit;
+
+commit;
+select t3.col1, sum(t3.is_diff) as num_of_changes from
+    (select t1.col1, 
+    case 
+        when t1.col2 <> t2.col2 then 1
+        else 0
+    end as is_diff
+    from
+    (select ROW_NUMBER() over (PARTITION BY col1 order by my_time) as r1,
+    col1, col2 from my_temp_table)t1
+    inner join
+    (select t0.col1, t0.col2, t0.r2-1 as r2
+    from (
+           select ROW_NUMBER() over (PARTITION BY col1 order by my_time) as r2,
+           col1, col2 from my_temp_table
+           )t0
+    where t0.r2 > 0
+    )t2
+    on t1.col1 = t2.col1
+    and t1.r1 = t2.r2)t3
+group by t3.col1
+order by t3.col1;
+
+
+-- aggregated data
+select col1,
+max(col2),
+median(col2),
+min(col2),
+max(col2)-min(col2),
+sum(col2)
+from my_table
+group by col1;
+
+
 -- read json column, in psql some columns are in JSON format and you can get access to the values through keys
 json_extract_path_text(col_name, 'key1')
 json_extract_path_text(json_extract_path_text(col_name, 'key1'), 'key2')
