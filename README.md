@@ -117,6 +117,9 @@
   * reference: https://chrisalbon.com/python/geocoding_and_reverse_geocoding.html
   * My 2016 post: https://stackoverflow.com/questions/35237426/geocoderserviceerror-for-geopy
     * The google map api worked in 2016, not it gives empty results. But the above method works at this moment (who knows when it will stop working too....), and it's just in simple lines
+* Unequally Time Match
+  * Sometimes, you need to match events that are not happen in the same time, but they are relevant. For example, in this code, there could be multiple oil analysis between 2 work order, and you want to find the latest oil analysis for each work order
+  * code: https://github.com/hanhanwu/Basic_But_Useful/blob/master/time_match.ipynb
  
 
 * PYTHON 3
