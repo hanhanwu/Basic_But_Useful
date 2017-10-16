@@ -231,3 +231,11 @@ select count(*) from my_table;
 -- Just add a single quote before the single quote you want to escape... (I know, the logic is weird in psql)
 select * from my_table
 where col in (''Emmanuel'')
+
+
+-- Regular expression
+-- choose those with col as 10 digits, ^ outside of bracets means 'start', $ means 'end', {m} to indicate repeated number
+select col form my_table
+where col ~ ~ '^[0-9]{10}$';
+
+
