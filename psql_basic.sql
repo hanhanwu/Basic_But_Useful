@@ -12,7 +12,8 @@ date_trunc('year', my_timestamp) = '2017-01-01 00:00:00';
 -- select date
 select my_timestamp::date from my_table;
 -- extract time elements such as month, week
-select extract(week from requesttime) as week from my_table;
+select extract(week from my_timestamp) as week from my_table;  -- but this one only show week # in a year, could have overlap when there are 1+ years
+select date_trunc('week', my_timestamp) as week from my_table  -- this one specifys the year for the week
 
 
 -- 2. extract elments from timestamp, such as hour, from timestamp 2017-05-25 10:20:20
