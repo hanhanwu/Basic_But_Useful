@@ -151,6 +151,7 @@ commit;
 select col1, col2,
 case
   when col1 = col2 then 1,
+  when col1 = col3 then 2,
   else 0
 end as col3,
 col4
