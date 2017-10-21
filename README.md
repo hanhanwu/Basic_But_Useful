@@ -100,6 +100,7 @@
   * By default, `kdeplot()` is using "gaussian" as kernel type, so when you are giving an array of numbers, it converts to gaussian distribution like curves
 * Other Python Visualization: https://github.com/hanhanwu/Basic_But_Useful/blob/master/python_visualization.py
 * Python Pandas
+  * I'm updating pandas and python dataframe here too: https://github.com/hanhanwu/Basic_But_Useful/blob/master/python_dataframe.py
   * My pandas code: https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/try_pandas.ipynb
   * My pandas used in biclustering code: https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/HiCS_biclustering.ipynb
   * My pandas code used in preprocessing here: https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/try_lightfGBM_cv.ipynb
