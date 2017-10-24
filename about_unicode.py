@@ -37,5 +37,5 @@ with open(dct_file_path, encoding = "ISO-8859-1") as dct_file:
     r = r.strip()
 
     
-# Sample 5: UnicodeEncodeError: 'ascii' codec can't encode character u'\u2026'
-data = text.encode('utf-8')
+# Sample 5: UnicodeEncodeError: 'ascii' codec can't encode character u'\u2026',or u'\xa0'
+data = text.encode('utf-8').strip()
