@@ -14,3 +14,18 @@ df1 = df.ix[(df['col1']>=777)
             & (df['col2']<=999) 
             & (df['col3']>=410)]
 result = df1.sort_values(['col1'], ascending=[1])[['col1', 'col2', 'col3']]  # finally sort results based on values
+
+
+# join csv files
+df1 = pd.read_csv('csv1')
+df2 = pd.read_csv('csv2')
+df = pd.merge(df1, df2, on='common_col', how='inner')
+selected_cols = df.loc[:, ['col1', 'col2', 'col3']]
+selected_cols.to_csv('output_file.csv')
+
+# unique values in 1 column
+df1['col1'].unique()
+
+# select the first value in each group
+## Here, df1 only has 2 columns (my_id, value), by doing this, you are choosing the first value for each my_id
+df = df1.groupby('my_id').first().reset_index()
