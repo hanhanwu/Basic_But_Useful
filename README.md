@@ -151,6 +151,12 @@
   * Tableau
     * Create distribution for a single column: https://www.interworks.com/blog/anonymous/2012/01/30/simple-histograms-tableau
     * Customize bins through query: http://reports4u.co.uk/tableau-create-bins-from-measure-calculation/
+  * Excel
+    * As a data scientist in modern world, are you going to use Excel? I will never choose that tool. Well, but in the workplace you are not working alone, sometimes, you have to work with those who uses Excel...
+    * To get the chart from your excel data, select your data, and press `Alt + F1`
+      * https://support.office.com/en-us/article/Create-a-chart-from-start-to-finish-0baf399e-dd61-4e18-8a73-b3fd5d5680c2
+    * To change data labels, such change value to percentage, you need to select the chart, right click, if you are lucky, maybe able to see the right side tool bar to allow you click "Percentage"'
+    * As for adding the legend, well, I really didn't find the good tutorial.... I copied other's legend. It seems that the legend used in that file matched to the wrong category, but used in my chart, it just right. So, it's lucky
 
 
 * Perforce
