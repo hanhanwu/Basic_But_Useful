@@ -121,6 +121,9 @@
 * Unequally Time Match
   * Sometimes, you need to match events that are not happen in the same time, but they are relevant. For example, in this code, there could be multiple oil analysis between 2 work order, and you want to find the latest oil analysis for each work order
   * code: https://github.com/hanhanwu/Basic_But_Useful/blob/master/time_match.ipynb
+  
+* Python FlashText - search & replace keywords faster than regex
+  * https://github.com/hanhanwu/Basic_But_Useful/blob/master/try_flashtext.ipynb
  
 
 * PYTHON 3
