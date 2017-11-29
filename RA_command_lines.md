@@ -17,6 +17,7 @@ This file will also be used to record other commands.
 <b>Mac/Linux Commnds</b>
 
 * <b>NOTE:</b> If it is showing any error, try to start your commnd line with `sudo`, if your know admin id and password.
+* Change root password: `sudo passwd root`
 * List in files in time order: `ls -lt`
 * List files with created time: `ls -ll`
 * Copy file to another folder: `cp -r f1 [new_dir path]/f1`
