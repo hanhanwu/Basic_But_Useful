@@ -151,6 +151,11 @@
 
 
 * Data Visualization
+  * Python altair
+    * It looks more pretty than `matplotlib`. But it doesn't support boxchart and other basics which matplotlib supports
+    * Source: https://github.com/altair-viz/altair
+    * Gallery: https://altair-viz.github.io/gallery/index.html#
+    * my code: https://github.com/hanhanwu/Basic_But_Useful/blob/master/try_altair_visualization.ipynb
   * Tableau
     * Create distribution for a single column: https://www.interworks.com/blog/anonymous/2012/01/30/simple-histograms-tableau
     * Customize bins through query: http://reports4u.co.uk/tableau-create-bins-from-measure-calculation/
