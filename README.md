@@ -124,8 +124,8 @@
   
 * Python FlashText - search & replace keywords faster than regex
   * https://github.com/hanhanwu/Basic_But_Useful/blob/master/try_flashtext.ipynb
-  
 * Python NLP commonly used basics operations: https://github.com/hanhanwu/Basic_But_Useful/blob/master/NLP_basic_preprocessing.ipynb
+* IPython hide warnings: https://github.com/hanhanwu/Basic_But_Useful/blob/master/ipython_hide_warning.py
  
 
 * PYTHON 3
