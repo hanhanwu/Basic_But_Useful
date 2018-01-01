@@ -124,7 +124,10 @@
   
 * Python FlashText - search & replace keywords faster than regex
   * https://github.com/hanhanwu/Basic_But_Useful/blob/master/try_flashtext.ipynb
-* Python NLP commonly used basics operations: https://github.com/hanhanwu/Basic_But_Useful/blob/master/NLP_basic_preprocessing.ipynb
+* Python NLP commonly used basics operations
+  * Basics 1 - https://github.com/hanhanwu/Basic_But_Useful/blob/master/NLP_basic_preprocessing.ipynb
+  * Basics 2 - https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/AI_Experiments/text_embedding_NN.ipynb
+    * Only check Step 1 here. Very basics here. Remove punctuation, only keep alphebic non-stop words with enough length
 * IPython hide warnings: https://github.com/hanhanwu/Basic_But_Useful/blob/master/ipython_hide_warning.py
  
 
