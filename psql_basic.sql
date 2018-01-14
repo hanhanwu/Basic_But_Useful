@@ -56,6 +56,7 @@ from my_table
 order by col1, col2;
 commit;
 
+-- NOTE: It seems that partition is opreated on all the records in each group, no matter whether you have "where" clause
 commit;
 select t3.col1, sum(t3.is_diff) as num_of_changes from
     (select t1.col1, 
@@ -198,6 +199,7 @@ select regexp_count(col, 'emmanuel') from my_table;
 
 -- Choose top N rows for each group
 -- In this case, choose the top 10 rows for each color, you can also order by other columns
+-- NOTE: It seems that partition is opreated on all the records in each group, no matter whether you have "where" clause
 SELECT
   * 
 FROM (
