@@ -231,6 +231,11 @@ order by x.color, x.r;
 commit;
 select count(*) from my_table;
 
+-- psql Window function. Functions such as ROW_NUMBER() are window functions
+-- http://www.postgresqltutorial.com/postgresql-window-function/
+LAG(), LEAD() can be used to compare current row in a group with PREVIOUS, LATER rows
+There are also, LAST_VALUE(), FIRST_VALUE(), NTH_VALUE(), RANK(), DENSE_RANK(), ROW_NUMBER()
+
 
 -- Escape single quote in a string, e.g 'Emmanuel'
 -- Just add a single quote before the single quote you want to escape... (I know, the logic is weird in psql)
