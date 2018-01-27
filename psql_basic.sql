@@ -249,3 +249,13 @@ select col form my_table
 where col ~ ~ '^[0-9]{10}$';
 
 
+-- drop many tables you have created
+commit;
+select tablename||',' from pg_tables where tableowner = '[your db username]';
+-- then copy generated list
+commit;
+drop table if exists
+[the list];
+commit;
+
+
