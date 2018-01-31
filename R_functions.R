@@ -13,3 +13,9 @@ x_path <- "/html/body/div[1]/div/div[4]/div[3]/div[1]/div/div/div[3]/div[" %&% r
 
 # check whether a substring is in the string
 grepl("min", df$Certificate) == T
+
+
+# R percentile
+boxplot(raw_data$mkeystrokeratemsrepeat)
+quantile(raw_data$mkeystrokeratemsrepeat)
+quantile(raw_data$mkeystrokeratemsrepeat, c(.0, .01, .05, .15, .25, .50,  .75, .80, .85, .90, .99))
