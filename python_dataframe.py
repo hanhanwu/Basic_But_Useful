@@ -2,7 +2,35 @@
 
 # select 10% sample from each group
 grouped_all_data = all_data.groupby(['col1', 'col2'])
-sample_data = grouped_all_data.apply(lambda x:x.sample(frac=0.1))
+sample_data = grouped_all_data.apply(lambda x:x.sample(frac=0.1))  # apply is like udf, but can be used on rows or columns
+
+
+# use apply on each column
+## divide 15% to 85% into bin_num-2 groups, 15-% as a group, 85+% as a group
+def create_feature_bins(feature_values):  
+    bin_num=7  # Change bin_num here if necessary
+    value15 = np.percentile(feature_values, 15)  # python percentile, get the value at 15%
+    value85 = np.percentile(feature_values, 85)
+    bins = []
+    min_value = min(feature_values)
+    max_value = max(feature_values)
+    bins.append([min_value,value15])
+    
+    interval = (value85 - value15)/(bin_num-2)
+    last_max = value15
+    for i in range(bin_num-2):
+        current_min = last_max
+        if i == bin_num-3:
+            current_max = value85
+        else:
+            current_max = current_min + interval
+        bins.append([current_min, current_max])
+        last_max = current_max
+    
+    bins.append([value85, max_value])
+    return bins
+
+test_bins = num_cols.apply(lambda col: create_feature_bins(col)) # apply the function on each bin
 
 
 # save dataframe to csv, without header
