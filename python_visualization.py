@@ -3,6 +3,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+axes = plt.gca()
+axes.set_xlim([xmin,xmax]) # set x-axis range
+axes.set_ylim([ymin,ymax]) # set y-axis range
 x_values = ['A', 'B', 'C', 'D']
 x_pos = np.arange(len(x_values))
 y_values = [10, 20, 30, 40]
