@@ -24,7 +24,8 @@ This file will also be used to record other commands.
   * You can also use `curl -0 url` and it's built-in on Mac
 * List in files in time order: `ls -lt`
 * List files with created time: `ls -ll`
-* Copy file to another folder: `cp -r f1 [new_dir path]/f1`
+* Copy current folder to another folder: `cp -r f1 [new_dir path]/f1`
+* Copy another folder to current folder `cp -r [folder_path] .`
 * Count number of files in a folder: `find . -type f | wc -l`
 * Find files start with (in this case, all start with 'article'): `find . -type f -name 'article*' | wc -l`
 * Find files not start with (in this case, not start with 'article'): `find . -type f ! -name 'article*'`
@@ -98,3 +99,21 @@ This file will also be used to record other commands.
 
 * To find R HOME: `R.home()`, type this in R Studio
 * Find my R packages in the previous version (this is why I hate version updating for some software...): `cd /Library/Frameworks/R.framework/Versions/3.2/Resources/library`
+
+* Install packages such as "ChannelAttribution.tar.gz"
+  * My goodness, I have never spent longer time to install an R package like this one
+  * If you check online, they told you many different methods to install R package when you had failure
+  * Now I think, a good starting point is to install from GitHub, if that package has a GitHub version, because the error messages in this install method is more detailed
+    * `library(devtools)`
+    * `install_github("cran/ChannelAttribution")`
+    * Its GitHub: https://github.com/cran/ChannelAttribution
+  * In this case, I got error telling me things maybe related to "clang", maybe related to "-lgfortran", I thought mayb ethat clang error caused by "-lgfortran", so I found the solution here:
+    * Install -lgfortran: https://thecoatlessprofessor.com/programming/rcpp-rcpparmadillo-and-os-x-mavericks--lgfortran-and--lquadmath-error/
+    * For mac Latest OS, download it here: http://gcc.gnu.org/wiki/GFortranBinaries#MacOS
+    * Install the .dmg file
+    * Then open you terminal, no matter which folder you are you, just type:
+      * `mkdir ~/.R`, if you have already had this folder, the terminal you tell you that you had it. If you had it, type `cd ~/.R`, if `Makevars` is there, it's great.
+      * Type `cat << EOF >> ~/.R/Makevars`
+      * Type `FLIBS=-L/usr/local/gfortran/lib/gcc/x86_64-apple-darwin16/6.3.0 -L/usr/local/gfortran/lib -lgfortran -lquadmath -lm`, change the version name if you downloaded another version
+      * Type `EOF`
+    * Now in your RStudio, type `library(devtools)`, `install_github("cran/ChannelAttribution")`
