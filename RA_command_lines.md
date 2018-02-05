@@ -117,3 +117,9 @@ This file will also be used to record other commands.
       * Type `FLIBS=-L/usr/local/gfortran/lib/gcc/x86_64-apple-darwin16/6.3.0 -L/usr/local/gfortran/lib -lgfortran -lquadmath -lm`, change the version name if you downloaded another version
       * Type `EOF`
     * Now in your RStudio, type `library(devtools)`, `install_github("cran/ChannelAttribution")`
+  * You may still get the error after install&compile successfully. In this pack, it is important to check source code "LinkingTo"
+    * Source: https://www.rdocumentation.org/packages/ChannelAttribution/versions/1.10
+    * In LinkingTo, you will see `Rcpp`, `RcppArmadillo`. Install them all and restart your R session
+  * Other note
+    * Install from local file if you have downloaded the package
+      * `install.packages("[zipped package local location]", repos = NULL, type="source")`
