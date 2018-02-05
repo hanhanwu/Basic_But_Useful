@@ -259,3 +259,11 @@ drop table if exists
 commit;
 
 
+-- export data directly from workbench
+-- http://www.sql-workbench.net/manual/command-export.html
+WbExport -type=text
+         -file='[outout file path]' -- output file path
+         -delimiter='\t'
+         -decimal=',';
+select * from my_table LIMIT 10;
+commit;
