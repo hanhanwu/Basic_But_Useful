@@ -92,10 +92,11 @@ group by col1;
 
 
 -- read json column, in psql some columns are in JSON format and you can get access to the values through keys
-json_extract_path_text(col_name, 'key1')
-json_extract_path_text(json_extract_path_text(col_name, 'key1'), 'key2')
+-- col name is important 
+select json_extract_path_text(col_name, 'key1') as col1
+select json_extract_path_text(json_extract_path_text(col_name, 'key1'), 'key2') as col2
 -- read json in an array
-json_extract_path_text(json_extract_array_element_text(col_name, 0), 'key1')
+select json_extract_path_text(json_extract_array_element_text(col_name, 0), 'key1') as col3
 
 
 -- multiple inner join
