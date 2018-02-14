@@ -41,8 +41,8 @@ def dist_scaled_manhattan(group_values):
     result = sum(abs(group_values-mdn))/(len(group_values)-1)  # with transform, this will use each individual value in a group to subtract the median of the group
     return result
 
-sub_df = sub_df.set_index('accountid')
-dist_grouped_df = sub_df.groupby(level='accountid').transform(dist_scaled_manhattan)
+sub_df = sub_df.set_index('myid')
+dist_grouped_df = sub_df.groupby(level='myid').transform(dist_scaled_manhattan)
 dist_grouped_df = dist_grouped_df.drop_duplicates()
 print(dist_grouped_df.shape)
 
