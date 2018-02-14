@@ -33,6 +33,21 @@ def create_feature_bins(feature_values):
 test_bins = num_cols.apply(lambda col: create_feature_bins(col)) # apply the function on each bin
 
 
+# apply user defined function on each column in each group
+from statistics import mean, median, pstdev
+
+def dist_scaled_manhattan(group_values):
+    mdn = group_values.median()
+    result = sum(abs(group_values-mdn))/(len(group_values)-1)  # with transform, this will use each individual value in a group to subtract the median of the group
+    return result
+
+sub_df = sub_df.set_index('accountid')
+dist_grouped_df = sub_df.groupby(level='accountid').transform(dist_scaled_manhattan)
+dist_grouped_df = dist_grouped_df.drop_duplicates()
+print(dist_grouped_df.shape)
+
+
+
 # save dataframe to csv, without header
 sample_data.to_csv('mysample.csv', sep=',', header=0)
 
