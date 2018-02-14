@@ -32,8 +32,15 @@ def create_feature_bins(feature_values):
 
 test_bins = num_cols.apply(lambda col: create_feature_bins(col)) # apply the function on each bin
 
+# use apply on multiple columns for each row
+cols_ct = len(dist_grouped_df.columns)
+scored_df = dist_grouped_df.apply(lambda r: cols_ct/sum(r), axis=1)
+scored_df.head()
+
 
 # apply user defined function on each column in each group
+## apply() can be used on cols, rows, 
+## but if you have operations on each group, use transform
 from statistics import mean, median, pstdev
 
 def dist_scaled_manhattan(group_values):
@@ -179,3 +186,94 @@ for sample_foodname in selected_foodnames:
             tmp_ct += 1
         break
     ct += 1
+
+    
+# Data Explore & Data Preprocessing Methods
+## check percentile for each colummn
+def get_percentile(col):
+    result = {'1%':np.percentile(col, 1),
+             '5%':np.percentile(col, 5), '10%':np.percentile(col, 10), '15%':np.percentile(col, 15),
+             '25%':np.percentile(col, 25), '50%':np.percentile(col, 50), '75%':np.percentile(col, 75),
+             '85%':np.percentile(col, 85), '95%':np.percentile(col, 95), '99%':np.percentile(col, 99),
+              '100%':np.percentile(col, 100)}
+    return result
+    
+df = df.set_index('accountid')
+percentile_df = df.apply(get_percentile)
+pd.set_option('max_colwidth', 800)
+pd.DataFrame(percentile_df)
+
+## put outliers at start and end points, then get percentile
+### Here, k is not 1.5, since sometimes, 1.5*IQR can remove too much outliers
+def impute_outliers_percentile(col):
+    k = 2.0
+    q1 = np.percentile(col, 25)
+    q3 = np.percentile(col, 75)
+    iqr = q3-q1
+    new_col = []
+    if iqr==0:
+        new_col = col  # deal with cols that are close to uniform
+    else:
+        for e in col:
+            if e < 0:  # special case: features here should all >= 0
+                new_col.append(0.0)
+            elif e >= (q1-k*iqr) and e <= (q3+k*iqr):
+                new_col.append(e)
+            elif e < (q1-k*iqr):
+                new_col.append(q1-k*iqr)
+            else:
+                new_col.append(q3+k*iqr)
+    
+    result = {'1%':np.percentile(new_col, 1),
+             '5%':np.percentile(new_col, 5), '10%':np.percentile(new_col, 10), '15%':np.percentile(new_col, 15),
+             '25%':np.percentile(new_col, 25), '50%':np.percentile(new_col, 50), '75%':np.percentile(new_col, 75),
+             '85%':np.percentile(new_col, 85), '95%':np.percentile(new_col, 95), '99%':np.percentile(new_col, 99),
+              '100%':np.percentile(new_col, 100)}
+    return result
+    
+df = df.set_index('accountid')
+percentile_df = df.apply(impute_outliers_percentile)
+pd.set_option('max_colwidth', 800)
+pd.DataFrame(percentile_df)
+
+## deal with outliers (put them at the edges), normalize each column into [0,1] range
+def impute_outliers(col):
+    k = 2.0
+    q1 = np.percentile(col, 25)
+    q3 = np.percentile(col, 75)
+    iqr = q3-q1
+    new_col = []
+    if iqr==0:
+        new_col = col  # deal with cols that are close to uniform
+    else:
+        for e in col:
+            if e < 0:  # special case: features here should all >= 0
+                new_col.append(0.0)
+            elif e >= (q1-k*iqr) and e <= (q3+k*iqr):
+                new_col.append(e)
+            elif e < (q1-k*iqr):
+                new_col.append(q1-k*iqr)
+            else:
+                new_col.append(q3+k*iqr)
+    return new_col
+
+def normalize_cols(col):
+    min_v = min(col)
+    max_v = max(col)
+    normalized_col = [(v-min_v)/(max_v-min_v) for v in col]
+    return normalized_col
+# impute outliers
+df = df.set_index('accountid')
+imputed_df = df.apply(impute_outliers)
+# normalize each col into [0,1]
+normalized_df = imputed_df.apply(normalize_cols)
+
+## count NA in each column
+df.isnull().sum()
+
+## where clause
+scored_df.where(scored_df >= 43).dropna()
+
+## get rows based on index value
+normalized_df.loc['this_is_index_value'].head()
+
