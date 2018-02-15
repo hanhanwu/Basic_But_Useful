@@ -277,3 +277,17 @@ scored_df.where(scored_df >= 43).dropna()
 ## get rows based on index value
 normalized_df.loc['this_is_index_value'].head()
 
+## different distance methods in Scipy
+## https://docs.scipy.org/doc/scipy-0.15.1/reference/generated/scipy.spatial.distance.cdist.html
+### Here, calculate the distance between individual value in each column and the column median
+def get_scaled_dist(group_values, dist_name='cityblock'):
+    lst = [[e] for e in group_values]
+    mdn = group_values.median()
+    dist_sum = sum(distance.cdist(np.array(lst), np.array([[mdn]]), dist_name))[0]
+    dist = dist_sum/(len(group_values)-1)
+    return dist
+
+dist_name = 'cityblock'
+df = df.set_index('accountid')
+df = df.groupby(level='id').transform(get_scaled_dist,dist_name)
+df = df.drop_duplicates()
