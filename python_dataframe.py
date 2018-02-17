@@ -271,8 +271,10 @@ normalized_df = imputed_df.apply(normalize_cols)
 ## count NA in each column
 df.isnull().sum()
 
-## where clause
-scored_df.where(scored_df >= 43).dropna()
+## where clause (df here has 1 index, the other column is the value column)
+df.where(df >= 410).dropna()
+### When you have multiple conditions, using () for each condition is required:
+df.where((df >= 77) & (df <= 99)).dropna()
 
 ## get rows based on index value
 normalized_df.loc['this_is_index_value'].head()
