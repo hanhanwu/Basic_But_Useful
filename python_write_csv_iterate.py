@@ -6,5 +6,5 @@ with open(write_path, 'w') as csvfile:
 
     writer.writeheader()
     
-    for t in list(all_merchant):
-        writer.writerow({'Merchant_Name': t[0], 'Merchant_Category': t[1]})
+    for t in list(all_merchant):  # each t is a distionary, even keys are in different order for each t, it's fine
+        writer.writerow(t)
