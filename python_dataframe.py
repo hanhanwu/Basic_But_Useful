@@ -102,7 +102,7 @@ selected_cols = my_csv.iloc[:,cols_idx]
 
 
 # count records in each group, sort by counts
-## in this case, group by food_name, count the records in each food_name, 
+## in this case, group by food_name, count the number of flavors in each food_name, 
 ## finally select food_names that have [20, 30) records
 df_count = selected_features[['food_name', 'flavor']]\
           .groupby(['food_name'])['flavor']\
