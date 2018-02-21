@@ -275,6 +275,10 @@ df.isnull().sum()
 df.where(df >= 410).dropna()
 ### When you have multiple conditions, using () for each condition is required:
 df.where((df >= 77) & (df <= 99)).dropna()
+### When you just want to drop rows have NA on specific cols
+df.where(df >= 410).dropna(subset=['col1', 'col2'])
+### only drop when all rows are NA
+df.where(df >= 410).dropna(how='all')
 
 ## get rows based on index value
 normalized_df.loc['this_is_index_value'].head()
