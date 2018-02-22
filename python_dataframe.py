@@ -73,6 +73,9 @@ df = pd.merge(df1, df2, on='common_col', how='inner')
 selected_cols = df.loc[:, ['col1', 'col2', 'col3']]
 selected_cols.to_csv('output_file.csv')
 
+# join df through index
+joined_df = pd.merge(df1, df2, left_index=True, right_index=True)
+
 
 # unique values in 1 column
 df1['col1'].unique()
