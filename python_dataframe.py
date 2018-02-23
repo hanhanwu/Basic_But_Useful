@@ -300,3 +300,6 @@ dist_name = 'cityblock'
 df = df.set_index('accountid')
 df = df.groupby(level='id').transform(get_scaled_dist,dist_name)
 df = df.drop_duplicates()
+
+# Createa histogram from dataframe or numpy histogram
+# Check https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/Applied_Statistics/thinkstats_chapter2.ipynb
