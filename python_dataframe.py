@@ -77,8 +77,10 @@ selected_cols.to_csv('output_file.csv')
 joined_df = pd.merge(df1, df2, left_index=True, right_index=True)
 
 
-# unique values in 1 column
+# list unique values in 1 column
 df1['col1'].unique()
+## count each unique values in a column
+df.groupby('col_you_want2count')['ID'].nunique()
 
 
 # select the first value in each group
