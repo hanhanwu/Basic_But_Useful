@@ -76,6 +76,10 @@ selected_cols.to_csv('output_file.csv')
 # join df through index
 joined_df = pd.merge(df1, df2, left_index=True, right_index=True)
 
+# find columns in df1 but not in df2
+df = pd.merge(df1, df2, on='common_col', how='inner')
+df1[~df1['id'].isin(df['id'])]
+
 
 # list unique values in 1 column
 df1['col1'].unique()
