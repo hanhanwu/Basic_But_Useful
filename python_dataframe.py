@@ -32,6 +32,8 @@ def create_feature_bins(feature_values):
 
 test_bins = num_cols.apply(lambda col: create_feature_bins(col)) # apply the function on each bin
 
+# NOTE: When there are nan in the list, np.percentile won't work. Use np.nanpercentile(lst)
+
 # use apply on multiple columns for each row
 cols_ct = len(dist_grouped_df.columns)
 scored_df = dist_grouped_df.apply(lambda r: cols_ct/sum(r), axis=1)
