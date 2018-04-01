@@ -123,3 +123,16 @@ This file will also be used to record other commands.
   * Other note
     * Install from local file if you have downloaded the package
       * `install.packages("[zipped package local location]", repos = NULL, type="source")`
+
+
+***************************************************************************************
+
+<b>MySQL Commands</b>
+
+* Forgot Password & Reser Password - No matter whether you have MySQL workbench, when you are using your localhost, you need to start the server first. If you haven't used it for a while, you may realize, ahhhhh, I forgot the password
+  * Step 1 - Open your terminal, make sure you have 2 folders under `/usr/local/`, "mysql" and "mysql-VERSION..."
+  * Step 2 - Type `cd /usr/local/mysql`, then type `mysql.server start`
+  * Step 3 - Open Mysql WORKBENCH, click "server status" on the left bar, it will ask you password to reset password. For old password, try to <b>leave it blank first</b>, since very possible, you didn't set the password before. Then set your new password
+    * If you did set password before and forgot it, try the method here: https://www.howtoforge.com/setting-changing-resetting-mysql-root-passwords
+  * Quit mysql in terminal, type `exit`
+  * stop server, type `mysql.server stop`
