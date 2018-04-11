@@ -237,6 +237,15 @@ select count(*) from my_table;
 LAG(), LEAD() can be used to compare current row in a group with PREVIOUS, LATER rows
 There are also, LAST_VALUE(), FIRST_VALUE(), NTH_VALUE(), RANK(), DENSE_RANK(), ROW_NUMBER()
 
+-- percentile
+select percentile_cont(0.05) WITHIN GROUP (ORDER BY my_val) as perct_5,
+percentile_cont(0.1) WITHIN GROUP (ORDER BY my_val) as perct_10,
+percentile_cont(0.25) WITHIN GROUP (ORDER BY my_val) as perct_25,
+percentile_cont(0.5) WITHIN GROUP (ORDER BY my_val) as perct_50,
+percentile_cont(0.75) WITHIN GROUP (ORDER BY my_val) as perct_75,
+percentile_cont(0.9) WITHIN GROUP (ORDER BY my_val) as perct_90,
+percentile_cont(0.95) WITHIN GROUP (ORDER BY my_val) as perct_95
+from my_table;
 
 -- Escape single quote in a string, e.g 'Emmanuel'
 -- Just add a single quote before the single quote you want to escape... (I know, the logic is weird in psql)
