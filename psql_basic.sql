@@ -237,6 +237,14 @@ select count(*) from my_table;
 LAG(), LEAD() can be used to compare current row in a group with PREVIOUS, LATER rows
 There are also, LAST_VALUE(), FIRST_VALUE(), NTH_VALUE(), RANK(), DENSE_RANK(), ROW_NUMBER()
 
+-- Using window function lag to calculate time differences between previous_time and each current time
+-- date_diff(hour, prev_time, current_time), not only hour, you can calculate days differences, mins, etc.
+select row_index, myid, lag(mytime) over (partition by myid, mychocolate order by mytime) as prev_time, 
+mytime as current_time,
+datediff(hour, lag(mytime) over (partition by myid, mychocolate order by mytime), mytime) as hour_diff
+from my_table
+limit 10;
+
 -- percentile
 select percentile_cont(0.05) WITHIN GROUP (ORDER BY my_val) as perct_5,
 percentile_cont(0.1) WITHIN GROUP (ORDER BY my_val) as perct_10,
