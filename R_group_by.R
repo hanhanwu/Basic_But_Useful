@@ -17,3 +17,6 @@ dt3 <- dt3[, .SD[which.max(N)], by=TRUID]
 head(dt3)
 rm(dt2)
 rm(freq_dt)
+
+## group by and put items in a list for each group
+product_lst <- orders_prior[, .(current_order = list(product_id)), by=order_id]
