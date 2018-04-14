@@ -19,4 +19,5 @@ rm(dt2)
 rm(freq_dt)
 
 ## group by and put items in a list for each group
+### "current_order" is the new column name
 product_lst <- orders_prior[, .(current_order = list(product_id)), by=order_id]
