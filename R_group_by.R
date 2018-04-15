@@ -21,3 +21,7 @@ rm(freq_dt)
 ## group by and put items in a list for each group
 ### "current_order" is the new column name
 product_lst <- orders_prior[, .(current_order = list(product_id)), by=order_id]
+
+
+# Applied methods
+## https://github.com/hanhanwu/Hanhan_Data_Science_Resources2/blob/master/learn_markov_chain.R
