@@ -71,6 +71,7 @@ This file will also be used to record other commands.
 * Check all the pyhton library versions: `pip freeze`
 * About MacPorts, homebrew may give you an error, saying "You have MacPorts or Fink installed: /opt/local/bin/port"
   * So you can move the whole /local folder to a new folder called "macports", `sudo mv /opt/local ~/macports`
+  * Oh, it seems that Homebrew and MacPorts do similar things, they download, compile, install and upgrade libraries... Is this the reason you will get an error in Homebrew?
 
 
 ***************************************************************************************
