@@ -154,10 +154,10 @@ commit;
 -- "Case When" to create a new column
 select col1, col2,
 case
-  when col1 = col2 then 1,
-  when col1 = col3 then 2,
+  when col1 = col2 then 1
+  when col1 = col3 then 2
   else 0
-end as col3,
+end as col3,  -- col3 here no need single/double quotes
 col4
 from my_table
 
