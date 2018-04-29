@@ -19,6 +19,7 @@ This file will also be used to record other commands.
 * <b>NOTE:</b> If it is showing any error, try to start your commnd line with `sudo`, if your know admin id and password.
 * Change root password: `sudo passwd root`
 * To change `$PATH` temporarily, `export PATH="/some/new/path:$PATH"`
+* Edit `open ~/.bash_profile`, if you are not good at editting a file through the command line (sometimes your command can totally overwrite the original file, which is not cool at all), why not just open the file and type in the text editor, save it. Do this `open ~/.bash_profile`, just like how you type in a text editor.
 * Install wget, `brew install wget`, wget is a commnd used to download things from an url
   * `wget url` to download
   * You can also use `curl -0 url` and it's built-in on Mac
@@ -126,7 +127,16 @@ This file will also be used to record other commands.
   * Other note
     * Install from local file if you have downloaded the package
       * `install.packages("[zipped package local location]", repos = NULL, type="source")`
-
+* `Error : .onLoad failed in loadNamespace() for 'rJava'....`
+  * This error happened when I tried to install `subspace` package. The cause was because the link between Java_Home and R studio was not there or gor broken
+  * First of all, check Java version by typing `java -version`
+  * Next edit your bash profile
+    * `open ~/.bash_profile`, this will open the bash_profile in the text editor for you
+    * Copy `export JAVA_HOME="$(/usr/libexec/java_home -v 1.7)"` there and save it. The version here depends on your own Java version
+    * To test,type `echo $JAVA_HOME`
+  * They type `sudo ln -f -s $(/usr/libexec/java_home)/jre/lib/server/libjvm.dylib /usr/local/lib`, this will relink your java with R
+  * `install.packages("rJava")`, then `library(rJava)`
+  * `install.packages("subspace")`, then `library(subspace)`
 
 ***************************************************************************************
 
