@@ -19,7 +19,8 @@ This file will also be used to record other commands.
 * <b>NOTE:</b> If it is showing any error, try to start your commnd line with `sudo`, if your know admin id and password.
 * Change root password: `sudo passwd root`
 * To change `$PATH` temporarily, `export PATH="/some/new/path:$PATH"`
-* Edit `open ~/.bash_profile`, if you are not good at editting a file through the command line (sometimes your command can totally overwrite the original file, which is not cool at all), why not just open the file and type in the text editor, save it. Do this `open ~/.bash_profile`, just like how you type in a text editor.
+* Edit `~/.bash_profile`, if you are not good at editting a file through the command line (sometimes your command can totally overwrite the original file, which is not cool at all), why not just open the file and type in the text editor, save it. Do this `open ~/.bash_profile`, just like how you type in a text editor.
+  * After saving the text file, you also need to run `source ~/.bash_profile` to make your edit valid.
 * Install wget, `brew install wget`, wget is a commnd used to download things from an url
   * `wget url` to download
   * You can also use `curl -0 url` and it's built-in on Mac
@@ -63,6 +64,9 @@ This file will also be used to record other commands.
 * Install conda on Mac
   * First of all, download and install conda .pkg here: https://www.continuum.io/downloads
   * It should be installed in your home, then change `$PATH` like this: https://stackoverflow.com/questions/18675907/how-to-run-conda
+    * Type `open ~/.bash_profile`
+    * In the opened text file, copy `export PATH=~/anaconda/bin:$PATH`
+    * Save the text file, and in the terminal type `source ~/.bash_profile`
   * Create conda virtual environment, install package there: https://stackoverflow.com/questions/45707010/ipython-importerror-cannot-import-name-layout/45727917#45727917
   * To activate it, type `source activate conda_virtualenv`
   * To deactivate conda virtual environment, type `source deactivate`
