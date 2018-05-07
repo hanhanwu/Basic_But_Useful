@@ -45,8 +45,8 @@ This file will also be used to record other commands.
   * Using `screen`: `sudo screen python3.5 SFU_comments_extractor/source/ScrapeNews/get_comment_reactions.py`
   * Personal, I prefer `nohup`, although it happened once when `nohup` didn't work but `screen` worked. `nohup` creates a log in the folder where you are running the `nohup` job, easier for debugging if necessary
 * Add a library path to `$PATH`
-  * export PATH=/Library/Frameworks/Python.framework/Versions/3.5/bin:$PATHf
-  * export PATH=$PATH:/Users/devadmin/Documents/geckodriver
+  * `export PATH=/Library/Frameworks/Python.framework/Versions/3.5/bin:$PATH`
+  * `export PATH=$PATH:/Users/devadmin/Documents/geckodriver`
 * `brew update` error
   * When you try commands like `brew update`, it may show you error: `Error: The /usr/local directory is not writable.`
   * To deal with this, type `sudo chown -R $(whoami):admin /usr/local`, here no need to change anything in the command
