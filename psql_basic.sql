@@ -15,6 +15,11 @@ select tablename||',' from pg_tables where tableowner = '[your name in the DB sy
 drop table if exists
 [list of tables generated from above];
 
+-- Get all column names and column data type from a table
+select column_name,data_type 
+from information_schema.columns 
+where table_name = '[your table name]';
+
 -- 1. match elements in timestamp, such as year, day
 -- Match day from timestamp 2017-05-25 10:20:20
 date_trunc('day', my_timestamp) = '2017-05-25 00:00:00';
