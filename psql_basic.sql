@@ -4,8 +4,16 @@
 -- Create python function in psql, and in psql you can call this function
 -- https://www.postgresql.org/docs/9.1/static/plpython-funcs.html
 
+-- NOTES
+-- 1. Sometimes you select multiple columns but got an error saying the rows exceeds the block size in Redshift, this maybe because
+-- you have chosen columns that have large space settings such as var(MAX). If you remove those colums may make a difference.
+
 -- Check tables that you have created so that you can clean them up :)
 select * from pg_tables where tableowner = '[your name in the DB system]';
+-- clean tables that you have created
+select tablename||',' from pg_tables where tableowner = '[your name in the DB system]';
+drop table if exists
+[list of tables generated from above];
 
 -- 1. match elements in timestamp, such as year, day
 -- Match day from timestamp 2017-05-25 10:20:20
@@ -200,12 +208,20 @@ select regexp_count(col, 'emmanuel') from my_table;
 -- We can try regex_replace
 -- https://stackoverflow.com/questions/50224201/how-to-extract-regex-group-through-redshift-psql/50224983?noredirect=1#comment87472047_50224983
 select regex_replace(s, 'ptn1|ptn2') -- the string you want is between ptn1, ptn2
+-- NOTE: Redshift regex does not use '?'
 
--- split string into columns
+-- split string and select an element
 select
 case
   when col1 like '%empty%' then 'empty'
   else split_part(s, ' ', 1) -- this the the first element
+end as col1
+
+-- split string and select an element near the end
+select
+case
+  when col1 like '%empty%' then 'empty'
+  else reverse(split_part(reverse(s), ' ', 1)) -- this the the last element
 end as col1
 
 
