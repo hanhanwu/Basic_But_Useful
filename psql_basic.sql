@@ -196,6 +196,18 @@ where col1 not in (select col1 from B
 -- case sensitive
 select regexp_count(col, 'emmanuel') from my_table;
 
+-- select regex group (Redshift does not support many regex function in python or psql)
+-- We can try regex_replace
+-- https://stackoverflow.com/questions/50224201/how-to-extract-regex-group-through-redshift-psql/50224983?noredirect=1#comment87472047_50224983
+select regex_replace(s, 'ptn1|ptn2') -- the string you want is between ptn1, ptn2
+
+-- split string into columns
+select
+case
+  when col1 like '%empty%' then 'empty'
+  else split_part(s, ' ', 1) -- this the the first element
+end as col1
+
 
 -- Choose top N rows for each group
 -- In this case, choose the top 10 rows for each color, you can also order by other columns
