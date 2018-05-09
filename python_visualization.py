@@ -15,6 +15,32 @@ plt.ylabel('Y')
 plt.title('Edit Your Title')
 plt.show()
 
+# Bar chart with y values above the bar
+import numpy as np
+import matplotlib.pyplot as plt
+
+axes = plt.gca()
+axes.set_xlim([-1,9]) # set x-axis range
+axes.set_ylim([0,112]) # set y-axis range
+x_values = ['1%', '5%', '10%', '25%', '50%', '75%', '90%', '95%', '99%']
+x_pos = np.arange(len(x_values))
+y_values = [0.34305317324185200, 1.09289617486338700, 2.12765957446808500, 8.33333333333333300,
+            25.00000000000000000, 50.00000000000000000, 50.00000000000000000, 50.00000000000000000,
+            100.00000000000000000]
+plt.bar(x_pos, y_values, align='center', alpha=0.6)
+plt.xticks(x_pos, x_values)
+plt.xlabel('Percentile')
+plt.ylabel('Change Frequency')
+plt.title('bi_flash_flag')
+
+rects = axes.patches
+
+for rect, label in zip(rects, y_values):
+    height = rect.get_height()
+    axes.text(rect.get_x() + rect.get_width() / 2, height, str(round(label, 2))+'%',
+            ha='center', va='bottom')
+plt.show()
+
 
 # Change fiture size
 import matplotlib.pyplot as plt
