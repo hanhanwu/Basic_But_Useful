@@ -79,7 +79,8 @@
   * Putting data in cloud such as OneDrive, some companies which have very high security settings may have concern about this, therefore, having personal PowerBI Gateway installed may make them feel better.... But the gateway is for PowerBI Pro only: https://powerbi.microsoft.com/en-us/documentation/powerbi-personal-gateway/
 
 
-* Python Basic
+* Python Basics
+  * Python Basics: https://github.com/hanhanwu/Basic_But_Useful/blob/master/python_basics.py
   * When adding dictionary in python list, use `copy()`, otherwise its the reference has been appended: https://github.com/hanhanwu/Basic_But_Useful/blob/master/note_python_list.py
   * A flexible way to strip the html tags, you can modify the function to cater for specific use, works for both Python 2.7 and Python 3.*: https://github.com/hanhanwu/Basic_But_Useful/blob/master/strip_html_tag_python.py
   * Features from 3.* can be used in Python 2.7: https://docs.python.org/2/library/__future__.html
