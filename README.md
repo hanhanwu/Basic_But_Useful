@@ -128,9 +128,6 @@
   * Basics 1 - https://github.com/hanhanwu/Basic_But_Useful/blob/master/NLP_basic_preprocessing.ipynb
   * Basics 2 - https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/AI_Experiments/text_embedding_NN.ipynb
     * Only check Step 1 here. Very basics. Remove punctuation, only keep alphebic non-stop words with enough length. Finally remove those tokens with low occurance.
-* Python hide warnings
-`import warnings`
-`warnings.filterwarnings("ignore")`
  
 
 * PYTHON 3
