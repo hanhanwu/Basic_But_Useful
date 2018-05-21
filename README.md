@@ -81,6 +81,21 @@
 
 * Python Basics
   * Python Basics: https://github.com/hanhanwu/Basic_But_Useful/blob/master/python_basics.py
+  * Python Random Search vs Grid Search
+    * My code: https://github.com/hanhanwu/Basic_But_Useful/blob/master/RandomSearch_vs_GridSearch_cv.ipynb
+      * sklearn Random Search
+      * sklearn Grid Search
+      * Hyperopt (random search)
+      * In the code, Hyperopt can find the best model with optimized params while sklearn needs to specify a model such as random forests, but sklearn is much faster.
+      * Both sklearn and hyperopt methods have cross validation settings
+    * More about Hyperopt
+      * To check which param you can tune: https://github.com/hyperopt/hyperopt-sklearn/blob/master/hpsklearn/components.py
+      * To check all the supported classifers, regressors, etc., check: https://github.com/hyperopt/hyperopt-sklearn
+      * If you got error `TypeError: 'generator' object has no attribute 'getitem'`
+        * `pip search networkx|grep networkx`, check whether you have networkx 2.0+
+        * If so, type `sudo pip install networkx==1.11`
+    * Previously, I tried `TPOT`, it can also find the best model with optimized params
+      * My code: https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/try_genetic_alg_through_TPOT.ipynb
   * When adding dictionary in python list, use `copy()`, otherwise its the reference has been appended: https://github.com/hanhanwu/Basic_But_Useful/blob/master/note_python_list.py
   * A flexible way to strip the html tags, you can modify the function to cater for specific use, works for both Python 2.7 and Python 3.*: https://github.com/hanhanwu/Basic_But_Useful/blob/master/strip_html_tag_python.py
   * Features from 3.* can be used in Python 2.7: https://docs.python.org/2/library/__future__.html
