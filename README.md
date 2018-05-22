@@ -88,6 +88,7 @@
       * Hyperopt (random search)
       * In the code, Hyperopt can find the best model with optimized params while sklearn needs to specify a model such as random forests, but sklearn is much faster.
       * Both sklearn and hyperopt methods have cross validation settings
+      * I also like the data spliting through random shuffling
     * More about Hyperopt
       * To check which param you can tune: https://github.com/hyperopt/hyperopt-sklearn/blob/master/hpsklearn/components.py
       * To check all the supported classifers, regressors, etc., check: https://github.com/hyperopt/hyperopt-sklearn
