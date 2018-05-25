@@ -51,10 +51,18 @@ This file will also be used to record other commands.
   * When you try commands like `brew update`, it may show you error: `Error: The /usr/local directory is not writable.`
   * To deal with this, type `sudo chown -R $(whoami):admin /usr/local`, here no need to change anything in the command
   * After that, change permission back by typing `sudo chown root:wheel /usr/local`
-* Python Uninstall
-  * `sudo easy_install -m [PACKAGE]`
+* Python package Fully Uninstall
+  * `sudo easy_install -m [PACKAGE]` or `sudo pip uninstall [package]`
   * `sudo rm -rf /usr/local/lib/python2.X/site-packages/[PACKAGE].egg` # remove egg file
 * Find Python package: `pip show [package name]`
+* Having multiple types of Python
+  * I have at least 3 types of python, all useful in different situations. Sometimes, I just want to switch to a certain type.
+  * Switch between types temporarily:
+    * `alias python="/usr/local/opt/python3/bin/python3.6"`
+    * `alias python="/usr/local/opt/python3/bin/python2.7"`
+    * Then when you type `python`, it will be the type you want
+  * If your python2 is the default one, and `pip` only serves for python2. Even if you used `alias` switched to python3, pip still serves for the default python. The worst case will be, your pip3 no longer work any more (this could happen after Apple updated OS). Today I found a way works (I tried many other ways online, none of them worked....)
+    * `/usr/local/opt/python3/bin/pip3 install [package]`
 * Find a specific python package (such as networkx): `pip search networkx|grep networkx`
 * After installing xcode, if you get this error `error: tool 'xcodebuild' requires Xcode, but active developer directory '/Library/Developer/CommandLineTools' is a command line `
   * Type `sudo xcode-select -s /Applications/Xcode.app/Contents/Developer`
