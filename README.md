@@ -81,6 +81,7 @@
 
 * Python Basics
   * Python Basics: https://github.com/hanhanwu/Basic_But_Useful/blob/master/python_basics.py
+  * Spark 2.* basics: https://github.com/hanhanwu/Basic_But_Useful/blob/master/spark2_python_basics.py
   * Python Random Search vs Grid Search
     * My code: https://github.com/hanhanwu/Basic_But_Useful/blob/master/RandomSearch_vs_GridSearch_cv.ipynb
       * sklearn Random Search
