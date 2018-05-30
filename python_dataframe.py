@@ -210,9 +210,13 @@ def get_percentile(col):
     return result
     
 df = df.set_index('accountid')
-percentile_df = df.apply(get_percentile)
+percentile_df = df.apply(get_percentile)  # apply function to all the columns
 pd.set_option('max_colwidth', 800)
 pd.DataFrame(percentile_df)
+
+## apply log2 to a column
+import math
+df['col1'] = df['col2'].apply(math.log, 2)
 
 ## put outliers at start and end points, then get percentile
 ### Here, k is not 1.5, since sometimes, 1.5*IQR can remove too much outliers
