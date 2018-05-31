@@ -302,6 +302,9 @@ df.where(df >= 410).dropna(subset=['col1', 'col2'])
 ### only drop when all rows are NA
 df.where(df >= 410).dropna(how='all')
 
+## to filter rows through column condition
+df2 = df[df['col'] > 410]
+
 ## get rows based on index value
 normalized_df.loc['this_is_index_value'].head()
 
