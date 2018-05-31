@@ -124,6 +124,13 @@ selected_sample
 selected_foodnames = selected_sample.index.values  # food_name has become the index value
 print(selected_foodnames)
 
+# you may need to drop level naming so that you can call the column name
+df_count = selected_features[['food_name', 'flavor']]\
+          .groupby(['food_name'])['flavor']\
+          .agg(['count'])
+df_count.columns = df_count.columns.droplevel(0)
+selected_sample = df_count[(df_count['count'] >= 20) & (df_count['count'] < 30)]
+
 
 # plot 2 groups of data
 idx_control = 7  # change this to check a specific food_name
