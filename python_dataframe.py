@@ -8,6 +8,9 @@ sample_data = grouped_all_data.apply(lambda x:x.sample(frac=0.1))  # apply is li
 # rename df column
 df = df.rename(index=str, columns={'old_column_name': 'new_column_name'})
 
+# dictionary to dataframe, transpose the dataframe (reverse row and column)
+pd.DataFrame(my_dct).T
+
 # use apply on each column
 ## divide 15% to 85% into bin_num-2 groups, 15-% as a group, 85+% as a group
 def create_feature_bins(feature_values):  
