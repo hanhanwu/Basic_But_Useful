@@ -11,6 +11,25 @@ df = df.rename(index=str, columns={'old_column_name': 'new_column_name'})
 # dictionary to dataframe, transpose the dataframe (reverse row and column)
 pd.DataFrame(my_dct).T
 
+# Give index name, and make index the same level as other columns
+df.index.name = 'new_idx_name'
+df.reset_index(level=0, inplace=True)
+
+# insert pandas dataframe into Redshift
+from sqlalchemy import create_engine
+import pandas as pd
+
+read_user_name = "[YOUR USERNAME]"
+read_passwd = "[YOUR PASSWORD]"
+read_host_name = "[YOUR HOST NAME]"
+
+connection = 'postgresql://' + read_user_name + ':' + read_passwd + '@' + read_host_name + ':[PORT]/[DATABASE NAME]'
+engine = create_engine(connection)
+
+df.to_sql('ngram_metrics_iter1', engine, index = False, if_exists = 'append')  # using 'append' you can insert new data
+df.to_sql('ngram_metrics_iter1', engine, index = False, if_exists = 'replace') # using 'replace' you can replace the table 
+
+
 # use apply on each column
 ## divide 15% to 85% into bin_num-2 groups, 15-% as a group, 85+% as a group
 def create_feature_bins(feature_values):  
