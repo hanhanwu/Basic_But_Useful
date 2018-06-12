@@ -13,3 +13,12 @@ for i in range(10):
   tmp_lst = []
   tmp_lst.append(elem)
   tmp_lst.extend(origin_lst)
+
+  
+# generate all the combinations of list elements
+import itertools
+
+lst = ['a', 'b', 'c', 'd']
+for L in range(0, len(lst)+1):  # length of the sets
+    for subset in itertools.combinations(lst, L):
+        print(subset)
