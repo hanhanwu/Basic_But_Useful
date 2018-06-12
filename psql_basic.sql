@@ -20,6 +20,12 @@ select column_name,data_type
 from information_schema.columns 
 where table_name = '[your table name]';
 
+-- create a new column and update it value with exitsting columns
+alter table my_table add new varchar;
+update "my_table"  -- have to keep double quotes here
+set new_col = col1 || ',' || col2;
+
+
 -- 1. match elements in timestamp, such as year, day
 -- Match day from timestamp 2017-05-25 10:20:20
 date_trunc('day', my_timestamp) = '2017-05-25 00:00:00';
