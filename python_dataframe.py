@@ -1,5 +1,8 @@
 # With python pandas, dataframe can also do queries
 
+# convert dataframe to numpy 2D array
+X_train = X_train.as_matrix()
+
 # select 10% sample from each group
 grouped_all_data = all_data.groupby(['col1', 'col2'])
 sample_data = grouped_all_data.apply(lambda x:x.sample(frac=0.1))  # apply is like udf, but can be used on rows or columns
