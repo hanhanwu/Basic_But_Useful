@@ -221,6 +221,9 @@ select regexp_count(col, 'emmanuel') from my_table;
 select regex_replace(s, 'ptn1|ptn2') -- the string you want is between ptn1, ptn2
 -- NOTE: Redshift regex does not use '?'
 
+-- With "similar to", it's just using regex + like
+select trim(col) not SIMILAR TO '[A-Z]%'
+
 -- split string and select an element
 select
 case
