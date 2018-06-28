@@ -21,7 +21,7 @@ from information_schema.columns
 where table_name = '[your table name]';
 
 -- create a new column and update it value with exitsting columns
-alter table my_table add new varchar;
+alter table my_table add new_col varchar;  -- only allow to add 1 in each alter clause
 update "my_table"  -- have to keep double quotes here
 set new_col = col1 || ',' || col2;
 
