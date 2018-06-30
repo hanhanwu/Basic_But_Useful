@@ -27,8 +27,9 @@ for L in range(0, len(lst)+1):  # length of the sets
 ## There is a specific python library for parsing useragent: https://github.com/ua-parser/uap-python
 ## but I could not get what I want from there, since all what I wanted was to get each element first
 ## Here's my version:
->>> ua_string = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.104 Safari/537.36'
->>> import re
->>> lst = [elem.strip() for elem in re.split('[()]',ua_string)]
->>> lst
+ua_string = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.104 Safari/537.36'
+import re
+lst = [elem.strip() for elem in re.split('[()]',ua_string)]
+lst
+# Output:
 ['Mozilla/5.0', 'Macintosh; Intel Mac OS X 10_9_4', 'AppleWebKit/537.36', 'KHTML, like Gecko', 'Chrome/41.0.2272.104 Safari/537.36']
