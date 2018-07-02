@@ -4,6 +4,9 @@
 -- Create python function in psql, and in psql you can call this function
 -- https://www.postgresql.org/docs/9.1/static/plpython-funcs.html
 
+-- psql functions NOT supported by Redshift (so don't waste your time to call these functions): 
+-- https://docs.aws.amazon.com/redshift/latest/dg/c_unsupported-postgresql-functions.html
+
 -- NOTES
 -- 1. Sometimes you select multiple columns but got an error saying the rows exceeds the block size in Redshift, this maybe because
 -- you have chosen columns that have large space settings such as var(MAX). If you remove those colums may make a difference.
