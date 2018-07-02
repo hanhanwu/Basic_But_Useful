@@ -14,9 +14,10 @@ This file will also be used to record other commands.
 
 ***************************************************************************************
 
-<b>Mac/Linux Commnds</b>
+<b>Mac Commnds</b>
 
 * <b>NOTE:</b> If it is showing any error, try to start your commnd line with `sudo`, if your know admin id and password.
+* Check folder memory: `du -sh`, use it under this folder
 * Change root password: `sudo passwd root`
 * To change `$PATH` temporarily, `export PATH="/some/new/path:$PATH"`
 * Edit `~/.bash_profile`, if you are not good at editting a file through the command line (sometimes your command can totally overwrite the original file, which is not cool at all), why not just open the file and type in the text editor, save it. Do this `open ~/.bash_profile`, just like how you type in a text editor.
