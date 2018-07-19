@@ -11,6 +11,9 @@ sample_data = grouped_all_data.apply(lambda x:x.sample(frac=0.1))  # apply is li
 # rename df column
 df = df.rename(index=str, columns={'old_column_name': 'new_column_name'})
 
+# change column order
+df = df[['col7', 'col9', 'col4', 'col10']]
+
 # dictionary to dataframe, transpose the dataframe (reverse row and column)
 pd.DataFrame(my_dct).T
 
