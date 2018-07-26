@@ -28,6 +28,12 @@ alter table my_table add new_col varchar;  -- only allow to add 1 in each alter 
 update "my_table"  -- have to keep double quotes here
 set new_col = col1 || ',' || col2;
 
+-- drop a column
+alter table my_table drop new_col;
+
+-- rename a table
+alter table my_table rename to my_table_v1;
+
 
 -- 1. match elements in timestamp, such as year, day
 -- Match day from timestamp 2017-05-25 10:20:20
