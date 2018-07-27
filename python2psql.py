@@ -22,6 +22,13 @@ test = pd.read_sql(query, engine, index_col=None, coerce_float=True, params=None
 print test.T.to_dict().values()
 
 
+# when query has %, when using python, instead of using %, you need to use %%
+query = """
+        select * from TEST_TABLE
+        where col1 like 'abc%%'
+        limit 7
+        """
+
 
 # truncate float without rounding
 int(s* 100)/100.0  # keep 2 digits
