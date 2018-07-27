@@ -28,6 +28,12 @@ alter table my_table add new_col varchar;  -- only allow to add 1 in each alter 
 update "my_table"  -- have to keep double quotes here
 set new_col = col1 || ',' || col2;
 
+-- create new columns by spliting the existing column
+alter table my_table add col1 varchar(100);
+alter table my_table add col2 varchar(100);
+update my_table set col1 = split_part(regexp_replace(col, '[()]', '*'), '*', 1);
+update my_table set col2 = split_part(regexp_replace(col, '[()]', '*'), '*', 2);
+
 -- drop a column
 alter table my_table drop new_col;
 
