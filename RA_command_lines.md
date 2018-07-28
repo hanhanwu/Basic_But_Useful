@@ -17,6 +17,7 @@ This file will also be used to record other commands.
 <b>Mac Commnds</b>
 
 * <b>NOTE:</b> If it is showing any error, try to start your commnd line with `sudo`, if your know admin id and password.
+* To simply open a folder/file: `open [folder_path/file_path]`
 * Check folder memory: `du -sh`, use it under this folder
 * Change root password: `sudo passwd root`
 * To change `$PATH` temporarily, `export PATH="/some/new/path:$PATH"`
