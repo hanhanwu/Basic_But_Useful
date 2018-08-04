@@ -56,7 +56,7 @@ This file will also be used to record other commands.
 * Python package Fully Uninstall
   * `sudo easy_install -m [PACKAGE]` or `sudo pip uninstall [package]`
   * `sudo rm -rf /usr/local/lib/python2.X/site-packages/[PACKAGE].egg` # remove egg file
-* Find Python package: `pip show [package name]`
+* Find Python package: `pip show [package name]`, this will work even when you are using conda or python virtual environment.
 * Having multiple types of Python
   * I have at least 3 types of python, all useful in different situations. Sometimes, I just want to switch to a certain type.
   * Switch between types temporarily:
