@@ -56,6 +56,22 @@ select my_timestamp::date from my_table;
 select extract(week from my_timestamp) as week from my_table;  -- but this one only show week # in a year, could have overlap when there are 1+ years
 select date_trunc('week', my_timestamp) as week from my_table  -- this one specifys the year for the week
 
+-- Check whether it will count each day_of_week
+select count(distinct date_trunc('week', my_timestamp)) as dow_ct,  -- this will use '2017-05-25 00:00:00' format to represent week
+case
+   when extract(dow from my_timestamp) = 0 then 'Sunday' -- this will show day number, such as 0 means Sunday
+   when extract(dow from my_timestamp) = 1 then 'Monday'
+   when extract(dow from my_timestamp) = 2 then 'Tuesday'
+   when extract(dow from my_timestamp) = 3 then 'Wednesday'
+   when extract(dow from my_timestamp) = 4 then 'Thursday'
+   when extract(dow from my_timestamp) = 5 then 'Friday'
+   when extract(dow from my_timestamp) = 6 then 'Saturday'
+end as day_of_week
+from my_table
+where my_timestamp >= '2018-04-10'
+and my_timestamp < '2018-05-01'
+group by extract(dow from requesttime);
+
 
 -- 2. extract elments from timestamp, such as hour, from timestamp 2017-05-25 10:20:20
 extract(hour from my_timestamp)
