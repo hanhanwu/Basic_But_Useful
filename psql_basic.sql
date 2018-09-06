@@ -40,6 +40,10 @@ alter table my_table drop new_col;
 -- rename a table
 alter table my_table rename to my_table_v1;
 
+-- rename a column, after forgot to name the column
+select "?column?" from my_table limit 10;  -- have to use DOUBLE QUOTES here
+alter table my_table rename column "?column?" to col1;
+
 -- insert a row
 insert into my_table (col1, col2, col3) values
 (v1, v2, v3);
