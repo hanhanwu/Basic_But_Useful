@@ -44,6 +44,9 @@ alter table my_table rename to my_table_v1;
 insert into my_table (col1, col2, col3) values
 (v1, v2, v3);
 
+-- convert string to float
+select to_number(col1, '99G999D9S');
+
 
 -- 1. match elements in timestamp, such as year, day
 -- Match day from timestamp 2017-05-25 10:20:20
