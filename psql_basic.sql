@@ -51,6 +51,15 @@ insert into my_table (col1, col2, col3) values
 -- convert string to float
 select to_number(col1, '99G999D9S');
 
+-- basic UDF
+create function f_py_greater (a float, b float)
+  returns float
+stable
+as $$
+  if a > b:
+    return a
+  return b
+$$ language plpythonu;
 
 -- 1. match elements in timestamp, such as year, day
 -- Match day from timestamp 2017-05-25 10:20:20
