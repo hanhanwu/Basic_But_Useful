@@ -165,6 +165,7 @@ group by col1;
 -- col name is important 
 select json_extract_path_text(col_name, 'key1') as col1
 select json_extract_path_text(json_extract_path_text(col_name, 'key1'), 'key2') as col2
+select JSON_EXTRACT_PATH_TEXT(col_name 'key1', TRUE)::FLOAT as col3 -- if null then null, convert string to float
 -- read json in an array
 select json_extract_path_text(json_extract_array_element_text(col_name, 0), 'key1') as col3
 
