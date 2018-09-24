@@ -1,5 +1,11 @@
 # With python pandas, dataframe can also do queries
 
+# COMMONLY USED PREPROCESSING METHODS
+df.isnull().sum()  ## check all missing values
+df.col1 = df.col1.fillna("MISSING")  # fill NA
+df.loc[(df.col1 != 'A') & (df.col1 != '2')\
+        & (df.col1 != 'MISSING'), 'col1'] = 'OTHER'  # replace some rows in a column (this method will avoid warnings)
+
 # convert dataframe to numpy 2D array
 X_train = X_train.as_matrix()
 
