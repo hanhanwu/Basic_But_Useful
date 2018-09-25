@@ -1,4 +1,6 @@
 # With python pandas, dataframe can also do queries
+# count distinct values in a column
+df.col.value_counts()
 
 # COMMONLY USED PREPROCESSING METHODS
 df.isnull().sum()  ## check all missing values
@@ -91,7 +93,6 @@ sub_df = sub_df.set_index('myid')
 dist_grouped_df = sub_df.groupby(level='myid').transform(dist_scaled_manhattan)
 dist_grouped_df = dist_grouped_df.drop_duplicates()
 print(dist_grouped_df.shape)
-
 
 
 # save dataframe to csv, without header
@@ -257,6 +258,22 @@ df = df.set_index('accountid')
 percentile_df = df.apply(get_percentile)  # apply function to all the columns
 pd.set_option('max_colwidth', 800)
 pd.DataFrame(percentile_df)
+
+## Remove values out of percentile range
+num_cols = [col for col in df.columns if df[col].dtypes != 'O' 
+            and col != 'col1' and col != 'col2']  # select specific columns
+filt_df = df[num_cols]
+high = 0.99
+quant_df = filt_df.quantile([high]) # this df list all the 99% value of each column
+quant_df
+filt_df = filt_df.apply(lambda x: x[(x < quant_df.loc[high,x.name])], axis=0)
+filt_df.shape
+filt_df = pd.concat([df.loc[:,'col1'], filt_df], axis=1)  # add col1 back
+filt_df.head()
+### removed values will become NULL, you can use different methods to drop na
+filt_df = filt_df.dropna()  # I tried thresh=16, there are 2601 records with all had > 99% outliers
+filt_df.shape
+
 
 ## apply log2 to a column
 import math
