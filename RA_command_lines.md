@@ -170,3 +170,12 @@ This file will also be used to record other commands.
     * If you did set password before and forgot it, try the method here: https://www.howtoforge.com/setting-changing-resetting-mysql-root-passwords
   * Quit mysql in terminal, type `exit`
   * stop server, type `mysql.server stop`
+  
+* After MySQL didn't work...
+  * I removed almost everything when I was cleaning the disk.... But I re-installed MySQL and made it work again
+  * First of all, I removed folder `/usr/local/mysql`
+  * `brew install mysql`, this will install MySQL under `/usr/local/mysql/var`
+  * `brew services start mysql`
+  * `mysql_secure_installation`, if you still remember your MYSQL root password, with this command, you can configure the settings
+  * Now you can use MySQL Work Bench with connected server, or use MySQL in your terminal by typing `mysql -u root -p` & password for root
+    * `exit` if you are using terminal and want to exit
