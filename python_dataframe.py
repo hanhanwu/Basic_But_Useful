@@ -8,6 +8,17 @@ df.col1 = df.col1.fillna("MISSING")  # fill NA
 df.loc[(df.col1 != 'A') & (df.col1 != '2')\
         & (df.col1 != 'MISSING'), 'col1'] = 'OTHER'  # replace some rows in a column (this method will avoid warnings)
 
+# drop highly correlated features
+import numpy as np
+## Create correlation matrix
+corr_matrix = df.corr().abs()
+## Select upper triangle of correlation matrix
+upper = corr_matrix.where(np.triu(np.ones(corr_matrix.shape), k=1).astype(np.bool))
+## Find features with correlation greater than 0.95
+to_drop = [column for column in upper.columns if any(upper[column] > 0.95)]
+## Drop features 
+df.drop(df.columns[to_drop], axis=1)
+
 # convert dataframe to numpy 2D array
 X_train = X_train.as_matrix()
 
