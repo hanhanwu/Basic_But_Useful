@@ -99,6 +99,8 @@ This file will also be used to record other commands.
     * Type `python` and you can use python in the termnal
     * Or type `python --version` to check your python version
     * Or type `jupyter notebook` and you can use jupyter directly
+### Windows Basic Commands
+* List all files in current directory: `dir`
 
 ## GitHub Commands
 
