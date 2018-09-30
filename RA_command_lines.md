@@ -99,6 +99,12 @@ This file will also be used to record other commands.
     * Type `python` and you can use python in the termnal
     * Or type `python --version` to check your python version
     * Or type `jupyter notebook` and you can use jupyter directly
+* Download and install `pip`
+  * Download pip: `curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py`, oh windows can use curl...
+  * Install pip: `python get-pip.py`
+* Install Tensorflow
+  * Install: `pip install --upgrade tensorflow`
+  * Verify version: `python -c "import tensorflow as tf; print(tf.__version__)"`
 ### Windows Basic Commands
 * List all files in current directory: `dir`
 
