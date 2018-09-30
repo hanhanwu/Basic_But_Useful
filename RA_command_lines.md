@@ -1,9 +1,7 @@
 My RA work finally has been finished on 2017/4/29. So excited and I have collected all the comand lines used in MAC/Linux terminal, GitHub commnds, as well as WestGrid (cloud) commnds. 
 This file will also be used to record other commands.
 
-***************************************************************************************
-
-<b>Interact with Remote Linux Server</b>
+## Interact with Remote Linux Server
 
 * Remote login to school Linux server: `ssh [my school id]@rcg-linux-ts1.rcg.sfu.ca` 
 * Download folder from school server to local machine: `scp -r [my school id]@rcg-linux-ts1.rcg.sfu.ca:/rcg/sentiment/SOC/Factiva_Data/Factiva_Articles/2016 [local folder path]/RA`
@@ -11,10 +9,7 @@ This file will also be used to record other commands.
 * `scp` when there is space in your path: `scp [my school id]@rcg-linux-ts1.rcg.sfu.ca:"/rcg/sentiment/SOC/OnlineData/GlobeAndMail/all_online_data/all_online_data\ 2/empty_comment_ids.txt"  [local path]`
   * In a word, when there is space in your path, add `""` around the path and use `\ ` to replace the space 
 
-
-***************************************************************************************
-
-<b>Mac Commnds</b>
+## Mac Commnds
 
 * <b>NOTE:</b> If it is showing any error, try to start your commnd line with `sudo`, if your know admin id and password.
 * To simply open a folder/file: `open [folder_path/file_path]`
@@ -95,10 +90,17 @@ This file will also be used to record other commands.
 * Cannot open IPython for different reasons
   * Problem: "AttributeError: type object 'IOLoop' has no attribute 'initialized'"
     * `conda install -c conda-forge pyzmq`
+    
+## Windows Commands
+### Python in Windows
+* Download Anacoda to make you life easier: https://www.anaconda.com/download/
+  * <b>Choose to add Anacoda in your PATH</b>, in this way you can use python through terminal directly
+  * After installation, open your termonal: 
+    * Type `python` and you can use python in the termnal
+    * Or type `python --version` to check your python version
+    * Or type `jupyter notebook` and you can use jupyter directly
 
-***************************************************************************************
-
-<b>GitHub Commands</b>
+## GitHub Commands
 
 * Clone to local folder: `sudo git clone https://github.com/hanhanwu/SFU_comments_extractor.git`
 * Update local Git folder with the updates on GitHub: `git pull origin master`
@@ -107,9 +109,7 @@ This file will also be used to record other commands.
 * CC-BY-SA-4.0 for media data: https://choosealicense.com/licenses/cc-by-sa-4.0/#
 
 
-***************************************************************************************
-
-<b>WestGrid</b>
+## WestGrid
 
 * Login: `ssh orcinus.westgrid.ca`
 * Upload local fodler to WestGrid `scp -r [local path]/SFU_comments_extractor [my WestGrid id]@orcinus.westgrid.ca:[WestGrid path]`
@@ -118,9 +118,7 @@ This file will also be used to record other commands.
   * `python3.5`
   
   
-***************************************************************************************
-
-<b>R Command</b>
+## R Command
 
 * To find R HOME: `R.home()`, type this in R Studio
 * Find my R packages in the previous version (this is why I hate version updating for some software...): `cd /Library/Frameworks/R.framework/Versions/3.2/Resources/library`
@@ -159,9 +157,7 @@ This file will also be used to record other commands.
   * `install.packages("rJava")`, then `library(rJava)`
   * `install.packages("subspace")`, then `library(subspace)`
 
-***************************************************************************************
-
-<b>MySQL Commands</b>
+## MySQL Commands
 
 * Forgot Password & Reser Password - No matter whether you have MySQL workbench, when you are using your localhost, you need to start the server first. If you haven't used it for a while, you may realize, ahhhhh, I forgot the password
   * Step 1 - Open your terminal, make sure you have 2 folders under `/usr/local/`, "mysql" and "mysql-VERSION..."
