@@ -8,6 +8,13 @@ df.col1 = df.col1.fillna("MISSING")  # fill NA
 df.loc[(df.col1 != 'A') & (df.col1 != '2')\
         & (df.col1 != 'MISSING'), 'col1'] = 'OTHER'  # replace some rows in a column (this method will avoid warnings)
 
+# count duplicated rows
+df.duplicated().sum()
+# count duplicated rows based on s subset of columns
+df.duplicated(subset=['col1', 'col2', 'col3']).sum()
+# drop all duplicates, set keep=False
+df.drop_duplicates(subset=['col1', 'col2', 'col3'], keep=False, inplace=True)
+
 # drop highly correlated features
 import numpy as np
 ## Create correlation matrix
@@ -29,6 +36,8 @@ sample_data = grouped_all_data.apply(lambda x:x.sample(frac=0.1))  # apply is li
 
 # rename df column
 df = df.rename(index=str, columns={'old_column_name': 'new_column_name'})
+# rename header
+df.columns = ['col1', 'col2']
 
 # change column order
 df = df[['col7', 'col9', 'col4', 'col10']]
@@ -130,6 +139,21 @@ joined_df = pd.merge(df1, df2, left_index=True, right_index=True)
 # find columns in df1 but not in df2
 df = pd.merge(df1, df2, on='common_col', how='inner')
 df1[~df1['id'].isin(df['id'])]
+
+# join df and keep both duplicated columns
+## pandas has merge, join and concat, but only concat can do this, join and merge will just keep 1 column
+joined_df = pd.concat([df1, df2], axis=1)  # what made a differnce is "axis=1" here
+## later if you want to join the overlapped columns with null
+joined_df.dropna(axis='columns', inplace=True)
+
+# Add a column with specified condition
+def add_col(r):
+    if pd.isnull(r['rid']):
+        val = 'has_null'
+    else:
+        val = 'no_null'
+    return val
+df['new_col'] = df.apply(add_col, axis=1)
 
 
 # list unique values in 1 column
