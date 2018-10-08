@@ -118,6 +118,19 @@ This file will also be used to record other commands.
 * How to use `git` in windows terminal
   * Just download it and install: https://gitforwindows.org/
   * You don't have to config your username/email, just type `git clone [URL]`, and you can download the package.
+* How to open Disk Management
+  * My Win search doesn't work on this.
+  * Press `Win` then type `run`
+  * In the open blank box, type `diskmgmt.msc`
+### Install Linux on Removable Hard Drive
+* All these months, failed too many times. Finally, it got installed successfully during this long weekend. I'm feeling so happy.
+* I just want to install the OS on my 5TB removable hard drive. But it is NSFT format and can only be used on Windows. So my first 1/3 time was used on my mac... anyway it's a learning experience. Finally, decided to install on my windows.
+* The detailed process can be found here: https://askubuntu.com/questions/1081839/how-to-make-virtualbox-use-removable-hard-drive-memory-automatically/1081847#1081847
+  * VirtualBox was installed in my local machine. Mormally it will be installed under `C:\Program Files\Oracle\VirtualBox`.
+  * Then in my terminal I set the path for `VBoxManage` by typing `set PATH=%PATH%;"C:\Program Files\Oracle\VirtualBox"`
+    * So that I can use `VBoxManage createhd --filename "D:\Hanhan_VirtualBox\Hanhan_Linux64\Hanhan_Linux64.vdi" --size 1048576 --format VDI --variant Fixed` to set virtual hard drive using my removable hard drive space. 
+  * I had to download ubuntu .iso from ubuntu website even though in the virtual box I have already chosen the Unbuntu.
+  * After starting the virtual machine, it asked to install Ubuntu, but in fact that environment is already the Unbuntu. You can type `lsb_release -a` in Ubuntu terminal to check the version.
 
 ## GitHub Commands
 
