@@ -113,6 +113,8 @@ This file will also be used to record other commands.
     * `keras_preprocessing >= 1.0.3`
 ### Windows Basic Commands
 * List all files in current directory: `dir`
+* Print out current path on windows: `cd`
+* Show hidden files on current location: `dir /ah`
 * How to use `git` in windows terminal
   * Just download it and install: https://gitforwindows.org/
   * You don't have to config your username/email, just type `git clone [URL]`, and you can download the package.
