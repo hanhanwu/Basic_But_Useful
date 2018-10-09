@@ -142,6 +142,8 @@ df1[~df1['id'].isin(df['id'])]
 
 # join df and keep both duplicated columns
 ## pandas has merge, join and concat, but only concat can do this, join and merge will just keep 1 column
+## But for columns only exists in one of the dataframe, concat won't keep these columns, join/merge will
+## If you don't want to join by index, use "merge" don't use join
 joined_df = pd.concat([df1, df2], axis=1)  # what made a differnce is "axis=1" here
 ## later if you want to join the overlapped columns with null
 joined_df.dropna(axis='columns', inplace=True)
