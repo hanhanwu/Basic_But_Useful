@@ -131,3 +131,33 @@ for sample_foodname in selected_foodnames:
             tmp_ct += 1
         break
     ct += 1
+
+            
+# Plot multiple histogram
+from matplotlib import pylab as plt
+plt.rcParams.update({'font.size': 20})
+
+features = feature_df.columns
+print(len(features))
+n_rows = 4
+n_cols = 4
+
+i = 0
+fig=plt.figure(figsize=(40,40))
+for feature in features:
+    if feature == 'id' or feature == 'label':
+        continue
+    i += 1
+    ax=fig.add_subplot(n_rows,n_cols,i) 
+    bins = np.linspace(min(feature_df[feature]), max(feature_df[feature]), 100)
+    props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
+    plt.hist(fraud_df[feature],
+                bins, alpha=0.75, label='FRAUD', color = 'r', edgecolor = 'k', weights=np.zeros_like(fraud_df[feature]) + 1. / fraud_df[feature].shape[0])
+    plt.hist(nonfraud_df[feature],
+                bins, alpha=0.5, label='NON-FRAUD', color = 'b', edgecolor = 'k', weights=np.zeros_like(nonfraud_df[feature]) + 1. / nonfraud_df[feature].shape[0])
+    plt.legend(loc='best')
+    plt.title('Feature: ' + feature)
+    plt.xlabel('Feature Values')
+    plt.ylabel('Percentage')
+fig.tight_layout()
+plt.show()
