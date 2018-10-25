@@ -141,9 +141,13 @@ df = pd.merge(df1, df2, on='common_col', how='inner')
 df1[~df1['id'].isin(df['id'])]
 
 # join df and keep both duplicated columns
-## pandas has merge, join and concat, but only concat can do this, join and merge will just keep 1 column
+## pandas has merge, join and concat, but only concat can do this, join and merge will just keep 1 column which means,
+## for the same columns, you cannot see which has null if one of the column has unique values
 ## But for columns only exists in one of the dataframe, concat won't keep these columns, join/merge will
 ## If you don't want to join by index, use "merge" don't use join
+## concat will join by index automatically, if you didn't set index, it will use default index in a dataframe. Therefore, also
+## need to note, you may need df.set_index(drop=True, inplace=True) before using concat, in case some operation such as
+## train-test-split will shuffle the index
 joined_df = pd.concat([df1, df2], axis=1)  # what made a differnce is "axis=1" here
 ## later if you want to join the overlapped columns with null
 joined_df.dropna(axis='columns', inplace=True)
