@@ -131,6 +131,17 @@ This file will also be used to record other commands.
     * So that I can use `VBoxManage createhd --filename "D:\Hanhan_VirtualBox\Hanhan_Linux64\Hanhan_Linux64.vdi" --size 1048576 --format VDI --variant Fixed` to set virtual hard drive using my removable hard drive space. 
   * I had to download ubuntu .iso from ubuntu website even though in the virtual box I have already chosen the Unbuntu.
   * After starting the virtual machine, it asked to install Ubuntu, but in fact that environment is already the Unbuntu. You can type `lsb_release -a` in Ubuntu terminal to check the version.
+  
+## Linux Commands
+* Install `curl`: `sudo apt install curl`
+  * You may get error saying "cannot get lock /var/lib/apt/lists/lock...", type `sudo rm /var/lib/apt/lists/lock` to solve the problem.
+* Install whois
+  * whois searches for an object in a WHOIS database. WHOIS is a query and response protocol that is widely used for querying databases that store the registered users of an Internet resource, such as a domain name or an IP address block, but is also used for a wider range of other information.
+  * `sudo apt-get update`
+  * `sudo apt-get install whois`
+* To exit nslookup
+  * `exit`
+  * nslookup is built in many systems
 
 ## GitHub Commands
 
