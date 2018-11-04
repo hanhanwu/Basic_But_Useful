@@ -124,6 +124,26 @@ This file will also be used to record other commands.
   * In the open blank box, type `diskmgmt.msc`
 ### Other intall on Windows
 * How to install Visual C++ 14.0: https://www.scivision.co/python-windows-visual-c++-14-required/
+* How to install `fastai`
+  * I haven't had my breakfast but decided to write these down here, is because the installation of fastai really gave me a hard time last night, on both mac and windows. Finally I had to leave it install during the night, Saturday is supposed to be the time when I can get much more sleep. Fastai installation, totally broke my plan.
+  * <b>Strongly recommend to have anaconda ready, some packages used here will have problems when installing with pip.</b>
+  * The latest fastai 1.0 has problems, better to install fastal 0.7. 
+    * If you installed fastai with pip or anaconda without setting version, uninstall it first, `pip uninstall fastai`
+    * `pip install Pillow==4.1.1`
+    * `pip install "fastai==0.7.0"`
+    * If during any installation, you will seeing version incompatible warnings, upgrade those libraries. For example, update `pandas` by using `pip install --upgrade pandas`
+    * `pip install -U opencv-python`
+    * `pip install image`
+    * Install pytorch, which created most of the pain. After each "try" below, check whenther you can run `from fastai.imports import *` in python.
+      * Try its official installation method, `conda install numpy pyyaml mkl mkl-include setuptools cmake cffi typing`, this may gave you many errors
+      * Then try `conda update conda`
+      * Try `conda install mkl=2018`
+      * Try `conda install pytorch torchvision -c pytorch`, this may also gave errors, but try it
+      * Try `conda install -c peterjc123 pytorch cuda90`
+  * If you don't want to see warnings, run these in python:
+    * `import warnings`
+    * `warnings.filterwarnings("ignore", category=DeprecationWarning)`
+    
 ### Install Linux on Removable Hard Drive
 * All these months, failed too many times. Finally, it got installed successfully during this long weekend. I'm feeling so happy.
 * I just want to install the OS on my 5TB removable hard drive. But it is NSFT format and can only be used on Windows. So my first 1/3 time was used on my mac... anyway it's a learning experience. Finally, decided to install on my windows.
