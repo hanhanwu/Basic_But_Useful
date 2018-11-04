@@ -122,6 +122,8 @@ This file will also be used to record other commands.
   * My Win search doesn't work on this.
   * Press `Win` then type `run`
   * In the open blank box, type `diskmgmt.msc`
+### Other intall on Windows
+* How to install Visual C++ 14.0: https://www.scivision.co/python-windows-visual-c++-14-required/
 ### Install Linux on Removable Hard Drive
 * All these months, failed too many times. Finally, it got installed successfully during this long weekend. I'm feeling so happy.
 * I just want to install the OS on my 5TB removable hard drive. But it is NSFT format and can only be used on Windows. So my first 1/3 time was used on my mac... anyway it's a learning experience. Finally, decided to install on my windows.
