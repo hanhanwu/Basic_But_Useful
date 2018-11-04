@@ -126,6 +126,7 @@ This file will also be used to record other commands.
 * How to install Visual C++ 14.0: https://www.scivision.co/python-windows-visual-c++-14-required/
 * How to install `fastai`
   * I haven't had my breakfast but decided to write these down here, is because the installation of fastai really gave me a hard time last night, on both mac and windows. Finally I had to leave it install during the night, Saturday is supposed to be the time when I can get much more sleep. Fastai installation, totally broke my plan.
+  * Install above Visual C++ 14 on wwindows
   * <b>Strongly recommend to have anaconda ready, some packages used here will have problems when installing with pip.</b>
   * The latest fastai 1.0 has problems, better to install fastal 0.7. 
     * If you installed fastai with pip or anaconda without setting version, uninstall it first, `pip uninstall fastai`
