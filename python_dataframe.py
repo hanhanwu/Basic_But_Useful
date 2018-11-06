@@ -37,6 +37,12 @@ sample_data = grouped_all_data.apply(lambda x:x.sample(frac=0.1))  # apply is li
 np_df = pd.DataFrame(np_matrix)
 np_df.columns = df1.columns ## use existing columns to replace the column names
 
+# convert dictionary to dataframe, without index
+## python 3.* needs list(), python 2.* doesn't need list()
+feature_importance_df = pd.DataFrame(list(dict(zip(X_train.columns, m.feature_importances_)).items()), 
+                                     columns=['Feature', 'Importance'])
+feature_importance_df.sort_values('Importance', ascending=False).head(n=10)
+
 # rename df column
 df = df.rename(index=str, columns={'old_column_name': 'new_column_name'})
 # rename header
