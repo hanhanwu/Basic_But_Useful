@@ -33,6 +33,9 @@ X_train = X_train.as_matrix()
 grouped_all_data = all_data.groupby(['col1', 'col2'])
 sample_data = grouped_all_data.apply(lambda x:x.sample(frac=0.1))  # apply is like udf, but can be used on rows or columns
 
+# convert numpy matrix to dataframe
+np_df = pd.DataFrame(np_matrix)
+np_df.columns = df1.columns ## use existing columns to replace the column names
 
 # rename df column
 df = df.rename(index=str, columns={'old_column_name': 'new_column_name'})
