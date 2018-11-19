@@ -39,3 +39,10 @@ with open(dct_file_path, encoding = "ISO-8859-1") as dct_file:
     
 # Sample 5: UnicodeEncodeError: 'ascii' codec can't encode character u'\u2026',or u'\xa0'
 data = text.encode('utf-8').strip()
+
+# Sample 6: convert "La Grande Orange Café" to "La Grande Orange Cafe"
+import unicodedata
+buz_name = "La Grande Orange Café"
+buz_name = buz_name.decode('utf_8')  # this one may not needed in some situation
+buz_name = unicodedata.normalize('NFKD', buz_name).encode('ascii','ignore')
+Instagram_api.tag_search(buz_name, tag_ct)[0]
