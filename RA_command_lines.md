@@ -111,6 +111,9 @@ This file will also be used to record other commands.
   * If it will show your keras is not compatable with tensorflow, open `Anaconda/Lib/site-packages/tensorflow/tools/pip_package/setup.py` and change these 2 lines to your keras version:
     * `keras_applications >= 1.0.5`,
     * `keras_preprocessing >= 1.0.3`
+* Install XGBoost
+  * `anaconda search -t conda xgboost`, this one is just to show what you can install through conda on difference OS and python verison
+  * `conda install -c anaconda py-xgboost`, you can choose this one or other versions
 ### Windows Basic Commands
 * List all files in current directory: `dir`
 * Print out current path on windows: `cd`
