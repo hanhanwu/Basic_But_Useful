@@ -219,6 +219,16 @@ df_count = selected_features[['food_name', 'flavor']]\
 df_count.columns = df_count.columns.droplevel(0)
 selected_sample = df_count[(df_count['count'] >= 20) & (df_count['count'] < 30)]
 
+# drop index/column level
+## After you used pandas group by, the original columns used for group by will become the index of the new df,
+## here's how to make index to the column level
+agg_rating_df = user_rating_df[['buz_name', 'review_count', 'rating']]\
+          .groupby(['buz_name', 'review_count'])['rating']\
+          .agg(['mean'])
+agg_rating_df.reset_index(level=['buz_name', 'review_count'], inplace=True)  # reset index to column level
+agg_rating_df = agg_rating_df.rename(index=str, columns={'mean': 'avg_rating'})
+agg_rating_df.head()
+
 
 # plot 2 groups of data
 idx_control = 7  # change this to check a specific food_name
