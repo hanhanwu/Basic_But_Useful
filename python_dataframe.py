@@ -15,6 +15,22 @@ df.duplicated(subset=['col1', 'col2', 'col3']).sum()
 # drop all duplicates, set keep=False
 df.drop_duplicates(subset=['col1', 'col2', 'col3'], keep=False, inplace=True)
 
+# min max scaler and skip NULL
+for col in df.columns:
+    df[col] = df[col].sub(df[col].min()).div((df[col].max() - df[col].min()))
+
+# get 99 percentile value of each column
+high = 0.99
+quant_df = filt_df.quantile([high])
+quant_df2.index = [0.99]
+quant_df
+# set min, max value based on condition
+for col in df.columns:
+    if col == 'id' or col == 'label':
+        continue
+    df.loc[df[col] > quant_df[col].values[0], col] = quant_df[col].values[0] # larger than 99 percentile
+    df.loc[df[col] < 0, col] = 0 # negative value
+
 # drop highly correlated features
 import numpy as np
 ## Create correlation matrix
