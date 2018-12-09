@@ -215,6 +215,12 @@ cols_idx = [7,9]
 cols_idx.extend(range(77,99))
 selected_cols = my_csv.iloc[:,cols_idx]
 
+# better way to do group by, more flexibility, less code
+## More examples: https://www.shanelynn.ie/summarising-aggregation-and-grouping-data-in-python-pandas/
+agg_rating_df = user_rating_df[['buz_name', 'rating', 'review_count', 'review_sentiment']]\
+          .groupby('buz_name', as_index=False)\
+          .agg({'rating':'mean', 'review_count':'mean', 'review_sentiment':'mean'})
+
 
 # count records in each group, sort by counts
 ## in this case, group by food_name, count the number of flavors in each food_name, 
