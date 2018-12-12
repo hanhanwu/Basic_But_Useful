@@ -8,6 +8,9 @@ df.col1 = df.col1.fillna("MISSING")  # fill NA
 df.loc[(df.col1 != 'A') & (df.col1 != '2')\
         & (df.col1 != 'MISSING'), 'col1'] = 'OTHER'  # replace some rows in a column (this method will avoid warnings)
 
+# To deal with np.nan related error
+df = df.astype(np.float64).replace(np.nan, 'None')
+
 # count duplicated rows
 df.duplicated().sum()
 # count duplicated rows based on s subset of columns
