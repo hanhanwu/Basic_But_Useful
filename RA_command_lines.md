@@ -147,6 +147,12 @@ This file will also be used to record other commands.
   * If you don't want to see warnings, run these in python:
     * `import warnings`
     * `warnings.filterwarnings("ignore", category=DeprecationWarning)`
+* How to install `fbprophet`
+  * `conda install libpython m2w64-toolchain -c msys2`
+  * `conda install numpy cython -c conda-forge`
+  * `conda install matplotlib scipy pandas -c conda-forge`
+  * `pip install pystan`
+  * `conda install -c conda-forge fbprophet`
     
 ### Install Linux on Removable Hard Drive
 * All these months, failed too many times. Finally, it got installed successfully during this long weekend. I'm feeling so happy.
