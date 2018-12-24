@@ -19,3 +19,6 @@ grepl("min", df$Certificate) == T
 boxplot(raw_data$mkeystrokeratemsrepeat)
 quantile(raw_data$mkeystrokeratemsrepeat)
 quantile(raw_data$mkeystrokeratemsrepeat, c(.0, .01, .05, .15, .25, .50,  .75, .80, .85, .90, .99))
+
+# check data types of a data frame or data table
+sapply(train, typeof)
