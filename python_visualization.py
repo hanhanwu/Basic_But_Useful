@@ -161,3 +161,30 @@ for feature in features:
     plt.ylabel('Percentage')
 fig.tight_layout()
 plt.show()
+
+
+# plot multiple scatter plot
+from matplotlib import pylab as plt
+
+n_rows = 4
+n_cols = 3
+y = 'Item_Outlet_Sales'
+
+def multi_scatter_plot(n_rows, n_cols, sample_data, y):
+    area = np.pi*3
+    colors = (0,0,0)
+
+    i = 0
+    fig=plt.figure(figsize=(40,40))
+    for feature in sample_data.columns:
+        i += 1
+        ax=fig.add_subplot(n_rows,n_cols,i)
+
+        plt.scatter(sample_data[feature], sample_data[y], s=area, c=colors, alpha=0.5)
+        plt.title('Scatter plot pythonspot.com', fontsize=30)
+        plt.xlabel(feature, fontsize=30)
+        plt.ylabel(y, fontsize=30)
+    fig.tight_layout()
+    plt.show()
+    
+multi_scatter_plot(n_rows, n_cols, sample_data, y)
