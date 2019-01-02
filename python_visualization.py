@@ -181,7 +181,7 @@ def multi_scatter_plot(n_rows, n_cols, sample_data, y):
         ax=fig.add_subplot(n_rows,n_cols,i)
 
         plt.scatter(sample_data[feature], sample_data[y], s=area, c=colors, alpha=0.5)
-        plt.title('Scatter plot pythonspot.com', fontsize=30)
+        plt.title('Feature & Label Relationships', fontsize=30)
         plt.xlabel(feature, fontsize=30)
         plt.ylabel(y, fontsize=30)
     fig.tight_layout()
