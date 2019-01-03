@@ -191,7 +191,7 @@ multi_scatter_plot(n_rows, n_cols, sample_data, y)
 
 
 # multiple plot by specifiying the matrix dimensions
-## Plot each class in different color
+## Plot each class in different color when you have 2D (x,y) values
 from matplotlib import pyplot
 from sklearn.datasets import make_circles
 from numpy import where
