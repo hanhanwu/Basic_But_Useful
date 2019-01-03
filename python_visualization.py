@@ -188,3 +188,28 @@ def multi_scatter_plot(n_rows, n_cols, sample_data, y):
     plt.show()
     
 multi_scatter_plot(n_rows, n_cols, sample_data, y)
+
+
+# multiple plot by specifiying the matrix dimensions
+## Plot each class in different color
+from matplotlib import pyplot
+from sklearn.datasets import make_circles
+from numpy import where
+
+def scatter_plot_circles_problem(n_samples, noise_value=0.1):
+    # generate circles
+    X, y = make_circles(n_samples=n_samples, noise=noise_value, random_state=1)
+    # select indices of points with each class label
+    zero_ix, one_ix = where(y == 0), where(y == 1)  # get the index list of each class
+    # points for class zero
+    pyplot.scatter(X[zero_ix, 0], X[zero_ix, 1], color='red')
+    # points for class one
+    pyplot.scatter(X[one_ix, 0], X[one_ix, 1], color='blue')
+            
+values = [50, 100, 500, 1000]
+for i in range(len(values)):
+    value = 220 + (i+1)  # 220 here means 2x2 matrix
+    pyplot.subplot(value)
+    scatter_plot_circles_problem(values[i])
+pyplot.show()
+
