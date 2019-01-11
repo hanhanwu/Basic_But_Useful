@@ -1,3 +1,11 @@
+# Some quick methods in pandas
+## https://www.analyticsvidhya.com/blog/2016/01/12-pandas-techniques-python-data-manipulation/?utm_content=bufferfa8d9&utm_medium=social&utm_source=facebook.com&utm_campaign=buffer
+### pivot table - generate aggregate results for multiple columns
+### multi-indexing - using the values of multiple columns as the index to locate
+### cross-tab - this can be used to check whether a feature affects the label with percentage value
+### cut - binning
+
+
 # With python pandas, dataframe can also do queries
 # count distinct values in a column
 df.col.value_counts()
