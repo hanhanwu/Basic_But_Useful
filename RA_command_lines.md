@@ -80,6 +80,7 @@ This file will also be used to record other commands.
     * After running the command line, you may need to `cd anaconda/envs` and type `sudo rm -r yourenvname` to fully remove the environment
   * If you want to check how many conda virtual environment you have created and their names, also go to `anaconda/envs` by typing `cd anaconda/envs`
 * Check all the pyhton library versions: `pip freeze`
+* Check specific python package version: `pip freeze | grep scikit-learn`
 * Errors in intalling python packages
   * Error - "It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall."
     * `pip install --ignore-installed [PACKAGE-NAME]`
