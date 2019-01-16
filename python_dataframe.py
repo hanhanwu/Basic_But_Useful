@@ -102,6 +102,8 @@ engine = create_engine(connection)
 df.to_sql('ngram_metrics_iter1', engine, index = False, if_exists = 'append')  # using 'append' you can insert new data
 df.to_sql('ngram_metrics_iter1', engine, index = False, if_exists = 'replace') # using 'replace' you can replace the table 
 
+# use apply and assign generated values to another dataframe
+df2['col'] = df1.apply(lambda r: my_function(r['col1']), axis=1).values # without "values", you may get NaN
 
 # use apply on each column
 ## divide 15% to 85% into bin_num-2 groups, 15-% as a group, 85+% as a group
