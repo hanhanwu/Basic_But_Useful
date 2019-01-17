@@ -268,16 +268,19 @@ where col1 not in (select col1 from B
 select regexp_count(col, 'emmanuel') from my_table;
 
 -- select regex group (Redshift does not support many regex function in python or psql)
--- We can try regex_replace
+-- We can try regexp_replace
 -- https://stackoverflow.com/questions/50224201/how-to-extract-regex-group-through-redshift-psql/50224983?noredirect=1#comment87472047_50224983
 select regexp_replace(s, 'ptn1|ptn2') -- the string you want is between ptn1, ptn2
 -- NOTE: Redshift regex does not use '?'
 
 -- split 1 column into multiple columns with multiple delimiters
 select col1, split_part(regexp_replace(col1, '[()]', 1)) as p1,
-split_part(regex_replace(col1, '[()]', 2)) as p2,
-split_part(regex_replace(col1, '[()]', 3)) as p3
+split_part(regexp_replace(col1, '[()]', 2)) as p2,
+split_part(regexp_replace(col1, '[()]', 3)) as p3
 from my_table;
+                          
+-- regex, escape, remove everything after "?"
+regexp_replace(my_str, '\\?.*') as referer_pre
 
 -- With "similar to", it's just using regex + like
 select trim(col) not SIMILAR TO '[A-Z]%'
