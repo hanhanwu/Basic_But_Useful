@@ -41,6 +41,11 @@ for col in df.columns:
         continue
     df.loc[df[col] > quant_df[col].values[0], col] = quant_df[col].values[0] # larger than 99 percentile
     df.loc[df[col] < 0, col] = 0 # negative value
+        
+# a fast way to get distribution for a list of values
+pd.Series(my_lst).describe()  # but this one may not return the all percentile you want
+## to get a certain percentile from a list
+pd.Series(my_lst).quantile(q=0.9)  # 90th percentile
 
 # drop highly correlated features
 import numpy as np
