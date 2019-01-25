@@ -169,6 +169,13 @@ select JSON_EXTRACT_PATH_TEXT(col_name 'key1', TRUE)::FLOAT as col3 -- if null t
 -- read json in an array
 select json_extract_path_text(json_extract_array_element_text(col_name, 0), 'key1') as col3
 
+-- convert string to float & deal with empty/NULL
+select
+case
+   when (json_extract_path_text(col, 'key') is null or trim(json_extract_path_text(col, 'key')) = '') then null
+   else json_extract_path_text(col, 'key', True)::float                                                                                               
+end as my_col
+from my_table; 
 
 -- multiple inner join
 -- from what I have found so far, in psql, if there is where or other clause before join clause, you may need to use () to wrap this table
