@@ -115,6 +115,8 @@ This file will also be used to record other commands.
 * Install XGBoost
   * `anaconda search -t conda xgboost`, this one is just to show what you can install through conda on difference OS and python verison
   * `conda install -c anaconda py-xgboost`, you can choose this one or other versions
+* Load Spacy "en" model
+  * Run your terminal as admin, tyen type in the terminal `python -m spacy download en`
 ### Windows Basic Commands
 * List all files in current directory: `dir`
 * Print out current path on windows: `cd`
