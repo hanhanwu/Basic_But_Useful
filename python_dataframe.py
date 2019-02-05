@@ -15,6 +15,8 @@ df.isnull().sum()  ## check all missing values
 df.col1 = df.col1.fillna("MISSING")  # fill NA
 df.loc[(df.col1 != 'A') & (df.col1 != '2')\
         & (df.col1 != 'MISSING'), 'col1'] = 'OTHER'  # replace some rows in a column (this method will avoid warnings)
+df.loc[df['col'].notnull()]  # select those records with 'col' not null
+df.loc[df['col'].isnull()]  # select those records with 'col' is null
 
 # To deal with np.nan related error
 df = df.astype(np.float64).replace(np.nan, 'None')
