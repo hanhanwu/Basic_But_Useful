@@ -95,7 +95,12 @@ pd.DataFrame(my_dct).T
 df.index.name = 'new_idx_name'
 df.reset_index(level=0, inplace=True)
 
-# insert pandas dataframe into Redshift
+# insert pandas dataframe into Redshift (Using AWS S3 copy is much faster for larger files)
+## create schema first (psql)
+Drop table if exists ngram_metrics_iter1;
+create table ngram_metrics_iter1
+(col VARCHAR(200), col1 TIMESTAMP, col2 VARCHAR(128), col3 VARCHAR(max));
+## python pandas insertion
 from sqlalchemy import create_engine
 import pandas as pd
 
