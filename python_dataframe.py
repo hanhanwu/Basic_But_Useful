@@ -5,6 +5,12 @@
 ### cross-tab - this can be used to check whether a feature affects the label with percentage value
 ### cut - binning
 
+# When data file is huge and python always exit because of the lack of memory, use Dask
+## But dask dataframe do not have much functions as pandas dataframe, with `compute()` after loading data, you can use the
+## data as pandas dataframe
+import dask.dataframe as dd
+
+df = dd.read_csv('my_csv.csv').compute()
 
 # With python pandas, dataframe can also do queries
 # count distinct values in a column
