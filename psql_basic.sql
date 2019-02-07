@@ -61,6 +61,11 @@ as $$
   return b
 $$ language plpythonu;
 
+-- !! Using "in" when there is NULL in a list
+-- When there is null in a list, "in" may not work. This cost me so much time today, cuz it dind't return any result
+  -- when I didn't treat null differently. Similar things in python too.
+id not in (select distinct id from my_table where id is not null) and id is not null
+
 -- 1. match elements in timestamp, such as year, day
 -- Match day from timestamp 2017-05-25 10:20:20
 date_trunc('day', my_timestamp) = '2017-05-25 00:00:00';
