@@ -27,6 +27,9 @@ df.loc[df['col'].isnull()]  # select those records with 'col' is null
 # To deal with np.nan related error
 df = df.astype(np.float64).replace(np.nan, 'None')
 
+# get days difference from 2 datetime columns
+df['days_diff'] = (df['max_time'] - df['min_time']).dt.days
+
 # count duplicated rows
 df.duplicated().sum()
 # count duplicated rows based on s subset of columns
