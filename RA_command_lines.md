@@ -91,6 +91,10 @@ This file will also be used to record other commands.
 * Cannot open IPython for different reasons
   * Problem: "AttributeError: type object 'IOLoop' has no attribute 'initialized'"
     * `conda install -c conda-forge pyzmq`
+* <b>Install AWS CLI (command line tool)</b>
+  * Just type `sudo -H pip install awscli --upgrade --ignore-installed six` worked for me
+  * The guidance in AWS website didn't really work for me: https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html#awscli-install-osx-path
+  * Type `aws --version` to see whether you got it installed
     
 ## Windows Commands
 ### Python in Windows
