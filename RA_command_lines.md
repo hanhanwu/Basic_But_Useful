@@ -2,7 +2,6 @@ My RA work finally has been finished on 2017/4/29. So excited and I have collect
 This file will also be used to record other commands.
 
 ## Interact with Remote Linux Server
-
 * Remote login to school Linux server: `ssh [my school id]@rcg-linux-ts1.rcg.sfu.ca` 
 * Download folder from school server to local machine: `scp -r [my school id]@rcg-linux-ts1.rcg.sfu.ca:/rcg/sentiment/SOC/Factiva_Data/Factiva_Articles/2016 [local folder path]/RA`
 * Send local folder to school server: `scp -r [local folder path]/2016_more [my school id]@rcg-linux-ts1.rcg.sfu.ca:/rcg/sentiment/SOC/Factiva_Data/Factiva_Articles`
@@ -10,7 +9,6 @@ This file will also be used to record other commands.
   * In a word, when there is space in your path, add `""` around the path and use `\ ` to replace the space 
 
 ## Mac Commnds
-
 * <b>NOTE:</b> If it is showing any error, try to start your commnd line with `sudo`, if your know admin id and password.
 * To simply open a folder/file: `open [folder_path/file_path]`
 * Check folder memory: `du -sh`, use it under this folder
@@ -96,6 +94,8 @@ This file will also be used to record other commands.
   * Just type `sudo -H pip install awscli --upgrade --ignore-installed six` worked for me
   * The guidance in AWS website didn't really work for me: https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html#awscli-install-osx-path
   * Type `aws --version` to see whether you got it installed
+  * When creating `~/.aws/credentials` or `~/.aws/config`, you will need accedd id and secret access key, to find them, check this: https://help.bittitan.com/hc/en-us/articles/115008255268-How-do-I-find-my-AWS-Access-Key-and-Secret-Access-Key-
+    * You may need to click "Create Access key" in order to see your secret access key
     
 ## Windows Commands
 ### Python in Windows
@@ -184,7 +184,6 @@ This file will also be used to record other commands.
   * nslookup is built in many systems
 
 ## GitHub Commands
-
 * Clone to local folder: `sudo git clone https://github.com/hanhanwu/SFU_comments_extractor.git`
 * Update local Git folder with the updates on GitHub: `git pull origin master`
 * Choose GitHub license: https://choosealicense.com/
@@ -193,7 +192,6 @@ This file will also be used to record other commands.
 
 
 ## WestGrid
-
 * Login: `ssh orcinus.westgrid.ca`
 * Upload local fodler to WestGrid `scp -r [local path]/SFU_comments_extractor [my WestGrid id]@orcinus.westgrid.ca:[WestGrid path]`
 * Run python3.5 through WestGrid Terminal:
@@ -202,7 +200,6 @@ This file will also be used to record other commands.
   
   
 ## R Command
-
 * To find R HOME: `R.home()`, type this in R Studio
 * Find my R packages in the previous version (this is why I hate version updating for some software...): `cd /Library/Frameworks/R.framework/Versions/3.2/Resources/library`
 
@@ -241,7 +238,6 @@ This file will also be used to record other commands.
   * `install.packages("subspace")`, then `library(subspace)`
 
 ## MySQL Commands
-
 * Forgot Password & Reser Password - No matter whether you have MySQL workbench, when you are using your localhost, you need to start the server first. If you haven't used it for a while, you may realize, ahhhhh, I forgot the password
   * Step 1 - Open your terminal, make sure you have 2 folders under `/usr/local/`, "mysql" and "mysql-VERSION..."
   * Step 2 - Type `cd /usr/local/mysql`, then type `mysql.server start`
