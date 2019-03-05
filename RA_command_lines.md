@@ -56,6 +56,7 @@ This file will also be used to record other commands.
   * I have at least 3 types of python, all useful in different situations. Sometimes, I just want to switch to a certain type.
   * Switch between types temporarily:
     * `alias python="/usr/local/opt/python3/bin/python3.6"`
+    * `alias python=python3`
     * `alias python="/usr/local/opt/python3/bin/python2.7"`
     * Then when you type `python`, it will be the type you want
   * If your python2 is the default one, and `pip` only serves for python2. Even if you used `alias` switched to python3, pip still serves for the default python. The worst case will be, your pip3 no longer work any more (this could happen after Apple updated OS). Today I found a way works (I tried many other ways online, none of them worked....)
