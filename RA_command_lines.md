@@ -96,6 +96,12 @@ This file will also be used to record other commands.
   * Type `aws --version` to see whether you got it installed
   * When creating `~/.aws/credentials` or `~/.aws/config`, you will need accedd id and secret access key, to find them, check this: https://help.bittitan.com/hc/en-us/articles/115008255268-How-do-I-find-my-AWS-Access-Key-and-Secret-Access-Key-
     * You may need to click "Create Access key" in order to see your secret access key
+
+## AWS EC2 Troubleshooting
+* I chose a task to learn AWS skills, who knows even basic setup can be troublesome. Let me take a note.
+### Jupyter Lab
+* Could not import `pandas` even the installation is all succeeded in both python3 and python2.
+  * In the terminal, type `sudo apt-get remove ipython`, then `sudo apt autoremove`. At least you can still use `sudo`, so it's lucky.
     
 ## Windows Commands
 ### Python in Windows
