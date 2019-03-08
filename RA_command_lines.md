@@ -102,6 +102,10 @@ This file will also be used to record other commands.
 ### Jupyter Lab
 * Could not import `pandas` even the installation is all succeeded in both python3 and python2.
   * In the terminal, type `sudo apt-get remove ipython`, then `sudo apt autoremove`. At least you can still use `sudo`, so it's lucky.
+### `aws` Command line
+* Without setting the profile, it will use EC2 instance profile, which has "None" for all the access id, secret access key
+  * To set profile for AWS, check https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html, "Quick Configuration and Multiple Profiles"
+  * This can be confusing, since when you are creating an EC2 instance through AWS CLI, the profile has already been set with specific access key and access id, howcome the default one has all values as None...
     
 ## Windows Commands
 ### Python in Windows
