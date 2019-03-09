@@ -15,6 +15,33 @@ plt.ylabel('Y')
 plt.title('Edit Your Title')
 plt.show()
 
+# Bar chart to show each x value with specified colors
+plot_df = pd.DataFrame(oao_df['isfraud'].value_counts(), index=[0,1])
+plot_df.reset_index(level=0, inplace=True)
+plot_df.columns = ['class', 'count']
+## plot_df looks like
+# 	class	count
+# 0	0	43381
+# 1	1	743
+
+ind = np.arange(2) 
+width = 1
+
+plt.bar(ind-width, plot_df.iloc[0].values, width/2, label='non-Fraud', color='green')
+plt.bar(ind, plot_df.iloc[1].values, width/2,label='Fraud', color='red')
+
+plt.ylabel('Count')
+plt.ylabel('Class')
+plt.title('Label Distribution')
+
+axes = plt.gca()
+rects = axes.patches
+
+plt.xticks(ind, (0, 1))
+plt.legend(loc='best')
+plt.show()
+
+
 # Bar chart with y values above the bar
 import numpy as np
 import matplotlib.pyplot as plt
