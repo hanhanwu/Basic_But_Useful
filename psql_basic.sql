@@ -11,6 +11,16 @@
 -- 1. Sometimes you select multiple columns but got an error saying the rows exceeds the block size in Redshift, this maybe because
 -- you have chosen columns that have large space settings such as var(MAX). If you remove those colums may make a difference.
 
+
+-- About NULL
+-- In psql, "=" and "!=" will simply ignore NULL
+-- do this
+case
+  when attr = lag_attr or (attr is null and lag_attr is null) then 0
+  when attr != lag_attr or (attr is null and lag_attr is not null) or (attr is not null and lag_attr is null) then 1 
+end as attr_change
+
+
 -- Check tables that you have created so that you can clean them up :)
 select * from pg_tables where tableowner = '[your name in the DB system]';
 -- clean tables that you have created
