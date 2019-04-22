@@ -132,6 +132,8 @@ This file will also be used to record other commands.
   * `conda install -c anaconda py-xgboost`, you can choose this one or other versions
 * Load Spacy "en" model
   * Run your terminal as admin, tyen type in the terminal `python -m spacy download en`
+* Install Pytorch
+  * `conda install pytorch torchvision cuda91 -c pytorch`
 ### Windows Basic Commands
 * List all files in current directory: `dir`
 * Print out current path on windows: `cd`
