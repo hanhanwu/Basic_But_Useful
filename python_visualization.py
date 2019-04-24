@@ -31,7 +31,7 @@ plt.bar(ind-width, plot_df.iloc[0].values, width/2, label='non-Fraud', color='gr
 plt.bar(ind, plot_df.iloc[1].values, width/2,label='Fraud', color='red')
 
 plt.ylabel('Count')
-plt.ylabel('Class')
+plt.xlabel('Class')
 plt.title('Label Distribution')
 
 axes = plt.gca()
