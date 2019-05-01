@@ -46,6 +46,13 @@ This file will also be used to record other commands.
   * When you try commands like `brew update`, it may show you error: `Error: The /usr/local directory is not writable.`
   * To deal with this, type `sudo chown -R $(whoami):admin /usr/local`, here no need to change anything in the command
   * After that, change permission back by typing `sudo chown root:wheel /usr/local`
+* Upgrade Python3
+  * `brew install python3` (Optional if you already have python3 installed)
+  * `brew update`
+  * `brew upgrade python3`
+  * Now try `python3 --version`, if it's still the older version:
+    * try `brew link python`
+    * If above doesn't work, try `brew link --overwrite python`
 * Python package Fully Uninstall
   * `sudo easy_install -m [PACKAGE]` or `sudo pip uninstall [package]`
   * `sudo rm -rf /usr/local/lib/python2.X/site-packages/[PACKAGE].egg` # remove egg file
