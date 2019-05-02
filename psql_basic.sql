@@ -410,3 +410,7 @@ WbExport -type=text
          -decimal=',';
 select * from my_table LIMIT 10;
 commit;
+                          
+-- copy command used between S3 and Redshift
+-- this one will deal with 'nan' data copy issue
+copy oao_test from 's3://my_file.csv' iam_role 'arn:aws:iam::[S3 account number]:role/[host]' CSV IGNOREHEADER 1 MAXERROR 10 NULL 'nan';
