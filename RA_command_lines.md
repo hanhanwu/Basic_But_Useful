@@ -46,6 +46,8 @@ This file will also be used to record other commands.
   * When you try commands like `brew update`, it may show you error: `Error: The /usr/local directory is not writable.`
   * To deal with this, type `sudo chown -R $(whoami):admin /usr/local`, here no need to change anything in the command
   * After that, change permission back by typing `sudo chown root:wheel /usr/local`
+* When there is "dateutil" related errors
+  * `sudo pip install python-dateutil --upgrade`, this one works
 * Upgrade Python3
   * `brew install python3` (Optional if you already have python3 installed)
   * `brew update`
