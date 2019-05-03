@@ -7,3 +7,6 @@ count(dt, 'col')  # dt is a data.table
 
 # set path on windows
 path <- "C:/Users/your_name/Desktop/"
+
+# order dataframe by 1 column
+df[order(df$freq),]  # order by column "freq"
