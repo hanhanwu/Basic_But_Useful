@@ -366,11 +366,11 @@ for sample_foodname in selected_foodnames:
 # Data Explore & Data Preprocessing Methods
 ## check percentile for each colummn
 def get_percentile(col):
-    result = {'1%':np.percentile(col, 1),
-             '5%':np.percentile(col, 5), '10%':np.percentile(col, 10), '15%':np.percentile(col, 15),
+    result = {'min': np.percentile(col, 0), '1%':np.percentile(col, 1),
+             '5%':np.percentile(col, 5), '15%':np.percentile(col, 15),
              '25%':np.percentile(col, 25), '50%':np.percentile(col, 50), '75%':np.percentile(col, 75),
              '85%':np.percentile(col, 85), '95%':np.percentile(col, 95), '99%':np.percentile(col, 99),
-              '100%':np.percentile(col, 100)}
+              'max':np.percentile(col, 100)}
     return result
     
 df = df.set_index('accountid')
