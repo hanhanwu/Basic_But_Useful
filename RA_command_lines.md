@@ -55,6 +55,13 @@ This file will also be used to record other commands.
   * Now try `python3 --version`, if it's still the older version:
     * try `brew link python`
     * If above doesn't work, try `brew link --overwrite python`
+* Upgrade `xgboost` is a pain...
+  * `sudo -H pip3 install -U setuptools`
+  * Use `git clone` to install is better, https://xgboost.readthedocs.io/en/latest/build.html
+    * You need to `cd xgboost`, then create "build" folder
+    * Also in "xgboost" folder, type `cd python-package; sudo python setup.py install`
+    * `export PYTHONPATH=~/xgboost/python-package`, tell pythonpath where to find the python package
+  * If the installation succeeded, check xgboost version, `pip3 freeze | grep xgboost`
 * Python package Fully Uninstall
   * `sudo easy_install -m [PACKAGE]` or `sudo pip uninstall [package]`
   * `sudo rm -rf /usr/local/lib/python2.X/site-packages/[PACKAGE].egg` # remove egg file
