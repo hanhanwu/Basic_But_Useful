@@ -62,6 +62,8 @@ This file will also be used to record other commands.
     * Also in "xgboost" folder, type `cd python-package; sudo python setup.py install`
     * `export PYTHONPATH=~/xgboost/python-package`, tell pythonpath where to find the python package
   * If the installation succeeded, check xgboost version, `pip3 freeze | grep xgboost`
+* Print python package version
+  * `print(xgboost.__version__)`
 * Python package Fully Uninstall
   * `sudo easy_install -m [PACKAGE]` or `sudo pip uninstall [package]`
   * `sudo rm -rf /usr/local/lib/python2.X/site-packages/[PACKAGE].egg` # remove egg file
