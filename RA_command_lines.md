@@ -191,6 +191,10 @@ This file will also be used to record other commands.
   * `conda install matplotlib scipy pandas -c conda-forge`
   * `pip install pystan`
   * `conda install -c conda-forge fbprophet`
+* "WinError: dot cannot be found", how toinstall `graphviz`
+  * pip install on windows won't work... You need to download the .zip file here first: https://graphviz.gitlab.io/_pages/Download/Download_windows.html
+    * Then put the path of the "bin" file into environmental variable
+  * `pip install pydot` won't work, even it's successfully installed. Only conda install is supported on windows... Type `conda install -c anaconda graphviz`
     
 ### Install Linux on Removable Hard Drive
 * All these months, failed too many times. Finally, it got installed successfully during this long weekend. I'm feeling so happy.
