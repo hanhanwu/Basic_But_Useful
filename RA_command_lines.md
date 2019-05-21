@@ -195,6 +195,23 @@ This file will also be used to record other commands.
   * pip install on windows won't work... You need to download the .zip file here first: https://graphviz.gitlab.io/_pages/Download/Download_windows.html
     * Then put the path of the "bin" file into environmental variable
   * `pip install pydot` won't work, even it's successfully installed. Only conda install is supported on windows... Type `conda install -c anaconda graphviz`
+### How to install Spark on Windows
+* `pip install pyspark`, but only this step is far from enough
+* Download the lastest stable Spark release from http://spark.apache.org/downloads.html
+  * Add environment variable similar to "SPARK_HOME=C:\somewhere\spark-2.1.0-bin-hadoop2.7"
+* Download Java for windows from https://www.oracle.com/technetwork/java/javase/downloads/index.html
+  * Add environment variable similar to "SPARK_HOME=C:\somewhere\spark-2.1.0-bin-hadoop2.7"
+* Download hadoop 2.7 from https://github.com/steveloughran/winutils
+  * You can just keep folder "hadoop-2.7.1"
+  * Add environment variable similar to "HADOOP_HOME=C:\somewhere\hadoop-2.7.3"
+* Add "%SPARK_HOME%\bin" to `Path`
+* Create folder "C:\tmp\hive"
+* Go you downloaded folder "hadoop-2.7.1\bin", run command "winutils.exe chmod 777 C:\tmp\hive"
+  * If there is error saying missing MSVCR100.dll, try solutions here: https://www.drivereasy.com/knowledge/msvcr100-dll-missing-or-not-found-on-windows-solved/
+* Now you can go to "C:\somewhere\spark-2.1.0-bin-hadoop2.7\bin\", try to run Spark
+  * `spark-shell` will allow you write scala
+  * `pyspark` will allow you write python, try `from pyspark.ml.fpm import FPGrowth` to see whether it works
+* In fact, you can also just open jupyter notebook at anywhere, run `from pyspark.ml.fpm import FPGrowth` and see whether it works
     
 ### Install Linux on Removable Hard Drive
 * All these months, failed too many times. Finally, it got installed successfully during this long weekend. I'm feeling so happy.
