@@ -212,6 +212,7 @@ This file will also be used to record other commands.
   * `spark-shell` will allow you write scala
   * `pyspark` will allow you write python, try `from pyspark.ml.fpm import FPGrowth` to see whether it works
 * In fact, you can also just open jupyter notebook at anywhere, run `from pyspark.ml.fpm import FPGrowth` and see whether it works
+* Reference: https://github.com/Cheng-Lin-Li/Spark/wiki/How-to-install-Spark-2.1.0-in-Windows-10-environment
     
 ### Install Linux on Removable Hard Drive
 * All these months, failed too many times. Finally, it got installed successfully during this long weekend. I'm feeling so happy.
