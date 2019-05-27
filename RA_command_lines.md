@@ -213,6 +213,8 @@ This file will also be used to record other commands.
   * `pyspark` will allow you write python, try `from pyspark.ml.fpm import FPGrowth` to see whether it works
 * In fact, you can also just open jupyter notebook at anywhere, run `from pyspark.ml.fpm import FPGrowth` and see whether it works
 * Reference: https://github.com/Cheng-Lin-Li/Spark/wiki/How-to-install-Spark-2.1.0-in-Windows-10-environment
+#### NOTE
+* When using Spark in Windows IPython, if you dind't terminate terminal and jupyter for a while, IPython could beahve abnormally, such as having java server errors
     
 ### Install Linux on Removable Hard Drive
 * All these months, failed too many times. Finally, it got installed successfully during this long weekend. I'm feeling so happy.
