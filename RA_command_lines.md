@@ -215,6 +215,8 @@ This file will also be used to record other commands.
 * Reference: https://github.com/Cheng-Lin-Li/Spark/wiki/How-to-install-Spark-2.1.0-in-Windows-10-environment
 #### NOTE
 * When using Spark in Windows IPython, if you dind't terminate terminal and jupyter for a while, IPython could beahve abnormally, such as having java server errors
+* To define spark, check https://github.com/hanhanwu/Hanhan-Spark-Python/blob/master/Spark2.0/how_to_define_spark.py
+  * When there will be any error, you may need to adjust properties: http://spark.apache.org/docs/latest/configuration.html#available-properties
     
 ### Install Linux on Removable Hard Drive
 * All these months, failed too many times. Finally, it got installed successfully during this long weekend. I'm feeling so happy.
