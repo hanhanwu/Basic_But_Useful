@@ -71,6 +71,20 @@ as $$
   return b
 $$ language plpythonu;
 
+-- other ways to set variable
+drop table if exists tmp_variables;
+CREATE TABLE tmp_variables AS SELECT
+   '2019-01-01'::TIMESTAMP as evaluate_date;
+   
+select col, max(my_time) as maxtime, 
+extract(day from max(my_time) - (select evaluate_date from tmp_variables))/7.0+1 as weeks,
+count(col)/(extract(day from max(my_time) - (select evaluate_date from tmp_variables))/7.0+1) as weekly_ct
+  from my_table
+  where my_time >= (select evaluate_date from tmp_variables)
+  group by col
+order by count(col)/(extract(day from max(my_time) - (select evaluate_date from tmp_variables))/7.0+1) desc
+limit 100;
+
 -- !! Using "in" when there is NULL in a list
 -- When there is null in a list, "in" may not work. This cost me so much time today, cuz it dind't return any result
   -- when I didn't treat null differently. Similar things in python too.
