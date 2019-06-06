@@ -384,6 +384,18 @@ datediff(hour, lag(mytime) over (partition by myid, mychocolate order by mytime)
 from my_table
 limit 10;
 
+-- cumulative count for each icecream along the time
+drop table if exists tmp_variables;
+CREATE TABLE tmp_variables AS SELECT
+   '2017-01-01'::TIMESTAMP as evaluate_date;
+                          
+select icecream, my_time,
+   extract(day from my_time - (select evaluate_date from tmp_variables))/7.0+1 as weeks_passed,
+   sum(1) over (partition by icecream order by my_time rows unbounded preceding) as cum_counts
+   from my_table
+   and my_time >= (select evaluate_date from tmp_variables)
+
+
 -- percentile
 select percentile_cont(0.05) WITHIN GROUP (ORDER BY my_val) as perct_5,
 percentile_cont(0.1) WITHIN GROUP (ORDER BY my_val) as perct_10,
