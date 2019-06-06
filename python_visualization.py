@@ -1,4 +1,3 @@
-
 # Bar Chart
 import numpy as np
 import matplotlib.pyplot as plt
@@ -240,3 +239,51 @@ for i in range(len(values)):
     scatter_plot_circles_problem(values[i])
 pyplot.show()
 
+
+# Show kernel density distribution, calculate K-L score to show difference between the 2 probability distributions
+import numpy as np
+from scipy.stats import gaussian_kde
+from scipy.stats import entropy
+import seaborn as sns
+sns.set(color_codes=True)
+
+def calc_kl_score(x1, x2):
+    """
+    Fits a gaussian distribution to x1 and x2 and calculates the K-L score
+    between x1 and x2.
+     
+    :param x1: list. Contains float / integers representing a feature.
+    :param x2: list. Contains float / integers representing a different feature.
+    :return float
+    """
+    positions = np.linspace(0,1,1000) # (Optional) If plotting, you can increase this number to generate a smoother KDE plot
+    kernel = gaussian_kde(x1)
+    values_prod = kernel(positions)
+    kernel = gaussian_kde(x2)
+    values_dev = kernel(positions)
+    return entropy(values_dev,values_prod)
+
+features = df1.columns
+print(len(features))
+n_rows = 2
+n_cols = 4
+
+i = 0
+fig=plt.figure(figsize=(20,10))
+for feature in features:
+    if feature == 'id':
+        continue
+    i += 1
+    ax=fig.add_subplot(n_rows,n_cols,i) 
+    bins = np.linspace(min(df2[feature]), max(df2[feature]), 100)
+    props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
+    sns.distplot(df1.loc[df1[feature].isnull()==False][feature], color='green', label='df1')
+    sns.distplot(df2.loc[df2[feature].isnull()==False][feature], color='purple', label='df2')
+    kl_score = calc_kl_score(df1.loc[df1[feature].isnull()==False][feature],
+             df2.loc[df2[feature].isnull()==False][feature])
+    plt.legend(loc='best')
+    plt.title('Feature: ' + feature + ', K-L Score:' + str(round(kl_score, 4)))
+    plt.xlabel('Feature Values')
+    plt.ylabel('Percentage')
+fig.tight_layout()
+plt.show()
