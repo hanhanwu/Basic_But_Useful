@@ -383,7 +383,7 @@ mytime as current_time,
 datediff(hour, lag(mytime) over (partition by myid, mychocolate order by mytime), mytime) as hour_diff
 from my_table
 limit 10;
-
+   
 -- cumulative count for each icecream along the time
 drop table if exists tmp_variables;
 CREATE TABLE tmp_variables AS SELECT
@@ -392,8 +392,24 @@ CREATE TABLE tmp_variables AS SELECT
 select icecream, my_time,
    extract(day from my_time - (select evaluate_date from tmp_variables))/7.0+1 as weeks_passed,
    sum(1) over (partition by icecream order by my_time rows unbounded preceding) as cum_counts
+   from 
+   (select distinct icecream, my_time
    from my_table
-   and my_time >= (select evaluate_date from tmp_variables)
+   and my_time >= (select evaluate_date from tmp_variables));
+                               
+-- cumulative count DISTINCT (Redshift window function doesn't support count distinct)
+select id, col2_dist_ct from
+(select id, my_time, col2,
+case when rnk = 1 then 1 else 0 end as rnk2,
+sum(rnk2) over (partition by col1 order by my_time rows unbounded preceding) as col2_dist_ct
+from
+  (select id, col1, my_time, col2, rank() over (partition by col2 order by my_time) as rnk
+    from
+    (select distinct id, col1, my_time, col2
+    from my_table
+    and requesttime >= (select evaluate_date from tmp_variables))
+  )
+);
 
 
 -- percentile
