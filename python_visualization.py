@@ -185,6 +185,8 @@ for feature in features:
     plt.title('Feature: ' + feature)
     plt.xlabel('Feature Values')
     plt.ylabel('Percentage')
+    anchored_text = AnchoredText('Here to put the text', loc=7)  # the location code: https://matplotlib.org/3.1.0/api/offsetbox_api.html
+    ax.add_artist(anchored_text)
 fig.tight_layout()
 plt.show()
 
