@@ -71,6 +71,7 @@ as $$
   return b
 $$ language plpythonu;
 
+
 -- other ways to set variable
 drop table if exists tmp_variables;
 CREATE TABLE tmp_variables AS SELECT
@@ -89,6 +90,10 @@ limit 100;
 -- When there is null in a list, "in" may not work. This cost me so much time today, cuz it dind't return any result
   -- when I didn't treat null differently. Similar things in python too.
 id not in (select distinct id from my_table where id is not null) and id is not null
+                             
+
+-- current date, and 14 days before current date
+select current_date, date_add('day', -14, current_date);
 
 -- 1. match elements in timestamp, such as year, day
 -- Match day from timestamp 2017-05-25 10:20:20
