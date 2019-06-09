@@ -31,6 +31,7 @@ df = df.astype(np.float64).replace(np.nan, 'None')
 df['days_diff'] = (df['max_time'] - df['min_time']).dt.days
 
 # extract date from datetime string
+## check those symbols: https://docs.python.org/2/library/datetime.html
 my_date = datetime.datetime.strptime(my_datetime_str, "%Y-%m-%d %H:%M:%S").date()
 
 # count duplicated rows
