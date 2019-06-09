@@ -30,6 +30,9 @@ df = df.astype(np.float64).replace(np.nan, 'None')
 # get days difference from 2 datetime columns
 df['days_diff'] = (df['max_time'] - df['min_time']).dt.days
 
+# extract date from datetime string
+my_date = datetime.datetime.strptime(my_datetime_str, "%Y-%m-%d %H:%M:%S").date()
+
 # count duplicated rows
 df.duplicated().sum()
 # count duplicated rows based on s subset of columns
