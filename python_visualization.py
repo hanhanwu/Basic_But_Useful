@@ -247,6 +247,7 @@ import numpy as np
 from scipy.stats import gaussian_kde
 from scipy.stats import entropy
 import seaborn as sns
+from matplotlib import pylab as plt
 sns.set(color_codes=True)
 
 def calc_kl_score(x1, x2):
