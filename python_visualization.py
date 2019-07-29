@@ -284,9 +284,9 @@ for feature in features:
     sns.distplot(df2.loc[df2[feature].isnull()==False][feature], color='purple', label='df2')
     kl_score = calc_kl_score(df1.loc[df1[feature].isnull()==False][feature],
              df2.loc[df2[feature].isnull()==False][feature])
-    plt.legend(loc='best')
-    plt.title('Feature: ' + feature + ', K-L Score:' + str(round(kl_score, 4)))
-    plt.xlabel('Feature Values')
-    plt.ylabel('Percentage')
+    plt.legend(loc='best', fontsize=25))
+    plt.title('Feature: ' + feature + ', K-L Score:' + str(round(kl_score, 4)), fontsize=25))
+    plt.xlabel('Feature Values', fontsize=25))
+    plt.ylabel('Percentage', fontsize=25))
 fig.tight_layout()
 plt.show()
