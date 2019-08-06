@@ -408,7 +408,7 @@ select id, col2_dist_ct from
 case when rnk = 1 then 1 else 0 end as rnk2,
 sum(rnk2) over (partition by col1 order by my_time rows unbounded preceding) as col2_dist_ct
 from
-  (select id, col1, my_time, col2, rank() over (partition by col2 order by my_time) as rnk
+  (select id, col1, my_time, col2, rank() over (partition by col1, col2 order by my_time) as rnk
     from
     (select distinct id, col1, my_time, col2
     from my_table
