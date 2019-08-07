@@ -195,6 +195,12 @@ This file will also be used to record other commands.
   * pip install on windows won't work... You need to download the .zip file here first: https://graphviz.gitlab.io/_pages/Download/Download_windows.html
     * Then put the path of the "bin" file into environmental variable
   * `pip install pydot` won't work, even it's successfully installed. Only conda install is supported on windows... Type `conda install -c anaconda graphviz`
+* To install `graphviz` on Mac
+  * Either you can try anaconda
+  * Or:
+    * `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null ; brew install caskroom/cask/brew-cask 2> /dev/null`
+    * `brew install graphviz`
+      * You may get some instructions at the end to tell you add those libraries into PATH, in fact, ignore them is also fine
 ### How to install Spark on Windows
 * `pip install pyspark`, but only this step is far from enough
 * Download the lastest stable Spark release from http://spark.apache.org/downloads.html
