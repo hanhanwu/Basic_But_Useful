@@ -249,6 +249,7 @@ from scipy.stats import entropy
 import seaborn as sns
 from matplotlib import pylab as plt
 sns.set(color_codes=True)
+sns.set(style="ticks", rc={"lines.linewidth": 0.7})  # set linewidth
 
 def calc_kl_score(x1, x2):
     """
