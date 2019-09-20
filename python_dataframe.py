@@ -12,6 +12,13 @@ import dask.dataframe as dd
 
 df = dd.read_csv('my_csv.csv').compute()
 
+# multiprocessing
+import multiprocessing as mp
+pool = mp.Pool(processes = (mp.cpu_count() - 1))
+answer = pool.map(my_function, my_data)
+pool.close()
+pool.join()
+
 # With python pandas, dataframe can also do queries
 # count distinct values in a column
 df.col.value_counts()
