@@ -114,6 +114,7 @@
 * Python Excel: https://github.com/hanhanwu/Basic_But_Useful/blob/master/python_excel.py
 * `seaborn` - an easy-to-use python visualization
   * my code: https://github.com/hanhanwu/Basic_But_Useful/blob/master/python_distribution_visualization.ipynb
+  * My code2, more seaborn visualization: https://github.com/hanhanwu/Basic_But_Useful/blob/master/visualization_seaborn.ipynb
   * The visualization here is majorly for distribution analysis (univariate, bivariate)
   * By default, `kdeplot()` is using "gaussian" as kernel type, so when you are giving an array of numbers, it converts to gaussian distribution like curves
 * Other Python Visualization: https://github.com/hanhanwu/Basic_But_Useful/blob/master/python_visualization.py
