@@ -46,3 +46,8 @@ buz_name = "La Grande Orange Café"
 buz_name = buz_name.decode('utf_8')  # this one may not needed in some situation
 buz_name = unicodedata.normalize('NFKD', buz_name).encode('ascii','ignore')
 Instagram_api.tag_search(buz_name, tag_ct)[0]
+
+
+# Sometimes, just replace that extra part...
+## for example: `0.3189069486778499` has become `0.\x103189069486778499`
+full_features[f] = full_features[f].apply(lambda v: str(v).replace('\x10', ''))
