@@ -154,7 +154,7 @@ This file will also be used to record other commands.
   * `conda install pytorch torchvision cuda91 -c pytorch`
 ### Windows Basic Commands
 * List all files in current directory: `dir`
-* Print out current path on windows: `cd`
+* Print out current path on windows: `cd` or `chdir`
 * Show hidden files on current location: `dir /ah`
 * How to use `git` in windows terminal
   * Just download it and install: https://gitforwindows.org/
