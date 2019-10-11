@@ -23,6 +23,9 @@ pool.join()
 # count distinct values in a column
 df.col.value_counts()
 
+# Assign value at a cell with specified index & column name
+df.at[7, 'col'] = 10
+
 # COMMONLY USED PREPROCESSING METHODS
 df.isnull().sum()  ## check all missing values
 df.col1 = df.col1.fillna("MISSING")  # fill NA
