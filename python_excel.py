@@ -1,5 +1,10 @@
 # tutorial: https://openpyxl.readthedocs.io/en/default/tutorial.html#accessing-many-cells
 
+# pandas read_excel
+df = pd.read_excel('test.xlsx')
+
+
+# Using openpyxl
 import openpyxl
 
 # read excel
