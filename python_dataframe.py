@@ -267,8 +267,10 @@ cols_idx.extend(range(77,99))
 selected_cols = my_csv.iloc[:,cols_idx]
 
 # with Grouper, no need to reset index in groupby
-df.groupby(['name', pd.Grouper(key='date', freq='M')])['ext price'].sum()
+df['date'] = pd.to_datetime(df['date'])
+df.groupby(['name', pd.Grouper(key='date', freq='M')])['ext price'].sum()  # group by name and month
 # df.set_index('date').groupby('name')["ext price"].resample("M").sum()  # by comparison
+df.groupby([pd.Grouper(key='date', freq='M')])['ext price'].sum()  # group by month
 
 # better way to do group by, more flexibility, less code
 ## More examples: https://www.shanelynn.ie/summarising-aggregation-and-grouping-data-in-python-pandas/
