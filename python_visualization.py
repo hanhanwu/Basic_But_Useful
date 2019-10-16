@@ -161,6 +161,7 @@ for sample_foodname in selected_foodnames:
             
 # Plot multiple histogram
 from matplotlib import pylab as plt
+from matplotlib.offsetbox import AnchoredText
 plt.rcParams.update({'font.size': 20})
 
 features = feature_df.columns
