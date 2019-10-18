@@ -251,6 +251,8 @@ import seaborn as sns
 from matplotlib import pylab as plt
 sns.set(color_codes=True)
 sns.set(style="ticks", rc={"lines.linewidth": 0.7})  # set linewidth
+sns.set(font_scale=1.5)
+sns.set_style("whitegrid")  # add grid in the plot
 
 def calc_kl_score(x1, x2):
     """
