@@ -26,6 +26,9 @@ df.col.value_counts()
 # Assign value at a cell with specified index & column name
 df.at[7, 'col'] = 10
 
+# convert dictionary to dataframe without having index as the dictionary key
+my_df = pd.DataFrame.from_dict(my_dct, orient='index', columns=['ct']).reset_index()
+
 # COMMONLY USED PREPROCESSING METHODS
 df.isnull().sum()  ## check all missing values
 df.col1 = df.col1.fillna("MISSING")  # fill NA
