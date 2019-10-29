@@ -114,6 +114,10 @@ This file will also be used to record other commands.
   * Type `aws --version` to see whether you got it installed
   * When creating `~/.aws/credentials` or `~/.aws/config`, you will need accedd id and secret access key, to find them, check this: https://help.bittitan.com/hc/en-us/articles/115008255268-How-do-I-find-my-AWS-Access-Key-and-Secret-Access-Key-
     * You may need to click "Create Access key" in order to see your secret access key
+* Check S3 Access
+  * `cd ..` to Users folder
+  * `cd ~/.aws` get to AWS folder
+  * `aws s3 ls`, if you have the right access, you should be able to see the listed folders under your S3 default credentials
 
 ## AWS EC2 Troubleshooting
 * I chose a task to learn AWS skills, who knows even basic setup can be troublesome. Let me take a note.
