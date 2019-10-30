@@ -42,6 +42,8 @@ df = df.astype(np.float64).replace(np.nan, 'None')
 
 # get days difference from 2 datetime columns
 df['days_diff'] = (df['max_time'] - df['min_time']).dt.days
+# get hours difference from 2 datetime columns
+df['hours_diff'] = (df['max_time'] - df['min_time']).dt.components['hours']
 
 # extract date from datetime string
 ## check those symbols: https://docs.python.org/2/library/datetime.html
