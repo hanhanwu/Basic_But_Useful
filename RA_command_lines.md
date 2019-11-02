@@ -7,6 +7,12 @@ This file will also be used to record other commands.
 * Send local folder to school server: `scp -r [local folder path]/2016_more [my school id]@rcg-linux-ts1.rcg.sfu.ca:/rcg/sentiment/SOC/Factiva_Data/Factiva_Articles`
 * `scp` when there is space in your path: `scp [my school id]@rcg-linux-ts1.rcg.sfu.ca:"/rcg/sentiment/SOC/OnlineData/GlobeAndMail/all_online_data/all_online_data\ 2/empty_comment_ids.txt"  [local path]`
   * In a word, when there is space in your path, add `""` around the path and use `\ ` to replace the space 
+  
+## Git Commands
+* Update changes from the cloned directory: 
+  * `cd` to that folder locally first
+  * `git remote add upstream https://github.com/hanhanwu/mlflow-example.git`
+  * `git pull upstream master`
 
 ## Mac Commnds
 * <b>NOTE:</b> If it is showing any error, try to start your commnd line with `sudo`, if your know admin id and password.
