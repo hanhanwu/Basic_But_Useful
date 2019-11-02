@@ -543,3 +543,7 @@ df = df.drop_duplicates()
 
 # Createa histogram from dataframe or numpy histogram
 # Check https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/Applied_Statistics/thinkstats_chapter2.ipynb
+
+
+# load Chinese characters
+df = pd.read_csv('my_file.csv', encoding="GBK")
