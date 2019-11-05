@@ -135,9 +135,11 @@ This file will also be used to record other commands.
   * To set profile for AWS, check https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html, "Quick Configuration and Multiple Profiles"
   * This can be confusing, since when you are creating an EC2 instance through AWS CLI, the profile has already been set with specific access key and access id, howcome the default one has all values as None...
 ### Check GPU Performance
-  * `pip install gpustat`
-    * Later just run `gpustat -i 5 -cp`
-  * `htop`
+* `pip install gpustat`
+ * Later just run `gpustat -i 5 -cp`
+* `htop`
+### Save the screen
+* `screen -S session_name`, define the session_name yourself
     
 ## Windows Commands
 ### Python in Windows
