@@ -134,6 +134,10 @@ This file will also be used to record other commands.
 * Without setting the profile, it will use EC2 instance profile, which has "None" for all the access id, secret access key
   * To set profile for AWS, check https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html, "Quick Configuration and Multiple Profiles"
   * This can be confusing, since when you are creating an EC2 instance through AWS CLI, the profile has already been set with specific access key and access id, howcome the default one has all values as None...
+### Check GPU Performance
+  * `pip install gpustat`
+    * Later just run `gpustat -i 5 -cp`
+  * `htop`
     
 ## Windows Commands
 ### Python in Windows
