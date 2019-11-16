@@ -2,6 +2,10 @@
 import warnings
 warnings.filterwarnings("ignore")
 
+# json.loads() vs ast.literal_eval()
+## json.loads() works better when the nested situation is more complex in a dictionary, 
+## ast.literal_eval() sometimes may report an error.
+
 # find common elements in multiple lists
 set.intersection(*[set(list) for list in p])
 
