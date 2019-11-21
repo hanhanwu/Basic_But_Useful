@@ -50,6 +50,8 @@ df['hours_diff'] = (df['max_time'] - df['min_time']).dt.components['hours']
 my_date = datetime.datetime.strptime(my_datetime_str, "%Y-%m-%d %H:%M:%S").date()
 ## extract year_month
 df['month'] = df['my_datetime'].apply(lambda v: v.to_period('M'))
+## extract date from datetime
+df['date'] = sample_df['my_datetime'].dt.date
 
 # count duplicated rows
 df.duplicated().sum()
