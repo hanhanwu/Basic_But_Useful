@@ -279,6 +279,14 @@ df.groupby(['name', pd.Grouper(key='date', freq='M')])['ext price'].sum()  # gro
 # df.set_index('date').groupby('name')["ext price"].resample("M").sum()  # by comparison
 df.groupby([pd.Grouper(key='date', freq='M')])['ext price'].sum()  # group by month
 
+
+#group by, count distinct
+## in this case, group by food_name, count the number of flavors in each food_name, 
+df_count = selected_features[['food_name', 'flavor']].drop_duplicates()\
+          .groupby(['food_name'], as_index=False)['flavor']\
+          .agg(['count']).reset_index()\
+          .sort_values(['count'], ascending=False)
+
 # better way to do group by, more flexibility, less code
 ## More examples: https://www.shanelynn.ie/summarising-aggregation-and-grouping-data-in-python-pandas/
 agg_rating_df = user_rating_df[['buz_name', 'rating', 'review_count', 'review_sentiment']]\
