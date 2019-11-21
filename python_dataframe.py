@@ -281,8 +281,9 @@ df.groupby([pd.Grouper(key='date', freq='M')])['ext price'].sum()  # group by mo
 
 
 #group by, count distinct
-## in this case, group by food_name, count the number of flavors in each food_name, 
-df_count = selected_features[['food_name', 'flavor']].drop_duplicates()\
+## in this case, group by food_name, count the number of flavors in each food_name
+## if "foodx_name" is a list, needs to use `astype('str')`
+df_count = selected_features[['food_name', 'flavor']].astype('str').drop_duplicates()\
           .groupby(['food_name'], as_index=False)['flavor']\
           .agg(['count']).reset_index()\
           .sort_values(['count'], ascending=False)
