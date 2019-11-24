@@ -76,6 +76,11 @@ This file will also be used to record other commands.
 * Find Python package: `pip show [package name]`, this will work even when you are using conda or python virtual environment.
 * Having multiple types of Python
   * I have at least 3 types of python, all useful in different situations. Sometimes, I just want to switch to a certain type.
+  * Change Default Python Permanently
+    * `open ~/.bash_profile`, open the file
+    * Add `alias python='python3'` and savethe file
+    * `source ~/.bash_profile`
+    * `python --version` to check default python version now
   * Switch between types temporarily:
     * `alias python="/usr/local/opt/python3/bin/python3.6"`
     * `alias python=python3`
@@ -102,6 +107,9 @@ This file will also be used to record other commands.
   * To remove conda virtual environment, `sudo conda remove -n yourenvname --all`, but note, to create conda virtual environment takes longer time than creating python `virtualenv`
     * After running the command line, you may need to `cd anaconda/envs` and type `sudo rm -r yourenvname` to fully remove the environment
   * If you want to check how many conda virtual environment you have created and their names, also go to `anaconda/envs` by typing `cd anaconda/envs`
+* Uninstall anaconda on Mac
+  * Normally Anaconda has a folder under your Username, so just do `sudo rm -r anaconda`
+  * `echo $PATH` and check whether anaconda is in the $PATH, if so, `open ~/.bash_profile` and remove/comment the anaconda path
 * Check all the pyhton library versions: `pip freeze`
 * Check specific python package version: `pip freeze | grep scikit-learn`
 * Errors in intalling python packages
