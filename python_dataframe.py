@@ -29,6 +29,11 @@ df.at[7, 'col'] = 10
 # convert dictionary to dataframe without having index as the dictionary key
 my_df = pd.DataFrame.from_dict(my_dct, orient='index', columns=['ct']).reset_index()
 
+# Replace the header with the first row in pandas
+new_header = df.iloc[0] #grab the first row for the header
+df = df[1:] #take the data less the header row
+df.columns = new_header #set the header row as the df header
+
 # COMMONLY USED PREPROCESSING METHODS
 df.isnull().sum()  ## check all missing values
 df.col1 = df.col1.fillna("MISSING")  # fill NA
