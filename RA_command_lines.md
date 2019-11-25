@@ -225,6 +225,13 @@ This file will also be used to record other commands.
     * `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null ; brew install caskroom/cask/brew-cask 2> /dev/null`
     * `brew install graphviz`
       * You may get some instructions at the end to tell you add those libraries into PATH, in fact, ignore them is also fine
+### How to install Keras with Tensorflow on R Studio
+* Have to install Keras with Tensorflow backend through Anaconda first, that's seems that only way R studio is trying to find available Keras & Tensorflow
+* `devtools::install_github("rstudio/tensorflow")`  # make sure you have installed devtools
+* `library("tensorflow")`
+* `library("keras")`
+* `reticulate::py_discover_config()`
+* If `keras::is_keras_available()` will return TRUE, then you are good to go
 ### How to install Spark on Windows
 * `pip install pyspark`, but only this step is far from enough
 * Download the lastest stable Spark release from http://spark.apache.org/downloads.html
