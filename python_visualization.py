@@ -68,7 +68,7 @@ for rect, label in zip(rects, y_values):
 plt.show()
 
 
-# Change fiture size
+# Change figure size
 import matplotlib.pyplot as plt
 plt.figure(figsize=(3,4))
 
