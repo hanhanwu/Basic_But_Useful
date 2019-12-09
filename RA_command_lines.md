@@ -20,6 +20,7 @@ This file will also be used to record other commands.
 * Check folder memory: `du -sh`, use it under this folder
 * Change root password: `sudo passwd root`
 * To change `$PATH` temporarily, `export PATH="/some/new/path:$PATH"`
+* `which python3` to get the path of current python3
 * Edit `~/.bash_profile`, if you are not good at editting a file through the command line (sometimes your command can totally overwrite the original file, which is not cool at all), why not just open the file and type in the text editor, save it. Do this `open ~/.bash_profile`, just like how you type in a text editor.
   * After saving the text file, you also need to run `source ~/.bash_profile` to make your edit valid.
 * Install wget, `brew install wget`, wget is a commnd used to download things from an url
