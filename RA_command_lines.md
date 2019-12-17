@@ -149,6 +149,11 @@ This file will also be used to record other commands.
 * `htop`
 ### Save the screen
 * `screen -S session_name`, define the session_name yourself
+### Netcat
+* It's available on mac but you need to download and install on windows. However, when I was downloading netcat from official nmap page, my security system detected trojan virus, which is normal for these files.
+* `nc -lk [port number]` to start TCP connection
+* `python3 my_file.py localhost [port number]` to run the python streaming code
+* Ctrl + C to end the connection
     
 ## Windows Commands
 ### Python in Windows
