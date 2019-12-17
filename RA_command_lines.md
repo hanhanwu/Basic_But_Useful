@@ -155,6 +155,8 @@ This file will also be used to record other commands.
 * `nc -lk [port number]` to start TCP connection
 * `python3 my_file.py localhost [port number]` to run the python streaming code
 * Ctrl + C to end the connection
+### [How to install spark on Mac][1]
+    
     
 ## Windows Commands
 ### Python in Windows
@@ -354,3 +356,6 @@ This file will also be used to record other commands.
   * `mysql_secure_installation`, if you still remember your MYSQL root password, with this command, you can configure the settings
   * Now you can use MySQL Work Bench with connected server, or use MySQL in your terminal by typing `mysql -u root -p` & password for root
     * `exit` if you are using terminal and want to exit
+
+
+[1]:https://github.com/hanhanwu/Hanhan-Spark-Python/tree/master/Spark2.0
