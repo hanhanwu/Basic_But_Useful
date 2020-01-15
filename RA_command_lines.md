@@ -20,7 +20,7 @@ This file will also be used to record other commands.
 * Check folder memory: `du -sh`, use it under this folder
 * Change root password: `sudo passwd root`
 * To change `$PATH` temporarily, `export PATH="/some/new/path:$PATH"`
-* `which python3` to get the path of current python3
+* `which python3` to get the path of current python3, also check `brew info python3`, since `which python3` may not tell you the location installed by brew
 * Edit `~/.bash_profile`, if you are not good at editting a file through the command line (sometimes your command can totally overwrite the original file, which is not cool at all), why not just open the file and type in the text editor, save it. Do this `open ~/.bash_profile`, just like how you type in a text editor.
   * After saving the text file, you also need to run `source ~/.bash_profile` to make your edit valid.
 * Install wget, `brew install wget`, wget is a commnd used to download things from an url
@@ -59,6 +59,7 @@ This file will also be used to record other commands.
   * `brew install python3` (Optional if you already have python3 installed)
   * `brew update`
   * `brew upgrade python3`
+  * `brew info python3` to check where did the python got installed, cuz sometimes `which python3` won't tell you this location.
   * Now try `python3 --version`, if it's still the older version:
     * try `brew link python`
     * If above doesn't work, try `brew link --overwrite python`
