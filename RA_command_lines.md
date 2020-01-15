@@ -55,7 +55,10 @@ This file will also be used to record other commands.
   * After that, change permission back by typing `sudo chown root:wheel /usr/local`
 * When there is "dateutil" related errors
   * `sudo pip install python-dateutil --upgrade`, this one works
-* Upgrade Python3
+* Upgrade Python3 through Python Homepage
+  * If your python installed under `/Library/Frameworks/Python.framework/Versions`, that means they came from Python homepage, brew install cannot really overwrite current version (even you tried all types of brew link)
+  * Just download the latest version from Python homepage here: https://www.python.org/downloads/
+* Upgrade Python3 through Homebrew
   * `brew install python3` (Optional if you already have python3 installed)
   * `brew update`
   * `brew upgrade python3`
@@ -63,6 +66,8 @@ This file will also be used to record other commands.
   * Now try `python3 --version`, if it's still the older version:
     * try `brew link python`
     * If above doesn't work, try `brew link --overwrite python`
+    * <b>NOTE:</b> If your python was intsalled through Python homepage (stores under `/Library/Frameworks/Python.framework/Versions`), then brew link won't work, change the path in ~/.bash_profile might break python. In this case, just install python from Python Homepage https://www.python.org/downloads/
+  * To uninstall the python installed by Homebrew `brew uninstall --ignore-dependencies python`
 * Upgrade `xgboost` is a pain...
   * `sudo -H pip3 install -U setuptools`
   * Use `git clone` to install is better, https://xgboost.readthedocs.io/en/latest/build.html
