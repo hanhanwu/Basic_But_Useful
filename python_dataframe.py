@@ -5,6 +5,14 @@
 ### cross-tab - this can be used to check whether a feature affects the label with percentage value
 ### cut - binning
 
+# Pandas 1.0
+## https://www.analyticsvidhya.com/blog/2020/01/pandas-version-1-top-4-features/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
+### data type "string"
+### pd.NA
+### data.info (data summary)
+### markdown format
+
+
 # When data file is huge and python always exit because of the lack of memory, use Dask
 ## But dask dataframe do not have much functions as pandas dataframe, with `compute()` after loading data, you can use the
 ## data as pandas dataframe
