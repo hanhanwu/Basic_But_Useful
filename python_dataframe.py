@@ -12,6 +12,9 @@
 ### data.info (data summary)
 ### markdown format
 
+# remove the last x records
+df = df.head(n-x) # this is faster than drop()
+
 
 # When data file is huge and python always exit because of the lack of memory, use Dask
 ## But dask dataframe do not have much functions as pandas dataframe, with `compute()` after loading data, you can use the
