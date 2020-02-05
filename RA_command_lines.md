@@ -13,6 +13,7 @@ This file will also be used to record other commands.
   * `cd` to that folder locally first
   * `git remote add upstream https://github.com/hanhanwu/mlflow-example.git`
   * `git pull upstream master`
+* [How to add an existing project into Github][2]
 
 ## Mac Commnds
 * <b>NOTE:</b> If it is showing any error, try to start your commnd line with `sudo`, if your know admin id and password.
@@ -365,3 +366,4 @@ This file will also be used to record other commands.
 
 
 [1]:https://github.com/hanhanwu/Hanhan-Spark-Python/tree/master/Spark2.0
+[2]:https://help.github.com/en/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
