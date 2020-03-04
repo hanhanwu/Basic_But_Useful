@@ -342,6 +342,12 @@ agg_rating_df.reset_index(level=['buz_name', 'review_count'], inplace=True)  # r
 agg_rating_df = agg_rating_df.rename(index=str, columns={'mean': 'avg_rating'})
 agg_rating_df.head()
 
+## groupby & transform is easier
+# Reference: https://www.analyticsvidhya.com/blog/2020/03/understanding-transform-function-python/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
+agg_rating_df = user_rating_df[['buz_name', 'review_count', 'rating']]\
+          .groupby(['buz_name', 'review_count'])['rating'].transform('mean')
+agg_rating_df.head()
+
 
 # plot 2 groups of data
 idx_control = 7  # change this to check a specific food_name
