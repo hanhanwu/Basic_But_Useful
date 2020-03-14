@@ -121,6 +121,11 @@ This file will also be used to record other commands.
 * Uninstall anaconda on Mac
   * Normally Anaconda has a folder under your Username, so just do `sudo rm -r anaconda`
   * `echo $PATH` and check whether anaconda is in the $PATH, if so, `open ~/.bash_profile` and remove/comment the anaconda path
+* When it's not conda virtual environment
+  * `pip install virtualenv`
+  * Create virtual environment `virutalenv -p python3 venv`
+    * Sometimes this won't work if you have many python versions on your machine, like I do..., try `python3 -m virtualenv venv`
+  * Activate virtual env `source venv/bin/activate`
 * Check all the pyhton library versions: `pip freeze`
 * Check specific python package version: `pip freeze | grep scikit-learn`
 * Errors in intalling python packages
