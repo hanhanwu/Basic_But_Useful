@@ -210,6 +210,9 @@ This file will also be used to record other commands.
   * My Win search doesn't work on this.
   * Press `Win` then type `run`
   * In the open blank box, type `diskmgmt.msc`
+* When powershell script got disabled
+  * `Set-ExecutionPolicy RemoteSigned` will only download scripts must be signed by a trusted publisher.
+    * See other options: https://tecadmin.net/powershell-running-scripts-is-disabled-system/
 ### Other intall on Windows
 * How to install Visual C++ 14.0: https://www.scivision.co/python-windows-visual-c++-14-required/
 * How to install `fastai`
