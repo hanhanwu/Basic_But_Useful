@@ -1,9 +1,11 @@
 # Some quick methods in pandas
 ## https://www.analyticsvidhya.com/blog/2016/01/12-pandas-techniques-python-data-manipulation/?utm_content=bufferfa8d9&utm_medium=social&utm_source=facebook.com&utm_campaign=buffer
-### pivot table - generate aggregate results for multiple columns
-### multi-indexing - using the values of multiple columns as the index to locate
-### cross-tab - this can be used to check whether a feature affects the label with percentage value
-### cut - binning
+  ### pivot table - generate aggregate results for multiple columns
+  ### multi-indexing - using the values of multiple columns as the index to locate
+  ### cross-tab - this can be used to check whether a feature affects the label with percentage value
+  ### cut - binning
+# How to build pivot table with pandas
+## https://www.analyticsvidhya.com/blog/2020/03/pivot-table-pandas-python/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
 
 # Pandas 1.0
 ## https://www.analyticsvidhya.com/blog/2020/01/pandas-version-1-top-4-features/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
