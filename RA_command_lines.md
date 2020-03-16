@@ -251,6 +251,36 @@ This file will also be used to record other commands.
     * `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null ; brew install caskroom/cask/brew-cask 2> /dev/null`
     * `brew install graphviz`
       * You may get some instructions at the end to tell you add those libraries into PATH, in fact, ignore them is also fine
+### Windows Subsystem Linux (WSL)
+* Download and install Ubuntu:
+  * Note: I tried to use windows store to download Ubuntu, but unfortunately it could not be installed. Windows really sucks, and it took so much time to wait for windows store to load...
+  * Download Ubuntu through Powershell: `Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile Ubuntu.appx -UseBasicParsing`
+  * Install the distro: `Add-AppxPackage .\Ubuntu.appx`
+* Launch the installed Unbuntu
+  * Just click the windows sign, and launch it. It's fast and smooth
+  * `sudo apt update && sudo apt upgrade` to upgrade to the latest distro
+* How to install & launch the User Interface for WSL
+  * Download and install windows X server on windows: https://sourceforge.net/projects/vcxsrv/
+  * Launch X server through `C:\Program Files\VcXsrv\xlaunch`
+  * In your linux terminal, type:
+    * `sudo apt install lxde`
+    * `export DISPLAY=:0`
+    * `export LIBGL_ALWAYS_INDIRECT=1`
+    * `startlxde`
+### Install Kafka on Windows
+#### Option 1 - Install on WSL (Windows Subsystem Linux)
+* Install WSL
+* Install JDK & JRE
+  * `sudo apt-get update`
+  * `sudo apt-get install openjdk-8-jdk-headless`
+    * If this doesn't work, try:
+      * `sudo apt-get install -f`
+      * `sudo add-apt-repository ppa:openjdk-r/ppa`  
+      * `sudo apt-get update`
+      * `sudo apt-get install openjdk-8-jdk-headless`
+  * The Java Runtime Environment (JRE) is not a Java development platform, JRE provides the Java virtual machine and it must be loaded on a system for Java applications to execute. Java development Kit is the Java development platform which provides Java compiler (javac). The Ubuntu JDK 8 package includes both jdk and jre platforms. So if you need both jdk and jre, install the JDK 8 package, If you only need the Runtime Environment then install the JRE 8 package.
+* NOTE: In my case, my WSL has no network connection... Consider my windows still cannot use Youtube and other social media after I was dealing with some network streaming work.... better not to do more with the network... Just go with Option 2, the more complex option.
+
 ### How to install Keras with Tensorflow on R Studio
 * Have to install Keras with Tensorflow backend through Anaconda first, that's seems that only way R studio is trying to find available Keras & Tensorflow
 * `devtools::install_github("rstudio/tensorflow")`  # make sure you have installed devtools
