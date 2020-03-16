@@ -16,6 +16,11 @@ This file will also be used to record other commands.
   * `git remote add upstream https://github.com/hanhanwu/mlflow-example.git`
   * `git pull upstream master`
 * [How to add an existing project into Github][2]
+* Clone to local folder: `sudo git clone https://github.com/hanhanwu/SFU_comments_extractor.git`
+* Update local Git folder with the updates on GitHub: `git pull origin master`
+* Choose GitHub license: https://choosealicense.com/
+* How to create a license: https://help.github.com/articles/adding-a-license-to-a-repository/
+* CC-BY-SA-4.0 for media data: https://choosealicense.com/licenses/cc-by-sa-4.0/#
 
 ## Mac Commnds
 * <b>NOTE:</b> If it is showing any error, try to start your commnd line with `sudo`, if your know admin id and password.
@@ -170,7 +175,7 @@ This file will also be used to record other commands.
 * `python3 my_file.py localhost [port number]` to run the python streaming code
 * Ctrl + C to end the connection
 ### [How to install spark on Mac][1]
-    
+
     
 ## Windows Commands
 ### Python in Windows
@@ -278,8 +283,25 @@ This file will also be used to record other commands.
       * `sudo add-apt-repository ppa:openjdk-r/ppa`  
       * `sudo apt-get update`
       * `sudo apt-get install openjdk-8-jdk-headless`
+  * Check java version: `java -version`
+  * Check complier version: `javac -version`
   * The Java Runtime Environment (JRE) is not a Java development platform, JRE provides the Java virtual machine and it must be loaded on a system for Java applications to execute. Java development Kit is the Java development platform which provides Java compiler (javac). The Ubuntu JDK 8 package includes both jdk and jre platforms. So if you need both jdk and jre, install the JDK 8 package, If you only need the Runtime Environment then install the JRE 8 package.
 * NOTE: In my case, my WSL has no network connection... Consider my windows still cannot use Youtube and other social media after I was dealing with some network streaming work.... better not to do more with the network... Just go with Option 2, the more complex option.
+#### Option 2 - Install on Windows
+* This may bring some bugs that do not exist on Linux
+* Install and config Java
+  * Download and install JDK
+  * Create a "user variable" named `JAVA_HOME` with the path of jdk, such as "C:\Program Files\Java\jdk-13.0.2"
+  * Then edit the `Path` in system variable, by adding `%JAVA_HOME%\bin`
+* Download Kafka from http://kafka.apache.org/downloads
+  * Has to be the binary file, not the source file
+  * Move the unzipped folder into `C:\`
+* Open a powershell terminal to start `zookeeper`:
+  * `cd C:\kafka_2.13-2.4.1\`
+  * `bin/windows/zookeeper-server-start.bat C:\kafka_2.13-2.4.1\config\zookeeper.properties`
+* After zookeeper started, open another powershell terminal to start Kafka:
+  * `cd C:\kafka_2.13-2.4.1\`
+  * `.\bin\windows\kafka-server-start.bat C:\kafka_2.13-2.4.1\config\server.properties`
 
 ### How to install Keras with Tensorflow on R Studio
 * Have to install Keras with Tensorflow backend through Anaconda first, that's seems that only way R studio is trying to find available Keras & Tensorflow
@@ -331,13 +353,6 @@ This file will also be used to record other commands.
 * To exit nslookup
   * `exit`
   * nslookup is built in many systems
-
-## GitHub Commands
-* Clone to local folder: `sudo git clone https://github.com/hanhanwu/SFU_comments_extractor.git`
-* Update local Git folder with the updates on GitHub: `git pull origin master`
-* Choose GitHub license: https://choosealicense.com/
-* How to create a license: https://help.github.com/articles/adding-a-license-to-a-repository/
-* CC-BY-SA-4.0 for media data: https://choosealicense.com/licenses/cc-by-sa-4.0/#
 
 
 ## WestGrid
