@@ -302,6 +302,7 @@ This file will also be used to record other commands.
 * After zookeeper started, open another powershell terminal to start Kafka:
   * `cd C:\kafka_2.13-2.4.1\`
   * `.\bin\windows\kafka-server-start.bat C:\kafka_2.13-2.4.1\config\server.properties`
+* `Ctrl + C` to exit
 
 ### How to install Keras with Tensorflow on R Studio
 * Have to install Keras with Tensorflow backend through Anaconda first, that's seems that only way R studio is trying to find available Keras & Tensorflow
