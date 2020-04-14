@@ -48,3 +48,11 @@ plt.figure(figsize = (10,10))
 pylab.imshow(img)
 pylab.axis('off')
 pylab.show()
+
+
+# Methods to generate random numbers
+## `ramdom` lirbary: https://docs.python.org/3/library/random.html
+## numpy `random` library: https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html
+## Both of them have random number generated from different distributions.
+## `random` has choices() which can randomly select multiple numbers from a list, 
+### you can also add weights, higer weight higher chance to select that number.
