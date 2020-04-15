@@ -56,3 +56,8 @@ pylab.show()
 ## Both of them have random number generated from different distributions.
 ## `random` has choices() which can randomly select multiple numbers from a list, 
 ### you can also add weights, higer weight higher chance to select that number.
+
+# Handle python exceptions: https://www.analyticsvidhya.com/blog/2020/04/exception-handling-python/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
+## Different types of exception
+## How to use try...except...finally
+
