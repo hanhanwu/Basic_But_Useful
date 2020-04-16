@@ -15,9 +15,11 @@ This file will also be used to record other commands.
   * `cd` to that folder locally first
   * `git remote add upstream https://github.com/hanhanwu/mlflow-example.git`
   * `git pull upstream master`
+    * `master` is the branch name
 * [How to add an existing project into Github][2]
 * Clone to local folder: `sudo git clone https://github.com/hanhanwu/SFU_comments_extractor.git`
 * Update local Git folder with the updates on GitHub: `git pull origin master`
+  * `master` is the branch name
 * Choose GitHub license: https://choosealicense.com/
 * How to create a license: https://help.github.com/articles/adding-a-license-to-a-repository/
 * CC-BY-SA-4.0 for media data: https://choosealicense.com/licenses/cc-by-sa-4.0/#
