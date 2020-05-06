@@ -1,3 +1,18 @@
+# Methods to generate random numbers
+## `ramdom` lirbary: https://docs.python.org/3/library/random.html
+## numpy `random` library: https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html
+## Both of them have random number generated from different distributions.
+## `random` has choices() which can randomly select multiple numbers from a list, 
+### you can also add weights, higer weight higher chance to select that number.
+
+# Handle python exceptions: https://www.analyticsvidhya.com/blog/2020/04/exception-handling-python/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
+## Different types of exception
+## How to use try...except...finally
+
+# Methods related to date time
+## https://www.analyticsvidhya.com/blog/2020/05/datetime-variables-python-pandas/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
+
+
 # Ignore warnings
 import warnings
 warnings.filterwarnings("ignore")
@@ -48,16 +63,4 @@ plt.figure(figsize = (10,10))
 pylab.imshow(img)
 pylab.axis('off')
 pylab.show()
-
-
-# Methods to generate random numbers
-## `ramdom` lirbary: https://docs.python.org/3/library/random.html
-## numpy `random` library: https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html
-## Both of them have random number generated from different distributions.
-## `random` has choices() which can randomly select multiple numbers from a list, 
-### you can also add weights, higer weight higher chance to select that number.
-
-# Handle python exceptions: https://www.analyticsvidhya.com/blog/2020/04/exception-handling-python/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
-## Different types of exception
-## How to use try...except...finally
 
