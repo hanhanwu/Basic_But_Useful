@@ -201,6 +201,7 @@ This file will also be used to record other commands.
   * Download pip: `curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py`, oh windows can use curl...
   * Install pip: `python get-pip.py`
 * Install Tensorflow
+  * Download and install the latets Visual C++: https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads
   * Install: `pip install --upgrade tensorflow`
   * Verify version: `python -c "import tensorflow as tf; print(tf.__version__)"`
 * Install Keras
@@ -209,16 +210,21 @@ This file will also be used to record other commands.
     * `keras_applications >= 1.0.5`,
     * `keras_preprocessing >= 1.0.3`
 * Install XGBoost
-  * `anaconda search -t conda xgboost`, this one is just to show what you can install through conda on difference OS and python verison
+  * `anaconda search -t conda xgboost`, this one is just to show what you can install through conda on different OS and python verison
   * `conda install -c anaconda py-xgboost`, you can choose this one or other versions
 * Load Spacy "en" model
-  * Run your terminal as admin, tyen type in the terminal `python -m spacy download en`
+  * <b>Run your terminal as admin</b>, type type in the terminal `python -m spacy download en`
+    * Make sure you have already installed spacy by running `pip install spacy`
+    * The reason to run as admin is to create a shortcut link for "en"
 * Install Pytorch
   * `conda install pytorch torchvision cuda91 -c pytorch`
 ### Windows Basic Commands
 * List all files in current directory: `dir`
 * Print out current path on windows: `cd` or `chdir`
 * Show hidden files on current location: `dir /ah`
+* Remove a folder
+  * `rmdir my_folder` is to remove an empty folder
+  * `rmdir /s my_folder` is to remove an unempty folder
 * How to use `git` in windows terminal
   * Just download it and install: https://gitforwindows.org/
   * You don't have to config your username/email, just type `git clone [URL]`, and you can download the package.
@@ -323,7 +329,7 @@ This file will also be used to record other commands.
 * `reticulate::py_discover_config()`
 * If `keras::is_keras_available()` will return TRUE, then you are good to go
 ### How to install Spark on Windows
-* `pip install pyspark`, but only this step is far from enough
+* `pip install pyspark`, but only this step is far from being enough
 * Download the lastest stable Spark release from http://spark.apache.org/downloads.html
   * Add environment variable similar to "SPARK_HOME=C:\somewhere\spark-2.1.0-bin-hadoop2.7"
 * Download Java for windows from https://www.oracle.com/technetwork/java/javase/downloads/index.html
