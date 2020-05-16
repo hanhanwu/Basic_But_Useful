@@ -188,6 +188,9 @@ This file will also be used to record other commands.
 ### Python in Windows
 * Download Anacoda to make you life easier: https://www.anaconda.com/download/
   * <b>Choose to add Anacoda in your PATH</b>, in this way you can use python through terminal directly
+    * If didn't choose that option, check this to add conda and python into `Path`: https://www.datacamp.com/community/tutorials/installing-anaconda-windows
+      * conda can be added in user variable `Path`
+      * python needs to be added in system variable `Path`
   * After installation, open your termonal: 
     * Type `python` and you can use python in the termnal
     * Or type `python --version` to check your python version
