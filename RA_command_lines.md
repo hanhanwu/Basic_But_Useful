@@ -191,6 +191,7 @@ This file will also be used to record other commands.
     * If didn't choose that option, check this to add conda and python into `Path`: https://www.datacamp.com/community/tutorials/installing-anaconda-windows
       * conda can be added in user variable `Path`
       * python needs to be added in system variable `Path`
+      * But better to choose that option, otherwise jupyter notebook cannnot be opened...
   * After installation, open your termonal: 
     * Type `python` and you can use python in the termnal
     * Or type `python --version` to check your python version
