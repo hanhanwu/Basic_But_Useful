@@ -348,6 +348,11 @@ This file will also be used to record other commands.
   * `pyspark` will allow you write python, try `from pyspark.ml.fpm import FPGrowth` to see whether it works
   * Type `quit()` to quit the shell
 * In fact, you can also just open jupyter notebook at anywhere, run `from pyspark.ml.fpm import FPGrowth` and see whether it works
+  * But if you installed pyspark through conda virtual environment, do these:
+    * `conda activate venv` to activate the virtual environemnt, "venv" is my virtual environment name
+    * `pip install ipykernel`
+    * `python -m ipykernel install --user --name conda_virtualenv --display-name "Python3 (venv)"` to add the venv kernal to Ipython
+    * Then you can open your ipython at anywhere and use pyspark
 * Reference: https://github.com/Cheng-Lin-Li/Spark/wiki/How-to-install-Spark-2.1.0-in-Windows-10-environment
 #### NOTE
 * When using Spark in Windows IPython, if you dind't terminate terminal and jupyter for a while, IPython could beahve abnormally, such as having java server errors
