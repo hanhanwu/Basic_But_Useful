@@ -346,6 +346,7 @@ This file will also be used to record other commands.
 * Now you can go to spark home bin folder by typing `cd %SPARK_HOME%\bin`, try to run Spark
   * `spark-shell` will allow you write scala
   * `pyspark` will allow you write python, try `from pyspark.ml.fpm import FPGrowth` to see whether it works
+  * Type `quit()` to quit the shell
 * In fact, you can also just open jupyter notebook at anywhere, run `from pyspark.ml.fpm import FPGrowth` and see whether it works
 * Reference: https://github.com/Cheng-Lin-Li/Spark/wiki/How-to-install-Spark-2.1.0-in-Windows-10-environment
 #### NOTE
