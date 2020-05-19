@@ -218,6 +218,11 @@ This file will also be used to record other commands.
     * The reason to run as admin is to create a shortcut link for "en"
 * Install Pytorch
   * `conda install pytorch torchvision cuda91 -c pytorch`
+* Install facebook prophet
+  * Download and install the latets Visual C++: https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads
+  * Run the terminal as admin, and activate the virtual environment
+  * `conda install libpython m2w64-toolchain -c msys2`
+  * `pip install fbprophet`
 ### Windows Basic Commands
 * List all files in current directory: `dir`
 * Print out current path on windows: `cd` or `chdir`
