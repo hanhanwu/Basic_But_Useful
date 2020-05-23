@@ -64,3 +64,19 @@ pylab.imshow(img)
 pylab.axis('off')
 pylab.show()
 
+
+# Generate normal distributed integrers and plot
+## nums is the list contained generated numbers; x defines the scope
+import scipy.stats as ss
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.arange(0.5, len(merchant_lst))
+xU, xL = x + 0.5, x - 0.5 
+prob = ss.norm.cdf(xU, scale = 20) - ss.norm.cdf(xL, scale = 20)
+prob = prob / prob.sum() #normalize the probabilities so their sum is 1
+nums = np.random.choice(x, size = order_prod_df['order_id'].nunique(), p = prob)
+plt.hist(nums, bins = len(x), color='g')
+plt.title('Normal Distributed Random Values')
+plt.show()
+
