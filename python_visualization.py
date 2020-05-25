@@ -1,3 +1,7 @@
+# Some tricks in using matplotlib: https://www.analyticsvidhya.com/blog/2020/05/10-matplotlib-tricks-data-visualization-python/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
+## You can create watermark with tricks here
+
+
 # Bar Chart
 import numpy as np
 import matplotlib.pyplot as plt
