@@ -60,8 +60,7 @@ This file will also be used to record other commands.
   * `export PATH=/Library/Frameworks/Python.framework/Versions/3.5/bin:$PATH`
   * `export PATH=$PATH:/Users/devadmin/Documents/geckodriver`
 * Add permission to run a python package, such as Ray
-  * `echo $PATH` to find python site package location
-  * ` sudo chmod -R a+wxr /home/ndsadmin/ds_udid_3ds2/venv/lib/python3.6/site-packages/ray` to enable the permission of the certain package
+  * ` sudo chmod -R a+wxr /home/venv/lib/python3.6/site-packages/ray` to enable the permission of the certain package
 * `brew update` error
   * When you try commands like `brew update`, it may show you error: `Error: The /usr/local directory is not writable.`
   * To deal with this, type `sudo chown -R $(whoami):admin /usr/local`, here no need to change anything in the command
