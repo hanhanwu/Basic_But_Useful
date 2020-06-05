@@ -1,6 +1,10 @@
 # Some tricks in using matplotlib: https://www.analyticsvidhya.com/blog/2020/05/10-matplotlib-tricks-data-visualization-python/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
 ## You can create watermark with tricks here
 
+# Time series plot
+## Using ployly: https://nbviewer.jupyter.org/github/hanhanwu/Hanhan_Data_Science_Practice/blob/5b5c1f45383b405a894b57cee496d2b7a2655bad/sequencial_analysis/try_prophet.ipynb
+## Using matplotlib: https://github.com/hanhanwu/Hanhan_Break_the_Limits/blob/master/Bank_Fantasy/Golden_Bridge/adjustable_forecasting.ipynb
+
 
 # Bar Chart
 import numpy as np
