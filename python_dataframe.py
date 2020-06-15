@@ -305,7 +305,7 @@ df.groupby([pd.Grouper(key='date', freq='M')])['ext price'].sum()  # group by mo
 ## if "foodx_name" is a list, needs to use `astype('str')`
 df_count = selected_features[['food_name', 'flavor']].astype('str').drop_duplicates()\
           .groupby(['food_name'], as_index=False)['flavor']\
-          .agg(['count']).reset_index()\
+          .agg('count').reset_index()\  # if using ['count'] here might add another level in column name in some cases
           .sort_values(['count'], ascending=False)
 
 # better way to do group by, more flexibility, less code
@@ -320,7 +320,7 @@ agg_rating_df = user_rating_df[['buz_name', 'rating', 'review_count', 'review_se
 ## finally select food_names that have [20, 30) records
 df_count = selected_features[['food_name', 'flavor']]\
           .groupby(['food_name'])['flavor']\
-          .agg(['count'])\
+          .agg('count')\
           .sort_values(['count'], ascending=False)
 selected_sample = df_count[(df_count['count'] >= 20) & (df_count['count'] < 30)]
 selected_sample
@@ -330,7 +330,7 @@ print(selected_foodnames)
 # you may need to drop level naming so that you can call the column name
 df_count = selected_features[['food_name', 'flavor']]\
           .groupby(['food_name'])['flavor']\
-          .agg(['count'])
+          .agg('count')
 df_count.columns = df_count.columns.droplevel(0)
 selected_sample = df_count[(df_count['count'] >= 20) & (df_count['count'] < 30)]
 
