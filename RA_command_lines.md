@@ -352,7 +352,8 @@ This file will also be used to record other commands.
 * Restart your terminal
 * Now you can go to spark home bin folder by typing `cd %SPARK_HOME%\bin`, try to run Spark
   * `spark-shell` will allow you write scala
-  * `pyspark` will allow you write python, try `from pyspark.ml.fpm import FPGrowth` to see whether it works
+  * `pyspark` will allow you write python, try `from pyspark.ml.fpm import PrefixSpan` to see whether it works
+    * This function only became available from Spark 3 in python
   * Type `quit()` to quit the shell
 * In fact, you can also just open jupyter notebook at anywhere, run `from pyspark.ml.fpm import FPGrowth` and see whether it works
   * But if you installed pyspark through conda virtual environment, do these:
