@@ -338,12 +338,12 @@ This file will also be used to record other commands.
 ### How to install Spark on Windows
 * `pip install pyspark`, but only this step is far from being enough
 * Download the lastest stable Spark release from http://spark.apache.org/downloads.html
-  * Add SYSTEM environment variable similar to "SPARK_HOME=C:\somewhere\spark-2.1.0-bin-hadoop2.7"
+  * Add SYSTEM environment variable similar to "SPARK_HOME=C:\somewhere\spark-3.0.0-bin-hadoop2.7"
 * Download Java for windows from https://www.oracle.com/technetwork/java/javase/downloads/index.html
   * Add SYSTEM environment variable similar to "JAVA_HOM=C:\Program Files\Java\jdk-14.0.1"
 * Download hadoop 2.7 from https://github.com/steveloughran/winutils
   * You can just keep folder "hadoop-2.7.1"
-  * Add SYSTEM environment variable similar to "HADOOP_HOME=C:\somewhere\hadoop-2.7.3"
+  * Add SYSTEM environment variable similar to "HADOOP_HOME=C:\somewhere\winutils-master\hadoop-2.7.1\bin"
 * Add "%SPARK_HOME%\bin" to SYSTEM `Path`
 * Create folder "C:\tmp\hive"
 * Go you downloaded folder "hadoop-2.7.1\bin", run command "winutils.exe chmod 777 C:\tmp\hive"
