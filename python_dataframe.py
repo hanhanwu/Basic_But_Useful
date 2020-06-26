@@ -24,7 +24,7 @@ df = df.head(n-x) # this is faster than drop()
 import dask.dataframe as dd
 
 df = dd.read_csv('my_csv.csv').compute()
-
+f
 # multiprocessing
 import multiprocessing as mp
 pool = mp.Pool(processes = (mp.cpu_count() - 1))
@@ -299,6 +299,8 @@ df.groupby(['name', pd.Grouper(key='date', freq='M')])['ext price'].sum()  # gro
 # df.set_index('date').groupby('name')["ext price"].resample("M").sum()  # by comparison
 df.groupby([pd.Grouper(key='date', freq='M')])['ext price'].sum()  # group by month
 
+# group by, to form a list of the same group
+order_prodlst_df = all_order_train.groupby('order_id')['product_id'].apply(list).reset_index(name='prod_lst')
 
 #group by, count distinct
 ## in this case, group by food_name, count the number of flavors in each food_name
