@@ -282,15 +282,13 @@ This file will also be used to record other commands.
     * `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null ; brew install caskroom/cask/brew-cask 2> /dev/null`
     * `brew install graphviz`
       * You may get some instructions at the end to tell you add those libraries into PATH, in fact, ignore them is also fine
-* How to install `ray` and make sure the module can be found in Jupyter Lab/Notebook on conda virtual environment
-  * `conda install --name ray pip`
-  * `pip install ray`
-  * Fork Ray github: https://github.com/ray-project/ray
-  * Run these commands under the folder where your jupyter lab/notebook file will run Ray
-    * `git clone https://github.com/[your username]/ray.git`
-    * `cd ray`
-    * `git remote add upstream https://github.com/ray-project/ray.git`
-    * `python python/ray/setup-dev.py`
+* How to install `ray`
+  * Install through Conda
+    * `conda install --name ray pip`
+    * `pip install ray`
+  * Install through pip
+    * `pip install ray`
+  * Also make sure there is no other folder called "ray" under the same fodler where you are importing ray.
 ### Windows Subsystem Linux (WSL)
 * Download and install Ubuntu:
   * Note: I tried to use windows store to download Ubuntu, but unfortunately it could not be installed. Windows really sucks, and it took so much time to wait for windows store to load...
