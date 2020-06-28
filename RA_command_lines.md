@@ -243,10 +243,12 @@ This file will also be used to record other commands.
   * `Set-ExecutionPolicy RemoteSigned` will only download scripts must be signed by a trusted publisher.
     * See other options: https://tecadmin.net/powershell-running-scripts-is-disabled-system/
 ### Other intall on Windows
+* Install Git
+  * https://git-scm.com/download/win
 * How to install Visual C++ 14.0: https://www.scivision.co/python-windows-visual-c++-14-required/
 * How to install `fastai`
   * I haven't had my breakfast but decided to write these down here, is because the installation of fastai really gave me a hard time last night, on both mac and windows. Finally I had to leave it install during the night, Saturday is supposed to be the time when I can get much more sleep. Fastai installation, totally broke my plan.
-  * Install above Visual C++ 14 on wwindows
+  * Install above Visual C++ 14 on windows
   * <b>Strongly recommend to have anaconda ready, some packages used here will have problems when installing with pip.</b>
   * The latest fastai 1.0 has problems, better to install fastal 0.7. 
     * If you installed fastai with pip or anaconda without setting version, uninstall it first, `pip uninstall fastai`
@@ -280,6 +282,15 @@ This file will also be used to record other commands.
     * `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null ; brew install caskroom/cask/brew-cask 2> /dev/null`
     * `brew install graphviz`
       * You may get some instructions at the end to tell you add those libraries into PATH, in fact, ignore them is also fine
+* How to install `ray` and make sure the module can be found in Jupyter Lab/Notebook on conda virtual environment
+  * `conda install --name ray pip`
+  * `pip install ray`
+  * Fork Ray github: https://github.com/ray-project/ray
+  * Run these commands under the folder where your jupyter lab/notebook file will run Ray
+    * `git clone https://github.com/[your username]/ray.git`
+    * `cd ray`
+    * `git remote add upstream https://github.com/ray-project/ray.git`
+    * `python python/ray/setup-dev.py`
 ### Windows Subsystem Linux (WSL)
 * Download and install Ubuntu:
   * Note: I tried to use windows store to download Ubuntu, but unfortunately it could not be installed. Windows really sucks, and it took so much time to wait for windows store to load...
