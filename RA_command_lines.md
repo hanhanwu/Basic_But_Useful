@@ -187,6 +187,7 @@ This file will also be used to record other commands.
 
     
 ## Windows Commands
+### [Suggestions to prevent battery draining][3]
 ### Python in Windows
 * Download Anacoda to make you life easier: https://www.anaconda.com/download/
   * <b>Choose to add Anacoda in your PATH</b>, in this way you can use python through terminal directly
@@ -465,3 +466,4 @@ This file will also be used to record other commands.
 
 [1]:https://github.com/hanhanwu/Hanhan-Spark-Python/tree/master/Spark2.0
 [2]:https://help.github.com/en/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
+[3]:https://www.youtube.com/watch?v=OA514h98bHE#:~:text=Go%20to%20control%20panel%5Csystem,options%20for%20better%20battery%20performance!&text=Disable%20%22windows%20search%22%20services%20(,consumes%20a%20lot%20of%20energy).&text=Please%20restart%20your%20system%20to%20apply%20the%20changes.
