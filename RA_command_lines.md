@@ -188,6 +188,7 @@ This file will also be used to record other commands.
     
 ## Windows Commands
 ### [Suggestions to prevent battery draining][3]
+  * Better not to disable the index
 ### Python in Windows
 * Download Anacoda to make you life easier: https://www.anaconda.com/download/
   * <b>Choose to add Anacoda in your PATH</b>, in this way you can use python through terminal directly
