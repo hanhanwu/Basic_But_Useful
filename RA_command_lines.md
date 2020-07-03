@@ -188,7 +188,14 @@ This file will also be used to record other commands.
     
 ## Windows Commands
 ### [Suggestions to prevent battery draining][3]
+  * I really don't think Windows is designed for lazy people... It has so many automatic problems waiting for you to resolve.
   * Better not to disable the index
+  * Check whether there is power errors
+    * Open terminal as admin
+    * `powercfg/energy`
+    * Open the .html file in your browser
+  * If it's showing high processor usage as the error, check system updates, updating the system and restart the machine
+  
 ### Python in Windows
 * Download Anacoda to make you life easier: https://www.anaconda.com/download/
   * <b>Choose to add Anacoda in your PATH</b>, in this way you can use python through terminal directly
