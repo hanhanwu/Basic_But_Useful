@@ -135,7 +135,7 @@ This file will also be used to record other commands.
   * Create virtual environment `virutalenv -p python3 venv`
     * Sometimes this won't work if you have many python versions on your machine, like I do..., try `python3 -m virtualenv venv`
   * Activate virtual env `source venv/bin/activate`
-* Check all the pyhton library versions: `pip freeze`
+* Check all the pyhton library versions: `pip freeze` or `pip list`
 * Check specific python package version: `pip freeze | grep scikit-learn`
 * Errors in intalling python packages
   * Error - "It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall."
@@ -292,10 +292,10 @@ This file will also be used to record other commands.
     * `brew install graphviz`
       * You may get some instructions at the end to tell you add those libraries into PATH, in fact, ignore them is also fine
 * How to install `ray`
+* Install through pip
+    * `pip install ray`
   * Install through Conda
     * `conda install --name ray pip`
-    * `pip install ray`
-  * Install through pip
     * `pip install ray`
   * Also make sure there is no other folder called "ray" under the same fodler where you are importing ray.
 ### Windows Subsystem Linux (WSL)
