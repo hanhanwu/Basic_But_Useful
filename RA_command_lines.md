@@ -292,11 +292,8 @@ This file will also be used to record other commands.
     * `brew install graphviz`
       * You may get some instructions at the end to tell you add those libraries into PATH, in fact, ignore them is also fine
 * How to install `ray`
-* Install through pip
-    * `pip install ray`
-  * Install through Conda
-    * `conda install --name ray pip`
-    * `pip install ray`
+  * Check this page first: https://docs.ray.io/en/master/installation.html
+  * It just started to support windows from 2020, and the "stable version" may create error. Better to install the latest snapshots: https://docs.ray.io/en/master/installation.html#latest-snapshots-nightlies
   * Also make sure there is no other folder called "ray" under the same fodler where you are importing ray.
 ### Windows Subsystem Linux (WSL)
 * Download and install Ubuntu:
