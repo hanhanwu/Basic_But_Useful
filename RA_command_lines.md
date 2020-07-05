@@ -294,6 +294,17 @@ This file will also be used to record other commands.
 * How to install `ray`
   * Check this page first: https://docs.ray.io/en/master/installation.html
   * It just started to support windows from 2020, and the "stable version" may create error. Better to install the latest snapshots: https://docs.ray.io/en/master/installation.html#latest-snapshots-nightlies
+  * `pip install ray[dashboard]`
+  * Make ray dashboard works
+    * Install `npm` https://phoenixnap.com/kb/install-node-js-npm-on-windows
+      * After the installation, put "C:\Program Files\nodejs" in "User Variable" of system variables
+      * If you installed additional libraries, including the python newest version you don't want, go to windows "uninstall programs", find that python version and uninstall it, otherwise your python default version might be replaced.
+    * Go to site-packages to find ray\dashboard, mine is `anaconda3\Lib\site-packages\ray\dashboard\`
+      * If you cannot find `client` folder, download the whole project from https://github.com/ray-project/ray
+      * Copy those files, folders you are missing in your local `dashboard\` folder
+      * `cd client`
+      * `npm ci`
+      * `npm build`
   * Also make sure there is no other folder called "ray" under the same fodler where you are importing ray.
 ### Windows Subsystem Linux (WSL)
 * Download and install Ubuntu:
