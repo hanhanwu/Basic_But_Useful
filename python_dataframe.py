@@ -275,6 +275,10 @@ df.groupby('col_you_want2count')['ID'].nunique()
 ## Here, df1 only has 2 columns (my_id, value), by doing this, you are choosing the first value for each my_id
 df = df1.groupby('my_id').first().reset_index()
 
+# rank for group
+merchant_weekly_df['weekly_rank'] = merchant_weekly_df.groupby('week_number')['rating'].rank('dense', ascending=False)
+# cumlative sum for each group
+merchant_weekly_df['cum_rating'] = merchant_weekly_df.groupby(['merchant'])['rating'].cumsum()
 
 # Pandas UDF
 # Apply the function to a column, to all rows: 
