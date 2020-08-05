@@ -9,6 +9,7 @@ This file will also be used to record other commands.
   * In a word, when there is space in your path, add `""` around the path and use `\ ` to replace the space 
   
 ## Git Commands
+* Connect to Github with ssh: https://docs.github.com/en/enterprise/2.18/user/github/authenticating-to-github/connecting-to-github-with-ssh
 * `git branch -v` to check current branch of the repository
 * `git remote -v` to check where does local repository point to
 * Update changes from the cloned directory: 
