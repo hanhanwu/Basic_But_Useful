@@ -63,6 +63,7 @@ This file will also be used to record other commands.
       * ssh into your EC2 remote box, type `screen`
       * Then run the process you want
       * `Ctrl + A` then `Ctrl + D` to detatch the screen session
+        * EC2 box might logout automatically, and will kill your running process. So <b>better to do this step right after running the process</b> (if your process works fine). Otherwise the screen cannot be resumed after EC2 box logged out.
       * `screen -r` to resume the screen session
         * If your process is finished, there is no session to resume
   
