@@ -53,10 +53,19 @@ This file will also be used to record other commands.
 * Find running nohup job: `ps -ef | grep 'get_comment_reactions.py'`
 * Kill running nohup job: `sudo kill -9 [job id]`, id is the last 4-digit number
 * Use `nohup` or `screen` to run your code through the terminal, so that when you turn off the terminal, the code will keep running
-  * Using `nohup` for python file: `sudo nohup python3.5 SFU_comments_extractor/source/ScrapeNews/get_comment_reactions.py`
-  * Using `nohup` for .sh file: `sudo nohup sh run_news_scraper.sh`
-  * Using `screen`: `sudo screen python3.5 SFU_comments_extractor/source/ScrapeNews/get_comment_reactions.py`
-  * Personal, I prefer `nohup`, although it happened once when `nohup` didn't work but `screen` worked. `nohup` creates a log in the folder where you are running the `nohup` job, easier for debugging if necessary
+  * `nohup`
+    * Using `nohup` for python file: `sudo nohup python3.5 SFU_comments_extractor/source/ScrapeNews/get_comment_reactions.py`
+    * Using `nohup` for .sh file: `sudo nohup sh run_news_scraper.sh`
+    * `nohup` creates a log in the folder where you are running the `nohup` job, easier for debugging if necessary
+  * `screen`
+    * Using `screen`: `sudo screen python3.5 SFU_comments_extractor/source/ScrapeNews/get_comment_reactions.py`
+    * Using `screen` for EC2 process
+      * ssh into your EC2 remote box, type `screen`
+      * Then run the process you want
+      * `Ctrl + A` then `Ctrl + D` to detatch the screen session
+      * `screen -r` to resume the screen session
+        * If your process is finished, there is no session to resume
+  
 * Add a library path to `$PATH`
   * `export PATH=/Library/Frameworks/Python.framework/Versions/3.5/bin:$PATH`
   * `export PATH=$PATH:/Users/devadmin/Documents/geckodriver`
