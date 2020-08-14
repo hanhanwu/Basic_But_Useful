@@ -37,6 +37,12 @@ This file will also be used to record other commands.
 * Install wget, `brew install wget`, wget is a commnd used to download things from an url
   * `wget url` to download
   * You can also use `curl -0 url` and it's built-in on Mac
+* Install mysqlclient
+  * Install MySQL server through brew: https://tableplus.com/blog/2018/11/how-to-download-mysql-mac.html
+  * Install `openssl`
+  * Run this command
+    * Latest mysqlclient: `LDFLAGS=-L/usr/local/opt/openssl/lib pip install mysqlclient`
+    * Specific version: `LDFLAGS=-L/usr/local/opt/openssl/lib pip install mysqlclient==1.4.6`
 * List in files in time order: `ls -lt`
 * List files with created time: `ls -ll`
 * Copy current folder to another folder: `cp -r f1 [new_dir path]/f1`
