@@ -25,6 +25,13 @@ This file will also be used to record other commands.
 * How to create a license: https://help.github.com/articles/adding-a-license-to-a-repository/
 * CC-BY-SA-4.0 for media data: https://choosealicense.com/licenses/cc-by-sa-4.0/#
 
+## Linux Commands (different from Mac)
+* How to install Homebrew
+  * `git clone https://github.com/Homebrew/brew ~/.linuxbrew/Homebrew`
+  * `mkdir ~/.linuxbrew/bin`
+  * `ln -s ~/.linuxbrew/Homebrew/bin/brew ~/.linuxbrew/bin`
+  * `eval $(~/.linuxbrew/bin/brew shellenv)`
+
 ## Mac Commnds
 * <b>NOTE:</b> If it is showing any error, try to start your commnd line with `sudo`, if your know admin id and password.
 * To simply open a folder/file: `open [folder_path/file_path]`
