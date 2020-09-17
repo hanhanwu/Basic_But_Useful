@@ -32,7 +32,7 @@ This file will also be used to record other commands.
   * `ln -s ~/.linuxbrew/Homebrew/bin/brew ~/.linuxbrew/bin`
   * `eval $(~/.linuxbrew/bin/brew shellenv)`
 
-## Mac Commnds
+## Mac Commands
 * <b>NOTE:</b> If it is showing any error, try to start your commnd line with `sudo`, if your know admin id and password.
 * To simply open a folder/file: `open [folder_path/file_path]`
 * Check folder memory: `du -sh`, use it under this folder
@@ -80,6 +80,10 @@ This file will also be used to record other commands.
       * `screen -r` to resume the screen session
         * If your process is finished, there is no session to resume
   
+* When it's showing "no space left on the device" during packages installation
+  * The reason caused the problem might be because of the small partition in your virtual env
+  * `pip install -r requirements.txt --build=~/tmp/build/`, it's `--build=~/tmp/build/` makes a difference
+  * You can check filesystem availability through `df -h`
 * Add a library path to `$PATH`
   * `export PATH=/Library/Frameworks/Python.framework/Versions/3.5/bin:$PATH`
   * `export PATH=$PATH:/Users/devadmin/Documents/geckodriver`
@@ -196,6 +200,13 @@ This file will also be used to record other commands.
 * Without setting the profile, it will use EC2 instance profile, which has "None" for all the access id, secret access key
   * To set profile for AWS, check https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html, "Quick Configuration and Multiple Profiles"
   * This can be confusing, since when you are creating an EC2 instance through AWS CLI, the profile has already been set with specific access key and access id, howcome the default one has all values as None...
+* How to install Homebrew
+  * `git clone https://github.com/Homebrew/brew ~/.linuxbrew/Homebrew`
+  * `mkdir ~/.linuxbrew/bin`
+  * `ln -s ~/.linuxbrew/Homebrew/bin/brew ~/.linuxbrew/bin`
+  * `eval $(~/.linuxbrew/bin/brew shellenv)`
+* How to install mysqlclient
+  * https://pypi.org/project/mysqlclient/
 ### Check GPU Performance
 * `pip install gpustat`
  * Later just run `gpustat -i 5 -cp`
