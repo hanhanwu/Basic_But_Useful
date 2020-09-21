@@ -286,6 +286,9 @@ This file will also be used to record other commands.
 * When powershell script got disabled
   * `Set-ExecutionPolicy RemoteSigned` will only download scripts must be signed by a trusted publisher.
     * See other options: https://tecadmin.net/powershell-running-scripts-is-disabled-system/
+* Open current folder as a prompt window
+  * `start.`
+
 ### Other intall on Windows
 * Install Git
   * https://git-scm.com/download/win
@@ -370,6 +373,11 @@ This file will also be used to record other commands.
   * `sudo apt-get install openjdk-8-jdk`
   * `java -version`
   * For more check https://docs.datastax.com/en/jdk-install/doc/jdk-install/installOpenJdkDeb.html
+* Install Zookeeper
+  * Find the latest stable release here: https://docs.datastax.com/en/jdk-install/doc/jdk-install/installOpenJdkDeb.html
+    * Download the source release, `tar.gz` file
+    * Copy downloaded file to linux subsystem: https://ridicurious.com/2018/10/18/2-ways-to-copy-files-from-windows-10-to-windows-sub-system-for-linux/
+      * I was using `cp mnt/c/Users/wuhan/Downloads/apache-zookeeper-3.6.2.tar.gz home/hanhan/Downloads/`
 
 #### Option 2 - Install on Windows
 * This may bring some bugs that do not exist on Linux
