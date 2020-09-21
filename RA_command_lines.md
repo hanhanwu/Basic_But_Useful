@@ -360,18 +360,16 @@ This file will also be used to record other commands.
 ### Install Kafka on Windows
 #### Option 1 - Install on WSL (Windows Subsystem Linux)
 * Install WSL
-  * I got stuck here, eve though my Windows has the required build and version, it still failed to run `wsl` command mentioned in https://docs.microsoft.com/en-us/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package
-* Install JDK & JRE
+  * Follow the steps here: https://docs.microsoft.com/en-us/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package
+  * If step 4 gives you error step 5 tells there is no `wsl` command, you might need to restart your Windows and install all the updates.
+  * Run `wsl -l -v` through powershell to check which version of WSL got installed
+  * Create/Update credentials for the linux distribution: https://docs.microsoft.com/en-us/windows/wsl/user-support
+* Install Java
+  * `java -version` to check whether you have java already installed, if not then run these commands:
   * `sudo apt-get update`
-  * `sudo apt-get install openjdk-8-jdk-headless`
-    * If this doesn't work, try:
-      * `sudo apt-get install -f`
-      * `sudo add-apt-repository ppa:openjdk-r/ppa`  
-      * `sudo apt-get update`
-      * `sudo apt-get install openjdk-8-jdk-headless`
-  * Check java version: `java -version`
-  * Check complier version: `javac -version`
-  * The Java Runtime Environment (JRE) is not a Java development platform, JRE provides the Java virtual machine and it must be loaded on a system for Java applications to execute. Java development Kit is the Java development platform which provides Java compiler (javac). The Ubuntu JDK 8 package includes both jdk and jre platforms. So if you need both jdk and jre, install the JDK 8 package, If you only need the Runtime Environment then install the JRE 8 package.
+  * `sudo apt-get install openjdk-8-jdk`
+  * `java -version`
+  * For more check https://docs.datastax.com/en/jdk-install/doc/jdk-install/installOpenJdkDeb.html
 
 #### Option 2 - Install on Windows
 * This may bring some bugs that do not exist on Linux
