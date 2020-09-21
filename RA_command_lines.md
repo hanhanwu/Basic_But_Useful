@@ -360,6 +360,7 @@ This file will also be used to record other commands.
 ### Install Kafka on Windows
 #### Option 1 - Install on WSL (Windows Subsystem Linux)
 * Install WSL
+  * I got stuck here, eve though my Windows has the required build and version, it still failed to run `wsl` command mentioned in https://docs.microsoft.com/en-us/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package
 * Install JDK & JRE
   * `sudo apt-get update`
   * `sudo apt-get install openjdk-8-jdk-headless`
@@ -371,7 +372,7 @@ This file will also be used to record other commands.
   * Check java version: `java -version`
   * Check complier version: `javac -version`
   * The Java Runtime Environment (JRE) is not a Java development platform, JRE provides the Java virtual machine and it must be loaded on a system for Java applications to execute. Java development Kit is the Java development platform which provides Java compiler (javac). The Ubuntu JDK 8 package includes both jdk and jre platforms. So if you need both jdk and jre, install the JDK 8 package, If you only need the Runtime Environment then install the JRE 8 package.
-* NOTE: In my case, my WSL has no network connection... Consider my windows still cannot use Youtube and other social media after I was dealing with some network streaming work.... better not to do more with the network... Just go with Option 2, the more complex option.
+
 #### Option 2 - Install on Windows
 * This may bring some bugs that do not exist on Linux
 * Install and config Java
