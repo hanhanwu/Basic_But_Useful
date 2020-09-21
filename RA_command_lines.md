@@ -370,14 +370,20 @@ This file will also be used to record other commands.
 * Install Java
   * `java -version` to check whether you have java already installed, if not then run these commands:
   * `sudo apt-get update`
-  * `sudo apt-get install openjdk-8-jdk`
-  * `java -version`
-  * For more check https://docs.datastax.com/en/jdk-install/doc/jdk-install/installOpenJdkDeb.html
+  * `sudo apt install default-jdk` to install default JDK
+    * If there is error about "dpkg", try `sudo dpkg --configure -a'`
+    * If there is Oracle configuration agreement came out, use "tab" key to choose "yes" to continue
+  * `java -version`, `javac -version`
+  * `readlink -f $(which java)` to find the java home location
+    * After find that, `export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/bin/java`, java home path here depends on your own path
+  
 * Install Zookeeper
   * Find the latest stable release here: https://docs.datastax.com/en/jdk-install/doc/jdk-install/installOpenJdkDeb.html
     * Download the source release, `tar.gz` file
     * Copy downloaded file to linux subsystem: https://ridicurious.com/2018/10/18/2-ways-to-copy-files-from-windows-10-to-windows-sub-system-for-linux/
       * I was using `cp mnt/c/Users/wuhan/Downloads/apache-zookeeper-3.6.2.tar.gz home/hanhan/Downloads/`
+    * `sudo /usr/local/zookeeper/bin/zkServer.sh start` to start zookeeper
+    * `sudo /usr/local/zookeeper/bin/zkServer.sh stop` to stop zookeeper
 
 #### Option 2 - Install on Windows
 * This may bring some bugs that do not exist on Linux
