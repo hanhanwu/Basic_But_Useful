@@ -383,6 +383,7 @@ This file will also be used to record other commands.
     * Copy downloaded file to linux subsystem: https://ridicurious.com/2018/10/18/2-ways-to-copy-files-from-windows-10-to-windows-sub-system-for-linux/
       * I was using `cp mnt/c/Users/wuhan/Downloads/apache-zookeeper-3.6.2.tar.gz home/hanhan/Downloads/`
     * `sudo /usr/local/zookeeper/bin/zkServer.sh start` to start zookeeper
+      * Use `sudo /usr/local/zookeeper/bin/zkServer.sh start-foreground` to debug, there might be errors even though it's showing zookeeper has started
     * `sudo /usr/local/zookeeper/bin/zkServer.sh stop` to stop zookeeper
 
 #### Option 2 - Install on Windows
