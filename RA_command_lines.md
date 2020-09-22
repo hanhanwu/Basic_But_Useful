@@ -378,10 +378,11 @@ This file will also be used to record other commands.
     * After find that, `export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/bin/java`, java home path here depends on your own path
   
 * Install Zookeeper
-  * Find the latest stable release here: https://docs.datastax.com/en/jdk-install/doc/jdk-install/installOpenJdkDeb.html
+  * Find the latest stable release here: https://zookeeper.apache.org/releases.html
     * Download the source release, `tar.gz` file
     * Copy downloaded file to linux subsystem: https://ridicurious.com/2018/10/18/2-ways-to-copy-files-from-windows-10-to-windows-sub-system-for-linux/
-      * I was using `cp mnt/c/Users/wuhan/Downloads/apache-zookeeper-3.6.2.tar.gz home/hanhan/Downloads/`
+      * I was using `cp mnt/c/Users/wuhan/Downloads/apache-zookeeper-3.6.2-bin.tar.gz home/hanhan/Downloads/`
+      * <b>Make sure to download the `bin.tar.gz` file, not the `tar.gz` file</b>
     * `sudo /usr/local/zookeeper/bin/zkServer.sh start` to start zookeeper
       * Use `sudo /usr/local/zookeeper/bin/zkServer.sh start-foreground` to debug, there might be errors even though it's showing zookeeper has started
     * `sudo /usr/local/zookeeper/bin/zkServer.sh stop` to stop zookeeper
