@@ -371,7 +371,7 @@ This file will also be used to record other commands.
   * `java -version` to check whether you have java already installed, if not then run these commands:
   * `sudo apt-get update`
   * `sudo apt install default-jdk` to install default JDK
-    * If there is error about "dpkg", try `sudo dpkg --configure -a'`
+    * If there is error about "dpkg", try `sudo dpkg --configure -a`
     * If there is Oracle configuration agreement came out, use "tab" key to choose "yes" to continue
   * `java -version`, `javac -version`
   * `readlink -f $(which java)` to find the java home location
