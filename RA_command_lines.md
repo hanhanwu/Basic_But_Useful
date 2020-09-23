@@ -379,13 +379,29 @@ This file will also be used to record other commands.
   
 * Install Zookeeper
   * Find the latest stable release here: https://zookeeper.apache.org/releases.html
-    * Download the source release, `tar.gz` file
     * Copy downloaded file to linux subsystem: https://ridicurious.com/2018/10/18/2-ways-to-copy-files-from-windows-10-to-windows-sub-system-for-linux/
       * I was using `cp mnt/c/Users/wuhan/Downloads/apache-zookeeper-3.6.2-bin.tar.gz home/hanhan/Downloads/`
       * <b>Make sure to download the `bin.tar.gz` file, not the `tar.gz` file</b>
+    * Installation Commands
+      * `sudo tar -zxf home/hanhan/Downloads/apache-zookeeper-3.6.2-bin.tar.gz`
+      * `sudo mv apache-zookeeper-3.6.2-bin /usr/local/zookeeper`
+      * `cat > /usr/local/zookeeper/conf/zoo.cfg << EOF`
+        * `tickTime=2000`
+        * `dataDir=/var/lib/zookeeper`
+        * `clientPort=2181`
+        * `EOF`
+      * `export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/bin/java`
     * `sudo /usr/local/zookeeper/bin/zkServer.sh start` to start zookeeper
       * Use `sudo /usr/local/zookeeper/bin/zkServer.sh start-foreground` to debug, there might be errors even though it's showing zookeeper has started
+        * But when using this command, you cannot run stop command to stop zookeeper
     * `sudo /usr/local/zookeeper/bin/zkServer.sh stop` to stop zookeeper
+    * To check whether zookeeper is running correctly
+      * Method 1
+        * Run `sudo /usr/local/zookeeper/bin/zkServer.sh status`, it's the same as `srvr` command
+      * Method 2
+        * `telnet localhost 2181`
+        * `srvr`, this command lists full details of the serve. 
+          * For all the zookeeper commands, check https://zookeeper.apache.org/doc/r3.4.8/zookeeperAdmin.html#sc_zkCommands
 
 #### Option 2 - Install on Windows
 * This may bring some bugs that do not exist on Linux
@@ -454,9 +470,12 @@ This file will also be used to record other commands.
   * After starting the virtual machine, it asked to install Ubuntu, but in fact that environment is already the Unbuntu. You can type `lsb_release -a` in Ubuntu terminal to check the version.
   
 ## Linux Commands
+* `ss -tulpn` checks listening ports
+  * `ss` is used to dump socket statistics and displays information in similar fashion (although simpler and faster) to netstat
+* `ps -ef` checks current running processes
 * Install `curl`: `sudo apt install curl`
   * You may get error saying "cannot get lock /var/lib/apt/lists/lock...", type `sudo rm /var/lib/apt/lists/lock` to solve the problem.
-* Install whois
+* Install `whois`
   * whois searches for an object in a WHOIS database. WHOIS is a query and response protocol that is widely used for querying databases that store the registered users of an Internet resource, such as a domain name or an IP address block, but is also used for a wider range of other information.
   * `sudo apt-get update`
   * `sudo apt-get install whois`
