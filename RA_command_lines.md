@@ -419,6 +419,11 @@ This file will also be used to record other commands.
   * Consume message from test topic
     * `sudo /usr/local/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning`
     * Ctrl + C to end
+  * Stop Kafka
+    * `ps -ef` check whether both kafka server and zookeeper are running
+    * `sudo /usr/local/kafka/bin/kafka-server-stop.sh` to stop kafka server
+    * `sudo /usr/local/zookeeper/bin/zkServer.sh stop` to stop zookeeper
+    * `ps -ef` to double check
 
 #### Option 2 - Install on Windows
 * This may bring some bugs that do not exist on Linux
