@@ -376,7 +376,6 @@ This file will also be used to record other commands.
   * `java -version`, `javac -version`
   * `readlink -f $(which java)` to find the java home location
     * After find that, `export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/bin/java`, java home path here depends on your own path
-  
 * Install Zookeeper
   * Find the latest stable release here: https://zookeeper.apache.org/releases.html
     * Copy downloaded file to linux subsystem: https://ridicurious.com/2018/10/18/2-ways-to-copy-files-from-windows-10-to-windows-sub-system-for-linux/
@@ -402,6 +401,24 @@ This file will also be used to record other commands.
         * `telnet localhost 2181`
         * `srvr`, this command lists full details of the serve. 
           * For all the zookeeper commands, check https://zookeeper.apache.org/doc/r3.4.8/zookeeperAdmin.html#sc_zkCommands
+* Install Kafka Broker
+  * Download Kafka from https://kafka.apache.org/downloads
+  * `cp mnt/c/Users/wuhan/Downloads/kafka_2.13-2.6.0.tgz home/hanhan/Downloads/`
+  * `sudo tar -zxf home/hanhan/Downloads/kafka_2.13-2.6.0.tgz`
+  * `sudo mv kafka_2.13-2.6.0 /usr/local/kafka`
+  * `mkdir /tmp/kafka-logs`
+  * `export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/bin/java`
+  * Start zookeeper first `sudo /usr/local/zookeeper/bin/zkServer.sh start`
+  * Start kafka `sudo /usr/local/kafka/bin/kafka-server-start.sh -daemon /usr/local/kafka/config/server.properties`
+  * Create and verify the topic
+    * `sudo /usr/local/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test Created topic "test"`
+    * `sudo /usr/local/kafka/bin/kafka-topics.sh --zookeeper localhost:2181 --describe --topic test`
+  * Produce message tp test topic
+    * `sudo /usr/local/kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test`
+    * Ctrl + D to end
+  * Consume message from test topic
+    * `sudo /usr/local/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning`
+    * Ctrl + C to end
 
 #### Option 2 - Install on Windows
 * This may bring some bugs that do not exist on Linux
