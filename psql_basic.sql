@@ -20,6 +20,12 @@ case
   when attr != lag_attr or (attr is null and lag_attr is not null) or (attr is not null and lag_attr is null) then 1 
 end as attr_change
 
+-- grant table to public
+grant all on my_table to public;
+
+-- convert string to number with controlled digit
+select to_number(col, '999') -- only keep 3 digits
+select to_number(col, '999D99') -- only keep 3 digits and 2 digits after decimal point
 
 -- Check tables that you have created so that you can clean them up :)
 select * from pg_tables where tableowner = '[your name in the DB system]';
