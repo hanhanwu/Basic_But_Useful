@@ -25,6 +25,9 @@ This file will also be used to record other commands.
 * How to create a license: https://help.github.com/articles/adding-a-license-to-a-repository/
 * CC-BY-SA-4.0 for media data: https://choosealicense.com/licenses/cc-by-sa-4.0/#
 
+## Docker Commands
+* `docker images` to list all the images and their tags as well as other attributes
+
 ## Linux Commands (different from Mac)
 * How to install Homebrew
   * `git clone https://github.com/Homebrew/brew ~/.linuxbrew/Homebrew`
