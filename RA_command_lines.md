@@ -246,6 +246,9 @@ This file will also be used to record other commands.
     * Or type `python --version` to check your python version
     * Or type `jupyter notebook` and you can use jupyter directly
   * After installing Anaconda, later when you are using `pip` to install any libraries, they will be saved in `Anaconda/lib/site-packages/` automatically
+  * Check all the virtual env you have created: `conda env list`
+  * To activate a env: `conda activate [env_name]`
+  * All the conda virtual env commands: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
 * Download and install `pip`
   * Download pip: `curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py`, oh windows can use curl...
   * Install pip: `python get-pip.py`
