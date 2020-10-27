@@ -105,6 +105,11 @@ This file will also be used to record other commands.
 * Upgrade Python3 through Python Homepage
   * If your python installed under `/Library/Frameworks/Python.framework/Versions`, that means they came from Python homepage, brew install cannot really overwrite current version (even you tried all types of brew link)
   * Just download the latest version from Python homepage here: https://www.python.org/downloads/
+* Brew install packages
+  * You company might block brew from downloading those packeages
+    * Download the package manually (the url should be shown in the terminal), such as "https://yarnpkg.com/downloads/1.22.10/yarn-v1.22.10.tar.gz"
+    * After successfuly downloading, run `mv Downloads/yarn-v1.22.10.tar.gz $(brew --cache -s yarn)`
+    * Restart the brew install
 * Upgrade Python3 through Homebrew
   * `brew install python3` (Optional if you already have python3 installed)
   * `brew update`
