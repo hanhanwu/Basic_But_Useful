@@ -36,6 +36,10 @@ This file will also be used to record other commands.
   * `eval $(~/.linuxbrew/bin/brew shellenv)`
 
 ## Mac Commands
+* Change Mac shells
+  * List available shells: `cat /etc/shells`
+  * I often use sh, so `chsh -s /bin/sh`
+  * You can also use mac UI: https://apple.stackexchange.com/questions/88278/change-default-shell-from-bash-to-zsh
 * <b>NOTE:</b> If it is showing any error, try to start your commnd line with `sudo`, if your know admin id and password.
 * To simply open a folder/file: `open [folder_path/file_path]`
 * Check folder memory: `du -sh`, use it under this folder
