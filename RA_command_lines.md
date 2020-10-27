@@ -133,7 +133,7 @@ This file will also be used to record other commands.
   * `sudo easy_install -m [PACKAGE]` or `sudo pip uninstall [package]`
   * `sudo rm -rf /usr/local/lib/python2.X/site-packages/[PACKAGE].egg` # remove egg file
 * Find Python package: `pip show [package name]`, this will work even when you are using conda or python virtual environment.
-* Having multiple types of Python
+* Having multiple types of Python/Install python on mac
   * I have at least 3 types of python, all useful in different situations. Sometimes, I just want to switch to a certain type.
   * Change Default Python Permanently
     * Find python location
@@ -143,6 +143,8 @@ This file will also be used to record other commands.
     * Add `alias python='python3'` and savethe file
     * `source ~/.bash_profile`
     * `python --version` to check default python version now
+  * How to install pip without using brew: https://pip.pypa.io/en/stable/installing/
+    * For python3 run `python3 get-pip.py`
   * Switch between types temporarily:
     * `alias python="/usr/local/opt/python3/bin/python3.6"`
     * `alias python=python3`
