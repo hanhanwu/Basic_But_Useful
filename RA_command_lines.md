@@ -139,6 +139,8 @@ This file will also be used to record other commands.
     * Find python location
       * Default location by checking `which python` or `which python3`
       * If python is downloaded through https://www.python.org/downloads/, location might be "/Library/Frameworks/Python.framework/Versions/3.9", or at least check "/Library/Frameworks/" to find the right python version you want
+    * Find python site packages
+      * Run python through terminal, then type `import site; site.getsitepackages()` should output the path
     * `open ~/.bash_profile`, open the file
     * Add `alias python='python3'` and savethe file
     * `source ~/.bash_profile`
