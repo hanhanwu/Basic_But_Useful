@@ -292,8 +292,8 @@ for feature in features:
     ax=fig.add_subplot(n_rows,n_cols,i) 
     bins = np.linspace(min(df2[feature]), max(df2[feature]), 100)
     props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
-    sns.distplot(df1.loc[df1[feature].isnull()==False][feature], color='green', label='df1')
-    sns.distplot(df2.loc[df2[feature].isnull()==False][feature], color='purple', label='df2')
+    sns.histplot(df1.loc[df1[feature].isnull()==False][feature], color='green', label='df1')
+    sns.histplot(df2.loc[df2[feature].isnull()==False][feature], color='purple', label='df2')
     kl_score = calc_kl_score(df1.loc[df1[feature].isnull()==False][feature],
              df2.loc[df2[feature].isnull()==False][feature])
     plt.legend(loc='best', fontsize=25))
