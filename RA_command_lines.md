@@ -36,6 +36,9 @@ This file will also be used to record other commands.
   * `eval $(~/.linuxbrew/bin/brew shellenv)`
 
 ## Mac Commands
+* How to run `.sh` file through terminal, assume the file name is "run.sh"
+  * `chmod +x run.sh` sets execution permission
+  * `./run.sh` runs the script
 * Change Mac shells
   * List available shells: `cat /etc/shells`
   * I often use sh, so `chsh -s /bin/sh`
