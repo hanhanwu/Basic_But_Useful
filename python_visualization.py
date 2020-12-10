@@ -5,6 +5,20 @@
 ## Using ployly: https://nbviewer.jupyter.org/github/hanhanwu/Hanhan_Data_Science_Practice/blob/5b5c1f45383b405a894b57cee496d2b7a2655bad/sequencial_analysis/try_prophet.ipynb
 ## Using matplotlib: https://github.com/hanhanwu/Hanhan_Break_the_Limits/blob/master/Bank_Fantasy/Golden_Bridge/adjustable_forecasting.ipynb
 
+# Plot time series line charts
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+def ts_plot_ip_yfixed(data, ip_lst):
+    plt.figure(figsize=(15,4))
+    axes = plt.gca()
+    axes.set_ylim([0, 1]) # set y-axis range if needs to be fixed
+    
+    for ip in ip_lst:
+        _data = data[data["ip"] == ip].sort_values(by="requesttime")
+        std = round(volatility_df.loc[(volatility_df['ip']==ip)]['prediction_prob_std'].values[0], 4)
+        sns.lineplot(x=_data["requesttime"], y=_data["prediction_prob"], label=ip + ' (std=' +str(std) + ')')
+
 
 # Bar Chart
 import numpy as np
