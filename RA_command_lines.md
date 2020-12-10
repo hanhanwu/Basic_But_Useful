@@ -92,7 +92,8 @@ This file will also be used to record other commands.
   
 * When it's showing "no space left on the device" during packages installation
   * The reason caused the problem might be because of the small partition in your virtual env
-  * `pip install -r requirements.txt --build=~/tmp/build/`, it's `--build=~/tmp/build/` makes a difference
+    * Try `pip install -r requirements.txt --build=~/tmp/build/`, it's `--build=~/tmp/build/` makes a difference
+    * If it doesn't work, try upgrade pip first, `/usr/bin/python3 -m pip install --upgrade pip`
   * You can check filesystem availability through `df -h`
 * Add a library path to `$PATH`
   * `export PATH=/Library/Frameworks/Python.framework/Versions/3.5/bin:$PATH`
