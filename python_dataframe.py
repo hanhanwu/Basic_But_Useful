@@ -24,7 +24,7 @@ df = df.head(n-x) # this is faster than drop()
 import dask.dataframe as dd
 
 df = dd.read_csv('my_csv.csv').compute()
-f
+
 # multiprocessing
 import multiprocessing as mp
 pool = mp.Pool(processes = (mp.cpu_count() - 1))
