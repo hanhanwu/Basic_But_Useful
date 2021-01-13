@@ -274,8 +274,9 @@ This file will also be used to record other commands.
   * Install pip: `python get-pip.py`
 * Install Tensorflow
   * Download and install the latets Visual C++: https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads
-  * Install: `pip install --upgrade tensorflow`
+  * Install: `pip install --upgrade tensorflow --user`
   * Verify version: `python -c "import tensorflow as tf; print(tf.__version__)"`
+  * Install tensorflow addons (tfa): `pip install tensorflow-addons[tensorflow]`, when import it, type `import tensorflow_addons`
 * Install Keras
   * `pip install keras`
   * If it will show your keras is not compatable with tensorflow, open `Anaconda/Lib/site-packages/tensorflow/tools/pip_package/setup.py` and change these 2 lines to your keras version:
