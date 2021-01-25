@@ -272,6 +272,8 @@ This file will also be used to record other commands.
 * Download and install `pip`
   * Download pip: `curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py`, oh windows can use curl...
   * Install pip: `python get-pip.py`
+* Install `tensorflow-gpu`
+  * https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/AI_Experiments/after_2020/use_local_windows_GPU.md
 * Install Tensorflow
   * Download and install the latets Visual C++: https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads
   * Install: `pip install --upgrade tensorflow --user`
