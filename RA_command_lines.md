@@ -172,11 +172,13 @@ This file will also be used to record other commands.
     * In the opened text file, copy `export PATH=~/anaconda/bin:$PATH`
       * It seems that after anaconda 2019.10, it will edit ~/.bash_profile for you while the installation
     * Save the text file, and in the terminal type `source ~/.bash_profile`
-  * Create conda virtual environment, install package there: https://stackoverflow.com/questions/45707010/ipython-importerror-cannot-import-name-layout/45727917#45727917
-  * To activate it, type `source activate conda_virtualenv`
-  * To deactivate conda virtual environment, type `source deactivate`
-  * To remove conda virtual environment, `sudo conda remove -n yourenvname --all`, but note, to create conda virtual environment takes longer time than creating python `virtualenv`
-    * After running the command line, you may need to `cd anaconda/envs` and type `sudo rm -r yourenvname` to fully remove the environment
+  * Create conda virtual environment with specified version: https://stackoverflow.com/questions/45707010/ipython-importerror-cannot-import-name-layout/45727917#45727917
+  * Create a conda env, type `conda create --name venv`
+  * To activate it, type `source activate conda_venv`
+  * Now to check whether there is ipython, you can just type `jupyter lab` or `jupyter notebook` and it will work
+  * To deactivate conda virtual environment, type `conda deactivate`
+  * To remove conda virtual environment, `sudo conda remove -n venv --all`, but note, to create conda virtual environment takes longer time than creating python `virtualenv`
+    * After running the command line, you may need to `cd anaconda/envs` and type `sudo rm -r venv` to fully remove the environment
   * If you want to check how many conda virtual environment you have created and their names, also go to `anaconda/envs` by typing `cd anaconda/envs`
 * Uninstall anaconda on Mac
   * Normally Anaconda has a folder under your Username, so just do `sudo rm -r anaconda`
