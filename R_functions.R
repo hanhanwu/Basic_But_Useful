@@ -22,3 +22,11 @@ quantile(raw_data$mkeystrokeratemsrepeat, c(.0, .01, .05, .15, .25, .50,  .75, .
 
 # check data types of a data frame or data table
 sapply(train, typeof)
+
+
+# R different apply functions: 
+## https://www.analyticsvidhya.com/blog/2021/02/the-ultimate-swiss-army-knife-of-apply-family-in-r/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
+## apply(), lapply(), sapply(), vapply(), tapply(), mapply()
+# vapply() to operate on 1+ columns regardless the data type
+# tapply() applies 1+ aggregated functions
+# mapply() allows to do DIY operations on 2+ cols
