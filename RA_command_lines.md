@@ -300,6 +300,9 @@ This file will also be used to record other commands.
   * Run the terminal as admin, and activate the virtual environment
   * `conda install libpython m2w64-toolchain -c msys2`
   * `pip install fbprophet`
+* Install PyMC3
+  * Run these commands: https://anaconda.org/conda-forge/pymc3
+  * Install Theano through: `pip intsall Theano`
 ### Windows Basic Commands
 * List all files in current directory: `dir`
 * Print out current path on windows: `cd` or `chdir`
