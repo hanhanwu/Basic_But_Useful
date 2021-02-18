@@ -71,7 +71,7 @@ def plot_adjusted_targets(df):
   ax.plot(list(df.select('rid').toPandas()['rid']), 
           list(df.select('col1').toPandas()['col1']), label='col1', color='k')
   ax.plot(list(df.select('rid').toPandas()['rid']), 
-          list(df.select('col2').toPandas()[col2']), label='col2', color='r')
+          list(df.select('col2').toPandas()['col2']), label='col2', color='r', marker='*')
   ax.plot(list(df.select('rid').toPandas()['rid']), 
           list(df.select('col3').toPandas()['col3']), color='grey', label='col3', linestyle='--')  # define line style 
 
