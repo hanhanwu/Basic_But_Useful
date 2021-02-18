@@ -1,3 +1,14 @@
+import pandas as pd
+import numpy as np
+from pyspark_dist_explore import hist
+import matplotlib.pyplot as plt
+from matplotlib.ticker import MaxNLocator
+
+from pyspark.sql.functions import desc, row_number, monotonically_increasing_id, udf, sum, count, round, col, greatest
+from pyspark.sql.window import Window
+from pyspark.sql.types import IntegerType, StringType, DoubleType
+
+
 # When using where to find matched list, when there is data type mismatch
 ## Changing dataframe data type won't work, you have to change the datatype on the right side of the filtering
 from pyspark.sql.functions import array, lit
@@ -28,3 +39,35 @@ def get_percentile(col):
 
 # convert a col to pandas list
 print(get_percentile(list(df.select('ct').toPandas()['ct'])))
+
+
+# Apply window function
+my_udf = udf(lambda col: 'pink' if has_icecream else 'green', StringType())
+df = df.withColumn('col1', my_udf('col'))
+
+win_spec = Window.partitionBy([col2, col3]).orderBy('time').rowsBetween(-2, -1)  # the window is formed by the previous 2 records of the current record
+df = df.withColumn('col_new', count('col1').over(win_spec))
+
+
+# Add index to spark dataframe
+df = df.select('*').withColumn('rid', row_number().over(Window.orderBy(monotonically_increasing_id())))
+
+
+# Plot multiple lines 
+def plot_adjusted_targets(df):
+  plt.figure(figsize=(15,7))
+  ax = plt.gca()
+  ax.xaxis.set_major_locator(MaxNLocator(integer=True))  # make xticks as integers
+
+
+  ax.plot(list(df.select('rid').toPandas()['rid']), 
+          list(df.select('col1').toPandas()['col1']), label='col1', color='k')
+  ax.plot(list(df.select('rid').toPandas()['rid']), 
+          list(df.select('col2').toPandas()[col2']), label='col2', color='r')
+  ax.plot(list(df.select('rid').toPandas()['rid']), 
+          list(df.select('col3').toPandas()['col3']), color='grey', label='col3', linestyle='--')  # define line style 
+
+  plt.xticks(rotation='30', horizontalalignment="right")
+  plt.legend()
+  plt.title('plot multiple lines')
+  display(ax)
