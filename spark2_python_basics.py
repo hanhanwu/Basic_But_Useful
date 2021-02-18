@@ -1,3 +1,11 @@
+"""
+Useful links:
+
+PySpark Window functions: https://medium.com/expedia-group-tech/deep-dive-into-apache-spark-window-functions-7b4e39ad3c86
+
+"""
+
+
 import pandas as pd
 import numpy as np
 from pyspark_dist_explore import hist
