@@ -6,18 +6,24 @@
 ## Using matplotlib: https://github.com/hanhanwu/Hanhan_Break_the_Limits/blob/master/Bank_Fantasy/Golden_Bridge/adjustable_forecasting.ipynb
 
 # Plot multiple lines
-def plot_lines(lines_dct, col, title, color):
+def plot_lines(lines_dct, col, title):
   plt.figure(figsize=(15,7))
   ax = plt.gca()
   ax.xaxis.set_major_locator(MaxNLocator(integer=True))
   
-  for label, df in lines_dct.items():
+  for label, df_dct in lines_dct.items():
+    df = df_dct['df']
     ax.plot(list(df.select('rid').toPandas()['rid']), 
-            list(df.select(col).toPandas()[col]), label=label, color=color, linestyle='--')  # matplot defines linestyle easier than seaborn 
+            list(df.select(col).toPandas()[col]), label=label, color=df_dct['color'], linestyle=df_dct['linestyle'], marker=df_dct['marker'])
     
   plt.legend()
   plt.title(title)
   display(ax)
+  
+lines_dct = {'line1': {'df': df1, 'linestyle':None, 'marker':None, 'color':'black'},
+            'line2': {'df': df2, 'linestyle':'--', 'marker':'*', 'color':'brown'},
+            'line2': {'df': df3, 'linestyle':None, 'marker':None, 'color':'pink'}}
+plot_lines(lines_dct, col='col1', title='multiple lines')
 
 
 # Plot time series line charts
