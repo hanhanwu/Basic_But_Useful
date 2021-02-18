@@ -5,6 +5,21 @@
 ## Using ployly: https://nbviewer.jupyter.org/github/hanhanwu/Hanhan_Data_Science_Practice/blob/5b5c1f45383b405a894b57cee496d2b7a2655bad/sequencial_analysis/try_prophet.ipynb
 ## Using matplotlib: https://github.com/hanhanwu/Hanhan_Break_the_Limits/blob/master/Bank_Fantasy/Golden_Bridge/adjustable_forecasting.ipynb
 
+# Plot multiple lines
+def plot_lines(lines_dct, col, title, color):
+  plt.figure(figsize=(15,7))
+  ax = plt.gca()
+  ax.xaxis.set_major_locator(MaxNLocator(integer=True))
+  
+  for label, df in lines_dct.items():
+    ax.plot(list(df.select('rid').toPandas()['rid']), 
+            list(df.select(col).toPandas()[col]), label=label, color=color, linestyle='--')  # matplot defines linestyle easier than seaborn 
+    
+  plt.legend()
+  plt.title(title)
+  display(ax)
+
+
 # Plot time series line charts
 import matplotlib.pyplot as plt
 import seaborn as sns
