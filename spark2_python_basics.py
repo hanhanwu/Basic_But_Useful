@@ -17,6 +17,16 @@ from pyspark.sql.window import Window
 from pyspark.sql.types import IntegerType, StringType, DoubleType
 
 
+# write and load parquet
+## Better to reorder the data when reading, since the partition might changed the order, do this especially when you need to convert spark DF to pandas DF...
+# write the data, overwrite if exists
+df.write.mode('overwrite').parquet(out_dir + 'input_df.parquet')
+# read the data
+out_dir = '/dbfs/mnt/outputs/'
+input_file = out_dir + 'input_df.parquet'
+df_input = spark.read.parquet(input_file).orderBy(['rid', 'col1']).cache()
+
+
 # When using where to find matched list, when there is data type mismatch
 ## Changing dataframe data type won't work, you have to change the datatype on the right side of the filtering
 from pyspark.sql.functions import array, lit
