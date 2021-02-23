@@ -291,6 +291,14 @@ df.select_dtypes(include=['int64']).columns.tolist()
 df._get_numeric_data()
 
 
+# pandas rolling window with shift in groups
+# Check this: https://stackoverflow.com/questions/48967165/using-shift-and-rolling-in-pandas-with-groupby
+# Strongly recommend to use assign(), otherwise shift() function cannot work correctly within each group
+## `min_periods` is necessary in some rolling aggregated functions, otherwise will get more nulls than expected
+df = df.assign(new_col = df.groupby(group)['col'].transform(
+      lambda v: v.rolling(window_size, min_periods=1).sum().shift(1)))
+
+
 # select multiple non-continuous columns
 my_csv = pd.read_csv(csv_path)
 cols_idx = [7,9]
