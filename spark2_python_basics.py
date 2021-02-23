@@ -50,8 +50,8 @@ print(get_percentile(list(df.select('ct').toPandas()['ct'])))
 
 
 # Apply window function
-# NOTE: Pandas rolling window will include current record, so need shift() functions in pandas together with `rolling()` in order to achieve the same results
-# and `min_periods=1` might be needed in rolling() function, since functions like rolling().sum() will return more nulls without specifying `min_periods`
+# NOTE: Pandas rolling window is more complex to use in order to achieve the same results, check code here: 
+## https://github.com/hanhanwu/Basic_But_Useful/blob/master/python_dataframe.py
 my_udf = udf(lambda col: 'pink' if has_icecream else 'green', StringType())
 df = df.withColumn('col1', my_udf('col'))
 
