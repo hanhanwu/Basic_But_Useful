@@ -50,6 +50,7 @@ print(get_percentile(list(df.select('ct').toPandas()['ct'])))
 
 
 # Apply window function
+# NOTE: Pandas rolling window will include current record, so need shift() functions in pandas togather with `rolling()` in order to achieve the same results
 my_udf = udf(lambda col: 'pink' if has_icecream else 'green', StringType())
 df = df.withColumn('col1', my_udf('col'))
 
@@ -79,3 +80,16 @@ def plot_adjusted_targets(df):
   plt.legend()
   plt.title('plot multiple lines')
   display(ax)
+
+    
+ # Plot kernal density as a line
+import seaborn as sns
+sns.set(color_codes=True)
+%matplotlib inline
+
+plt.figure(figsize=(15,7))
+ax = plt.gca()
+sns.kdeplot(list(df.select(col).toPandas()[col]), label="col", color='green')
+plt.legend()
+plt.title('Distribution of Col')
+display(ax)
