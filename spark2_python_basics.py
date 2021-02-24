@@ -49,11 +49,11 @@ display(fig)
 
 # Get the distribution of a column
 def get_percentile(col):
-    result = {'min': np.percentile(col, 0), '1%':np.percentile(col, 1),
-             '10%':np.percentile(col, 10), '15%':np.percentile(col, 15),
-             '25%':np.percentile(col, 25), '50%':np.percentile(col, 50), '75%':np.percentile(col, 75),
-             '85%':np.percentile(col, 85), '95%':np.percentile(col, 95), '99%':np.percentile(col, 99),
-              'max':np.percentile(col, 100)}
+    result = {'min': np.nanpercentile(col, 0), '1%':np.nanpercentile(col, 1),
+             '10%':np.nanpercentile(col, 10), '15%':np.nanpercentile(col, 15),
+             '25%':np.nanpercentile(col, 25), '50%':np.nanpercentile(col, 50), '75%':np.nanpercentile(col, 75),
+             '85%':np.nanpercentile(col, 85), '95%':np.nanpercentile(col, 95), '99%':np.nanpercentile(col, 99),
+              'max':np.nanpercentile(col, 100)}
     return result
 
 # convert a col to pandas list
