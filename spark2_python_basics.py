@@ -20,6 +20,7 @@ from pyspark.sql.types import IntegerType, StringType, DoubleType
 # write and load parquet
 ## Better to reorder the data when reading, since the partition might changed the order, do this especially when you need to convert spark DF to pandas DF...
 # write the data, overwrite if exists
+# !!! Different format beyond parquet: https://spark.apache.org/docs/latest/sql-data-sources-load-save-functions.html
 df.write.mode('overwrite').parquet(out_dir + 'input_df.parquet')
 # read the data
 out_dir = '/dbfs/mnt/outputs/'
