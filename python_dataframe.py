@@ -17,6 +17,9 @@
 # remove the last x records
 df = df.head(n-x) # this is faster than drop()
 
+# Conditional replace
+df.loc[(df['col'] < 0) | (df['col'].isnull()), 'col'] = 0  # replace 0 or negative values with 0 
+
 
 # When data file is huge and python always exit because of the lack of memory, use Dask
 ## But dask dataframe do not have much functions as pandas dataframe, with `compute()` after loading data, you can use the
