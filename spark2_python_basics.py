@@ -75,7 +75,7 @@ df = df.select('*').withColumn('rid', row_number().over(Window.orderBy(monotonic
 
 
 # Plot multiple lines 
-def plot_adjusted_targets(df):
+def plot_lines(df, xlabel, ylabel):
   plt.figure(figsize=(15,7))
   ax = plt.gca()
   ax.xaxis.set_major_locator(MaxNLocator(integer=True))  # make xticks as integers
@@ -90,6 +90,8 @@ def plot_adjusted_targets(df):
 
   plt.xticks(rotation='30', horizontalalignment="right")
   plt.legend()
+  plt.xlabel=xlabel
+  plt.ylabel=ylabel
   plt.title('plot multiple lines')
   display(ax)
 
