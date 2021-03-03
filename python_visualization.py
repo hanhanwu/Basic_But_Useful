@@ -16,7 +16,8 @@ def plot_lines(lines_dct, col, title):
     ax.plot(list(df.select('rid').toPandas()['rid']), 
             list(df.select(col).toPandas()[col]), label=label, color=df_dct['color'], linestyle=df_dct['linestyle'], marker=df_dct['marker'])
     
-  plt.legend()
+  leg = plt.legend()
+  leg.get_frame().set_alpha(0.7)  # set legend's transparency
   plt.title(title)
   display(ax)
   
