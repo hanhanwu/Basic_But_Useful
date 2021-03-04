@@ -19,6 +19,11 @@ df = df.head(n-x) # this is faster than drop()
 
 # Conditional replace
 df.loc[(df['col'] < 0) | (df['col'].isnull()), 'col'] = 0  # replace 0 or negative values with 0 
+## Or use mask
+mask = df['col1'] > 0.0
+df.loc[mask, 'col1'] = df.loc[mask, 'col2'] / df.loc[mask, 'col3']
+mask = pd.isnull(df[col])
+df.loc[mask, col] = df.loc[mask, 'not_null']
 
 
 # When data file is huge and python always exit because of the lack of memory, use Dask
@@ -301,6 +306,25 @@ df._get_numeric_data()
 df = df.assign(new_col = df.groupby(group)['col'].transform(
       lambda v: v.rolling(window_size, min_periods=1).sum().shift(1)))
 
+# The above rolling window will give error when you want to calculate exponential sum within the rolling window...
+## So try this
+tau = -(window_size-1) / np.log(1.0/window_size)
+weights = np.array(list(reversed(signal.windows.exponential(window_size, tau=tau, center=0, sym=False))))
+def get_weighted_window(X):
+  return np.sum(np.dot(weights, X))
+                        
+df = df.sort_values(groupby_cols + ['my_date']).reset_index(drop=True)
+df = df.assign(col1 = df.groupby(groupby_cols)['is_ice'].transform(
+      lambda a: a.rolling(window_size, min_periods=window_size).sum()))
+  
+df = df.assign(col2 = df.groupby(groupby_cols)['is_ice'].transform(
+      lambda a: a.rolling(window_size, min_periods=window_size).apply(get_weighted_window, raw=True))) # set raw to True can be faster, it's using numpy
+
+inv_freq = lambda v: 1.0 - v/window_size
+df['col11'] = df['col1'].map(inv_freq)
+df['col22'] = df['col2'].map(inv_freq)
+  
+  
 
 # select multiple non-continuous columns
 my_csv = pd.read_csv(csv_path)
