@@ -277,6 +277,8 @@ df['new_col'] = df.apply(add_col, axis=1)
 df1['col1'].unique()
 ## count each unique values in a column
 df.groupby('col_you_want2count')['ID'].nunique()
+## Count distinct of multiple columns
+(df[col1].astype('str') + df[col2].astype('str')).nunique() ## this depends on data types, all string is easier
 
 
 # select the first value in each group
