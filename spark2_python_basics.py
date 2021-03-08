@@ -1,7 +1,8 @@
 """
 Useful links:
 
-PySpark Window functions: https://medium.com/expedia-group-tech/deep-dive-into-apache-spark-window-functions-7b4e39ad3c86
+* PySpark Window functions: https://medium.com/expedia-group-tech/deep-dive-into-apache-spark-window-functions-7b4e39ad3c86
+* Specify spark session: https://github.com/hanhanwu/Hanhan-Spark-Python/blob/master/Spark2.0/how_to_define_spark.py
 
 """
 
