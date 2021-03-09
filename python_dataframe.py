@@ -352,11 +352,10 @@ df_count = selected_features[['food_name', 'flavor']].astype('str').drop_duplica
           .agg(['count']).reset_index()\
           .sort_values(['count'], ascending=False)
 
-# better way to do group by, more flexibility, less code
-## More examples: https://www.shanelynn.ie/summarising-aggregation-and-grouping-data-in-python-pandas/
+# group by to aggregate on multiple cols
 agg_rating_df = user_rating_df[['buz_name', 'rating', 'review_count', 'review_sentiment']]\
-          .groupby('buz_name', as_index=False)\
-          .agg({'rating':'mean', 'review_count':'mean', 'review_sentiment':'mean'})
+          .groupby('buz_name')\
+          .agg({'rating':'mean', 'review_count':'mean', 'review_sentiment':'mean'}).reset_index()
 
 
 # count records in each group, sort by counts
