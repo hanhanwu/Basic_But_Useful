@@ -27,6 +27,28 @@ lines_dct = {'line1': {'df': df1, 'linestyle':None, 'marker':None, 'color':'blac
 plot_lines(lines_dct, col='col1', title='multiple lines')
 
 
+# plot multiple lines in each subplot
+df_lst = [df1, df2, df3]
+title_lst = ['t1', 't2', 't3']
+
+fig = plt.figure(figsize=(25,13))
+plt.title('Multiple Lines', fontsize=12)
+plt.xticks([])
+
+for i in range(len(df_lst)):
+  ax=fig.add_subplot(2,2,i+1)
+  df = df_lst[i]
+  ax.plot(df['col'], df['col1'], label='col1', color='purple')
+  ax.plot(df['col'], df['col2'], label='col2', color='red')
+  ax.plot(df['col'], df['col3'], label='col3', color='g')
+  # ax.plot(df['BRAND'], df['baseline_forecast'], label='FORECAST Without Apply CUT', color='grey', linestyle='--')
+  ax.legend()
+  ax.set_xticklabels(df['col'].values, rotation='30', fontsize=10, horizontalalignment="right")
+  plt.title(title_lst[i] + ' Plot', fontsize=10)
+  
+display(fig)
+
+
 # Plot time series line charts
 import matplotlib.pyplot as plt
 import seaborn as sns
