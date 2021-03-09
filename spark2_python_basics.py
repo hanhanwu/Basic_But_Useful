@@ -69,6 +69,8 @@ df = df.withColumn('col1', my_udf('col'))
 
 win_spec = Window.partitionBy([col2, col3]).orderBy('time').rowsBetween(-2, -1)  # the window is formed by the previous 2 records of the current record
 df = df.withColumn('col_new', count('col1').over(win_spec))
+# How to apply UDF with bounded window, need spark3+
+## https://github.com/hanhanwu/Hanhan-Spark-Python/blob/master/Spark3%2B/spark_window.ipynb
 
 
 # Add index to spark dataframe
