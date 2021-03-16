@@ -23,7 +23,7 @@ def plot_lines(lines_dct, col, title):
   
 lines_dct = {'line1': {'df': df1, 'linestyle':None, 'marker':None, 'color':'black'},
             'line2': {'df': df2, 'linestyle':'--', 'marker':'*', 'color':'brown'},
-            'line2': {'df': df3, 'linestyle':None, 'marker':None, 'color':'pink'}}
+            'line3': {'df': df3, 'linestyle':None, 'marker':None, 'color':'pink'}}
 plot_lines(lines_dct, col='col1', title='multiple lines')
 
 
@@ -46,6 +46,41 @@ for i in range(len(df_lst)):
   ax.set_xticklabels(df['col'].values, rotation='30', fontsize=10, horizontalalignment="right")
   plt.title(title_lst[i] + ' Plot', fontsize=10)
   
+display(fig)
+
+
+# Plot a line and thresholds
+plt.figure(figsize=(25,7))
+ax = plt.gca()
+
+upper_threshold = 100
+lower_threshold = -100
+
+ax.plot(df['x'].values, [upper_threshold]*len(df['x'].values), color='grey', linestyle='--')
+ax.plot(df['x'].values, df['y'].values, label='y', color='purple', marker='o')
+ax.plot(df['x'].values, [lower_threshold]*len(df['x'].values), color='grey', linestyle='--')
+
+for i, v in enumerate(bias_df['median_bias'].values):
+    ax.text(x=bias_df['type'].values[i], y=v, s=str(round(v, 4)), ha="right", va="top", color='green')
+
+leg = plt.legend()
+plt.title('Median Biad for Different Forecasting Target')
+plt.xticks(fontsize = 12)
+plt.ylabel('bias value')
+display(ax)
+
+
+# Plot kernel density
+import seaborn as sns
+sns.set(color_codes=True)
+
+fig = plt.figure(figsize=(15,5))
+sns.kdeplot(df['col1'], label="col1", color='green')
+sns.kdeplot(df['col2'], label="col2", color='orange')
+plt.legend()
+plt.title('kernel density')
+plt.xlabel('x')
+plt.ylabel('y')
 display(fig)
 
 
