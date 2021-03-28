@@ -379,6 +379,9 @@ This file will also be used to record other commands.
       * `npm ci`
       * `npm build`
   * Also make sure there is no other folder called "ray" under the same fodler where you are importing ray.
+* How to install `tsfresh` (Optional)
+  * Have to use conda, `conda install -c conda-forge tsfresh`, it might failed in the first 2 attempts 
+
 ### Windows Subsystem Linux (WSL)
 * Download and install Ubuntu:
   * Note: I tried to use windows store to download Ubuntu, but unfortunately it could not be installed. Windows really sucks, and it took so much time to wait for windows store to load...
