@@ -23,6 +23,10 @@ import org.apache.spark.sql.functions.when
 mydf.withColumn("new_col", when(df.col1 > 3, col2*2).otherwise(0.0))
 
 
+# Apply a function on multiple cols
+sdf = sdf.select([sha2(sdf[col], 256).alias(col) for col in cols if col in sdf_cols])
+
+
 # write and load parquet
 ## Better to reorder the data when reading, since the partition might changed the order, do this especially when you need to convert spark DF to pandas DF...
 # write the data, overwrite if exists
