@@ -17,6 +17,10 @@ from pyspark.sql.functions import desc, row_number, monotonically_increasing_id,
 from pyspark.sql.window import Window
 from pyspark.sql.types import IntegerType, StringType, DoubleType
 
+# create database
+%sql
+CREATE DATABASE IF NOT EXISTS my_db;
+
 
 # Conditional withColumn
 import org.apache.spark.sql.functions.when
@@ -24,14 +28,23 @@ mydf.withColumn("new_col", when(df.col1 > 3, col2*2).otherwise(0.0))
 
 
 # Apply a function on multiple cols
+## If only choose sub-cols
 sdf = sdf.select([sha2(sdf[col], 256).alias(col) for col in cols if col in sdf_cols])
+## If want to have all original cols
+for col in cols:
+  sdf = sdf.withColumn(mask_col, md5(concat(lit(salt_md5), sha2(concat(lit(salt_sha2), mask_col), 256))))
+  sdf = sdf.withColumn(nullify_col, lit(None).cast('string'))  # cast to string so that it can be saved as parquet
+    
 
 
 # write and load parquet
 ## Better to reorder the data when reading, since the partition might changed the order, do this especially when you need to convert spark DF to pandas DF...
 # write the data, overwrite if exists
 # !!! Different format beyond parquet: https://spark.apache.org/docs/latest/sql-data-sources-load-save-functions.html
-df.write.mode('overwrite').parquet(out_dir + 'input_df.parquet')
+df.write.mode('overwrite').parquet(out_dir + 'input_df.parquet') # save as file
+DB = 'my_DB'
+tb = 'my_table'
+sdf.write.mode("overwrite").saveAsTable(f'{DB}.{tb}') # save as table in DB
 # read the data
 out_dir = '/dbfs/mnt/outputs/'
 input_file = out_dir + 'input_df.parquet'
