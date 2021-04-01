@@ -32,7 +32,7 @@ mydf.withColumn("new_col", when(df.col1 > 3, col2*2).otherwise(0.0))
 sdf = sdf.select([sha2(sdf[col], 256).alias(col) for col in cols if col in sdf_cols])
 ## If want to have all original cols
 for col in cols:
-  sdf = sdf.withColumn(mask_col, md5(concat(lit(salt_md5), sha2(concat(lit(salt_sha2), mask_col), 256))))
+  sdf = sdf.withColumn(mask_col, sha2(concat(lit(salt_sha2), mask_col), 256))
   sdf = sdf.withColumn(nullify_col, lit(None).cast('string'))  # cast to string so that it can be saved as parquet
     
 
