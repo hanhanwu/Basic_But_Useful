@@ -18,9 +18,31 @@ from pyspark.sql.functions import desc, row_number, monotonically_increasing_id,
 from pyspark.sql.window import Window
 from pyspark.sql.types import IntegerType, StringType, DoubleType
 
+
 # create database
 %sql
 CREATE DATABASE IF NOT EXISTS my_db;
+
+## Create sdf from scratch
+df = spark.createDataFrame([
+    ('A', '2020-11-09', -10, -10), ('A', '2020-11-16', None, None), ('A', '2020-11-23', 10, 10),
+    ('B', '2020-11-10', 10, 10), ('B', '2020-11-17', 30, 10), ('B', '2020-11-24', 50, 20),
+], ['col1', 'col2', 'col3', 'col3']).cache()
+display(df)
+
+## Create sdf from pandas df (schema is required when a column's type is hard to infer)
+from pyspark.sql.types import StructType, StructField, DoubleType, StringType
+
+pdf = pd.DataFrame({
+                'col1': ['D', 'D', 'D'],
+                'col2': ['2020-11-10', '2020-11-17', '2020-11-24'],
+                'col3': [None, None, None],
+                'col4': [10.0, 10.0, 20.0]
+            })
+schema = StructType([StructField('col1', StringType(), True), StructField('col2', StringType(), True), 
+                     StructField('col3', DoubleType(), True), StructField('col4', DoubleType(), True)])
+sdf = spark.createDataFrame(pdf, schema=schema).cache()
+sdf.show()
 
 
 # Conditional withColumn
