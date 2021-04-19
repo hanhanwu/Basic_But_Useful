@@ -22,6 +22,10 @@ from pyspark.sql.types import IntegerType, StringType, DoubleType
 # create database
 %sql
 CREATE DATABASE IF NOT EXISTS my_db;
+# drop dtabase
+DROP DATABASE IF EXISTS encrypted_data CASCADE; # drop all relevant tables
+DROP DATABASE IF EXISTS encrypted_data RESTRICT; # if there is non-empty table in the DB, cannot drop the DB, this is by default
+
 
 ## Create sdf from scratch
 df = spark.createDataFrame([
@@ -68,6 +72,7 @@ df.write.mode('overwrite').parquet(out_dir + 'input_df.parquet') # save as file
 DB = 'my_DB'
 tb = 'my_table'
 sdf.write.mode("overwrite").saveAsTable(f'{DB}.{tb}') # save as table in DB
+sdf.repartition('col1').write.mode("overwrite").partitionBy('col1').saveAsTable(f'{dest_db}.{tb}')  # repartion a giant table to reduce small files in order to speed up future queries
 # read the data
 out_dir = '/dbfs/mnt/outputs/'
 input_file = out_dir + 'input_df.parquet'
