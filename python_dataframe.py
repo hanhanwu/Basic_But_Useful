@@ -14,6 +14,9 @@
 ### data.info (data summary)
 ### markdown format
 
+# Change a cell's value
+df.loc[index_value, 'col'] = 'value'
+
 # remove the last x records
 df = df.head(n-x) # this is faster than drop()
 
