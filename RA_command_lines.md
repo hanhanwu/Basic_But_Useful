@@ -248,6 +248,7 @@ This file will also be used to record other commands.
 * `python3 my_file.py localhost [port number]` to run the python streaming code
 * Ctrl + C to end the connection
 ### [How to install spark on Mac][1]
+* In 2021 I found to export java_home in this way works: https://stackoverflow.com/questions/6588390/where-is-java-home-on-macos-mojave-10-14-to-lion-10-7
 
     
 ## Windows Commands
