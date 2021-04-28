@@ -7,7 +7,6 @@ Useful links:
   * Also check whether join() is the most time consuming part in the whole pipeline, sometimes the most time consuming part is saving the data
 """
 
-
 import pandas as pd
 import numpy as np
 from pyspark_dist_explore import hist
@@ -128,11 +127,11 @@ df = df.select('*').withColumn('rid', row_number().over(Window.orderBy(monotonic
 
 
 # Plot multiple lines 
+import matplotlib.pyplot as plt
 def plot_lines(df, xlabel, ylabel):
   plt.figure(figsize=(15,7))
   ax = plt.gca()
   ax.xaxis.set_major_locator(MaxNLocator(integer=True))  # make xticks as integers
-
 
   ax.plot(list(df.select('rid').toPandas()['rid']), 
           list(df.select('col1').toPandas()['col1']), label='col1', color='k')
