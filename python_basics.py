@@ -12,6 +12,9 @@
 # Methods related to date time
 ## https://www.analyticsvidhya.com/blog/2020/05/datetime-variables-python-pandas/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
 
+# Why use numpy better than python list: 
+## https://www.analyticsvidhya.com/blog/2021/05/why-you-should-avoid-using-python-lists/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
+
 # import from parent folder
 import sys
 sys.path.insert(0, '..')
