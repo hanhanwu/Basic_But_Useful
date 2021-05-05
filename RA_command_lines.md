@@ -206,6 +206,8 @@ This file will also be used to record other commands.
     * `conda install -c conda-forge pyzmq`
 
 ## AWS Cli
+* `aws --version` to check installed version
+* `aws s3 ls` to list S3 buckets you can see
 
 #### Install AWS CLi v1
 * Just type `sudo -H pip install awscli --upgrade --ignore-installed six` worked for me
