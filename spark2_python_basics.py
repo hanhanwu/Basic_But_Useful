@@ -25,6 +25,21 @@ CREATE DATABASE IF NOT EXISTS my_db;
 DROP DATABASE IF EXISTS encrypted_data CASCADE; # drop all relevant tables
 DROP DATABASE IF EXISTS encrypted_data RESTRICT; # if there is non-empty table in the DB, cannot drop the DB, this is by default
 
+# Import data to Databricks and read
+## Through the UI, you can choose to import data into notebook and specify the location, by default it's under /dbfs/FileStore/tables/
+## you can also import as table, suggest to choose "infer schema" so that it can specify most of the columns' data types right
+### If loaded into notebook
+%fs ls /FileStore/tables/my_folder/
+
+import pandas as pd
+df = pd.read_csv('/dbfs/FileStore/tables/my_folder/myfile.csv')
+df.head()
+
+### If loaded into table (Prefered method, cuz above method might have wrong data types)
+sdf = spark.table(f'myfile')
+sdf.dtypes
+
+
 
 ## Create sdf from scratch
 df = spark.createDataFrame([
