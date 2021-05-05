@@ -204,16 +204,23 @@ This file will also be used to record other commands.
 * Cannot open IPython for different reasons
   * Problem: "AttributeError: type object 'IOLoop' has no attribute 'initialized'"
     * `conda install -c conda-forge pyzmq`
-* <b>Install AWS CLI (command line tool)</b>
-  * Just type `sudo -H pip install awscli --upgrade --ignore-installed six` worked for me
-  * The guidance in AWS website didn't really work for me: https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html#awscli-install-osx-path
-  * Type `aws --version` to see whether you got it installed
-  * When creating `~/.aws/credentials` or `~/.aws/config`, you will need accedd id and secret access key, to find them, check this: https://help.bittitan.com/hc/en-us/articles/115008255268-How-do-I-find-my-AWS-Access-Key-and-Secret-Access-Key-
-    * You may need to click "Create Access key" in order to see your secret access key
-* Check S3 Access
-  * `cd ..` to Users folder
-  * `cd ~/.aws` get to AWS folder
-  * `aws s3 ls`, if you have the right access, you should be able to see the listed folders under your S3 default credentials
+
+## AWS Cli
+
+#### Install AWS CLi v1
+* Just type `sudo -H pip install awscli --upgrade --ignore-installed six` worked for me
+* The guidance in AWS website didn't really work for me: https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html#awscli-install-osx-path
+* Type `aws --version` to see whether you got it installed
+* When creating `~/.aws/credentials` or `~/.aws/config`, you will need accedd id and secret access key, to find them, check this: https://help.bittitan.com/hc/en-us/articles/115008255268-How-do-I-find-my-AWS-Access-Key-and-Secret-Access-Key-
+  * You may need to click "Create Access key" in order to see your secret access key
+#### Install AWS Cli v2
+* Download and intsall: https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html
+* In your terminal, type `aws configure`
+  * It will ask for your access key id and secret key, see how to create them: https://aws.amazon.com/blogs/security/wheres-my-secret-access-key/
+  * This command will also generate "~/.aws/credentials" and "~/.aws/config" files automatically 
+#### Check S3 Access
+* `cd ~/.aws` get to AWS folder
+* `aws s3 ls`, if you have the right access, you should be able to see the listed folders under your S3 default credentials
 
 ## AWS EC2 Troubleshooting
 * I chose a task to learn AWS skills, who knows even basic setup can be troublesome. Let me take a note.
