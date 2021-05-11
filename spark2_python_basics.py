@@ -87,9 +87,10 @@ DB = 'my_DB'
 tb = 'my_table'
 sdf.write.mode("overwrite").saveAsTable(f'{DB}.{tb}') # save as table in DB
 sdf.repartition('col1').write.mode("overwrite").partitionBy('col1').saveAsTable(f'{dest_db}.{tb}')  # repartion a giant table to reduce small files in order to speed up future queries
-# read the data
+# read the data from DBFS
+## More about databricks file system: https://docs.databricks.com/data/databricks-file-system.html
 out_dir = '/dbfs/mnt/outputs/'
-input_file = out_dir + 'input_df.parquet'
+input_file = out_dir + 'input_df.parquet'  # it can also be a folder ended with "/" here
 df_input = spark.read.parquet(input_file).orderBy(['rid', 'col1']).cache()
 
 
