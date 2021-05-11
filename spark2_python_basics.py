@@ -99,6 +99,35 @@ from pyspark.sql.functions import array, lit
 df_rules.where(df_rules.consequent == array(lit(1L)))
 
 
+# Insert rows for missing dates
+## In this case, the time interval is 7 days
+from datetime import date
+import datetime
+from pyspark.sql.window import Window
+from pyspark.sql.types import DateType, ArrayType
+
+winSpec = Window.partitionBy(['col1', 'col2']).orderBy("start_date")
+
+test_df = sdf.withColumn('pre_end_date', F.lag('end_date', 1).over(winSpec))
+test_df = test_df.withColumn('diff', F.datediff('start_date', 'pre_end_date'))\
+                 .orderBy(['col1', 'col2', 'start_date'])
+
+def _get_next_dates(start_date: date, diff: int, interval: int = 7) -> List[date]:
+    return [start_date + datetime.timedelta(days=days) for days in range(0, diff, interval)]
+get_next_dates_udf = udf(_get_next_dates, ArrayType(DateType()))
+  
+added_df = test_df.filter(F.col('diff') > 1).withColumn('_next_dates', get_next_dates_udf('pre_end_date', 'diff', F.lit(7))) \
+          .withColumn('start_date', F.explode('_next_dates')) \
+          .withColumn('end_date', F.col('start_date') + F.lit(7)) \
+          .withColumn('col3', F.lit(0)) \
+          .withColumn('col4', F.lit(0)) \
+          .select(['col1', 'col2', 'start_date', 'end_date', 'col3', 'col4'])
+
+test_df = test_df.select(['col1', 'col2', 'start_date', 'end_date', 'col3', 'col4'])\
+                 .union(added_df).orderBy(['col1', 'col2', 'start_date'])
+display(test_df)
+
+
 # Plot histogram from spark dataframe
 from pyspark_dist_explore import hist  # install library pyspark_dist_explore
 import matplotlib.pyplot as plt
