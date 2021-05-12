@@ -36,6 +36,8 @@ This file will also be used to record other commands.
   * `eval $(~/.linuxbrew/bin/brew shellenv)`
 
 ## Mac Commands
+* How to install SQL Workbench on Mac: https://data36.com/install-sql-workbench-postgresql/
+  * Build 124 will work: https://www.sql-workbench.eu/download-archive.html
 * How to run `.sh` file through terminal, assume the file name is "run.sh"
   * `chmod +x run.sh` sets execution permission
   * `./run.sh` runs the script
