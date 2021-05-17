@@ -226,8 +226,10 @@ This file will also be used to record other commands.
 * `cd ~/.aws` get to AWS folder
 * `aws s3 ls`, if you have the right access, you should be able to see the listed folders under your S3 default credentials
 
-## AWS EC2 Troubleshooting
-* I chose a task to learn AWS skills, who knows even basic setup can be troublesome. Let me take a note.
+## AWS EC2
+### Create SSH keys
+* Don't use the same one used by Github
+* Use the commands here: https://docs.joyent.com/public-cloud/getting-started/ssh-keys/generating-an-ssh-key-manually/manually-generating-your-ssh-key-in-mac-os-x
 ### Jupyter Lab / Jupyter Notebook
 * Could not import `pandas` even the installation is all succeeded in both python3 and python2.
   * In the terminal, type `sudo apt-get remove ipython`, then `sudo apt autoremove`. At least you can still use `sudo`, so it's lucky.
