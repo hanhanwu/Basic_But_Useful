@@ -59,3 +59,19 @@ query = """
 # truncate float without rounding
 int(s* 100)/100.0  # keep 2 digits
 int(s* 1000)/1000.0  # keep 3 digits
+
+
+# Get all the columns from each table
+for ds_tb in ds_tablelst:
+    print(ds_tb)
+    query = """
+        SELECT column_name FROM INFORMATION_SCHEMA.COLUMNS
+        WHERE table_catalog = 'my_catalog'
+        AND table_schema = 'my_DB'
+        and table_name ='""" + ds_tb + """'"""
+    
+    col_lst = pd.read_sql(query, engine, index_col=None, coerce_float=True, params=None,
+                      parse_dates=None, columns=None, chunksize=None).values
+    
+    for col in col_lst:
+        col_set.add(col[0])
