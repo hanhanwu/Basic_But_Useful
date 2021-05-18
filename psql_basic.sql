@@ -11,6 +11,19 @@
 -- 1. Sometimes you select multiple columns but got an error saying the rows exceeds the block size in Redshift, this maybe because
 -- you have chosen columns that have large space settings such as var(MAX). If you remove those colums may make a difference.
 
+-- Get table list of a DB
+SELECT tablename
+FROM pg_catalog.pg_tables
+WHERE schemaname = 'my_DB';
+
+-- Check info of all DB, tables
+SELECT table_catalog, table_schema, table_name, column_name, data_type FROM INFORMATION_SCHEMA.COLUMNS;
+
+SELECT column_name FROM INFORMATION_SCHEMA.COLUMNS
+WHERE table_catalog = 'my_catalog'
+AND table_schema = 'my_DB'
+and table_name = 'my_table';
+
 
 -- About NULL
 -- In psql, "=" and "!=" will simply ignore NULL
