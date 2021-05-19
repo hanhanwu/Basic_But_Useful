@@ -30,6 +30,7 @@ DROP DATABASE IF EXISTS encrypted_data RESTRICT; # if there is non-empty table i
 ## you can also import as table, suggest to choose "infer schema" so that it can specify most of the columns' data types right
 ### If loaded into notebook
 %fs ls /FileStore/tables/my_folder/
+%fs ls dbfs:/FileStore/my_folder/
 
 import pandas as pd
 df = pd.read_csv('/dbfs/FileStore/tables/my_folder/myfile.csv')
