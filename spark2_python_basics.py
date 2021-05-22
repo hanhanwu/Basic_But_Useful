@@ -31,6 +31,10 @@ DROP DATABASE IF EXISTS encrypted_data RESTRICT; # if there is non-empty table i
 ### If loaded into notebook
 %fs ls /FileStore/tables/my_folder/
 %fs ls dbfs:/FileStore/my_folder/
+ 
+ #3 Download files from DBFS FileStore/
+ * Find instance name url: https://docs.databricks.com/workspace/workspace-details.html#workspace-url
+ * After the instance url, append "files/" + the file path under "FileStore", copy this link to the browser and the file will be downloaded automatically
 
 import pandas as pd
 df = pd.read_csv('/dbfs/FileStore/tables/my_folder/myfile.csv')
