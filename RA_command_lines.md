@@ -262,7 +262,16 @@ This file will also be used to record other commands.
 * Ctrl + C to end the connection
 ### [How to install spark on Mac][1]
 * In 2021 I found to export java_home in this way works: https://stackoverflow.com/questions/6588390/where-is-java-home-on-macos-mojave-10-14-to-lion-10-7
-
+### DBFS Cli, Databricks Cli
+* How to find HOST URL: https://docs.databricks.com/workspace/workspace-details.html#workspace-url
+* `pip install databricks-cli`, `pip install databricks-cli --upgrade` to install or upgrade databricks cli
+* `dbfs configure --token`
+  * Type HOST
+  * Type Token
+    * How to create/find the token: https://docs.databricks.com/dev-tools/api/latest/authentication.html
+* DBFS commands
+  * `dbfs ls`
+  * `dbfs cp [local file path] [DBFS file path]` 
     
 ## Windows Commands
 ### [Suggestions to prevent battery draining][3]
