@@ -24,6 +24,8 @@ CREATE DATABASE IF NOT EXISTS my_db;
 # drop dtabase
 DROP DATABASE IF EXISTS encrypted_data CASCADE; # drop all relevant tables
 DROP DATABASE IF EXISTS encrypted_data RESTRICT; # if there is non-empty table in the DB, cannot drop the DB, this is by default
+# Change table name
+ALTER TABLE my_db.my_tb1 RENAME TO my_db.my_tb2;
 
 # Import data to Databricks and read
 ## Through the UI, you can choose to import data into notebook and specify the location, by default it's under /dbfs/FileStore/tables/
@@ -32,9 +34,9 @@ DROP DATABASE IF EXISTS encrypted_data RESTRICT; # if there is non-empty table i
 %fs ls /FileStore/tables/my_folder/
 %fs ls dbfs:/FileStore/my_folder/
  
- # Download files from DBFS FileStore/
- * How to find instance name url (HOST), check this link: https://docs.databricks.com/workspace/workspace-details.html#workspace-url
- * After the instance url, append "files/" + the file path under "FileStore", copy this link to the browser and the file will be downloaded automatically
+# Download files from DBFS FileStore/
+* How to find instance name url (HOST), check this link: https://docs.databricks.com/workspace/workspace-details.html#workspace-url
+* After the instance url, append "files/" + the file path under "FileStore", copy this link to the browser and the file will be downloaded automatically
 
 import pandas as pd
 df = pd.read_csv('/dbfs/FileStore/tables/my_folder/myfile.csv')
@@ -44,6 +46,9 @@ df.head()
 sdf = spark.table(f'myfile')
 sdf.dtypes
 
+### Load dataframes from the query
+sdf = spark.sql("SELECT * FROM forecast_exp.columns_metadata")
+df = sdf.toPandas()
 
 
 ## Create sdf from scratch
