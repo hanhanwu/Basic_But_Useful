@@ -20,6 +20,9 @@ df.loc[index_value, 'col'] = 'value'
 # remove the last x records
 df = df.head(n-x) # this is faster than drop()
 
+# change data type
+df[col] = df[col].astype(str)
+
 # Conditional replace
 df.loc[(df['col'] < 0) | (df['col'].isnull()), 'col'] = 0  # replace 0 or negative values with 0 
 ## Or use mask
@@ -285,7 +288,7 @@ df1['col1'].unique()
 ## count each unique values in a column
 df.groupby('col_you_want2count')['ID'].nunique()
 ## Count distinct of multiple columns
-(df[col1].astype('str') + df[col2].astype('str')).nunique() ## this depends on data types, all string is easier
+(df[col1].astype(str) + df[col2].astype(str)).nunique() ## this depends on data types, all string is easier
 
 
 # select the first value in each group
