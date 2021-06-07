@@ -169,6 +169,24 @@ for rect, label in zip(rects, y_values):
 plt.show()
 
 
+# Horizontal Bar chat
+import numpy as np
+import matplotlib.pyplot as plt
+
+imp_df = pd.DataFrame(agg_shap_values[idx]).T
+imp_df.columns = agg_X_test.columns
+
+plt.figure(figsize=(15,7))
+y_values = imp_df.columns
+y_pos = np.arange(len(x_values))
+x_values = abs(imp_df.values[0])
+plt.barh(y_pos, x_values, align='center', alpha=0.7, color='r')
+plt.yticks(y_pos, y_values, rotation='30', fontsize=14, horizontalalignment="right")
+plt.xlabel('Feature Importance')
+plt.title('Feature Importance')
+plt.show()
+
+
 # Change figure size
 import matplotlib.pyplot as plt
 plt.figure(figsize=(3,4))
