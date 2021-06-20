@@ -5,6 +5,9 @@
 ## Using ployly: https://nbviewer.jupyter.org/github/hanhanwu/Hanhan_Data_Science_Practice/blob/5b5c1f45383b405a894b57cee496d2b7a2655bad/sequencial_analysis/try_prophet.ipynb
 ## Using matplotlib: https://github.com/hanhanwu/Hanhan_Break_the_Limits/blob/master/Bank_Fantasy/Golden_Bridge/adjustable_forecasting.ipynb
 
+# Change bar chart to lollipop chart
+## https://www.analyticsvidhya.com/blog/2021/06/lollipop-charts-advanced-data-visualization-in-python/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
+
 # Plot multiple lines
 def plot_lines(lines_dct, col, title):
   plt.figure(figsize=(15,7))
