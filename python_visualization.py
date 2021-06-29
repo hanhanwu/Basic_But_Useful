@@ -8,6 +8,9 @@
 # Change bar chart to lollipop chart
 ## https://www.analyticsvidhya.com/blog/2021/06/lollipop-charts-advanced-data-visualization-in-python/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
 
+# Plotly charts: https://www.analyticsvidhya.com/blog/2021/06/tricks-for-data-visualization-plotly-library/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
+## Stacked Histogram; Funnel Chart
+
 # Plot multiple lines
 def plot_lines(lines_dct, col, title):
   plt.figure(figsize=(15,7))
