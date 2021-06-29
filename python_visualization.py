@@ -12,7 +12,7 @@
 ## Stacked Histogram; Funnel Chart
 
 # Plot multiple lines
-def plot_lines(lines_dct, col, title):
+def plot_lines(lines_dct, col, title, x_axis, y_axis):
   plt.figure(figsize=(15,7))
   ax = plt.gca()
   ax.xaxis.set_major_locator(MaxNLocator(integer=True))
@@ -24,6 +24,8 @@ def plot_lines(lines_dct, col, title):
     
   leg = plt.legend()
   leg.get_frame().set_alpha(0.7)  # set legend's transparency
+  plt.xlabel(x_axis)
+  plt.ylabel(y_axis)
   plt.title(title)
   display(ax)
   
@@ -86,7 +88,7 @@ sns.kdeplot(df['col2'], label="col2", color='orange')
 plt.legend()
 plt.title('kernel density')
 plt.xlabel('x')
-plt.ylabel('y')
+plt.ylabel('Perct')
 display(fig)
 
 
