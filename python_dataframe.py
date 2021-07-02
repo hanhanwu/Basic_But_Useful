@@ -14,6 +14,10 @@
 ### data.info (data summary)
 ### markdown format
 
+# get the index of column(s)
+mydf.columns.get_loc(col)  # get the index of a single column
+mydf.columns.get_indexer([col1, col2, col3])  # get the indexes of a list of columns
+
 # Change a cell's value
 df.loc[index_value, 'col'] = 'value'
 
