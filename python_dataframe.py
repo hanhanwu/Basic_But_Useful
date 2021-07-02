@@ -84,10 +84,16 @@ df['hours_diff'] = (df['max_time'] - df['min_time']).dt.components['hours']
 # extract date from datetime string
 ## check those symbols: https://docs.python.org/2/library/datetime.html
 my_date = datetime.datetime.strptime(my_datetime_str, "%Y-%m-%d %H:%M:%S").date()
-## extract year_month
-df['month'] = df['my_datetime'].apply(lambda v: v.to_period('M'))
+## convert datetime string to datetime
+df['start_date'] = pd.to_datetime(df['start_date'])
+## extract year-month
+df['start_month'] = df['start_date'].dt.to_period('M'))
+## extract year
+df['start_year'] = df['start_date'].dt.to_period('Y'))
 ## extract date from datetime
 df['date'] = sample_df['my_datetime'].dt.date
+## extract month only from datetime
+df['date'] = sample_df['my_datetime'].dt.month
 
 # count duplicated rows
 df.duplicated().sum()
