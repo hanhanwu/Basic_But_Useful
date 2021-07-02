@@ -29,6 +29,13 @@ warnings.filterwarnings("ignore")
 ## json.loads() works better when the nested situation is more complex in a dictionary, 
 ## ast.literal_eval() sometimes may report an error.
 
+# Inspect a function's parameters
+# no default values output
+shap.summary_plot.__code__.co_varnames  # shap.summary_plot is the function to be inspected
+# has default values output
+import inspect
+inspect.getargspec(shap.summary_plot)  # shap.summary_plot is the function to be inspected
+
 # find common elements in multiple lists
 set.intersection(*[set(list) for list in p])
 
