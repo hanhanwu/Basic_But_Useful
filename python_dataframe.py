@@ -378,6 +378,10 @@ df_count = selected_features[['food_name', 'flavor']].astype('str').drop_duplica
 agg_rating_df = user_rating_df[['buz_name', 'rating', 'review_count', 'review_sentiment']]\
           .groupby('buz_name')\
           .agg({'rating':'mean', 'review_count':'mean', 'review_sentiment':'mean'}).reset_index()
+## same agg without changing column names
+agg_rating_df = user_rating_df[['buz_name', 'rating', 'review_count', 'review_sentiment']]\
+          .groupby('buz_name', as_index=False)\
+          .agg(lambda c: mean(c))
 
 
 # count records in each group, sort by counts
