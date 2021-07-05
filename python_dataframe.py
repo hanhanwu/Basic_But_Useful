@@ -362,6 +362,8 @@ df.groupby([pd.Grouper(key='date', freq='M')])['ext price'].sum()  # group by mo
 
 # group by, to form a list of the same group
 order_prodlst_df = all_order_train.groupby('order_id')['product_id'].apply(list).reset_index(name='prod_lst')
+## form list or set on multiple cols
+df = X_test[[col1, col2, col3]].groupby([col1], as_index=False)[col2, col3].agg(lambda f: set(f)) # set or list
 
 #group by, count distinct
 ## in this case, group by food_name, count the number of flavors in each food_name
