@@ -37,7 +37,7 @@ df.loc[mask, col] = df.loc[mask, 'not_null']
 
 
 # concat multiple columns into 1 string
-ts_df[time] = ts_df['year'].map(str) + '-' + ts_df['month'].map(str) + '-' + ts_df['day'].map(str) + ' ' + ts_df['hour'].map(str)
+df[new_col] = df[col_lst].astype(str).agg('-'.join, axis=1)
 
 
 # When data file is huge and python always exit because of the lack of memory, use Dask
