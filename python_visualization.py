@@ -11,6 +11,34 @@
 # Plotly charts: https://www.analyticsvidhya.com/blog/2021/06/tricks-for-data-visualization-plotly-library/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
 ## Stacked Histogram; Funnel Chart
 
+# Control subsets, different plot types per row
+def plot_multi_subplots(df, feature_lst):
+  
+  for feature in feature_lst:
+    f, ax = plt.subplots(1,3,figsize=(40,5))  # `subplots()` adds a new sub, first 2 params are the number of rows, cols within the sub
+    ax1, ax2, ax3 = ax[0], ax[1], ax[2]
+    
+    ax1.plot(df.index, df[col1], 
+            label=col1, color='brown', marker='*')
+    ax1.plot(df.index, np.zeros(len(df.index)), color='grey', linestyle='--')
+    ax1.set_xticklabels(df.index, rotation='30', fontsize=10, horizontalalignment="right")
+    ax1.set_xlabel(feature)
+    ax1.set_ylabel('y_label')
+
+    ax2.bar(df.index, df[col2], 
+            label=f'{feature} bar plot', color='orange')
+    ax2.set_xticklabels(df.index, rotation='30', fontsize=10, horizontalalignment="right")
+    ax2.set_xlabel(feature)
+    ax2.set_ylabel('y_label')
+
+    ax3.plot(df.index, df[col3], 
+            label=f'{feature}', color='purple', marker='*')
+    ax3.plot(df.index, np.zeros(len(df.index)), color='grey', linestyle='--')
+    ax3.set_xticklabels(df.index, rotation='30', fontsize=10, horizontalalignment="right")
+    ax3.set_xlabel(feature)
+    ax3.set_ylabel('y_label')
+
+    
 # Plot multiple lines
 def plot_lines(lines_dct, col, title, x_axis, y_axis):
   plt.figure(figsize=(15,7))
