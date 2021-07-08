@@ -272,6 +272,12 @@ This file will also be used to record other commands.
 * DBFS commands
   * `dbfs ls`
   * `dbfs cp [local file path] [DBFS file path]` 
+
+### Databricks Settings
+* Databricks has a new function - autoscaling pool. When your cluster is pointing to the pool, the more users on it the more likely your notebook will encounter a scaled-up cluster (and the faster your stuff will run from a cold start)
+  * The setup is just to point the worker and driver to the created pool
+  * https://docs.microsoft.com/en-us/azure/databricks/clusters/instance-pools/cluster-instance-pool 
+
     
 ## Windows Commands
 ### [Suggestions to prevent battery draining][3]
