@@ -73,6 +73,12 @@ sdf = spark.createDataFrame(pdf, schema=schema).cache()
 sdf.show()
 
 
+# Databricks create and load widgets
+dbutils.widgets.removeAll()
+dbutils.widgets.text(name="text1", defaultValue="", label="text1")
+text1 = dbutils.widgets.get('text1')
+
+
 # Conditional withColumn
 import org.apache.spark.sql.functions.when
 mydf.withColumn("new_col", when(df.col1 > 3, col2*2).otherwise(0.0))
