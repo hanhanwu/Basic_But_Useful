@@ -15,6 +15,8 @@
 # Why use numpy better than python list: 
 ## https://www.analyticsvidhya.com/blog/2021/05/why-you-should-avoid-using-python-lists/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
 
+# `*args` vs `**kwargs`: https://www.analyticsvidhya.com/blog/2021/07/python-args-and-kwargs-in-2-minutes/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
+
 # import from parent folder
 import sys
 sys.path.insert(0, '..')
