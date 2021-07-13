@@ -272,6 +272,7 @@ This file will also be used to record other commands.
 * DBFS commands
   * `dbfs ls`
   * `dbfs cp [local file path] [DBFS file path]` 
+    * `dbfs` or `databricks fs` has to be there and before `cp`
 
 ### Databricks Settings
 * Databricks has a new function - autoscaling pool. When your cluster is pointing to the pool, the more users on it the more likely your notebook will encounter a scaled-up cluster (and the faster your stuff will run from a cold start)
