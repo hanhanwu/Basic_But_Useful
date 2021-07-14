@@ -271,7 +271,7 @@ This file will also be used to record other commands.
     * How to create/find the token: https://docs.databricks.com/dev-tools/api/latest/authentication.html
 * DBFS commands
   * `dbfs ls`
-  * `dbfs cp [local file path] [DBFS file path]` 
+  * `dbfs cp [local file path] [DBFS file path] --overwrite` 
     * `dbfs` or `databricks fs` has to be there and before `cp`
 
 ### Databricks Settings
