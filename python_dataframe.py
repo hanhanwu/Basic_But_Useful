@@ -40,6 +40,19 @@ df.loc[mask, col] = df.loc[mask, 'not_null']
 df[new_col] = df[col_lst].astype(str).agg('-'.join, axis=1)
 
 
+# lag within group
+exp_lag = exp_lag.set_index(agg_cols) # agg_cols include cat_cols and time column
+shifted = exp_lag.groupby(level=cat_agg_cols).shift(1) # get previous record
+exp_lag = exp_lag.join(shifted.rename(columns=lambda x: x+"_lag"))
+exp_lag = exp_lag.reset_index()
+
+
+# stacking - Convert multiple columns into 1 column, and their values into another column
+exp_copy = exp_copy.set_index(idx_cols) # idx_cols are columns stay the same
+exp_tableau = pd.DataFrame(exp_copy.stack(dropna=False)).reset_index() # by default `dropna=True` which will drop na records and records with all 0
+exp_tableau = exp_tableau.rename(index=str, columns={f'level_{len(idx_cols)}': 'FEATURE', 0: 'SHAP'})
+
+
 # When data file is huge and python always exit because of the lack of memory, use Dask
 ## But dask dataframe do not have much functions as pandas dataframe, with `compute()` after loading data, you can use the
 ## data as pandas dataframe
