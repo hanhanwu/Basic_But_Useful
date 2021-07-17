@@ -14,6 +14,13 @@
 ### data.info (data summary)
 ### markdown format
 
+# map(), filter(), reduce()
+# https://www.analyticsvidhya.com/blog/2021/07/python-most-powerful-functions-map-filter-and-reduce-in-5-minutes/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
+## They all execute on a function with a sequence of data, all can be used with lambda()
+## map(): apply the function to each element in the sequence
+## filter(): apply the condition on a list, and return elements satisfy the condition
+## reduce(): apply a function on a list of values and return 1 value
+
 # get the index of column(s)
 mydf.columns.get_loc(col)  # get the index of a single column
 mydf.columns.get_indexer([col1, col2, col3])  # get the indexes of a list of columns
