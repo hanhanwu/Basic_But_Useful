@@ -47,6 +47,24 @@ df.loc[mask, col] = df.loc[mask, 'not_null']
 df[new_col] = df[col_lst].astype(str).agg('-'.join, axis=1)
 
 
+# get most n frequent items in list-column(s)
+def get_modes(lst, n=3):
+  ct_lst = Counter(lst).most_common()
+  if len(ct_lst) <= n:
+    n_modes = [e[0] for e in ct_lst ]
+  else:
+    n_modes = [ct_lst[i][0] for i in range(n)]
+  return n_modes
+
+def get_start_end_date_modes(start_end_col, n=3):
+  start_end_lst = ['~'.join([start_date.strftime('%Y-%m-%d'), end_date]) for (start_date, end_date) in start_end_col]
+  return get_modes(start_end_lst, n)
+
+df = df0[col_lst].applymap(lambda v_lst: get_modes(v_lst, n=3))  # applymap is applied in each cell, useful in this case when each cell is a list
+df['start_end_date'] = df0.apply(lambda r: list(zip(r['start_date'],r['x_end_date'])), axis=1)  # zip values from 2 columns
+df[new_col] = df0[['start_end_date']].applymap(lambda v_lst: get_start_end_date_modes(v_lst, n=3))
+
+
 # lag within group
 exp_lag = exp_lag.set_index(agg_cols) # agg_cols include cat_cols and time column
 shifted = exp_lag.groupby(level=cat_agg_cols).shift(1) # get previous record
