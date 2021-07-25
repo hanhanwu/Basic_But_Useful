@@ -10,6 +10,7 @@
 
 # Plotly charts: https://www.analyticsvidhya.com/blog/2021/06/tricks-for-data-visualization-plotly-library/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
 ## Stacked Histogram; Funnel Chart
+# Plotly interactive charts: https://www.analyticsvidhya.com/blog/2021/07/interactive-data-visualization-plots-with-plotly-and-cufflinks/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
 
 # Control subsets, different plot types per row
 def plot_multi_subplots(df, feature_lst):
