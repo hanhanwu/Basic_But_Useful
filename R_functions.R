@@ -1,4 +1,8 @@
 # The file include those functions having different names as other programming languages, but serve for the same purpose
+# More earlier time R practices: https://github.com/hanhanwu/Hanhan_Data_Science_Practice
+
+# R basics: https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/R_Basics.R
+# R data.table Basics: https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/R_data.table_basics.R
 
 # replace, trim
 df$Runtime <- gsub(" ", "", df$Runtime)  # trim the empty space
@@ -22,6 +26,11 @@ quantile(raw_data$mkeystrokeratemsrepeat, c(.0, .01, .05, .15, .25, .50,  .75, .
 
 # check data types of a data frame or data table
 sapply(train, typeof)
+
+# Plot histogram of each numerical variable
+options(repr.plot.width=20, repr.plot.height=10) # this increase the image size in jupyter
+par(mfrow=c(2,2), cex=1.5)  # cex scales all the fonts 150 percent
+for(i in names(iris)[1:4]){hist(iris[,i], xlab=i, main="")}
 
 
 # R different apply functions: 
