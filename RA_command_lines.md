@@ -35,6 +35,11 @@ This file will also be used to record other commands.
   * `ln -s ~/.linuxbrew/Homebrew/bin/brew ~/.linuxbrew/bin`
   * `eval $(~/.linuxbrew/bin/brew shellenv)`
 
+## Language R on Jupyter
+* The interface of R Notebook on R studio is too painful to use and the saved file cannot be shown on github well. Just found, we can use R on jupyter notebook. [How to install R kernel on jupyter][4]
+  * If it's your first time to install anaconda, you can included R kernel from there
+* To install R packages through jupyter, open "Console" with R kernel, then type `install.packages('[package_name]')` 
+
 ## Mac Commands
 * How to install SQL Workbench on Mac: https://data36.com/install-sql-workbench-postgresql/
   * Build 124 will work: https://www.sql-workbench.eu/download-archive.html
@@ -645,3 +650,4 @@ This file will also be used to record other commands.
 [1]:https://github.com/hanhanwu/Hanhan-Spark-Python/tree/master/Spark2.0
 [2]:https://help.github.com/en/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
 [3]:https://www.youtube.com/watch?v=OA514h98bHE#:~:text=Go%20to%20control%20panel%5Csystem,options%20for%20better%20battery%20performance!&text=Disable%20%22windows%20search%22%20services%20(,consumes%20a%20lot%20of%20energy).&text=Please%20restart%20your%20system%20to%20apply%20the%20changes.
+[4]:https://richpauloo.github.io/2018-05-16-Installing-the-R-kernel-in-Jupyter-Lab/
