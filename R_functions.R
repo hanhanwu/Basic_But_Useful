@@ -32,6 +32,31 @@ options(repr.plot.width=20, repr.plot.height=10) # this increase the image size 
 par(mfrow=c(2,2), cex=1.5)  # cex scales all the fonts 150 percent
 for(i in names(iris)[1:4]){hist(iris[,i], xlab=i, main="")}
 
+# Plot mutliple density plots, each density plots shows the distribution of each category
+p1 <- ggdensity(iris, x = "Sepal.Length",
+   add = "mean", rug = TRUE,
+   color = "Species", fill = "Species",
+   font.label = list(size = 20, color = "black"))
+
+p2 <- ggdensity(iris, x = "Sepal.Width",
+   add = "mean", rug = TRUE,
+   color = "Species", fill = "Species",
+   font.label = list(size = 20, color = "black"))
+
+p3 <- ggdensity(iris, x = "Petal.Length",
+   add = "mean", rug = TRUE,
+   color = "Species", fill = "Species",
+   font.label = list(size = 20, color = "black"))
+
+p4 <- ggdensity(iris, x = "Petal.Width",
+   add = "mean", rug = TRUE,
+   color = "Species", fill = "Species",
+   font.label = list(size = 20, color = "black"))
+
+plot_grid(p1, p2, p3, p4,
+      labels="auto",
+      ncol=2, nrow=2)
+
 
 # R different apply functions: 
 ## https://www.analyticsvidhya.com/blog/2021/02/the-ultimate-swiss-army-knife-of-apply-family-in-r/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
