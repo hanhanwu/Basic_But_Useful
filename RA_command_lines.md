@@ -283,6 +283,7 @@ This file will also be used to record other commands.
 * Databricks has a new function - autoscaling pool. When your cluster is pointing to the pool, the more users on it the more likely your notebook will encounter a scaled-up cluster (and the faster your stuff will run from a cold start)
   * The setup is just to point the worker and driver to the created pool
   * https://docs.microsoft.com/en-us/azure/databricks/clusters/instance-pools/cluster-instance-pool 
+* How to link databricks to databricks: https://docs.microsoft.com/en-us/azure/databricks/notebooks/github-version-control
 
     
 ## Windows Commands
