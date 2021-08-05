@@ -42,6 +42,13 @@ df.loc[mask, 'col1'] = df.loc[mask, 'col2'] / df.loc[mask, 'col3']
 mask = pd.isnull(df[col])
 df.loc[mask, col] = df.loc[mask, 'not_null']
 
+# convert a list column to one-hot columns
+mlb = MultiLabelBinarizer(sparse_output=True)  
+df = raw_df.join(pd.DataFrame.sparse.from_spmatrix(
+                mlb.fit_transform(raw_df.pop('states')),  # "states" column is a list format
+                index=raw_df.index,
+                columns=mlb.classes_)).drop_duplicates()
+
 
 # concat multiple columns into 1 string
 df[new_col] = df[col_lst].astype(str).agg('-'.join, axis=1)
