@@ -64,6 +64,31 @@ lines_dct = {'line1': {'df': df1, 'linestyle':None, 'marker':None, 'color':'blac
 plot_lines(lines_dct, col='col1', title='multiple lines')
 
 
+# plot line with anchor text and annotate text
+def plot_performance_lst(performance_lst, y_label, title):
+    plt.figure(figsize=(15,7))
+    ax = plt.gca()
+    ax.set_ylim([0, 1]) # set y-axis range
+    
+    x = [i+1 for i in range(len(performance_lst))]
+    y = performance_lst
+    
+    ax.plot(x, y, color='g')
+    
+    # anchor text to show text in the plot
+    anchored_text = AnchoredText(f'Average {y_label} is {round(np.mean(performance_lst), 4)}', loc=3, prop={'size': 12})  # the location code: https://matplotlib.org/3.1.0/api/offsetbox_api.html
+    ax.add_artist(anchored_text)  
+    
+    # annotate y_value along the line
+    for i,j in zip(x,y):
+        ax.annotate(str(round(j, 4)),xy=(i,j))  
+    
+    plt.xlabel('epoch #')
+    plt.ylabel(y_label)
+    plt.title(title)
+    plt.show()
+
+
 # plot multiple lines in each subplot
 df_lst = [df1, df2, df3]
 title_lst = ['t1', 't2', 't3']
