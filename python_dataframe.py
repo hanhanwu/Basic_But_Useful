@@ -143,6 +143,8 @@ df['start_year'] = df['start_date'].dt.to_period('Y'))
 df['date'] = sample_df['my_datetime'].dt.date
 ## extract month only from datetime
 df['date'] = sample_df['my_datetime'].dt.month
+## extract quarter only from datetime
+df['quarter'] = (sample_df['my_datetime'].dt.month)//3+1
 
 # count duplicated rows
 df.duplicated().sum()
