@@ -283,6 +283,10 @@ This file will also be used to record other commands.
 * Databricks has a new function - autoscaling pool. When your cluster is pointing to the pool, the more users on it the more likely your notebook will encounter a scaled-up cluster (and the faster your stuff will run from a cold start)
   * The setup is just to point the worker and driver to the created pool
   * https://docs.microsoft.com/en-us/azure/databricks/clusters/instance-pools/cluster-instance-pool 
+* When you get error showing hive metastore version mismatch when running a sql query in Databricks, add these in spark config:
+  * `spark.sql.hive.metastore.jars builtin`
+  * `spark.sql.hive.metastore.version 1.2.1`  # change the version here as what you need
+  * `spark.databricks.delta.preview.enabled true` 
 * How to link databricks to databricks: 
   * This allows you to save notebooks as `.ipynb` format but may not link to github well: https://docs.microsoft.com/en-us/azure/databricks/notebooks/github-version-control
   * This is allows you to update changes with github and pull, and can guarantee to link to github correctly: https://docs.microsoft.com/en-us/azure/databricks/repos
