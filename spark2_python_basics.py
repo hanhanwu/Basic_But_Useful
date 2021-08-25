@@ -27,6 +27,10 @@ DROP DATABASE IF EXISTS encrypted_data RESTRICT; # if there is non-empty table i
 # Change table name
 ALTER TABLE my_db.my_tb1 RENAME TO my_db.my_tb2;
 
+# create table
+%sql
+CREATE TABLE IF NOT EXISTS my_db.my_tb as (SELECT...);
+
 # Import data to Databricks and read
 ## Through the UI, you can choose to import data into notebook and specify the location, by default it's under /dbfs/FileStore/tables/
 ## you can also import as table, suggest to choose "infer schema" so that it can specify most of the columns' data types right
