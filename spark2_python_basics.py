@@ -31,6 +31,12 @@ ALTER TABLE my_db.my_tb1 RENAME TO my_db.my_tb2;
 %sql
 CREATE TABLE IF NOT EXISTS my_db.my_tb as (SELECT...);
 
+# date operations
+%sql
+select my_date, date_add(cast(my_date as DATE), 1) as next_date
+from mydb.my_tb;
+
+
 # Import data to Databricks and read
 ## Through the UI, you can choose to import data into notebook and specify the location, by default it's under /dbfs/FileStore/tables/
 ## you can also import as table, suggest to choose "infer schema" so that it can specify most of the columns' data types right
