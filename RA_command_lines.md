@@ -321,8 +321,10 @@ This file will also be used to record other commands.
 * Download and install `pip`
   * Download pip: `curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py`, oh windows can use curl...
   * Install pip: `python get-pip.py`
-* Install `tensorflow-gpu`
-  * https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/AI_Experiments/after_2020/use_local_windows_GPU.md
+* How to enable for tensorflow
+  * This is the best tutorial I found: https://www.youtube.com/watch?v=qrkEYf-YDyI
+  * Make sure software versions exactly align with Tensorflow's requirements: https://www.tensorflow.org/install/gpu#software_requirements 
+  * If you will get error when checking whether GPU is available in the last step, might need to rename file name:https://stackoverflow.com/questions/65608713/tensorflow-gpu-could-not-load-dynamic-library-cusolver64-10-dll-dlerror-cuso
 * Install Tensorflow
   * Download and install the latets Visual C++: https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads
   * Install: `pip install --upgrade tensorflow --user`
