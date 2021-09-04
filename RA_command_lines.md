@@ -327,6 +327,7 @@ This file will also be used to record other commands.
   * If you will get error when checking whether GPU is available in the last step, might need to rename file name:https://stackoverflow.com/questions/65608713/tensorflow-gpu-could-not-load-dynamic-library-cusolver64-10-dll-dlerror-cuso
   * Sometimes you may get error saying there is no memory to allocate, then you might need to reduce batch_size and input data size, but this may also make GPU version slower than CPU version
     * To switch between CPU and GPU, write your model training code under `with tf.device("/cpu:0"):` (use CPU) or `with tf.device("/gpu:0"):` (use GPU)
+  * Older experiments: https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/AI_Experiments/after_2020/use_local_windows_GPU.md
 * Install Tensorflow
   * Download and install the latets Visual C++: https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads
   * Install: `pip install --upgrade tensorflow --user`
