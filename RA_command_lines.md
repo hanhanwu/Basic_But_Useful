@@ -322,6 +322,7 @@ This file will also be used to record other commands.
   * Download pip: `curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py`, oh windows can use curl...
   * Install pip: `python get-pip.py`
 * How to enable for tensorflow GPU
+  * <b>Strongly recommend to use a virtual env for the setup</b>
   * This is the best tutorial I found: https://www.youtube.com/watch?v=qrkEYf-YDyI
   * Make sure software versions exactly align with Tensorflow's requirements: https://www.tensorflow.org/install/gpu#software_requirements 
   * If you will get error when checking whether GPU is available in the last step, might need to rename file name:https://stackoverflow.com/questions/65608713/tensorflow-gpu-could-not-load-dynamic-library-cusolver64-10-dll-dlerror-cuso
