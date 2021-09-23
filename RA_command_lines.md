@@ -9,6 +9,12 @@ This file will also be used to record other commands.
   * In a word, when there is space in your path, add `""` around the path and use `\ ` to replace the space 
   
 ## Git Commands
+* If you have multiple github accounts, and want to make sure you are using the right account to commit and push:
+  * Method 1 - Change git config username and email:
+    * To check what's your current username and email, type `git config --list`
+    * Type `open ~/.gitconfig` in your terminal, and you should be able to change the username as well as the email
+  * Method 2 - Specify the "author" in pychram git commit
+    * When you start to commit, on Pycharm UI, there is "author" and you can choose the right one to commit 
 * Connect to Github with ssh: https://docs.github.com/en/enterprise/2.18/user/github/authenticating-to-github/connecting-to-github-with-ssh
 * `git branch -v` to check current branch of the repository
 * `git remote -v` to check where does local repository point to
