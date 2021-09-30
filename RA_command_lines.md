@@ -284,6 +284,7 @@ This file will also be used to record other commands.
   * `dbfs ls`
   * `dbfs cp [local file path] [DBFS file path] --overwrite` 
     * `dbfs` or `databricks fs` has to be there and before `cp`
+* How to get access to Azure storage: https://docs.microsoft.com/en-us/azure/databricks/data/data-sources/azure/azure-storage#access-azure-blob-storage-using-the-dataframe-api
 
 ### Databricks Settings
 * Databricks has a new function - autoscaling pool. When your cluster is pointing to the pool, the more users on it the more likely your notebook will encounter a scaled-up cluster (and the faster your stuff will run from a cold start)
