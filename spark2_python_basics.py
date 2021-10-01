@@ -111,7 +111,7 @@ for col in cols:
 df.write.mode('overwrite').parquet(out_dir + 'input_df.parquet') # save as file
 DB = 'my_DB'
 tb = 'my_table'
-sdf.write.mode("overwrite").saveAsTable(f'{DB}.{tb}') # save as table in DB
+sdf.write.mode("overwrite").saveAsTable(f'{DB}.{tb}') # save spark dataframe as table in DB, different save modes: https://spark.apache.org/docs/2.3.0/sql-programming-guide.html#save-modes
 sdf.repartition('col1').write.mode("overwrite").partitionBy('col1').saveAsTable(f'{dest_db}.{tb}')  # repartion a giant table to reduce small files in order to speed up future queries
 # read the data from DBFS
 ## More about databricks file system: https://docs.databricks.com/data/databricks-file-system.html
