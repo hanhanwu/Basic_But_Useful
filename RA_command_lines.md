@@ -33,6 +33,10 @@ This file will also be used to record other commands.
 
 ## Docker Commands
 * `docker images` to list all the images and their tags as well as other attributes
+* `docker-compose run shell` to start the docker container
+  * Sometimes your docker env may not be built well, even after entering this env, code may not be runable, to fix this issue, you can try to re-build the container:
+    * `docker system prune` to remove all the docker containers
+    * `docker-compose build` to rebuild the container 
 
 ## Linux Commands (different from Mac)
 * How to install Homebrew
