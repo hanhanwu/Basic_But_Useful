@@ -32,11 +32,15 @@ This file will also be used to record other commands.
 * CC-BY-SA-4.0 for media data: https://choosealicense.com/licenses/cc-by-sa-4.0/#
 
 ## Docker Commands
+* Docker concepts and basic commands: https://www.analyticsvidhya.com/blog/2021/10/a-complete-guide-on-docker-for-beginners/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
 * `docker images` to list all the images and their tags as well as other attributes
 * `docker-compose run shell` to start the docker container
   * Sometimes your docker env may not be built well, even after entering this env, code may not be runable, to fix this issue, you can try to re-build the container:
     * `docker system prune` to remove all the docker containers
     * `docker-compose build` to rebuild the container 
+* Docker Playground: https://www.docker.com/101-tutorial
+  * To try docker commands without any setup
+  * Start with running `docker run -dp 80:80 docker/getting-started:pwd`
 
 ## Linux Commands (different from Mac)
 * How to install Homebrew
