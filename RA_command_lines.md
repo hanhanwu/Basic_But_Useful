@@ -201,6 +201,10 @@ This file will also be used to record other commands.
     * List all the conda virtual environments: `conda env list`
   * To activate it, type `conda activate conda_venv`
   * Now to check whether there is ipython, you can just type `jupyter lab` or `jupyter notebook` and it will work
+    * To add the virtual env into ipython kernel:
+      * `pip install ipykernel`
+      * `python -m ipykernel install --user --name conda_virtualenv --display-name "Python3 (venv)"`
+        * Change the values for `--name` and `--display-name`   
   * To deactivate conda virtual environment, type `conda deactivate`
   * To remove conda virtual environment, `sudo conda remove -n venv --all`, but note, to create conda virtual environment takes longer time than creating python `virtualenv`
     * After running the command line, you may need to `cd anaconda/envs` and type `sudo rm -r venv` to fully remove the environment
