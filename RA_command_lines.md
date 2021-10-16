@@ -199,7 +199,7 @@ This file will also be used to record other commands.
   * Create conda virtual environment with specified version: https://stackoverflow.com/questions/45707010/ipython-importerror-cannot-import-name-layout/45727917#45727917
   * Create a conda env, type `conda create --name venv`
     * List all the conda virtual environments: `conda env list`
-  * To activate it, type `source activate conda_venv`
+  * To activate it, type `conda activate conda_venv`
   * Now to check whether there is ipython, you can just type `jupyter lab` or `jupyter notebook` and it will work
   * To deactivate conda virtual environment, type `conda deactivate`
   * To remove conda virtual environment, `sudo conda remove -n venv --all`, but note, to create conda virtual environment takes longer time than creating python `virtualenv`
