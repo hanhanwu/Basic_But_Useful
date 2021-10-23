@@ -45,8 +45,37 @@ from mydb.my_tb;
 %fs ls dbfs:/FileStore/my_folder/
  
 # Download files from DBFS FileStore/
-* How to find instance name url (HOST), check this link: https://docs.databricks.com/workspace/workspace-details.html#workspace-url
-* After the instance url, append "files/" + the file path under "FileStore", copy this link to the browser and the file will be downloaded automatically
+# * How to find instance name url (HOST), check this link: https://docs.databricks.com/workspace/workspace-details.html#workspace-url
+# * After the instance url, append "files/" + the file path under "FileStore", copy this link to the browser and the file will be downloaded automatically
+
+# How to duplicate records
+## duplicate each (col1, col2) pair 5 times
+%sql
+drop table if exists tb1;
+create table tb1 as
+select col1, col2, 5 as repeat_ct from tb1;
+
+drop table if exists tb2;
+create table tb2 as
+select pos as pc_idx, col1, col2
+from
+  (select posexplode(split(repeat(",", `repeat_ct`), ",")), col1, col2
+  from tb1)
+where pos > 0;
+
+drop table if exists tb3;
+create table tb3 as
+  select t1.pc_idx, t2.*
+  from
+    (select * from tb2) as t1
+  inner join
+    (select * from
+      (select row_number() over (partition by col1, col2 by col3) as rn, * 
+      from tb0)
+    where rn=1) as t2
+  on t1.col1 = t2.col2
+  and t1.col1 = t2.col2;
+
 
 import pandas as pd
 df = pd.read_csv('/dbfs/FileStore/tables/my_folder/myfile.csv')
