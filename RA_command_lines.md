@@ -54,6 +54,16 @@ This file will also be used to record other commands.
   * If it's your first time to install anaconda, you can included R kernel from there
 * To install R packages through jupyter, open "Console" with R kernel, then type `install.packages('[package_name]')` 
 
+## Airflow
+* How to install locally: https://airflow.apache.org/docs/apache-airflow/stable/start/local.html
+  * Better to use Mac or Linux, if want to install on Window, you will get error saying module `termios` can't be found, in fact this library is not available on windows...
+* To add your own .py as a new DAG to localhost:
+  * Make sure you have run `export AIRFLOW_HOME=~/airflow`
+  * Open you airflow folder, find file `airflow.cfg` and open it, make sure the dags folder looks like this `dags_folder = ~/airflow/dags`
+  * Then you can add your DAG .py file under `~/airflow/dags`
+    * In your .py file, make sure to define the `dag_id`, that will be the file name shown in the dag list of your localhost
+    * You can also type command `airflow dags list` under folder `~/airflow`, it will list all the dags you would see in the localhost
+
 ## Mac Commands
 * How to install SQL Workbench on Mac: https://data36.com/install-sql-workbench-postgresql/
   * Build 124 will work: https://www.sql-workbench.eu/download-archive.html
