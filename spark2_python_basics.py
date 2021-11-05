@@ -21,6 +21,13 @@ from pyspark.sql.types import IntegerType, StringType, DoubleType
 # create database
 %sql
 CREATE DATABASE IF NOT EXISTS my_db;
+
+# create table with partition
+create table my_table2
+USING PARQUET
+PARTITIONED BY (col1)
+as select * from my_table1
+
 # drop dtabase
 DROP DATABASE IF EXISTS encrypted_data CASCADE; # drop all relevant tables
 DROP DATABASE IF EXISTS encrypted_data RESTRICT; # if there is non-empty table in the DB, cannot drop the DB, this is by default
