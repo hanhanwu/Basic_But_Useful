@@ -57,6 +57,7 @@ This file will also be used to record other commands.
 ## Airflow
 * How to install locally: https://airflow.apache.org/docs/apache-airflow/stable/start/local.html
   * Better to use Mac or Linux, if want to install on Window, you will get error saying module `termios` can't be found, in fact this library is not available on windows...
+* Each time to start airflow, just type `airflow standalone` in the terminal
 * To add your own .py as a new DAG to localhost:
   * Make sure you have run `export AIRFLOW_HOME=~/airflow`
   * Open you airflow folder, find file `airflow.cfg` and open it, make sure the dags folder looks like this `dags_folder = ~/airflow/dags`
