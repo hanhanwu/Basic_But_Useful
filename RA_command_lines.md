@@ -151,7 +151,7 @@ This file will also be used to record other commands.
     * Download the package manually (the url should be shown in the terminal), such as "https://yarnpkg.com/downloads/1.22.10/yarn-v1.22.10.tar.gz"
     * After successfuly downloading, run `mv Downloads/yarn-v1.22.10.tar.gz $(brew --cache -s yarn)`
     * Restart the brew install
-* Brew install specific python version
+* How to install multiple python versions
   * `brew unlink python` if you want to switch the existing python version to another one 
   *  `brew install python@3.7`
   * `brew list | grep python`
@@ -162,6 +162,7 @@ This file will also be used to record other commands.
   * `python3.7 -m venv venv37`
   * `source venv37/bin/activate`
   * `deactivate`
+  * When using Pycharm to find a specific version to create the virtual env, the locaion is like "~/venv37/bin/python3.7"
 
 * Upgrade `xgboost` is a pain...
   * `sudo -H pip3 install -U setuptools`
