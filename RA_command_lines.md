@@ -151,6 +151,14 @@ This file will also be used to record other commands.
     * Download the package manually (the url should be shown in the terminal), such as "https://yarnpkg.com/downloads/1.22.10/yarn-v1.22.10.tar.gz"
     * After successfuly downloading, run `mv Downloads/yarn-v1.22.10.tar.gz $(brew --cache -s yarn)`
     * Restart the brew install
+* Brew install specific python version
+  * `brew unlink python` if you want to switch the existing python version to another one 
+  * `brew install pyenv`
+  * `brew info python@3.8` to find the latest stable one of a specific version
+  * `pyenv install <version>` install the version you want
+  * `pyenv versions` to check versions installed in pyenv
+  * `pyenv local 3.8.12` to select the version
+  * `PATH="~/.pyenv/versions/3.8.12/bin:${PATH}"`
 * Upgrade Python3 through Homebrew
   * `brew install python3` (Optional if you already have python3 installed)
   * `brew update`
