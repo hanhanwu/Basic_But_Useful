@@ -153,22 +153,16 @@ This file will also be used to record other commands.
     * Restart the brew install
 * Brew install specific python version
   * `brew unlink python` if you want to switch the existing python version to another one 
-  * `brew install pyenv`
-  * `brew info python@3.8` to find the latest stable one of a specific version
-  * `pyenv install <version>` install the version you want
-  * `pyenv versions` to check versions installed in pyenv
-  * `pyenv local 3.8.12` to select the version
-  * `PATH="~/.pyenv/versions/3.8.12/bin:${PATH}"`
-* Upgrade Python3 through Homebrew
-  * `brew install python3` (Optional if you already have python3 installed)
-  * `brew update`
-  * `brew upgrade python3`
-  * `brew info python3` to check where did the python got installed, cuz sometimes `which python3` won't tell you this location.
-  * Now try `python3 --version`, if it's still the older version:
-    * try `brew link python`
-    * If above doesn't work, try `brew link --overwrite python`
-    * <b>NOTE:</b> If your python was intsalled through Python homepage (stores under `/Library/Frameworks/Python.framework/Versions`), then brew link won't work, change the path in ~/.bash_profile might break python. In this case, just install python from Python Homepage https://www.python.org/downloads/
-  * To uninstall the python installed by Homebrew `brew uninstall --ignore-dependencies python`
+  *  `brew install python@3.7`
+  * `brew list | grep python`
+  * `brew ls python@3.7`
+  * `ls -l /usr/local/Cellar/python@3.7/3.7.8_1/bin/python3.7`
+  * `ln -s /usr/local/Cellar/python@3.7/3.7.8_1/bin/python3.7 /usr/local/bin/python3.7`
+  * `python3.7 -V`
+  * `python3.7 -m venv venv37`
+  * `source venv37/bin/activate`
+  * `deactivate`
+
 * Upgrade `xgboost` is a pain...
   * `sudo -H pip3 install -U setuptools`
   * Use `git clone` to install is better, https://xgboost.readthedocs.io/en/latest/build.html
