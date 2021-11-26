@@ -130,6 +130,26 @@ import org.apache.spark.sql.functions.when
 mydf.withColumn("new_col", when(df.col1 > 3, col2*2).otherwise(0.0))
 
 
+# get mode of each group
+import pyspark.sql.functions as F
+from pyspark.sql.window import Window
+from functools import reduce
+
+def get_group_mode(sdf, group_by_keys, col):
+  w = Window().partitionBy(group_by_keys).orderBy(F.col('count').desc())
+  
+  df = sdf.groupBy(group_by_keys + [col]).count()\
+  .withColumn("rn", F.row_number().over(w))\
+  .where(F.col("rn") == 1)\
+  .select(group_by_keys + [col])
+  
+  return df
+ 
+
+ # Join a list of spark dataframes as a single sdf
+ sdf = reduce(lambda df1,df2: df1.join(df2, *index_cols), sdf_lst)
+
+
 # Apply a function on multiple cols
 ## If only choose sub-cols
 sdf = sdf.select([sha2(sdf[col], 256).alias(col) for col in cols if col in sdf_cols])
