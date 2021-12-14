@@ -152,6 +152,10 @@ plt.ylabel('Perct')
 display(fig)
 
 
+# Single time series plot
+ts_df.plot(x='Date', y='Daily_Sales', figsize=(22,5), color='g')
+plt.ylabel('Daily Sales')
+
 # Plot time series line charts
 import matplotlib.pyplot as plt
 import seaborn as sns
