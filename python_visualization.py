@@ -2,14 +2,15 @@
 ## You can create watermark with tricks here
 
 # Time series plot
-## Using ployly: https://nbviewer.jupyter.org/github/hanhanwu/Hanhan_Data_Science_Practice/blob/5b5c1f45383b405a894b57cee496d2b7a2655bad/sequencial_analysis/try_prophet.ipynb
 ## Using matplotlib: https://github.com/hanhanwu/Hanhan_Break_the_Limits/blob/master/Bank_Fantasy/Golden_Bridge/adjustable_forecasting.ipynb
 
 # Change bar chart to lollipop chart
 ## https://www.analyticsvidhya.com/blog/2021/06/lollipop-charts-advanced-data-visualization-in-python/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
 
+# Plotly charts: https://www.analyticsvidhya.com/blog/2021/12/12-data-plot-types-for-visualization/?utm_source=feedburner&utm_medium=email
+  ## Different bar charts, line charts, pie charts, box plot, spline plot, radar chart, pictogram graph, bubble chart, scatter plot, histogram
 # Plotly charts: https://www.analyticsvidhya.com/blog/2021/06/tricks-for-data-visualization-plotly-library/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
-## Stacked Histogram; Funnel Chart
+  ## Stacked Histogram; Funnel Chart
 # Plotly interactive charts: https://www.analyticsvidhya.com/blog/2021/07/interactive-data-visualization-plots-with-plotly-and-cufflinks/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
 
 # Altair, a library can create interactive plots too: https://www.analyticsvidhya.com/blog/2021/10/exploring-data-visualization-in-altair-an-interesting-alternative-to-seaborn/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
