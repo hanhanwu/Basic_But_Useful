@@ -18,6 +18,42 @@
 # Cute charts plot (really cute)
 ## https://www.analyticsvidhya.com/blog/2021/09/hand-made-visualizations-in-python-using-cutecharts-library/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
 
+# Subplots using `plt.subplot(411)`
+def plot_ts_outliers(ts, title, outliers, decomp='additive'):
+    outliers_x = [str(outlier).split()[0] for outlier in outliers[0]]
+    outliers_y = ts.iloc[ts.index.isin(outliers_x)]
+    
+    plt.figure(figsize=(20,10))
+    plt.subplot(411)
+    fig = plt.plot(ts, label='original ts', color='blue')
+    plt.scatter(outliers_x, outliers_y, c='red', marker='*')
+    plt.legend(loc='best')
+    
+    plt.subplot(412)
+    decomposition = seasonal_decompose(ts, model=decomp)
+    residual = decomposition.resid
+    fig = plt.plot(residual, label='residuals', color='purple')
+    outliers_y_res = residual.iloc[residual.index.isin(outliers_x)]
+    plt.scatter(outliers_x, outliers_y_res, c='red', marker='*')
+    plt.legend(loc='best')
+    
+    plt.title(title)
+    plt.tight_layout()
+    plt.show()
+    
+    
+# Subplots using ax
+fig, ax = plt.subplots(figsize=(25,8), nrows=1, ncols=2)
+df1.reset_index().plot(x='Date', y='Daily_Sales', ax=ax[0], color='orange', marker='o', label='original ts')
+df2.plot(x='time', y='y_0', ax= ax[0], color='green', label='outlier removed ts')
+ax[0].set_title("Outliers Removed Subset: No interpolation")
+
+df1.reset_index().plot(x='Date', y='Daily_Sales', ax=ax[1], color='orange', marker='o', label='original ts')
+df3.plot(x = 'time',y = 'y_0', ax= ax[1], color='green', label='outlier interpolated ts')
+ax[1].set_title("Outliers Removed Subset: With interpolation")
+plt.show()
+
+
 
 # Control subsets, different plot types per row
 def plot_multi_subplots(df, feature_lst):
