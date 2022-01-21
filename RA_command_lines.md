@@ -66,6 +66,7 @@ This file will also be used to record other commands.
     * In your .py file, make sure to define the `dag_id`, that will be the file name shown in the dag list of your localhost
     * You can also type command `airflow dags list` under folder `~/airflow`, it will list all the dags you would see in the localhost
 * To use any python package, make sure it has been install in the site packages of the python used by your airflow
+* How to set `schedule_interval` for the DAG: https://crontab.guru/
 
 ## Mac Commands
 * How to install SQL Workbench on Mac: https://data36.com/install-sql-workbench-postgresql/
