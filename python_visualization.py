@@ -178,7 +178,7 @@ display(ax)
 # Plot kernel dentisy per segment (seaborn >= 0.11.2)
 ## without setting `kind` it can show both kde and histogram
 sns.set(font_scale=7)
-fig = sns.displot(sales_df, x='Monto_XL', hue='Periodo_Campanha', kind='kde', 
+fig = sns.displot(sales_df, x='x_col', hue='hue_col', kind='kde', 
                   height=25, aspect=7, linewidth = 7.5, palette='tab10')
 
 
