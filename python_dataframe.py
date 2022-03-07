@@ -90,7 +90,6 @@ exp_tableau = exp_tableau.rename(index=str, columns={f'level_{len(idx_cols)}': '
 ## But dask dataframe do not have much functions as pandas dataframe, with `compute()` after loading data, you can use the
 ## data as pandas dataframe
 import dask.dataframe as dd
-
 df = dd.read_csv('my_csv.csv').compute()
 
 # multiprocessing
@@ -205,6 +204,14 @@ np_df.columns = df1.columns ## use existing columns to replace the column names
 feature_importance_df = pd.DataFrame(list(dict(zip(X_train.columns, m.feature_importances_)).items()), 
                                      columns=['Feature', 'Importance'])
 feature_importance_df.sort_values('Importance', ascending=False).head(n=10)
+
+# Convert lists to dataframe
+from collections import defaultdict
+backtest_eval = defaultdict(list)
+for metric, value in backtest.train_evaluation.items():
+    backtest_eval[metric].append(value)  # "metrics" will be the index
+    backtest_eval[metric].append(backtest.test_evaluation[metric])
+metrics = pd.DataFrame(backtest_eval, index=["train", "test"]).T  # "train", "test" will be the 2 columns
 
 # rename df column
 df = df.rename(index=str, columns={'old_column_name': 'new_column_name'})
