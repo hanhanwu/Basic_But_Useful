@@ -214,8 +214,9 @@ def ts_plot_ip_yfixed(data, ip_lst):
         std = round(volatility_df.loc[(volatility_df['ip']==ip)]['prediction_prob_std'].values[0], 4)
         sns.lineplot(x=_data["requesttime"], y=_data["prediction_prob"], label=ip + ' (std=' +str(std) + ')')
 
+        
 # Bar chart for segments, with y value on the top of the bar
-## make sure matplotlib>=3.4.2
+## Better to use matplotlib==3.4.2
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -224,6 +225,7 @@ ax=sns.barplot(x='x', hue='kind', y='count', data=df)
 for container in ax.containers:  # put y value on top of the bar
     ax.bar_label(container)
 plt.show()
+
 
 # Bar Chart
 import numpy as np
