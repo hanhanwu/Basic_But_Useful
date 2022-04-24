@@ -359,6 +359,14 @@ This file will also be used to record other commands.
 * Download and install `pip`
   * Download pip: `curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py`, oh windows can use curl...
   * Install pip: `python get-pip.py`
+* Install PyTorch GPU
+  * Follow this video: https://www.youtube.com/watch?v=GMSjDTU8Zlc
+  * You might need to delete `caffe2_observers.dll`, `caffe2_module_test_dynamic.dll`, `caffe2_detectron_ops.dll` if getting error of loading these files when running `import torch`
+  * Verification commands to ensure PyTorch GPU is enabled:
+    * `import torch`
+    * `print(torch.cuda.is_available())` should get `True`
+    * `print(torch.cuda.get_device_name(0))` should return your GPU name
+  * You can go to "Task Manager" --> "Performance" to check the GPU usage on Windows
 * How to enable for tensorflow GPU
   * <b>Strongly recommend to use a virtual env for the setup</b>
   * This is the best tutorial I found: https://www.youtube.com/watch?v=qrkEYf-YDyI
