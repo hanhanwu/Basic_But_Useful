@@ -7,6 +7,10 @@ This file will also be used to record other commands.
 * Send local folder to school server: `scp -r [local folder path]/2016_more [my school id]@rcg-linux-ts1.rcg.sfu.ca:/rcg/sentiment/SOC/Factiva_Data/Factiva_Articles`
 * `scp` when there is space in your path: `scp [my school id]@rcg-linux-ts1.rcg.sfu.ca:"/rcg/sentiment/SOC/OnlineData/GlobeAndMail/all_online_data/all_online_data\ 2/empty_comment_ids.txt"  [local path]`
   * In a word, when there is space in your path, add `""` around the path and use `\ ` to replace the space 
+
+## SQL Server Commands
+
+* `sp_spaceused "[table_name]"` will get you the table size even if you don't have the permission to access info schema table
   
 ## Git Commands
 * If you have multiple github accounts, and want to make sure you are using the right account to commit and push:
