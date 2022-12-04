@@ -298,6 +298,7 @@ plt.show()
 
 
 # Horizontal Bar chat
+# specific example is here: https://github.com/hanhanwu/Hanhan_Data_Science_Practice/blob/master/Better4Industry/shap_advance/shap_insights.ipynb
 import numpy as np
 import matplotlib.pyplot as plt
 
