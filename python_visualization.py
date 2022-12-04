@@ -301,18 +301,21 @@ plt.show()
 import numpy as np
 import matplotlib.pyplot as plt
 
-imp_df = pd.DataFrame(agg_shap_values[idx]).T
-imp_df.columns = agg_X_test.columns
+def show_agg_shap(x, y, show_perct=False):
+    plt.figure(figsize=(15,7))
 
-plt.figure(figsize=(15,7))
-y_values = imp_df.columns
-y_pos = np.arange(len(y_values))
-x_values = abs(imp_df.values[0])
-plt.barh(y_pos, x_values, align='center', alpha=0.7, color='r')
-plt.yticks(y_pos, y_values, rotation='30', fontsize=14, horizontalalignment="right")
-plt.xlabel('Feature Importance')
-plt.title('Feature Importance')
-plt.show()
+    clrs = ['dodgerblue' if (v<0) else 'deeppink' for v in y]
+    bar = plt.barh(x, y, color=clrs)
+    plt.bar_label(bar, fontsize=12)  # mark x value at the top of bar
+    plt.yticks(rotation='15', fontsize=14, horizontalalignment="right")
+    if show_perct:
+        plt.xlabel('ABS AVG SHAP %')
+        plt.title('Overall SHAP Contribution %')
+    else:
+        plt.xlabel('AVG SHAP')
+        plt.title('Overall SHAP')
+    
+    plt.show()
 
 
 # Change figure size
