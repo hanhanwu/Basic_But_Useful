@@ -54,6 +54,8 @@ df = raw_df.join(pd.DataFrame.sparse.from_spmatrix(
 # concat multiple columns into 1 string
 df[new_col] = df[col_lst].astype(str).agg('-'.join, axis=1)
 
+# execute ondition string, `eval("a>=1")`, using together with pandas:
+df[eval("df['col1']>=3")]
 
 # get most n frequent items in list-column(s)
 def get_modes(lst, n=3):
