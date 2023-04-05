@@ -241,6 +241,7 @@ This file will also be used to record other commands.
   * Activate virtual env `source venv/bin/activate`
 * Check all the pyhton library versions: `pip freeze` or `pip list`
 * Check specific python package version: `pip freeze | grep scikit-learn`
+* Save pip freeze in file: `pip freeze -l > requirements.txt`, this also works in virtual env, and make sure you are running this command under the right virtual env
 * Errors in intalling python packages
   * Error - "It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall."
     * `pip install --ignore-installed [PACKAGE-NAME]`
