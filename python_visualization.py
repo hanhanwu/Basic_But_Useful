@@ -84,6 +84,9 @@ def plot_multi_subplots(df, feature_lst):
 
     
 # Plot multiple lines
+import matplotlib.pyplot as plt
+from matplotlib.ticker import MaxNLocator
+
 def plot_lines(lines_dct, col, title, x_axis, y_axis):
   plt.figure(figsize=(15,7))
   ax = plt.gca()
