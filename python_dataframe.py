@@ -35,6 +35,9 @@ df = df.head(n-x) # this is faster than drop()
 # change data type
 df[col] = df[col].astype(str)
 
+# change multiple level column names
+df.columns = df.columns.droplevel(1)
+
 # Conditional replace
 df.loc[(df['col'] < 0) | (df['col'].isnull()), 'col'] = 0  # replace 0 or negative values with 0 
 ## Or use mask
