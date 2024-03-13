@@ -555,38 +555,6 @@ for sample_foodname in selected_foodnames:
 
     
 # Data Explore & Data Preprocessing Methods
-## check percentile for each colummn
-def get_percentile(col):
-    result = {'min': np.percentile(col, 0), '1%':np.percentile(col, 1),
-             '5%':np.percentile(col, 5), '15%':np.percentile(col, 15),
-             '25%':np.percentile(col, 25), '50%':np.percentile(col, 50), '75%':np.percentile(col, 75),
-             '85%':np.percentile(col, 85), '95%':np.percentile(col, 95), '99%':np.percentile(col, 99),
-              'max':np.percentile(col, 100)}
-    return result
-    
-df = df.set_index('accountid')
-percentile_df = df.apply(get_percentile)  # apply function to all the columns
-pd.set_option('max_colwidth', 800)
-pd.DataFrame(percentile_df)
-
-### another get percentile function
-def get_percentile(df):
-    dist_dct = {}
-    idx = 0
-    
-    for col in df.columns:
-        tmp_dct = {'col': col, 'min': np.percentile(df[col], 0), '1%':np.percentile(df[col], 1),
-             '5%':np.percentile(df[col], 5), '15%':np.percentile(df[col], 15),
-             '25%':np.percentile(df[col], 25), '35%':np.percentile(df[col], 35),
-            '50%':np.percentile(df[col], 50), '75%':np.percentile(df[col], 75),
-             '85%':np.percentile(df[col], 85), '95%':np.percentile(df[col], 95), '99%':np.percentile(df[col], 99),
-              'max':np.percentile(df[col], 100)}
-        dist_dct[idx] = tmp_dct
-        idx += 1
-    result = pd.DataFrame(dist_dct).T
-    result = result[['col', 'min', '1%', '5%', '15%', '25%', '35%', '50%', '75%', '85%', '95%', '99%', 'max']]
-    return result
-
 ## Remove values out of percentile range
 num_cols = [col for col in df.columns if df[col].dtypes != 'O' 
             and col != 'col1' and col != 'col2']  # select specific columns
