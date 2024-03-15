@@ -79,10 +79,9 @@ df[new_col] = df0[['start_end_date']].applymap(lambda v_lst: get_start_end_date_
 
 
 # lag within group
-exp_lag = exp_lag.set_index(agg_cols) # agg_cols include cat_cols and time column
-shifted = exp_lag.groupby(level=cat_agg_cols).shift(1) # get previous record
-exp_lag = exp_lag.join(shifted.rename(columns=lambda x: x+"_lag"))
-exp_lag = exp_lag.reset_index()
+df['lagged_values'] = df.sort_values(by=['group', 'time_col']).groupby(['group'])['values'].shift(1)  # get previous 1 record
+df['lagged_values'] = df.sort_values(by=['group', 'time_col']).groupby(['group'])['values'].shift(-1)  # get next 1 record
+df['lagged_values'] = df.sort_values(by=['group1', 'group2', 'time_col']).groupby(['group1', 'group2'])['values'].shift(1)
 
 
 # stacking - Convert multiple columns into 1 column, and their values into another column
